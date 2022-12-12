@@ -244,6 +244,7 @@ script = ExtResource( 2 )
 [node name="GodotLogoAnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 320, 180 )
 frames = SubResource( 1 )
+playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/GodotLogoReveal = SubResource( 2 )
