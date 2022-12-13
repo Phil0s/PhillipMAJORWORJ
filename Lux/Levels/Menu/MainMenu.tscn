@@ -1,3 +1,512 @@
-[gd_scene format=2]
+[gd_scene load_steps=111 format=2]
+
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0013.png" type="Texture" id=1]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0012.png" type="Texture" id=2]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0015.png" type="Texture" id=3]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0002.png" type="Texture" id=4]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0003.png" type="Texture" id=5]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0014.png" type="Texture" id=6]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0005.png" type="Texture" id=7]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0016.png" type="Texture" id=8]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0018.png" type="Texture" id=9]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0019.png" type="Texture" id=10]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0020.png" type="Texture" id=11]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0004.png" type="Texture" id=12]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0021.png" type="Texture" id=13]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0009.png" type="Texture" id=14]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0011.png" type="Texture" id=15]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0022.png" type="Texture" id=16]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0023.png" type="Texture" id=17]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0000.png" type="Texture" id=18]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0017.png" type="Texture" id=19]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0008.png" type="Texture" id=20]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0006.png" type="Texture" id=21]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0010.png" type="Texture" id=22]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0001.png" type="Texture" id=23]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0007.png" type="Texture" id=24]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0044.png" type="Texture" id=25]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0048.png" type="Texture" id=26]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0046.png" type="Texture" id=27]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0027.png" type="Texture" id=28]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0031.png" type="Texture" id=29]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0029.png" type="Texture" id=30]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0051.png" type="Texture" id=31]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0053.png" type="Texture" id=32]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0039.png" type="Texture" id=33]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0049.png" type="Texture" id=34]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0054.png" type="Texture" id=35]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0032.png" type="Texture" id=36]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0034.png" type="Texture" id=37]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0055.png" type="Texture" id=38]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0057.png" type="Texture" id=39]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0059.png" type="Texture" id=40]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0062.png" type="Texture" id=41]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0065.png" type="Texture" id=42]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0066.png" type="Texture" id=43]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0042.png" type="Texture" id=44]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0036.png" type="Texture" id=45]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0067.png" type="Texture" id=46]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0068.png" type="Texture" id=47]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0069.png" type="Texture" id=48]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0070.png" type="Texture" id=49]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0071.png" type="Texture" id=50]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0072.png" type="Texture" id=51]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0074.png" type="Texture" id=52]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0033.png" type="Texture" id=53]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0076.png" type="Texture" id=54]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0078.png" type="Texture" id=55]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0079.png" type="Texture" id=56]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0080.png" type="Texture" id=57]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0063.png" type="Texture" id=58]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0038.png" type="Texture" id=59]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0056.png" type="Texture" id=60]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0045.png" type="Texture" id=61]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0073.png" type="Texture" id=62]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0035.png" type="Texture" id=63]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0081.png" type="Texture" id=64]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0082.png" type="Texture" id=65]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0024.png" type="Texture" id=66]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0037.png" type="Texture" id=67]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0050.png" type="Texture" id=68]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0061.png" type="Texture" id=69]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0084.png" type="Texture" id=70]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0083.png" type="Texture" id=71]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0041.png" type="Texture" id=72]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0052.png" type="Texture" id=73]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0040.png" type="Texture" id=74]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0085.png" type="Texture" id=75]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0047.png" type="Texture" id=76]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0058.png" type="Texture" id=77]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0086.png" type="Texture" id=78]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0087.png" type="Texture" id=79]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0077.png" type="Texture" id=80]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0025.png" type="Texture" id=81]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0075.png" type="Texture" id=82]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0026.png" type="Texture" id=83]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0030.png" type="Texture" id=84]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0043.png" type="Texture" id=85]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0064.png" type="Texture" id=86]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0060.png" type="Texture" id=87]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0028.png" type="Texture" id=88]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0089.png" type="Texture" id=89]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0093.png" type="Texture" id=90]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0090.png" type="Texture" id=91]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0091.png" type="Texture" id=92]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0092.png" type="Texture" id=93]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0088.png" type="Texture" id=94]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0096.png" type="Texture" id=95]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0100.png" type="Texture" id=96]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0099.png" type="Texture" id=97]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0095.png" type="Texture" id=98]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0098.png" type="Texture" id=99]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0097.png" type="Texture" id=100]
+[ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0094.png" type="Texture" id=101]
+[ext_resource path="res://Levels/Menu/MainMenu.gd" type="Script" id=102]
+[ext_resource path="res://Fonts/ConvenantFONTTitle.tres" type="DynamicFont" id=103]
+[ext_resource path="res://Resources/Shaders/TV.gdshader" type="Shader" id=104]
+[ext_resource path="res://Fonts/ConvenantFONTMMButtons.tres" type="DynamicFont" id=105]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 19 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 66 ), ExtResource( 81 ), ExtResource( 83 ), ExtResource( 28 ), ExtResource( 88 ), ExtResource( 30 ), ExtResource( 84 ), ExtResource( 29 ), ExtResource( 36 ), ExtResource( 53 ), ExtResource( 37 ), ExtResource( 63 ), ExtResource( 45 ), ExtResource( 67 ), ExtResource( 59 ), ExtResource( 33 ), ExtResource( 74 ), ExtResource( 72 ), ExtResource( 44 ), ExtResource( 85 ), ExtResource( 25 ), ExtResource( 61 ), ExtResource( 27 ), ExtResource( 76 ), ExtResource( 26 ), ExtResource( 34 ), ExtResource( 68 ), ExtResource( 31 ), ExtResource( 73 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 60 ), ExtResource( 39 ), ExtResource( 77 ), ExtResource( 40 ), ExtResource( 87 ), ExtResource( 69 ), ExtResource( 41 ), ExtResource( 58 ), ExtResource( 86 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 62 ), ExtResource( 52 ), ExtResource( 82 ), ExtResource( 54 ), ExtResource( 80 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 75 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 94 ), ExtResource( 89 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 90 ), ExtResource( 101 ), ExtResource( 98 ), ExtResource( 95 ), ExtResource( 100 ), ExtResource( 99 ), ExtResource( 97 ), ExtResource( 96 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 320, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.607843, 0.607843, 0.607843, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("VBoxContainer/SettingsButton:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("VBoxContainer/PlayButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("VBoxContainer/ExitButton:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("VBoxContainer/ExitButton:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("VBoxContainer/SettingsButton:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("VBoxContainer/PlayButton:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 144 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/SettingsButton:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 24, 248 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/PlayButton:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 208 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VBoxContainer/ExitButton:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 288 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimatedSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 320, 180 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimatedSprite:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("VBoxContainer/SettingsButton:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Title:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("VBoxContainer/PlayButton:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("VBoxContainer/ExitButton:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("VBoxContainer/SettingsButton:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("VBoxContainer/ExitButton:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("VBoxContainer/PlayButton:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Settings"
+length = 3.0
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 104 )
+shader_param/overlay = true
+shader_param/scanlines_opacity = 0.4
+shader_param/scanlines_width = 0.25
+shader_param/grille_opacity = 0.3
+shader_param/resolution = Vector2( 640, 480 )
+shader_param/pixelate = true
+shader_param/roll = true
+shader_param/roll_speed = 8.0
+shader_param/roll_size = 15.0
+shader_param/roll_variation = 1.8
+shader_param/distort_intensity = 0.05
+shader_param/noise_opacity = 0.4
+shader_param/noise_speed = 5.0
+shader_param/static_noise_intensity = 0.06
+shader_param/aberration = 0.03
+shader_param/brightness = 1.4
+shader_param/discolor = true
+shader_param/warp_amount = 1.0
+shader_param/clip_warp = false
+shader_param/vignette_intensity = 0.4
+shader_param/vignette_opacity = 0.5
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource( 102 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 180 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+frame = 14
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Default = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+anims/Settings = SubResource( 2 )
+
+[node name="Title" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 144.0
+margin_right = 224.0
+margin_bottom = 224.0
+custom_fonts/font = ExtResource( 103 )
+text = "LUX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 32.0
+margin_top = 224.0
+margin_right = 188.0
+margin_bottom = 322.0
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+margin_left = 8.0
+margin_top = 208.0
+margin_right = 164.0
+margin_bottom = 238.0
+focus_neighbour_bottom = NodePath("../SettingsButton")
+custom_fonts/font = ExtResource( 105 )
+text = "PLAY"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+margin_left = 24.0
+margin_top = 248.0
+margin_right = 180.0
+margin_bottom = 278.0
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+custom_fonts/font = ExtResource( 105 )
+text = "SETTINGS"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+margin_left = 8.0
+margin_top = 288.0
+margin_right = 164.0
+margin_bottom = 318.0
+focus_neighbour_top = NodePath("../SettingsButton")
+custom_fonts/font = ExtResource( 105 )
+text = "EXIT"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 3 )
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="Popup" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
