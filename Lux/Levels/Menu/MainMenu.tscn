@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0013.png" type="Texture" id=1]
 [ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0012.png" type="Texture" id=2]
@@ -105,6 +105,10 @@
 [ext_resource path="res://Fonts/ConvenantFONTTitle.tres" type="DynamicFont" id=103]
 [ext_resource path="res://Resources/Shaders/TV.gdshader" type="Shader" id=104]
 [ext_resource path="res://Fonts/ConvenantFONTMMButtons.tres" type="DynamicFont" id=105]
+[ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=106]
+[ext_resource path="res://Resources/Shaders/NormalTV.tres" type="Material" id=107]
+[ext_resource path="res://Resources/Shaders/SpedupTV.tres" type="Material" id=108]
+[ext_resource path="res://Levels/Menu/SettingsControl.gd" type="Script" id=109]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -118,7 +122,7 @@ animations = [ {
 resource_name = "Default"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/path = NodePath("AnimatedSprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -127,10 +131,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 320, 180 ) ]
+"values": [ Color( 0.607843, 0.607843, 0.607843, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:scale")
+tracks/1/path = NodePath("VBoxContainer:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -138,11 +142,11 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 2, 2 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:modulate")
+tracks/2/path = NodePath("Title:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -150,11 +154,11 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.607843, 0.607843, 0.607843, 1 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Title:visible")
+tracks/3/path = NodePath("AnimationPlayer:playback_speed")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -162,11 +166,11 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ 1.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("VBoxContainer/SettingsButton:visible")
+tracks/4/path = NodePath("TVx1 effect:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -174,11 +178,11 @@ tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
+"update": 1,
 "values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("VBoxContainer/PlayButton:visible")
+tracks/5/path = NodePath("Control/Popup/TVx2 effect:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -187,10 +191,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("VBoxContainer/ExitButton:visible")
+tracks/6/path = NodePath("Control/Popup/TVx2 effect:material:shader_param/aberration")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -198,11 +202,11 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ 0.03 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("VBoxContainer/ExitButton:disabled")
+tracks/7/path = NodePath("TVx1 effect:material:shader_param/aberration")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -210,32 +214,8 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("VBoxContainer/SettingsButton:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("VBoxContainer/PlayButton:disabled")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"values": [ 0.03 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -408,34 +388,240 @@ tracks/13/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("VBoxContainer:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("AnimationPlayer:playback_speed")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("TVx1 effect:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("TVx1 effect:material:shader")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 104 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Control/Popup/TVx2 effect:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("TVx1 effect:material:shader_param/aberration")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.03 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Control/Popup/TVx2 effect:material:shader_param/aberration")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.03 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Settings"
-length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.607843, 0.607843, 0.607843, 1 ), Color( 0.815686, 0.152941, 0.152941, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TVx1 effect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/Popup/TVx2 effect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Control/Popup/TVx2 effect:material:shader_param/aberration")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.03, -1.0, 0.03 ]
+}
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 104 )
-shader_param/overlay = true
-shader_param/scanlines_opacity = 0.4
-shader_param/scanlines_width = 0.25
-shader_param/grille_opacity = 0.3
-shader_param/resolution = Vector2( 640, 480 )
-shader_param/pixelate = true
-shader_param/roll = true
-shader_param/roll_speed = 8.0
-shader_param/roll_size = 15.0
-shader_param/roll_variation = 1.8
-shader_param/distort_intensity = 0.05
-shader_param/noise_opacity = 0.4
-shader_param/noise_speed = 5.0
-shader_param/static_noise_intensity = 0.06
-shader_param/aberration = 0.03
-shader_param/brightness = 1.4
-shader_param/discolor = true
-shader_param/warp_amount = 1.0
-shader_param/clip_warp = false
-shader_param/vignette_intensity = 0.4
-shader_param/vignette_opacity = 0.5
+[sub_resource type="Animation" id=6]
+resource_name = "SettingsBack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TVx1 effect:material:shader_param/aberration")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.03, -1.0, 0.03 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TVx1 effect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/Popup/TVx2 effect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.815686, 0.152941, 0.152941, 1 ), Color( 0.607843, 0.607843, 0.607843, 1 ) ]
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 102 )
@@ -444,13 +630,14 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 14
+frame = 18
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Default = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 anims/Settings = SubResource( 2 )
+anims/SettingsBack = SubResource( 6 )
 
 [node name="Title" type="Label" parent="."]
 margin_left = 32.0
@@ -461,6 +648,7 @@ custom_fonts/font = ExtResource( 103 )
 text = "LUX"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 margin_left = 32.0
 margin_top = 224.0
 margin_right = 188.0
@@ -497,16 +685,102 @@ custom_fonts/font = ExtResource( 105 )
 text = "EXIT"
 flat = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource( 3 )
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.997742, 1.00012 )
+script = ExtResource( 109 )
+
+[node name="Popup" type="Popup" parent="Control"]
+visible = true
 margin_right = 640.0
 margin_bottom = 360.0
 
-[node name="Popup" type="Popup" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="SettingsHeading" type="Label" parent="Control/Popup"]
+margin_left = 216.0
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 106 )
+text = "SETTINGS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Popup"]
+margin_left = 64.0
+margin_top = 32.0
+margin_right = 576.0
+margin_bottom = 360.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Popup/VBoxContainer"]
+margin_top = 99.0
+margin_right = 512.0
+margin_bottom = 161.0
+
+[node name="Label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 105 )
+text = "AUDIO - MASTER"
+
+[node name="HSlider" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 512.0
+margin_bottom = 44.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -10.0
+max_value = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 512.0
+margin_bottom = 62.0
+
+[node name="0label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="10labelmusic" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 28.0
+margin_bottom = 14.0
+text = "10"
+
+[node name="Save" type="Button" parent="Control/Popup/VBoxContainer"]
+margin_top = 165.0
+margin_right = 512.0
+margin_bottom = 195.0
+focus_neighbour_top = NodePath("../VBoxContainer/HSlider")
+focus_neighbour_bottom = NodePath("../Back")
+custom_fonts/font = ExtResource( 105 )
+text = "Save"
+flat = true
+
+[node name="Back" type="Button" parent="Control/Popup/VBoxContainer"]
+margin_top = 199.0
+margin_right = 512.0
+margin_bottom = 229.0
+focus_neighbour_top = NodePath("../Save")
+custom_fonts/font = ExtResource( 105 )
+text = "Back"
+flat = true
+
+[node name="TVx2 effect" type="ColorRect" parent="Control/Popup"]
+visible = false
+light_mask = 512
+material = ExtResource( 108 )
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+
+[node name="TVx1 effect" type="ColorRect" parent="."]
+material = ExtResource( 107 )
+margin_right = 640.0
+margin_bottom = 360.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_pressed"]

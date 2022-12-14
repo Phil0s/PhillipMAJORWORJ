@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8bihallowenmusic.mp3-2ed57fa0d2b58b99001d1910395c95ff.mp3str"
+
+[deps]
+
+source_file="res://Resources/Music/8bihallowenmusic.mp3"
+dest_files=[ "res://.import/8bihallowenmusic.mp3-2ed57fa0d2b58b99001d1910395c95ff.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
