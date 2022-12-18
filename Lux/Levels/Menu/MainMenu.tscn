@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0013.png" type="Texture" id=1]
 [ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0012.png" type="Texture" id=2]
@@ -109,6 +109,9 @@
 [ext_resource path="res://Resources/Shaders/NormalTV.tres" type="Material" id=107]
 [ext_resource path="res://Resources/Shaders/SpedupTV.tres" type="Material" id=108]
 [ext_resource path="res://Levels/Menu/SettingsControl.gd" type="Script" id=109]
+[ext_resource path="res://Resources/Shaders/PlayTV.tres" type="Material" id=110]
+[ext_resource path="res://icon.png" type="Texture" id=111]
+[ext_resource path="res://Resources/Music/8bihallowenmusic.mp3" type="AudioStream" id=112]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -203,7 +206,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.03 ]
+"values": [ 0.006 ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("TVx1 effect:material:shader_param/aberration")
@@ -216,6 +219,168 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.03 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ControlPlay/Popup/TVPlay effect:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Play"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ControlPlay/Popup/TVPlay effect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TVx1 effect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ControlPlay:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.607843, 0.607843, 0.607843, 1 ), Color( 0.815686, 0.152941, 0.152941, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Playback"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TVx1 effect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ControlPlay/Popup/TVPlay effect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ControlPlay:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.815686, 0.152941, 0.152941, 1 ), Color( 0.607843, 0.607843, 0.607843, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -472,6 +637,42 @@ tracks/20/keys = {
 "update": 0,
 "values": [ 0.03 ]
 }
+tracks/21/type = "value"
+tracks/21/path = NodePath("Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer/10labelmusic:anchor_left")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.946 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("ControlPlay:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("ControlPlay/Popup/TVPlay effect:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Settings"
@@ -536,16 +737,16 @@ tracks/4/keys = {
 "values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Control/Popup/TVx2 effect:material:shader_param/aberration")
+tracks/5/path = NodePath("Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer/10labelmusic:anchor_left")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.03, -1.0, 0.03 ]
+"values": [ 0.946 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -575,19 +776,19 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("TVx1 effect:material:shader_param/aberration")
+tracks/2/path = NodePath("TVx1 effect:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.03, -1.0, 0.03 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("TVx1 effect:visible")
+tracks/3/path = NodePath("Control/Popup/TVx2 effect:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -596,27 +797,15 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Control/Popup/TVx2 effect:visible")
+tracks/4/path = NodePath("AnimatedSprite:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("AnimatedSprite:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -630,11 +819,13 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 18
+frame = 26
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Default = SubResource( 4 )
+anims/Play = SubResource( 7 )
+anims/Playback = SubResource( 8 )
 anims/RESET = SubResource( 5 )
 anims/Settings = SubResource( 2 )
 anims/SettingsBack = SubResource( 6 )
@@ -686,6 +877,7 @@ text = "EXIT"
 flat = true
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.997742, 1.00012 )
@@ -727,7 +919,7 @@ margin_top = 28.0
 margin_right = 512.0
 margin_bottom = 44.0
 focus_neighbour_bottom = NodePath("../../Save")
-min_value = -10.0
+min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
@@ -741,10 +933,12 @@ margin_bottom = 14.0
 text = "0"
 
 [node name="10labelmusic" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
+anchor_left = 0.946
+anchor_right = 0.946
 margin_left = 12.0
 margin_right = 28.0
 margin_bottom = 14.0
-text = "10"
+text = "20"
 
 [node name="Save" type="Button" parent="Control/Popup/VBoxContainer"]
 margin_top = 165.0
@@ -773,14 +967,93 @@ margin_right = 640.0
 margin_bottom = 360.0
 mouse_filter = 2
 
+[node name="ControlPlay" type="Control" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="Popup" type="Popup" parent="ControlPlay"]
+visible = true
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="LevelsHeading" type="Label" parent="ControlPlay/Popup"]
+margin_left = 238.855
+margin_top = 16.0
+margin_right = 406.855
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 106 )
+text = "LEVELS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlPlay/Popup"]
+margin_left = 64.0
+margin_top = 32.0
+margin_right = 576.0
+margin_bottom = 360.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlPlay/Popup/VBoxContainer"]
+margin_top = 82.0
+margin_right = 512.0
+margin_bottom = 178.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlPlay/Popup/VBoxContainer/VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 105 )
+text = "TUTORIAL"
+
+[node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 512.0
+margin_bottom = 92.0
+texture = ExtResource( 111 )
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPlay/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 512.0
+margin_bottom = 96.0
+
+[node name="Launch" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
+margin_top = 182.0
+margin_right = 512.0
+margin_bottom = 212.0
+focus_neighbour_bottom = NodePath("../BackfromPlay")
+custom_fonts/font = ExtResource( 105 )
+text = "Launch"
+flat = true
+
+[node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
+margin_top = 216.0
+margin_right = 512.0
+margin_bottom = 246.0
+focus_neighbour_top = NodePath("../Launch")
+custom_fonts/font = ExtResource( 105 )
+text = "Back"
+flat = true
+
+[node name="TVPlay effect" type="ColorRect" parent="ControlPlay/Popup"]
+light_mask = 512
+material = ExtResource( 110 )
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+
 [node name="TVx1 effect" type="ColorRect" parent="."]
 material = ExtResource( 107 )
 margin_right = 640.0
 margin_bottom = 360.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 112 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Control/Popup/VBoxContainer/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_pressed"]
+[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]

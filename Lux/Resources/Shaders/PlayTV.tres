@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://Resources/Shaders/TV.gdshader" type="Shader" id=1]
+[ext_resource path="res://Resources/Shaders/TVPlay.gdshader" type="Shader" id=1]
 
 [resource]
 shader = ExtResource( 1 )
@@ -11,14 +11,14 @@ shader_param/grille_opacity = 0.3
 shader_param/resolution = Vector2( 640, 480 )
 shader_param/pixelate = true
 shader_param/roll = true
-shader_param/roll_speed = 1.0
+shader_param/roll_speed = 2.0
 shader_param/roll_size = 0.0
 shader_param/roll_variation = 5.0
-shader_param/distort_intensity = 0.05
-shader_param/noise_opacity = 0.4
+shader_param/distort_intensity = 0.007
+shader_param/noise_opacity = 0.071
 shader_param/noise_speed = 5.0
 shader_param/static_noise_intensity = 0.06
-shader_param/aberration = 0.03
+shader_param/aberration = 0.006
 shader_param/brightness = 1.4
 shader_param/discolor = true
 shader_param/warp_amount = 0.0
