@@ -61,7 +61,6 @@ func _on_Save_pressed(): #Save settings
 
 
 func _on_BackfromPlay_pressed(): #Level menu to Main menu
-	
 	if MManimationfinished:
 		MManimationPlayer.play("Playback")
 		$AnimatedSprite.speed_scale = 1
@@ -69,4 +68,10 @@ func _on_BackfromPlay_pressed(): #Level menu to Main menu
 		startbut.grab_focus()
 
 func _on_Launch_pressed():
-	get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn") 
+	#Note to self: If function is said to be missing in Autoload file "LoadingScript" I found out
+	#if the autoload script file does actually have the function, I need to RELOAD the autoload
+	#Script in the Godot Project settings. For some reason Autoload Scripts do not update so if I
+	#Continue to make changes to "LoadingScript" the autoload one thats been uploaded will not update
+	#I have to manually re-add it to the autoloader
+	LoadingScript.load_scene1(self, "res://Levels/Tutorials/Tutorial.tscn")
+	#get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")

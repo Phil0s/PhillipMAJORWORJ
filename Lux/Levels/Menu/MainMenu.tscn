@@ -819,7 +819,7 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 26
+frame = 96
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -884,7 +884,6 @@ rect_scale = Vector2( 0.997742, 1.00012 )
 script = ExtResource( 109 )
 
 [node name="Popup" type="Popup" parent="Control"]
-visible = true
 margin_right = 640.0
 margin_bottom = 360.0
 
@@ -972,7 +971,6 @@ margin_right = 640.0
 margin_bottom = 360.0
 
 [node name="Popup" type="Popup" parent="ControlPlay"]
-visible = true
 margin_right = 640.0
 margin_bottom = 360.0
 
