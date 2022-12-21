@@ -1,0 +1,56 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Resources/Sprite/Idle/Character1.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Sprite/Idle/Character2.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Sprite/Idle/Character3.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Light/CircleLightTexture.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumping6.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumping3.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumping1.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumping2.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumping4.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumping5.png" type="Texture" id=10]
+[ext_resource path="res://Levels/Other/Player.gd" type="Script" id=11]
+[ext_resource path="res://Resources/MovementDataFiles/OGCharacterMovementData.tres" type="Resource" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.5, 9 )
+
+[node name="PlayerKB" type="KinematicBody2D"]
+script = ExtResource( 11 )
+movementData = ExtResource( 12 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Jumping"
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 3 )
+shape = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 4 )
+texture_scale = 0.75
+
+[node name="Jumpcooldown" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Coyotejumptimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Jumpcooldown" to="." method="_on_Jumpcooldown_timeout"]
+[connection signal="timeout" from="Coyotejumptimer" to="." method="_on_Coyotejumptimer_timeout"]
