@@ -184,3 +184,4 @@ tile_data = PoolIntArray( 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 
 
 [node name="PlayerKB" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 320 )
+dash_speed = 300

@@ -70,8 +70,10 @@ extends KinematicBody2D
 #Holding Ctrl and clicking KinematicBody2D ^ will give definition of functions being used
 class_name MainCharacter
 
+#Data movement references
 export(Resource) var movementData
 
+#Movement + Jumping
 var motion = Vector2.ZERO
 var doublejump = 1
 var lighton = true
@@ -82,6 +84,23 @@ var coyotejump = false
 onready var jumpcooldown = $Jumpcooldown
 onready var coyotejumptimer = $Coyotejumptimer
 
+#Booleans
+onready var ground_ray = $Ground_Ray
+var on_the_floor = false
+
+#Dash
+onready var dash_timer = $dash_timer
+onready var dash_particles = $dash_particle
+onready var dash_warning = $Dash_Warning
+onready var dash_amount = 2
+export(PackedScene) var dash_object
+export var dash_speed = 1000
+export var dash_length = 0.2
+var is_dashing = false
+var can_dash = true
+var dash_direction : Vector2
+
+
 
 func _ready():
 	if !lighton:
@@ -89,11 +108,21 @@ func _ready():
 	else:
 		$Light2D.enabled = true
 	
+	dash_timer.connect("timeout", self, "dash_timer_timeout")
+
+
 
 #function checked every frame "delta".
 func _physics_process(delta):
-	
 	character_gravity()
+	
+	#Checking if on the ground
+	is_on_ground()
+	#Dash
+	handle_dash(delta)
+	out_of_dash()
+	
+	
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	
@@ -130,7 +159,11 @@ func _physics_process(delta):
 	var in_air = not is_on_floor()
 	var was_onfloor = is_on_floor()
 	
-	motion = move_and_slide(motion, Vector2.UP)
+	#motion = move_and_slide(motion, Vector2.UP) For Original Movement without dash
+	if(is_dashing):
+		motion = move_and_slide(dash_direction, Vector2.UP)
+	else:
+		motion = move_and_slide(motion, Vector2.UP)
 	
 	var on_land = is_on_floor() and in_air
 	if on_land:
@@ -188,3 +221,60 @@ func _on_Jumpcooldown_timeout():
 func _on_Coyotejumptimer_timeout():
 	coyotejump = false
 	
+func get_direction_from_input():
+	#Similar to the left and right for normal movemenet, subtracting the two values of opposite controls will find where the character
+	#Is facing and heading. 
+	var move_dir = Vector2()
+	move_dir.x = -Input.get_action_strength("Left") + Input.get_action_strength("Right")
+	move_dir.y = Input.get_action_strength("Down") - Input.get_action_strength("Jump")
+	move_dir = move_dir.clamped(1)
+	if (move_dir == Vector2(0,0)):
+		if($AnimatedSprite.flip_h):
+			move_dir.x = -1
+		else:
+			move_dir.x = 1
+	return move_dir * dash_speed
+	
+func handle_dash(var delta):
+	#If dash button pressed can user is in a can_dash state and is up in the air and has dash remaining- dash
+	if(Input.is_action_just_pressed("Dash") and can_dash and !on_the_floor and dash_amount > 0):
+		is_dashing = true
+		can_dash = false
+		dash_direction = get_direction_from_input()
+		dash_timer.start(dash_length)
+		dash_amount -= 1
+		print("dashed")
+	if(is_dashing):
+		#Get the dash_object which has the fading away code
+		var dash_node = dash_object.instance()
+		#Make it's texture the same as whatever the character sprite is showing
+		dash_node.texture = $AnimatedSprite.frames.get_frame($AnimatedSprite.animation, $AnimatedSprite.frame)
+		dash_node.global_position = global_position
+		dash_node.flip_h = $AnimatedSprite.flip_h
+		get_parent().add_child(dash_node)
+		#Start emitting the particles
+		dash_particles.emitting = true
+		
+		if(on_the_floor):
+			is_dashing = false
+		#If on wall function
+	else:
+		dash_particles.emitting = false
+		
+func dash_timer_timeout():
+	is_dashing = false
+
+func is_on_ground():
+	#Update the raycast then get the returned value
+	ground_ray.force_raycast_update()
+	on_the_floor = ground_ray.is_colliding()
+	#If is back on the ground then change can_dash back to true again
+	can_dash = true
+
+func out_of_dash():
+	#Check if dash amount is 0 which reveals the label "Out of Dash" More work to be done on this
+	if(Input.is_action_just_pressed("Dash")):
+		if dash_amount <= 0:
+			dash_warning.visible = true
+		elif dash_amount >0:
+			dash_warning.visible = false
