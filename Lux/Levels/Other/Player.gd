@@ -278,3 +278,7 @@ func out_of_dash():
 			dash_warning.visible = true
 		elif dash_amount >0:
 			dash_warning.visible = false
+
+
+func _on_Dash_Orb_dashorb_collected(value):
+	dash_amount += value

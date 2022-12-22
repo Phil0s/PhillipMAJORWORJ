@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Music/8bihallowenmusic.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Levels/Other/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Other/Dash_Orb.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/Sprite/TutorialSheet/TutorialSpriteSheet.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=3]
@@ -185,3 +186,8 @@ tile_data = PoolIntArray( 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 
 [node name="PlayerKB" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 320 )
 dash_speed = 300
+
+[node name="Dash_Orb" parent="." instance=ExtResource( 3 )]
+position = Vector2( 280, 224 )
+
+[connection signal="dashorb_collected" from="Dash_Orb" to="PlayerKB" method="_on_Dash_Orb_dashorb_collected"]

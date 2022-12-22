@@ -35,6 +35,7 @@ config/icon="res://icon.png"
 [autoload]
 
 LoadingScript="*res://Levels/Other/Loading.gd"
+Globalscript="*res://globalscript.gd"
 
 [display]
 
