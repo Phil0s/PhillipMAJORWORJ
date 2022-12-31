@@ -68,7 +68,14 @@
 
 extends KinematicBody2D
 #Holding Ctrl and clicking KinematicBody2D ^ will give definition of functions being used
+#Created: Phillip --/-- - 11/22 Half me and Half heartbeast and one quarter Rungeon's dash which has been transfered to revamped player
 class_name MainCharacter
+
+export(PackedScene) var foot_step
+var last_step = 0
+
+var animation_finished = true
+
 
 #Data movement references
 export(Resource) var movementData
@@ -79,7 +86,8 @@ var doublejump = 1
 var lighton = true
 var jumpbuffer = false
 var coyotejump = false
-
+var not_on_floor = false
+var starting_jump = false
 
 onready var jumpcooldown = $Jumpcooldown
 onready var coyotejumptimer = $Coyotejumptimer
@@ -92,7 +100,7 @@ var on_the_floor = false
 onready var dash_timer = $dash_timer
 onready var dash_particles = $dash_particle
 onready var dash_warning = $Dash_Warning
-onready var dash_amount = 2
+onready var dash_amount = 1
 export(PackedScene) var dash_object
 export var dash_speed = 1000
 export var dash_length = 0.2
@@ -121,26 +129,30 @@ func _physics_process(delta):
 	#Dash
 	handle_dash(delta)
 	out_of_dash()
-	
+	#Particles
+	handle_foot_particles()
 	
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	
-	
-	
 	if input.x == 0:
 		character_decelerate()
-		$AnimatedSprite.play("Idle")
+		if input.x == 0 and !starting_jump:
+			$AnimatedSprite.play("Idle")
+		if input.x == 0 and starting_jump:
+			$AnimatedSprite.play("Airtime")
 	else:
 		#Change to Running Animation
 		character_acceleration(input.x)
-		$AnimatedSprite.play("Idle")
+		if on_the_floor and !starting_jump:
+			$AnimatedSprite.play("Run")
+		if !on_the_floor and starting_jump:
+			$AnimatedSprite.play("Airtime")
 		if input.x > 0: 
 			$AnimatedSprite.flip_h = false
 		elif input.x < 0:
 			$AnimatedSprite.flip_h = true
-
-
+		
 	#JUMP 
 	#Detects when colliding.
 	if is_on_floor():
@@ -187,20 +199,20 @@ func jumping():
 	if is_on_floor() or coyotejump:
 		#Using action_just_pressed to ensure cannot infinite jump
 		if Input.is_action_just_pressed("Jump") or jumpbuffer:
+			starting_jump = true
 			motion.y = movementData.jump
 			jumpbuffer = false
 	else: #When in the air
-		$AnimatedSprite.animation = "Jumping"
 		if Input.is_action_just_released("Jump") and motion.y < -50:
 			motion.y = -50
 		if Input.is_action_just_pressed("Jump") and doublejump > 0 and not coyotejump:
+			starting_jump = true
 			motion.y = movementData.jump
 			doublejump = 0
 			print("DoubleJumped!")
 		if Input.is_action_just_pressed("Jump"):
 			jumpbuffer = true
 			jumpcooldown.start()
-
 		
 #For slowing the character down, lowering acceleration will take longer to deaccelerate
 #creating effects such as walking on ice, etc. 
@@ -270,6 +282,9 @@ func is_on_ground():
 	on_the_floor = ground_ray.is_colliding()
 	#If is back on the ground then change can_dash back to true again
 	can_dash = true
+	if on_the_floor:
+		starting_jump = false
+		
 
 func out_of_dash():
 	#Check if dash amount is 0 which reveals the label "Out of Dash" More work to be done on this
@@ -282,3 +297,31 @@ func out_of_dash():
 
 func _on_Dash_Orb_dashorb_collected(value):
 	dash_amount += value
+	print("Value Increased")
+
+
+func handle_foot_particles():
+	if(motion.x ==0):
+		last_step = -1
+	if($AnimatedSprite.animation == "Run") and on_the_floor:
+		if($AnimatedSprite.frame == 2 or $AnimatedSprite.frame == 5):
+			last_step = $AnimatedSprite.frame
+			var footstep = foot_step.instance()
+			footstep.emitting = true
+			footstep.global_position = Vector2(global_position.x,global_position.y + 15)
+			get_parent().add_child(footstep)
+	if Input.is_action_just_pressed("Jump") and doublejump > 0 and not coyotejump:
+			var footstep = foot_step.instance()
+			footstep.emitting = true
+			footstep.global_position = Vector2(global_position.x,global_position.y + 0)
+			get_parent().add_child(footstep)
+#func jump_animation():
+	#if not_on_floor and !is_dashing and Input.is_action_just_pressed("Jump"):
+			#$AnimatedSprite.play("Jumping")
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "Jumping":
+		animation_finished = true
+		print("Jumping finished")
+

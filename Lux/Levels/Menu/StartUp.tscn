@@ -1,4 +1,4 @@
-[gd_scene load_steps=204 format=2]
+[gd_scene load_steps=203 format=2]
 
 [ext_resource path="res://Resources/Videoanimations/GodotLogoImageSequence/GodotLogoPixelRender_00052.png" type="Texture" id=1]
 [ext_resource path="res://Levels/Menu/Splashscreen.gd" type="Script" id=2]
@@ -199,7 +199,6 @@
 [ext_resource path="res://Resources/Videoanimations/GodotLogoImageSequence/GodotLogoPixelRender_00182.png" type="Texture" id=197]
 [ext_resource path="res://Resources/Videoanimations/GodotLogoImageSequence/GodotLogoPixelRender_00180.png" type="Texture" id=198]
 [ext_resource path="res://Resources/Videoanimations/GodotLogoImageSequence/GodotLogoPixelRender_00181.png" type="Texture" id=199]
-[ext_resource path="res://Resources/Shaders/Glitch.tres" type="Material" id=200]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -224,18 +223,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 5.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -251,18 +238,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
 
 [node name="StartUpNode" type="Node2D"]
 script = ExtResource( 2 )
@@ -270,18 +245,11 @@ script = ExtResource( 2 )
 [node name="GodotLogoAnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 320, 180 )
 frames = SubResource( 1 )
+speed_scale = 1.5
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/GodotLogoReveal = SubResource( 2 )
 anims/RESET = SubResource( 3 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-material = ExtResource( 200 )
-margin_left = 344.0
-margin_top = 120.0
-margin_right = 544.0
-margin_bottom = 280.0
 
 [connection signal="animation_finished" from="GodotLogoAnimatedSprite" to="." method="_on_GodotLogoAnimatedSprite_animation_finished"]

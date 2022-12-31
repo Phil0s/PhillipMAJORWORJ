@@ -8,5 +8,5 @@ gravity = 10
 maxfallspeed = 350
 maxspeed = 150
 jump = -250
-acceleration = 10
+acceleration = 15
 doublejumpamount = 1
