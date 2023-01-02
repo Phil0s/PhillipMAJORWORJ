@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Resources/Sprite/Idle/CharacterNew2.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Sprite/Idle/CharacterNew1.png" type="Texture" id=2]
@@ -11,10 +11,7 @@
 [ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew3.png" type="Texture" id=9]
 [ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew6.png" type="Texture" id=10]
 [ext_resource path="res://Abandoned and Old Files/Player.gd" type="Script" id=11]
-[ext_resource path="res://Resources/MovementDataFiles/OGCharacterMovementData.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Particles/dash_particle.png" type="Texture" id=13]
-[ext_resource path="res://Abandoned and Old Files/Dash_Sprite.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Abandoned and Old Files/RunningParticles.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew4.png" type="Texture" id=16]
 [ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew1.png" type="Texture" id=17]
 [ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew2.png" type="Texture" id=18]
@@ -67,9 +64,6 @@ scale_curve = SubResource( 5 )
 
 [node name="PlayerKB" type="KinematicBody2D"]
 script = ExtResource( 11 )
-foot_step = ExtResource( 15 )
-movementData = ExtResource( 12 )
-dash_object = ExtResource( 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

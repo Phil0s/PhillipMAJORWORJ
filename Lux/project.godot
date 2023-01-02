@@ -13,15 +13,9 @@ _global_script_classes=[ {
 "class": "CharacterMovementData",
 "language": "GDScript",
 "path": "res://Resources/MovementDataFiles/CharacterMovementData.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "MainCharacter",
-"language": "GDScript",
-"path": "res://Abandoned and Old Files/Player.gd"
 } ]
 _global_script_class_icons={
-"CharacterMovementData": "",
-"MainCharacter": ""
+"CharacterMovementData": ""
 }
 
 [application]

@@ -3,6 +3,13 @@ extends KinematicBody2D
 #Created: Phillip 31/12/2022: 
 
 
+#Particle
+export(PackedScene) var foot_step
+var last_step = 0
+export(PackedScene) var dash_object
+export var dash_speed = 1000
+export var dash_length = 0.2
+
 #Movement Data for Character
 export var gravity = 600
 export var acceleration = 550
@@ -19,6 +26,8 @@ export var wall_jump_height = -500
 export var wall_jump_push = 400
 export var max_fall_speed_wall_slide = 100
 export var wall_slide_gravity = 100
+
+
 
 #Static Variables
 var vSpeed = 0
@@ -38,6 +47,9 @@ var can_double_jump : bool = false #Check if we can double jump
 var is_sliding : bool = false #check if we are currently sliding
 var can_slide : bool = false #are we able to slide?
 var is_wall_sliding : bool = false #Are we sliding down wall?
+var is_dashing : bool = false #CHeck if we are currently dashing
+var can_dash : bool = true #Check if we can dash?
+var dash_direction : Vector2 #Get the direction the character is currently facing
 
 #Grabbing nodes
 onready var sprite = $AnimatedSprite 
@@ -46,26 +58,69 @@ onready var stand_collision = $stand_collision
 onready var slide_collision = $slide_collision
 onready var right_ray = $raycast_container/ray_right
 onready var left_ray = $raycast_container/ray_left
-
+onready var dash_timer = $dash_timer
+onready var dash_particles = $dash_particles
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	dash_timer.connect("timeout",self,"dash_timer_timeout")
 
 func _physics_process(delta):
+	#Handle dash movement
+	handle_dash(delta)
 	#Check if we are on the ground
 	check_ground_wall_logic()
 	#Check for standing or sliding
 	handle_player_collision_shapes()
 	#Check for and handle input/character movement
 	handle_input(delta)
+	#Handle Particles
+	handle_player_particles()
 	#Apply the physics
 	do_physics(delta)
 	pass
 
+func dash_timer_timeout():
+	is_dashing = false
 
+func get_direction_from_input():
+	var move_direction = Vector2()
+	move_direction.x = -Input.get_action_strength("Left") + Input.get_action_strength("Right")
+	move_direction.y = Input.get_action_strength("Down") - Input.get_action_strength("Jump")
+	move_direction = move_direction.clamped(1)
+	#Dashig when no x axis movement button is pressed. Dash in currently facing direction
+	if(move_direction == Vector2(0,0)):
+		if(sprite.flip_h):
+			move_direction.x = -1
+		else:
+			move_direction.x = 1
+			
+	return move_direction * dash_speed
+	
+func handle_dash(var delta):
+	if(Input.is_action_just_pressed("Dash") and can_dash and !touching_ground):
+		is_dashing = true
+		can_dash = false
+		dash_direction = get_direction_from_input()
+		dash_timer.start(dash_length)
+		
+	if(is_dashing):
+		var dash_node = dash_object.instance()
+		dash_node.texture = sprite.frames.get_frame(sprite.animation, sprite.frame)
+		dash_node.global_position = global_position
+		dash_node.flip_h = sprite.flip_h
+		get_parent().add_child(dash_node)
+		
+		dash_particles.emitting = true
+		if(touching_ground):
+			is_dashing = false
+		if(is_on_wall()):
+			is_dashing = false
+	else:
+		dash_particles.emitting = false
+	
 func check_ground_wall_logic():
 	#Check for coyote time (Are we JUST leaving the platform?)
 	if(touching_ground and !ground_ray.is_colliding()):
@@ -78,6 +133,7 @@ func check_ground_wall_logic():
 	if(!touching_ground and ground_ray.is_colliding()):
 		sprite.scale = Vector2(1.2,0.8) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
+		can_dash = true
 	if(right_ray.is_colliding() or left_ray.is_colliding()):
 		touching_wall = true
 	else:
@@ -97,10 +153,7 @@ func check_ground_wall_logic():
 			is_wall_sliding = false
 	else:
 		is_wall_sliding = false
-		
-		
-		
-		
+	
 func handle_input(var delta):
 	check_sliding_logic()
 	handle_movement(delta)
@@ -147,7 +200,6 @@ func handle_movement(var delta):
 					sprite.frame = 1
 		hSpeed -= min(abs(hSpeed), current_friction * delta) * sign(hSpeed)
 	
-	
 func handle_jumping(var delta):
 	if(coyote_time and Input.is_action_just_pressed("Jump")):
 		vSpeed = jump_height
@@ -193,7 +245,7 @@ func handle_jumping(var delta):
 			air_jump_pressed = true
 			yield(get_tree().create_timer(0.2), "timeout")
 			air_jump_pressed = false
-			
+	
 func do_physics(var delta):
 	#Give a little bump downward if touching the cieling
 	if(is_on_ceiling()):
@@ -210,8 +262,15 @@ func do_physics(var delta):
 	motion.y = vSpeed
 	motion.x = hSpeed
 	
-	#Apply motion to move and slide
-	motion = move_and_slide(motion, UP) #UP is provided as the up_direction can see godot documentation
+	
+	if(is_dashing):
+		#If we are dashing use dashing movement
+		motion = move_and_slide(dash_direction, UP)
+		vSpeed = 0
+		hSpeed = 0
+	else:
+		#Apply motion to move and slide for normal motion
+		motion = move_and_slide(motion, UP) #UP is provided as the up_direction can see godot documentation
 	
 	#Lerp out squash and squeeze effects
 	apply_squash_squeeze()
@@ -251,3 +310,19 @@ func check_sliding_logic():
 		current_friction = friction #Return to normal friction
 		is_sliding = false
 
+func handle_player_particles():
+	if(motion.x == 0):
+		last_step = -1
+	if(sprite.animation == "RUN"):
+		if(sprite.frame == 2 or sprite.frame == 5):
+			if(last_step != sprite.frame):
+				last_step = sprite.frame
+				var footstep = foot_step.instance()
+				footstep.emitting = true
+				footstep.global_position = Vector2(global_position.x,global_position.y + 12)
+				get_parent().add_child(footstep)
+
+#func frames_checker():
+#	if(sprite.animation == "RUN"):
+#		if(sprite.frame == 2 or sprite.frame == 5):
+#			print("Leg down animation")
