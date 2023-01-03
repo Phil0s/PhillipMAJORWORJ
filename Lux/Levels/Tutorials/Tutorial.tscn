@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Music/8bihallowenmusic.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Tutorials/Tutorial.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Sprite/TutorialSheet/TutorialSpriteSheet.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=3]
@@ -156,6 +157,7 @@ points = PoolVector2Array( 64, 16, 0, 16, 0, 0, 64, 0 )
 6/z_index = 0
 
 [node name="Tutorial" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 640.0

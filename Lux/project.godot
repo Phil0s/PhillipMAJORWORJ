@@ -30,6 +30,7 @@ config/icon="res://icon.png"
 
 LoadingScript="*res://Levels/Other/Loading.gd"
 Globalscript="*res://globalscript.gd"
+PauseMenu="*res://Pause_Menu/PauseMenu.tscn"
 
 [display]
 
@@ -99,6 +100,11 @@ Down={
 Slide={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

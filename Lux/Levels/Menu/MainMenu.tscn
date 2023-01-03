@@ -587,7 +587,7 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 5
+frame = 25
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
