@@ -6,10 +6,18 @@ var key_dictionary = {"Right": 68, "Left": 64, "Jump": 87, "Down": 83, "Dash" : 
 
 var setting_key = false
 
+onready var savebut = $GridContainer2/VBoxContainer/Button
+onready var audio = $GridContainer2/VBoxContainer/Button2
+onready var keybinding = $GridContainer2/VBoxContainer/Button3
+onready var keybinding_page = $GridContainer
+onready var paused_menu_page = $GridContainer2
+onready var audio_page = $Control
+
 func _ready():
 	load_keys()
 	get_child(0).visible = false
 	pause_mode = Node.PAUSE_MODE_PROCESS
+	savebut.grab_focus()
 	
 func load_keys():
 	var file = File.new()
@@ -29,10 +37,17 @@ func load_keys():
 		
 func _process(delta):
 	#I added checks for tree/scene as I do not want user bringin this up on main menu page or intro, etc. 
-	if(Input.is_action_just_pressed("Pause") and (get_tree().current_scene.name == "Tutorial")):
-		get_tree().paused = !get_tree().paused
-		get_child(0).visible = get_tree().paused
-
+	var scene_name = get_tree().current_scene.name
+	if(scene_name == "Tutorial"):
+		if(Input.is_action_just_pressed("Pause")):
+			get_tree().paused = !get_tree().paused
+			get_child(0).visible = get_tree().paused
+			if(!get_tree().paused):
+				keybinding_page.visible = false
+				audio_page.visible = false
+				
+				
+				
 func setup_keys():
 	for i in key_dictionary:
 		for j in get_tree().get_nodes_in_group("button_keys"):
@@ -56,3 +71,11 @@ func save_keys():
 	file.close()
 	print("Saved")
 
+func _on_Button3_pressed():
+	paused_menu_page.visible = false
+	keybinding_page.visible = true
+
+
+func _on_Button2_pressed():
+	paused_menu_page.visible = false
+	audio_page.visible = true

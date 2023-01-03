@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Levels/Menu/SettingsControl.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Pause_Menu/ButtonParent.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Pause_Menu/PauseMenu.gd" type="Script" id=5]
@@ -8,7 +9,61 @@
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource( 5 )
 
+[node name="GridContainer2" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = -65.0
+margin_right = 81.0
+margin_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer2"]
+margin_right = 162.0
+margin_bottom = 130.0
+
+[node name="Label" type="Label" parent="GridContainer2/VBoxContainer"]
+margin_right = 162.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 3 )
+text = "PAUSED"
+align = 1
+
+[node name="Button" type="Button" parent="GridContainer2/VBoxContainer"]
+margin_top = 40.0
+margin_right = 162.0
+margin_bottom = 60.0
+focus_neighbour_bottom = NodePath("../Button2")
+text = "SAVE/LOAD"
+
+[node name="Button2" type="Button" parent="GridContainer2/VBoxContainer"]
+margin_top = 64.0
+margin_right = 162.0
+margin_bottom = 84.0
+focus_neighbour_top = NodePath("../Button")
+focus_neighbour_bottom = NodePath("../Button3")
+text = "AUDIO"
+
+[node name="Button3" type="Button" parent="GridContainer2/VBoxContainer"]
+margin_top = 88.0
+margin_right = 162.0
+margin_bottom = 108.0
+focus_neighbour_top = NodePath("../Button2")
+text = "KEYBINDING"
+
+[node name="Label2" type="Label" parent="GridContainer2/VBoxContainer"]
+margin_top = 112.0
+margin_right = 162.0
+margin_bottom = 130.0
+custom_fonts/font = ExtResource( 1 )
+text = "\"ESC\" to unpause"
+align = 1
+
 [node name="GridContainer" type="GridContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -33,251 +88,198 @@ align = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
 margin_top = 40.0
 margin_right = 297.0
-margin_bottom = 108.0
+margin_bottom = 224.0
 alignment = 1
 
-[node name="GridContainer2" type="GridContainer" parent="GridContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
 margin_right = 297.0
-margin_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 4
+margin_bottom = 20.0
 
-[node name="Label" type="Label" parent="GridContainer/VBoxContainer/GridContainer2"]
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer"]
 margin_top = 1.0
 margin_right = 40.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "RIGHT:"
 
-[node name="ButtonParent3" parent="GridContainer/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
+[node name="ButtonParent3" parent="GridContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_left = 44.0
-margin_right = 93.0
+margin_right = 66.0
 text = "D"
 action_name = "Right"
 
-[node name="Label2" type="Label" parent="GridContainer/VBoxContainer/GridContainer2"]
-margin_left = 97.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 297.0
+margin_bottom = 44.0
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer2"]
 margin_top = 1.0
-margin_right = 136.0
+margin_right = 36.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "LEFT:"
 
-[node name="ButtonParent2" parent="GridContainer/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 140.0
-margin_right = 180.0
+[node name="ButtonParent2" parent="GridContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 4 )]
+margin_left = 40.0
+margin_right = 61.0
 text = "A"
 action_name = "Left"
 
-[node name="Label3" type="Label" parent="GridContainer/VBoxContainer/GridContainer2"]
-margin_top = 25.0
-margin_right = 40.0
-margin_bottom = 43.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 297.0
+margin_bottom = 68.0
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer3"]
+margin_top = 1.0
+margin_right = 35.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "JUMP:"
 
-[node name="ButtonParent" parent="GridContainer/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 44.0
-margin_top = 24.0
-margin_right = 93.0
-margin_bottom = 44.0
+[node name="ButtonParent" parent="GridContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 4 )]
+margin_left = 39.0
+margin_right = 64.0
 text = "W"
 action_name = "Jump"
 
-[node name="Label4" type="Label" parent="GridContainer/VBoxContainer/GridContainer2"]
-margin_left = 97.0
-margin_top = 25.0
-margin_right = 136.0
-margin_bottom = 43.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 297.0
+margin_bottom = 92.0
+
+[node name="Label4" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer4"]
+margin_top = 1.0
+margin_right = 38.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "DOWN:"
 
-[node name="ButtonParent4" parent="GridContainer/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 140.0
-margin_top = 24.0
-margin_right = 180.0
-margin_bottom = 44.0
+[node name="ButtonParent4" parent="GridContainer/VBoxContainer/HBoxContainer4" instance=ExtResource( 4 )]
+margin_left = 42.0
+margin_right = 61.0
 text = "S"
 action_name = "Down"
 
-[node name="Label5" type="Label" parent="GridContainer/VBoxContainer/GridContainer2"]
-margin_top = 49.0
-margin_right = 40.0
-margin_bottom = 67.0
+[node name="HBoxContainer5" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 297.0
+margin_bottom = 116.0
+
+[node name="Label5" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer5"]
+margin_top = 1.0
+margin_right = 37.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "DASH:"
 
-[node name="ButtonParent5" parent="GridContainer/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 44.0
-margin_top = 48.0
-margin_right = 93.0
-margin_bottom = 68.0
+[node name="ButtonParent5" parent="GridContainer/VBoxContainer/HBoxContainer5" instance=ExtResource( 4 )]
+margin_left = 41.0
+margin_right = 90.0
 action_name = "Dash"
 
-[node name="Label6" type="Label" parent="GridContainer/VBoxContainer/GridContainer2"]
-margin_left = 97.0
-margin_top = 49.0
-margin_right = 136.0
-margin_bottom = 67.0
+[node name="HBoxContainer6" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 297.0
+margin_bottom = 140.0
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer6"]
+margin_top = 1.0
+margin_right = 39.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "SLIDE:"
 
-[node name="ButtonParent6" parent="GridContainer/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 140.0
-margin_top = 48.0
-margin_right = 180.0
-margin_bottom = 68.0
+[node name="ButtonParent6" parent="GridContainer/VBoxContainer/HBoxContainer6" instance=ExtResource( 4 )]
+margin_left = 43.0
+margin_right = 83.0
 text = "Shift"
 action_name = "Slide"
 
-[node name="Back" type="Button" parent="GridContainer"]
-margin_top = 112.0
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer"]
+margin_top = 144.0
 margin_right = 297.0
-margin_bottom = 132.0
-text = "To close menu press \"ESC\" again"
+margin_bottom = 162.0
+custom_fonts/font = ExtResource( 1 )
+text = "Mouse 1 to select keybinding"
 
-[node name="Control2" type="Control" parent="."]
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer"]
+margin_top = 166.0
+margin_right = 297.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 1 )
+text = "\"ESC\" to unpause"
+
+[node name="Control" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 2 )
 
-[node name="AudioPopup" type="Popup" parent="Control2"]
-visible = true
+[node name="GridContainer3" type="GridContainer" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = 108.0
-margin_right = 320.0
-margin_bottom = 148.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="GridContainer2" type="GridContainer" parent="Control2/AudioPopup"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = -36.0
-margin_right = 128.0
-margin_bottom = 124.0
+margin_left = 219.0
+margin_top = 95.0
+margin_right = 381.0
+margin_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control2/AudioPopup/GridContainer2"]
-margin_right = 297.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GridContainer3"]
+margin_right = 135.0
+margin_bottom = 122.0
+
+[node name="Label" type="Label" parent="Control/GridContainer3/VBoxContainer"]
+margin_right = 135.0
 margin_bottom = 36.0
 custom_fonts/font = ExtResource( 3 )
-text = "KEYBINDINGS"
+text = "AUDIO"
 align = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control2/AudioPopup/GridContainer2"]
+[node name="Label3" type="Label" parent="Control/GridContainer3/VBoxContainer"]
 margin_top = 40.0
-margin_right = 297.0
-margin_bottom = 108.0
-
-[node name="GridContainer2" type="GridContainer" parent="Control2/AudioPopup/GridContainer2/VBoxContainer"]
-margin_right = 297.0
-margin_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 4
-
-[node name="Label" type="Label" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2"]
-margin_top = 1.0
-margin_right = 40.0
-margin_bottom = 19.0
+margin_right = 135.0
+margin_bottom = 58.0
 custom_fonts/font = ExtResource( 1 )
-text = "RIGHT:"
+text = "Audio-Master"
 
-[node name="ButtonParent3" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 44.0
-margin_right = 93.0
-action_name = "Right"
+[node name="HSlider" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 62.0
+margin_right = 135.0
+margin_bottom = 78.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
 
-[node name="Label2" type="Label" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2"]
-margin_left = 97.0
-margin_top = 1.0
-margin_right = 136.0
-margin_bottom = 19.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 82.0
+margin_right = 135.0
+margin_bottom = 100.0
+
+[node name="0label" type="Label" parent="Control/GridContainer3/VBoxContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 1 )
-text = "LEFT:"
+text = "0"
 
-[node name="ButtonParent2" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 140.0
-margin_right = 189.0
-action_name = "Left"
-
-[node name="Label3" type="Label" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2"]
-margin_top = 25.0
-margin_right = 40.0
-margin_bottom = 43.0
+[node name="10labelmusic" type="Label" parent="Control/GridContainer3/VBoxContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 28.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 1 )
-text = "JUMP:"
+text = "20"
 
-[node name="ButtonParent" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 44.0
-margin_top = 24.0
-margin_right = 93.0
-margin_bottom = 44.0
-action_name = "Jump"
-
-[node name="Label4" type="Label" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2"]
-margin_left = 97.0
-margin_top = 25.0
-margin_right = 136.0
-margin_bottom = 43.0
+[node name="Label2" type="Label" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 104.0
+margin_right = 135.0
+margin_bottom = 122.0
 custom_fonts/font = ExtResource( 1 )
-text = "DOWN:"
+text = "\"ESC\" to unpause"
 
-[node name="ButtonParent4" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 140.0
-margin_top = 24.0
-margin_right = 189.0
-margin_bottom = 44.0
-action_name = "Down"
-
-[node name="Label5" type="Label" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2"]
-margin_top = 49.0
-margin_right = 40.0
-margin_bottom = 67.0
-custom_fonts/font = ExtResource( 1 )
-text = "DASH:"
-
-[node name="ButtonParent5" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 44.0
-margin_top = 48.0
-margin_right = 93.0
-margin_bottom = 68.0
-action_name = "Dash"
-
-[node name="Label6" type="Label" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2"]
-margin_left = 97.0
-margin_top = 49.0
-margin_right = 136.0
-margin_bottom = 67.0
-custom_fonts/font = ExtResource( 1 )
-text = "SLIDE:"
-
-[node name="ButtonParent6" parent="Control2/AudioPopup/GridContainer2/VBoxContainer/GridContainer2" instance=ExtResource( 4 )]
-margin_left = 140.0
-margin_top = 48.0
-margin_right = 189.0
-margin_bottom = 68.0
-action_name = "Slide"
-
-[node name="Save" type="Button" parent="Control2/AudioPopup/GridContainer2"]
-margin_top = 112.0
-margin_right = 297.0
-margin_bottom = 132.0
-text = "Save"
-
-[node name="Back" type="Button" parent="Control2/AudioPopup/GridContainer2"]
-margin_top = 136.0
-margin_right = 297.0
-margin_bottom = 156.0
-text = "Back"
+[connection signal="pressed" from="GridContainer2/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="GridContainer2/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]
