@@ -2,6 +2,7 @@ extends KinematicBody2D
 #Credits: Rungeon's advanced platformer controlls series for all movement in this script -> Basic Movement, Dashing, Wall Jump, Wall Slide
 #Created: Phillip 31/12/2022: 
 
+class_name MainCharacter
 
 #Particle
 export(PackedScene) var foot_step
@@ -322,7 +323,3 @@ func handle_player_particles():
 				footstep.global_position = Vector2(global_position.x,global_position.y + 12)
 				get_parent().add_child(footstep)
 
-#func frames_checker():
-#	if(sprite.animation == "RUN"):
-#		if(sprite.frame == 2 or sprite.frame == 5):
-#			print("Leg down animation")

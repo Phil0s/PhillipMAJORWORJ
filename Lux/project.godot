@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "CharacterMovementData",
 "language": "GDScript",
 "path": "res://Resources/MovementDataFiles/CharacterMovementData.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MainCharacter",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
-"CharacterMovementData": ""
+"CharacterMovementData": "",
+"MainCharacter": ""
 }
 
 [application]
@@ -31,6 +37,7 @@ config/icon="res://icon.png"
 LoadingScript="*res://Levels/Other/Loading.gd"
 Globalscript="*res://globalscript.gd"
 PauseMenu="*res://Pause_Menu/PauseMenu.tscn"
+TextBox="*res://TextBox/TextBox.tscn"
 
 [display]
 

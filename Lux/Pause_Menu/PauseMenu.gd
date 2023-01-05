@@ -13,6 +13,11 @@ onready var keybinding_page = $GridContainer
 onready var paused_menu_page = $GridContainer2
 onready var audio_page = $Control
 
+
+
+var textboxhalt = false
+var second_time_pressed = false
+
 func _ready():
 	load_keys()
 	get_child(0).visible = false
@@ -40,12 +45,23 @@ func _process(delta):
 	var scene_name = get_tree().current_scene.name
 	if(scene_name == "Tutorial"):
 		if(Input.is_action_just_pressed("Pause")):
-			get_tree().paused = !get_tree().paused
-			get_child(0).visible = get_tree().paused
-			if(!get_tree().paused):
-				keybinding_page.visible = false
-				audio_page.visible = false
+			if(!TextBox.playingrn):
+				print("1")
+				get_tree().paused = !get_tree().paused
+				get_child(0).visible = get_tree().paused
+				if(!get_tree().paused):
+					keybinding_page.visible = false
+					audio_page.visible = false
+			if(TextBox.playingrn):
+				textboxhalt = true
+
 				
+				
+				
+	if(scene_name == "TextBox"):
+		pass
+	else:
+		pass
 				
 				
 func setup_keys():
@@ -79,3 +95,7 @@ func _on_Button3_pressed():
 func _on_Button2_pressed():
 	paused_menu_page.visible = false
 	audio_page.visible = true
+
+
+func _on_Button4_pressed():
+	get_tree().reload_current_scene()
