@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+#Created: Phillip --/--/-- with help from Rungeon's videos
 var keybinding_data_file = "res://keybinding.json"
 
 var key_dictionary = {"Right": 68, "Left": 64, "Jump": 87, "Down": 83, "Dash" : 32, "Slide" : 16777237} 
@@ -21,6 +21,8 @@ var second_time_pressed = false
 func _ready():
 	load_keys()
 	get_child(0).visible = false
+	keybinding_page.visible = false
+	audio_page.visible = false
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	savebut.grab_focus()
 	
@@ -99,3 +101,7 @@ func _on_Button2_pressed():
 
 func _on_Button4_pressed():
 	get_tree().reload_current_scene()
+	get_tree().paused = false
+	get_child(0).visible = false
+	keybinding_page.visible = false
+	audio_page.visible = false

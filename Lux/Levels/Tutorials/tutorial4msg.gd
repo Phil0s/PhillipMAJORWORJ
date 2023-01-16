@@ -6,15 +6,9 @@ var count = 0
 func _ready():
 	count = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_tutorial2msg_body_entered(body):
+func _on_tutorial4msg_body_entered(body):
 	if count == 0:
 		if body is MainCharacter:
 			print("Touched")
-			TextBox.msgcalled("res://Resources/Text/tutorial2.json")
+			TextBox.msgcalled("res://Resources/Text/tutorial4.json")
 			count = 1

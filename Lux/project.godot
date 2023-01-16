@@ -38,6 +38,7 @@ LoadingScript="*res://Levels/Other/Loading.gd"
 Globalscript="*res://globalscript.gd"
 PauseMenu="*res://Pause_Menu/PauseMenu.tscn"
 TextBox="*res://TextBox/TextBox.tscn"
+LevelTimer="*res://Abandoned and Old Files/LevelTimer.gd"
 
 [display]
 

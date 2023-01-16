@@ -27,7 +27,7 @@ margin_bottom = 360.0
 position = Vector2( 320, 160 )
 scale = Vector2( 3.16667, 3.16667 )
 frames = SubResource( 1 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

@@ -8,4 +8,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	LevelTimer.timer_on = true
+	LevelTimer.time = 0
+	LevelTimer.final_time = 0

@@ -30,19 +30,18 @@ func msgcalled(selectmsg):
 	get_tree().paused = !get_tree().paused
 	get_child(0).visible = get_tree().paused
 	get_child(1).visible = get_tree().paused
-	#get_child(2).visible = get_tree().paused
-	
 	dialogue = getDialogue(selectmsg)
 	assert(dialogue, "Dialogue not found")
 	nextPhrase()
 	
 func _process(delta):
-	#$Polygon2D.visible = finished
-	if Input.is_action_just_pressed("ui_accept"):
-		if finished:
-			nextPhrase()
-		else:
-			textwords.visible_characters = len(textwords.text)
+	$Polygon2D.visible = finished
+	if(playingrn):
+		if Input.is_action_just_pressed("ui_accept"):
+			if finished:
+				nextPhrase()
+			else:
+				textwords.visible_characters = len(textwords.text)
 	if(PauseMenu.textboxhalt and playingrn):
 		get_child(4).visible = true
 		if(anim_finished):
@@ -70,7 +69,6 @@ func nextPhrase() -> void:
 		get_tree().paused = !get_tree().paused
 		get_child(0).visible = get_tree().paused
 		get_child(1).visible = get_tree().paused
-		get_child(2).visible = get_tree().paused
 		$Label/AnimationPlayer.stop()
 		print("reached end player")
 		get_child(4).visible = false
@@ -78,6 +76,7 @@ func nextPhrase() -> void:
 		anim_finished = true
 		print("finished")
 		playingrn = false
+		finished = false
 		#queue_free()
 		return
 		
@@ -89,6 +88,7 @@ func nextPhrase() -> void:
 	textwords.visible_characters = 0
 	
 	while textwords.visible_characters < len(textwords.text):
+		$AudioStreamPlayer.play()
 		textwords.visible_characters += 1
 		texttimer.start()
 		yield(texttimer, "timeout")

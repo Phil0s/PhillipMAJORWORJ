@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/ConvenantFONTMMButtons.tres" type="DynamicFont" id=2]
 [ext_resource path="res://TextBox/TextBox.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Sprite/Idle/CharacterNew2.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Sprite/Idle/CharacterNew1.png" type="Texture" id=5]
+[ext_resource path="res://Audio/dialogue1.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -108,6 +109,7 @@ position = Vector2( 104, 248 )
 scale = Vector2( 5.5, 5.5 )
 frames = SubResource( 3 )
 frame = 1
+playing = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 64.0
@@ -118,9 +120,9 @@ color = Color( 0.415686, 0.505882, 0.545098, 1 )
 
 [node name="Name1" type="RichTextLabel" parent="ColorRect"]
 margin_left = 8.0
-margin_top = 8.0
+margin_top = 3.0
 margin_right = 504.0
-margin_bottom = 32.0
+margin_bottom = 27.0
 custom_fonts/normal_font = ExtResource( 2 )
 text = "NAME GOES HERE"
 scroll_active = false
@@ -128,14 +130,12 @@ scroll_active = false
 [node name="Text" type="RichTextLabel" parent="ColorRect"]
 margin_left = 8.0
 margin_top = 24.0
-margin_right = 496.0
-margin_bottom = 56.0
+margin_right = 464.0
+margin_bottom = 72.0
 custom_fonts/normal_font = ExtResource( 1 )
 text = "Word goes here"
-scroll_active = false
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
 position = Vector2( 160, 16 )
 polygon = PoolVector2Array( 400, 312, 384, 312, 392, 320 )
 
@@ -150,7 +150,7 @@ margin_top = 293.0
 margin_right = 412.0
 margin_bottom = 311.0
 custom_fonts/font = ExtResource( 1 )
-text = "ENTER"
+text = "Space"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -167,5 +167,8 @@ text = "FINISH DIALOGUE FIRST"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 "anims/New Anim" = SubResource( 4 )
 anims/RESET = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="animation_finished" from="Label/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

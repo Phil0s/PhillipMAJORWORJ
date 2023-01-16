@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Resources/Sprite/Idle/CharacterNew1.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Sprite/Idle/CharacterNew2.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Player/foot_steps.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Resources/Particles/dash_particle.png" type="Texture" id=15]
 [ext_resource path="res://Player/dash_sprite.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -135,6 +136,17 @@ collision_mask = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 1000, 0 )
+
+[node name="Sprite" type="Sprite" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 321, -257 )
+texture = ExtResource( 17 )
+centered = false
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 13 )
