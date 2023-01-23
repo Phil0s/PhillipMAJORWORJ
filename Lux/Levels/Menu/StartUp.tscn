@@ -268,7 +268,8 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="GodotLogoAnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 320, 180 )
+position = Vector2( 960, 544 )
+scale = Vector2( 3, 3.02222 )
 frames = SubResource( 1 )
 playing = true
 

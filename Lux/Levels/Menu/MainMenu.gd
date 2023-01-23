@@ -11,6 +11,7 @@ onready var settingspage = $Control/Popup
 onready var playpage = $ControlPlay/Popup
 onready var musicslider = $Control/Popup/VBoxContainer/VBoxContainer/HSlider
 onready var Launchbutton = $ControlPlay/Popup/VBoxContainer/Launch
+onready var nextbut = $ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut
 
 
 func _ready():
@@ -35,7 +36,7 @@ func _on_PlayButton_pressed(): #Open level select
 		$AnimatedSprite.speed_scale = 1.5
 		playpage.visible = true
 		print("LevelPage visible")
-		Launchbutton.grab_focus()
+		nextbut.grab_focus()
 
 func _on_SettingsButton_pressed(): #Open settings button
 	if MManimationfinished:
@@ -69,4 +70,18 @@ func _on_BackfromPlay_pressed(): #Level menu to Main menu
 		startbut.grab_focus()
 
 func _on_Launch_pressed():
+<<<<<<< Updated upstream
 	get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn") 
+=======
+	#Note to self: If function is said to be missing in Autoload file "LoadingScript" I found out
+	#if the autoload script file does actually have the function, I need to RELOAD the autoload
+	#Script in the Godot Project settings. For some reason Autoload Scripts do not update so if I
+	#Continue to make changes to "LoadingScript" the autoload one thats been uploaded will not update
+	#I have to manually re-add it to the autoloader
+	#LoadingScript.load_scene1(self, "res://Levels/Tutorials/Tutorial.tscn")
+	var LevelNum = str(Globalscript.levelorder)
+	if Globalscript.levelorder == 0:
+		get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")
+	else:
+		get_tree().change_scene("res://Levels/Level/Level" + LevelNum + ".tscn")
+>>>>>>> Stashed changes
