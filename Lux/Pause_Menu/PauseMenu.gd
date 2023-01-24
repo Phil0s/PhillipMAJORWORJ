@@ -43,17 +43,17 @@ func load_keys():
 func _process(delta):
 	#I added checks for tree/scene as I do not want user bringin this up on main menu page or intro, etc. 
 	var scene_name = get_tree().current_scene.name
-	if(scene_name == "Tutorial"):
+	if(scene_name != "MainMenu"):
 		if(Input.is_action_just_pressed("Pause")):
-			if(!TextBox.playingrn):
-				print("1")
-				get_tree().paused = !get_tree().paused
-				get_child(0).visible = get_tree().paused
-				if(!get_tree().paused):
-					keybinding_page.visible = false
-					audio_page.visible = false
-			if(TextBox.playingrn):
-				textboxhalt = true
+#			if(!TextBox.playingrn):
+			print("1")
+			get_tree().paused = !get_tree().paused
+			get_child(0).visible = get_tree().paused
+			if(!get_tree().paused):
+				keybinding_page.visible = false
+				audio_page.visible = false
+#			if(TextBox.playingrn):
+#				textboxhalt = true
 
 				
 				
@@ -99,6 +99,7 @@ func _on_Button2_pressed():
 
 func _on_Button4_pressed():
 	get_tree().reload_current_scene()
+	Globalscript.levelreload = true
 	get_tree().paused = false
 	get_child(0).visible = false
 	keybinding_page.visible = false

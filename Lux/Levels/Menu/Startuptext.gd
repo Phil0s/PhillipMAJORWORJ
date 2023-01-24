@@ -11,4 +11,5 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-		get_tree().change_scene("res://Levels/Menu/MainMenu.tscn") #When image sequence finished move on to next scene
+		get_tree().change_scene("res://Levels/Menu/MainMenu.tscn") #When image sequence finished 
+		#Move on to the main menu

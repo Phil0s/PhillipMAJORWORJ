@@ -5,3 +5,4 @@ var change_scene = false
 var finished_level = false
 var started_level = false
 var levelorder = 0
+var levelreload = false

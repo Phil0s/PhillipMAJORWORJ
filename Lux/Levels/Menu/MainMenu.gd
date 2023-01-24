@@ -1,4 +1,6 @@
 extends Node2D
+#Created: Phillip --/11/2022 
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -57,12 +59,7 @@ func _on_Back_pressed(): #Settingsback to Main Menu
 		settingsbut.grab_focus()
 
 
-func _on_Save_pressed(): #Save settings 
-	print("Settings Button Pressed")
-
-
 func _on_BackfromPlay_pressed(): #Level menu to Main menu
-	
 	if MManimationfinished:
 		MManimationPlayer.play("Playback")
 		$AnimatedSprite.speed_scale = 1
@@ -70,9 +67,6 @@ func _on_BackfromPlay_pressed(): #Level menu to Main menu
 		startbut.grab_focus()
 
 func _on_Launch_pressed():
-<<<<<<< Updated upstream
-	get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn") 
-=======
 	#Note to self: If function is said to be missing in Autoload file "LoadingScript" I found out
 	#if the autoload script file does actually have the function, I need to RELOAD the autoload
 	#Script in the Godot Project settings. For some reason Autoload Scripts do not update so if I
@@ -84,4 +78,3 @@ func _on_Launch_pressed():
 		get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")
 	else:
 		get_tree().change_scene("res://Levels/Level/Level" + LevelNum + ".tscn")
->>>>>>> Stashed changes

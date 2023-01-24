@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/ConvenantFONTMainMenu2.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew4.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew5.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew3.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew6.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew1.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew2.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="Loading" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 160 )
+scale = Vector2( 3.16667, 3.16667 )
+frames = SubResource( 1 )
+frame = 4
+playing = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 25.0
+margin_right = 100.0
+margin_bottom = 41.0
+custom_fonts/font = ExtResource( 1 )

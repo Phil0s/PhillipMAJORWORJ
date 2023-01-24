@@ -1,0 +1,180 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Resources/Sprite/Idle/CharacterNew1.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Sprite/Idle/CharacterNew2.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew3.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew1.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew2.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew5.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumpingNew4.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew4.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumpingNew1.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Sprite/Jumping/CharacterJumpingNew2.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Sprite/Running/CharacterRunningNew6.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Light/CircleLightTexture.png" type="Texture" id=13]
+[ext_resource path="res://Player/foot_steps.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Resources/Particles/dash_particle.png" type="Texture" id=15]
+[ext_resource path="res://Player/dash_sprite.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "DOUBLEJUMP",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "JUMPDOWN",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "JUMPUP",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "RUN",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "SLIDE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "TURN",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "WALLSLIDE",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 5, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 6, 3 )
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.994382, 0 ), -2.78997, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+emission_shape = 1
+emission_sphere_radius = 5.41
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 19.0
+angular_velocity = -182.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 10 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 3 )
+foot_step = ExtResource( 14 )
+dash_object = ExtResource( 16 )
+acceleration = 600
+deacceleration = 600
+max_horizontal_speed = 100
+jump_height = -200
+squash_speed = 0.1
+wall_jump_push = 200
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, 2 )
+frames = SubResource( 6 )
+animation = "IDLE"
+offset = Vector2( 0, -2 )
+
+[node name="stand_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 2 )
+shape = SubResource( 7 )
+
+[node name="slide_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 9 )
+shape = SubResource( 8 )
+disabled = true
+
+[node name="raycast_container" type="Position2D" parent="."]
+position = Vector2( 0, 12 )
+
+[node name="slide_timer" type="Timer" parent="raycast_container"]
+
+[node name="ray_ground" type="RayCast2D" parent="raycast_container"]
+position = Vector2( -1, 0 )
+scale = Vector2( 8, 1 )
+enabled = true
+cast_to = Vector2( 0, 2.79916 )
+collision_mask = 4
+
+[node name="ray_right" type="RayCast2D" parent="raycast_container"]
+position = Vector2( 8, -18 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 4
+
+[node name="ray_left" type="RayCast2D" parent="raycast_container"]
+position = Vector2( -10, -18 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 4
+
+[node name="ray_ceiling" type="RayCast2D" parent="raycast_container"]
+position = Vector2( -1, -14 )
+scale = Vector2( 7.138, 1 )
+enabled = true
+cast_to = Vector2( 0, -4 )
+collision_mask = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.7, 0.7 )
+smoothing_enabled = true
+smoothing_speed = 2.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 1000, 0 )
+
+[node name="Sprite" type="Sprite" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 321, -257 )
+texture = ExtResource( 17 )
+centered = false
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+texture = ExtResource( 13 )
+texture_scale = 0.75
+
+[node name="dash_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="dash_particles" type="Particles2D" parent="."]
+visible = false
+amount = 80
+local_coords = false
+process_material = SubResource( 11 )
+texture = ExtResource( 15 )
+
+[connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Abandoned and Old Files/Dash_Sprite.gd" type="Script" id=1]
+
+[node name="Dash_Sprite" type="Sprite"]
+script = ExtResource( 1 )
