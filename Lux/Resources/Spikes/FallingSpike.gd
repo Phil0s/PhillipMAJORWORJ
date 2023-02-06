@@ -41,7 +41,7 @@ func _process(delta):
 			velocity.y += delta * gravity_down
 			var motion = velocity * delta
 			move_and_collide(motion)
-			print("1")
+#			print("1")
 	#Spike has collided with the floor, nnow it is time for it to return back up
 	if collide_with_ground:
 		var collision = move_and_collide(velocity * delta)
@@ -51,7 +51,7 @@ func _process(delta):
 		move_and_collide(motion)
 		if ceiling_ray.is_colliding():
 			collide_with_ground = false
-		print("2")
+#		print("2")
 
 
 #Player has entered underneath the spike
@@ -61,8 +61,6 @@ func _on_PlayerArea2D_body_entered(body):
 			body_entered = true
 
 
-func _on_PlayerArea2D_body_exited(body):
-	pass
 
 
 #func _on_Area2D_body_entered(body):
