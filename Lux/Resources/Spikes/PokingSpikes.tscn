@@ -9,7 +9,7 @@ extents = Vector2( 16, 12 )
 [sub_resource type="Animation" id=16]
 resource_name = "New Anim"
 
-[node name="SpikesArea" type="Area2D"]
+[node name="PokingSpike" type="Area2D"]
 position = Vector2( 192, 128 )
 script = ExtResource( 2 )
 timertime = 5

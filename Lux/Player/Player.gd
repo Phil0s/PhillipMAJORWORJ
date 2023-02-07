@@ -2,6 +2,7 @@ extends KinematicBody2D
 #Credits: Rungeon's advanced platformer controlls series for all movement in this script -> Basic Movement, Dashing, Wall Jump, Wall Slide
 #Created: Phillip 31/12/2022: 
 
+
 class_name MainCharacter
 
 #Particle
@@ -67,11 +68,40 @@ onready var cieling_ray = $raycast_container/ray_ceiling
 
 
 
+#Camera Shake
+#export var camera_shake_strength: float = 30.0
+#export var shake_decrease_rate: float = 0
+#export var noise_shake_speed: float = 1
+#export var noise_shake_strength: float = 80.0
+#
+#
+#onready var camera = $Camera2D
+#onready var random = RandomNumberGenerator.new()
+#onready var noise = OpenSimplexNoise.new()
+#
+#
+#var noise_var: float = 0.0
+#var shake_strength: float = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
-
+#	random.randomize()
+#	noise.seed = random.randi()
+#	noise.period = 2
+#	Globalscript.apply_shake = false
+	
+#func noise_generated_offset(delta: float) -> Vector2:
+#	noise_var += delta * noise_shake_speed
+#	return Vector2(
+#		noise.get_noise_2d(1, noise_var) * shake_strength,
+#		noise.get_noise_2d(100, noise_var) * shake_strength
+#	)
+	
 func _physics_process(delta):
+#	if Globalscript.apply_shake:
+#		shake_strength = 5
+#		shake_strength = lerp(shake_strength, 0, shake_decrease_rate * delta)
+#		camera.offset = noise_generated_offset(delta)
 	#Handle dash movement
 	handle_dash(delta)
 	#Check if we are on the ground

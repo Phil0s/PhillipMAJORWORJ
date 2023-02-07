@@ -2,6 +2,9 @@
 
 extends KinematicBody2D
 
+
+signal shake
+
 var velocity = Vector2()
 var gravity_down = 1
 var gravity_up = -1
@@ -34,6 +37,8 @@ func _process(delta):
 		if ground_ray.is_colliding():
 			body_entered = false
 			collide_with_ground = true
+			Globalscript.apply_shake = true
+			emit_signal("shake")
 		#Spike has not collided with floor so keep going down
 		else:
 			collide_with_ground = false
@@ -51,6 +56,7 @@ func _process(delta):
 		move_and_collide(motion)
 		if ceiling_ray.is_colliding():
 			collide_with_ground = false
+			Globalscript.apply_shake = false
 #		print("2")
 
 

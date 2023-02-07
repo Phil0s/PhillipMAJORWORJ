@@ -288,5 +288,7 @@ position = Vector2( -232, 256 )
 [connection signal="body_entered" from="tutorial6msg" to="tutorial6msg" method="_on_tutorial6msg_body_entered"]
 [connection signal="body_entered" from="tutorial7msg" to="tutorial7msg" method="_on_tutorial7msg_body_entered"]
 [connection signal="body_entered" from="tutorial8msg" to="tutorial8msg" method="_on_tutorial8msg_body_entered"]
+[connection signal="shake" from="KinematicBody2D" to="Player/Camera2D/ScreenShake" method="_on_KinematicBody2D_shake"]
 
+[editable path="Player"]
 [editable path="SpikesArea2"]
