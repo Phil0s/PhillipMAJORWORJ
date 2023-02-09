@@ -45,3 +45,8 @@ func spike():
 		spikesprite.frame = 3
 		collisionshape.disabled = true
 	
+
+
+func _on_PokingSpike_body_entered(body):
+	if body is MainCharacter:
+		print("Poked by spikes")

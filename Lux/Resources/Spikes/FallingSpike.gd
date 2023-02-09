@@ -77,3 +77,8 @@ func _on_PlayerArea2D_body_entered(body):
 #func _on_Area2D_body_exited(body):
 #	if body is MainCharacter:
 #			player_on_top = false
+
+
+func _on_HitBoxArea2D_body_entered(body):
+	if body is MainCharacter:
+		print("Smashed by falling spike")

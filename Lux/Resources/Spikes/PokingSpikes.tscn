@@ -34,3 +34,5 @@ root_node = NodePath("../AnimatedSprite")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, -16 )
+
+[connection signal="body_entered" from="." to="." method="_on_PokingSpike_body_entered"]

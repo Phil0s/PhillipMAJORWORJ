@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -13,8 +13,11 @@
 [ext_resource path="res://Levels/Tutorials/tutorial5msg.gd" type="Script" id=11]
 [ext_resource path="res://Levels/Tutorials/tutorial8msg.gd" type="Script" id=12]
 [ext_resource path="res://Levels/Tutorials/tutorial6msg.gd" type="Script" id=13]
+[ext_resource path="res://Resources/Spikes/SpinningSpike.gd" type="Script" id=14]
 [ext_resource path="res://Levels/Other/ExitLevel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Resources/Spikes/RotatingSpinningSpike.gd" type="Script" id=16]
 [ext_resource path="res://Fonts/Convenant evensmallert.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Resources/Spikes/SpinningSpike.png" type="Texture" id=18]
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.251613, 0.36129 )
@@ -78,58 +81,45 @@ extents = Vector2( 10, 88.6125 )
 [sub_resource type="RectangleShape2D" id=93]
 extents = Vector2( 16, 33 )
 
-[sub_resource type="GDScript" id=94]
-script/source = "#4/02/2023 By Phillip Poking Spikes
+[sub_resource type="Curve2D" id=94]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -237, 320, 0, 0, 0, 0, -161, 321, 0, 0, 0, 0, -52, 432, 0, 0, 0, 0, 112, 432, 0, 0, 0, 0, 113, 352, 0, 0, 0, 0, -15, 350, 0, 0, 0, 0, -176, 239, 0, 0, 0, 0, -176, 222, 0, 0, 0, 0, -312, 223 )
+}
 
-extends Area2D
-
-export var timertime = 0
-
-onready var spikesprite = $AnimatedSprite
-onready var collisionshape = $CollisionShape2D
-onready var timer = $Timer
-onready var animationplayer = $AnimationPlayer
-onready var soundplayer = $AudioStreamPlayer2D
-
-var repeat = true
-
-func _ready():
-	spikesprite.frame = 3
-	collisionshape.disabled = true
-	spike()
-
-#func _process(delta):
-#	if !spike_out and spike_in:
-#		yield(get_tree().create_timer(timertime), \"timeout\")
-#		spike_out()
-#	if spike_out and !spike_in:
-#		yield(get_tree().create_timer(timertime), \"timeout\")
-#		spike_in()
-#
-#This function repeats for ever
-func spike():
-	while repeat:
-		yield(get_tree().create_timer(timertime), \"timeout\")
-		yield(get_tree().create_timer(0.05), \"timeout\")
-		spikesprite.frame = 2
-		yield(get_tree().create_timer(0.05), \"timeout\")
-		spikesprite.frame = 1
-		yield(get_tree().create_timer(0.05), \"timeout\")
-		spikesprite.frame = 0
-		collisionshape.disabled = false
-		yield(get_tree().create_timer(timertime), \"timeout\")
-		yield(get_tree().create_timer(0.05), \"timeout\")
-		spikesprite.frame = 1
-		yield(get_tree().create_timer(0.05), \"timeout\")
-		spikesprite.frame = 2
-		yield(get_tree().create_timer(0.05), \"timeout\")
-		spikesprite.frame = 3
-		collisionshape.disabled = true
-	
-"
+[sub_resource type="CircleShape2D" id=2]
+radius = 17.0294
 
 [sub_resource type="Animation" id=95]
-resource_name = "New Anim"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=96]
+resource_name = "SpinningPath"
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 3 )
@@ -262,14 +252,6 @@ position = Vector2( -328, 240 )
 [node name="SpikesArea" parent="." instance=ExtResource( 5 )]
 position = Vector2( -256, 320 )
 
-[node name="SpikesArea2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -216, 320 )
-script = SubResource( 94 )
-timertime = 6
-
-[node name="AnimationPlayer" parent="SpikesArea2" index="3"]
-"anims/New Anim" = SubResource( 95 )
-
 [node name="Icon0" type="Sprite" parent="."]
 position = Vector2( -480, 288 )
 texture = ExtResource( 7 )
@@ -279,7 +261,31 @@ position = Vector2( -480, 224 )
 texture = ExtResource( 7 )
 
 [node name="SwingSpike" parent="." instance=ExtResource( 10 )]
-position = Vector2( -232, 256 )
+position = Vector2( -232, 222 )
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource( 14 )
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource( 94 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+position = Vector2( -312, 223 )
+offset = 948.254
+rotate = false
+
+[node name="Area2D" type="Area2D" parent="Node2D/Path2D/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Path2D/PathFollow2D/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/Path2D/PathFollow2D/Area2D"]
+texture = ExtResource( 18 )
+script = ExtResource( 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+anims/RESET = SubResource( 95 )
+anims/SpinningPath = SubResource( 96 )
 
 [connection signal="body_entered" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_entered"]
 [connection signal="body_entered" from="tutorial3msg" to="tutorial3msg" method="_on_tutorial3msg_body_entered"]
@@ -291,4 +297,3 @@ position = Vector2( -232, 256 )
 [connection signal="shake" from="KinematicBody2D" to="Player/Camera2D/ScreenShake" method="_on_KinematicBody2D_shake"]
 
 [editable path="Player"]
-[editable path="SpikesArea2"]
