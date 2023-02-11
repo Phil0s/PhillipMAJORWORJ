@@ -55,3 +55,17 @@ func _on_DurationTimer_timeout():
 
 func _on_KinematicBody2D_shake():
 	start()
+
+func start_dash(duration = 0.15, frequency = 10, amplitude = 12, priority = 0):
+	if priority >= self.priority:
+		self.priority = priority
+		self.amplitude = amplitude
+		duration_timer.wait_time = duration
+		timer.wait_time = 1 / float(frequency)
+		timer.start()
+		duration_timer.start()
+	
+		_new_shake()
+
+func _on_Player_dash():
+	start_dash()

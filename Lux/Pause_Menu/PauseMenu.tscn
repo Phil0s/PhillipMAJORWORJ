@@ -77,7 +77,6 @@ text = "\"ESC\" to unpause"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -232,10 +231,10 @@ margin_bottom = 248.0
 text = "Back"
 
 [node name="Control" type="Control" parent="."]
-visible = false
-margin_top = -328.0
-margin_right = 1344.0
-margin_bottom = 1080.0
+margin_left = -640.0
+margin_top = -688.0
+margin_right = 704.0
+margin_bottom = 720.0
 script = ExtResource( 2 )
 
 [node name="GridContainer3" type="GridContainer" parent="Control"]
@@ -252,7 +251,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/GridContainer3"]
 margin_right = 135.0
-margin_bottom = 124.0
+margin_bottom = 208.0
 
 [node name="Label" type="Label" parent="Control/GridContainer3/VBoxContainer"]
 margin_right = 135.0
@@ -268,7 +267,7 @@ margin_bottom = 58.0
 custom_fonts/font = ExtResource( 1 )
 text = "Audio-Master"
 
-[node name="HSlider" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
+[node name="master" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
 margin_top = 62.0
 margin_right = 135.0
 margin_bottom = 78.0
@@ -276,10 +275,40 @@ focus_neighbour_bottom = NodePath("../../Save")
 min_value = -20.0
 max_value = 0.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/GridContainer3/VBoxContainer"]
+[node name="Label4" type="Label" parent="Control/GridContainer3/VBoxContainer"]
 margin_top = 82.0
 margin_right = 135.0
 margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "Audio-Music"
+
+[node name="music" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 104.0
+margin_right = 135.0
+margin_bottom = 120.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
+
+[node name="Label5" type="Label" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 124.0
+margin_right = 135.0
+margin_bottom = 142.0
+custom_fonts/font = ExtResource( 1 )
+text = "Audio-Effects"
+
+[node name="effects" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 146.0
+margin_right = 135.0
+margin_bottom = 162.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 166.0
+margin_right = 135.0
+margin_bottom = 184.0
 
 [node name="0label" type="Label" parent="Control/GridContainer3/VBoxContainer/HBoxContainer"]
 margin_right = 8.0
@@ -296,9 +325,9 @@ text = "20"
 align = 2
 
 [node name="Back2" type="Button" parent="Control/GridContainer3/VBoxContainer"]
-margin_top = 104.0
+margin_top = 188.0
 margin_right = 135.0
-margin_bottom = 124.0
+margin_bottom = 208.0
 text = "Back"
 
 [node name="Timer" type="Timer" parent="."]
@@ -309,5 +338,7 @@ wait_time = 4.5
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button5" to="." method="_on_Button5_pressed"]
 [connection signal="pressed" from="GridContainer/Back1" to="." method="_on_Back1_pressed"]
-[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/master" to="Control" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/music" to="Control" method="_on_music_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/effects" to="Control" method="_on_effects_value_changed"]
 [connection signal="pressed" from="Control/GridContainer3/VBoxContainer/Back2" to="." method="_on_Back2_pressed"]

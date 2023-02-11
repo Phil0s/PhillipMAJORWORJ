@@ -179,4 +179,5 @@ local_coords = false
 process_material = SubResource( 11 )
 texture = ExtResource( 15 )
 
+[connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
 [connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]

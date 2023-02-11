@@ -589,7 +589,7 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 96
+frame = 55
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -673,9 +673,9 @@ margin_bottom = 360.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Popup/VBoxContainer"]
-margin_top = 105.0
+margin_top = 57.0
 margin_right = 512.0
-margin_bottom = 167.0
+margin_bottom = 215.0
 
 [node name="Label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
 margin_right = 512.0
@@ -691,10 +691,40 @@ focus_neighbour_bottom = NodePath("../../Save")
 min_value = -20.0
 max_value = 0.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
 margin_top = 48.0
 margin_right = 512.0
-margin_bottom = 62.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 105 )
+text = "AUDIO - MUSIC"
+
+[node name="HSlider2" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 512.0
+margin_bottom = 92.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
+
+[node name="Label3" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 512.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 105 )
+text = "AUDIO - EFFECTS"
+
+[node name="HSlider3" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 512.0
+margin_bottom = 140.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 512.0
+margin_bottom = 158.0
 
 [node name="0label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
 margin_right = 8.0
@@ -711,17 +741,17 @@ text = "20"
 align = 2
 
 [node name="Back" type="Button" parent="Control/Popup/VBoxContainer"]
-margin_top = 171.0
+margin_top = 219.0
 margin_right = 512.0
-margin_bottom = 201.0
+margin_bottom = 249.0
 custom_fonts/font = ExtResource( 105 )
 text = "Back"
 flat = true
 
 [node name="Save" type="Label" parent="Control/Popup/VBoxContainer"]
-margin_top = 205.0
+margin_top = 253.0
 margin_right = 512.0
-margin_bottom = 223.0
+margin_bottom = 271.0
 focus_neighbour_top = NodePath("../VBoxContainer/HSlider")
 focus_neighbour_bottom = NodePath("../Back")
 custom_fonts/font = ExtResource( 107 )
@@ -818,12 +848,21 @@ text = "Time"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 112 )
+bus = "Effects"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 112 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 112 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider2" to="Control" method="_on_HSlider2_value_changed"]
+[connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider3" to="Control" method="_on_HSlider3_value_changed"]
 [connection signal="pressed" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/PreviousBut" to="ControlPlay" method="_on_PreviousBut_pressed"]
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut" to="ControlPlay" method="_on_NextBut_pressed"]

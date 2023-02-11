@@ -1,7 +1,7 @@
 extends KinematicBody2D
 #Credits: Rungeon's advanced platformer controlls series for all movement in this script -> Basic Movement, Dashing, Wall Jump, Wall Slide
 #Created: Phillip 31/12/2022: 
-
+signal dash
 
 class_name MainCharacter
 
@@ -138,6 +138,7 @@ func get_direction_from_input():
 	
 func handle_dash(var delta):
 	if(Input.is_action_just_pressed("Dash") and can_dash and !touching_ground):
+		emit_signal("dash")
 		is_dashing = true
 		can_dash = false
 		dash_direction = get_direction_from_input()
