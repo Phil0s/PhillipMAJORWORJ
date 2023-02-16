@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0013.png" type="Texture" id=1]
 [ext_resource path="res://Resources/ezgif-5-067b3cf105-gif-png/frame0012.png" type="Texture" id=2]
@@ -109,6 +109,7 @@
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=107]
 [ext_resource path="res://Levels/Menu/LevelDisplay.gd" type="Script" id=108]
 [ext_resource path="res://icon3.png" type="Texture" id=109]
+[ext_resource path="res://Theme1.tres" type="Theme" id=110]
 [ext_resource path="res://Audio/Music/8bihallowenmusic.mp3" type="AudioStream" id=112]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -468,24 +469,12 @@ tracks/15/keys = {
 "values": [ 1.0 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer/10labelmusic:anchor_left")
+tracks/16/path = NodePath("ControlPlay:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.946 ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("ControlPlay:visible")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -529,18 +518,6 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer/10labelmusic:anchor_left")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.946 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -589,7 +566,6 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 75
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -610,18 +586,18 @@ text = "LUX"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
-margin_left = 32.0
-margin_top = 224.0
-margin_right = 188.0
-margin_bottom = 322.0
+margin_left = 19.0
+margin_top = 250.0
+margin_right = 175.0
+margin_bottom = 348.0
+theme = ExtResource( 110 )
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 margin_left = 8.0
 margin_top = 208.0
 margin_right = 164.0
-margin_bottom = 238.0
+margin_bottom = 222.0
 focus_neighbour_bottom = NodePath("../SettingsButton")
-custom_fonts/font = ExtResource( 105 )
 text = "PLAY"
 flat = true
 
@@ -629,10 +605,9 @@ flat = true
 margin_left = 24.0
 margin_top = 248.0
 margin_right = 180.0
-margin_bottom = 278.0
+margin_bottom = 262.0
 focus_neighbour_top = NodePath("../PlayButton")
 focus_neighbour_bottom = NodePath("../ExitButton")
-custom_fonts/font = ExtResource( 105 )
 text = "SETTINGS"
 flat = true
 
@@ -640,9 +615,8 @@ flat = true
 margin_left = 8.0
 margin_top = 288.0
 margin_right = 164.0
-margin_bottom = 318.0
+margin_bottom = 302.0
 focus_neighbour_top = NodePath("../SettingsButton")
-custom_fonts/font = ExtResource( 105 )
 text = "EXIT"
 flat = true
 
@@ -650,6 +624,7 @@ flat = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.997742, 1.00012 )
+theme = ExtResource( 110 )
 script = ExtResource( 104 )
 
 [node name="Popup" type="Popup" parent="Control"]
@@ -673,60 +648,63 @@ margin_bottom = 360.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Popup/VBoxContainer"]
-margin_top = 39.0
+margin_top = 57.0
 margin_right = 512.0
-margin_bottom = 233.0
+margin_bottom = 221.0
 
 [node name="Label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
 margin_right = 512.0
-margin_bottom = 24.0
-custom_fonts/font = ExtResource( 105 )
+margin_bottom = 14.0
 text = "AUDIO - MASTER"
 
 [node name="HSlider" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 28.0
+margin_top = 18.0
 margin_right = 512.0
-margin_bottom = 44.0
-focus_neighbour_bottom = NodePath("../../Save")
+margin_bottom = 34.0
+focus_neighbour_bottom = NodePath("../HSlider2")
 min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 48.0
+margin_top = 38.0
 margin_right = 512.0
-margin_bottom = 62.0
+margin_bottom = 52.0
+custom_constants/separation = 484
+alignment = 1
 
 [node name="0label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer3"]
-margin_right = 8.0
+margin_left = 2.0
+margin_right = 10.0
 margin_bottom = 14.0
 text = "0"
 
 [node name="10labelmusic" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer3"]
-margin_left = 12.0
-margin_right = 28.0
+margin_left = 494.0
+margin_right = 510.0
 margin_bottom = 14.0
 text = "20"
 align = 2
 
 [node name="Label2" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 66.0
+margin_top = 56.0
 margin_right = 512.0
-margin_bottom = 90.0
-custom_fonts/font = ExtResource( 105 )
+margin_bottom = 70.0
 text = "AUDIO - MUSIC"
 
 [node name="HSlider2" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 94.0
+margin_top = 74.0
 margin_right = 512.0
-margin_bottom = 110.0
-focus_neighbour_bottom = NodePath("../../Save")
+margin_bottom = 90.0
+focus_neighbour_top = NodePath("../HSlider")
+focus_neighbour_bottom = NodePath("../HSlider3")
 min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 114.0
+margin_top = 94.0
 margin_right = 512.0
-margin_bottom = 128.0
+margin_bottom = 108.0
+custom_constants/separation = 484
 
 [node name="0label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 8.0
@@ -734,31 +712,32 @@ margin_bottom = 14.0
 text = "0"
 
 [node name="10labelmusic" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer2"]
-margin_left = 12.0
-margin_right = 28.0
+margin_left = 492.0
+margin_right = 508.0
 margin_bottom = 14.0
 text = "20"
 align = 2
 
 [node name="Label3" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 132.0
+margin_top = 112.0
 margin_right = 512.0
-margin_bottom = 156.0
-custom_fonts/font = ExtResource( 105 )
+margin_bottom = 126.0
 text = "AUDIO - EFFECTS"
 
 [node name="HSlider3" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 160.0
+margin_top = 130.0
 margin_right = 512.0
-margin_bottom = 176.0
-focus_neighbour_bottom = NodePath("../../Save")
+margin_bottom = 146.0
+focus_neighbour_top = NodePath("../HSlider2")
+focus_neighbour_bottom = NodePath("../../Back")
 min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 180.0
+margin_top = 150.0
 margin_right = 512.0
-margin_bottom = 194.0
+margin_bottom = 164.0
+custom_constants/separation = 485
 
 [node name="0label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
 margin_right = 8.0
@@ -766,26 +745,25 @@ margin_bottom = 14.0
 text = "0"
 
 [node name="10labelmusic" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
-anchor_left = 0.946
-anchor_right = 0.946
-margin_left = 12.0
-margin_right = 28.0
+margin_left = 493.0
+margin_right = 509.0
 margin_bottom = 14.0
 text = "20"
 align = 2
 
 [node name="Back" type="Button" parent="Control/Popup/VBoxContainer"]
-margin_top = 237.0
+margin_top = 225.0
 margin_right = 512.0
-margin_bottom = 267.0
+margin_bottom = 249.0
+focus_neighbour_top = NodePath("../VBoxContainer/HSlider3")
 custom_fonts/font = ExtResource( 105 )
 text = "Back"
 flat = true
 
 [node name="Save" type="Label" parent="Control/Popup/VBoxContainer"]
-margin_top = 271.0
+margin_top = 253.0
 margin_right = 512.0
-margin_bottom = 289.0
+margin_bottom = 271.0
 focus_neighbour_top = NodePath("../VBoxContainer/HSlider")
 focus_neighbour_bottom = NodePath("../Back")
 custom_fonts/font = ExtResource( 107 )
@@ -795,6 +773,7 @@ align = 1
 [node name="ControlPlay" type="Control" parent="."]
 margin_right = 640.0
 margin_bottom = 360.0
+theme = ExtResource( 110 )
 script = ExtResource( 108 )
 
 [node name="Popup" type="Popup" parent="ControlPlay"]
@@ -818,29 +797,29 @@ margin_bottom = 360.0
 alignment = 1
 
 [node name="LevelsTitle" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 58.0
+margin_top = 67.0
 margin_right = 512.0
-margin_bottom = 82.0
+margin_bottom = 91.0
 custom_fonts/font = ExtResource( 105 )
 text = "TUTORIAL"
 
 [node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 86.0
+margin_top = 95.0
 margin_right = 512.0
-margin_bottom = 150.0
+margin_bottom = 159.0
 texture = ExtResource( 109 )
 stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 154.0
+margin_top = 163.0
 margin_right = 512.0
-margin_bottom = 174.0
+margin_bottom = 177.0
 alignment = 1
 
 [node name="PreviousBut" type="Button" parent="ControlPlay/Popup/VBoxContainer/HBoxContainer"]
-margin_left = 194.0
+margin_left = 206.0
 margin_right = 270.0
-margin_bottom = 20.0
+margin_bottom = 14.0
 focus_neighbour_right = NodePath("../NextBut")
 focus_neighbour_bottom = NodePath("../../Launch")
 text = "PREVIOUS"
@@ -848,35 +827,35 @@ flat = true
 
 [node name="NextBut" type="Button" parent="ControlPlay/Popup/VBoxContainer/HBoxContainer"]
 margin_left = 274.0
-margin_right = 318.0
-margin_bottom = 20.0
+margin_right = 306.0
+margin_bottom = 14.0
 focus_neighbour_left = NodePath("../PreviousBut")
 focus_neighbour_bottom = NodePath("../../Launch")
 text = "NEXT"
 flat = true
 
 [node name="Launch" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 178.0
+margin_top = 181.0
 margin_right = 512.0
-margin_bottom = 208.0
+margin_bottom = 205.0
 focus_neighbour_bottom = NodePath("../BackfromPlay")
 custom_fonts/font = ExtResource( 105 )
 text = "Launch"
 flat = true
 
 [node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 212.0
+margin_top = 209.0
 margin_right = 512.0
-margin_bottom = 242.0
+margin_bottom = 233.0
 focus_neighbour_top = NodePath("../Launch")
 custom_fonts/font = ExtResource( 105 )
 text = "Back"
 flat = true
 
 [node name="Level_Time" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 246.0
+margin_top = 237.0
 margin_right = 512.0
-margin_bottom = 270.0
+margin_bottom = 261.0
 custom_fonts/font = ExtResource( 105 )
 text = "Time"
 

@@ -120,23 +120,28 @@ position = Vector2( 0, 12 )
 
 [node name="slide_timer" type="Timer" parent="raycast_container"]
 
-[node name="ray_ground" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -1, 0 )
-scale = Vector2( 8, 1 )
+[node name="ray_right" type="RayCast2D" parent="raycast_container"]
+position = Vector2( 4, -3 )
 enabled = true
-cast_to = Vector2( 0, 2.79916 )
+cast_to = Vector2( 2, 0 )
 collision_mask = 4
 
-[node name="ray_right" type="RayCast2D" parent="raycast_container"]
-position = Vector2( 8, -18 )
+[node name="ray_right2" type="RayCast2D" parent="raycast_container"]
+position = Vector2( 4, -16 )
 enabled = true
-cast_to = Vector2( 0, 20 )
+cast_to = Vector2( 2, 0 )
+collision_mask = 4
+
+[node name="ray_left2" type="RayCast2D" parent="raycast_container"]
+position = Vector2( -6, -3 )
+enabled = true
+cast_to = Vector2( -2, 0 )
 collision_mask = 4
 
 [node name="ray_left" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -10, -18 )
+position = Vector2( -6, -16 )
 enabled = true
-cast_to = Vector2( 0, 20 )
+cast_to = Vector2( -2, 0 )
 collision_mask = 4
 
 [node name="ray_ceiling" type="RayCast2D" parent="raycast_container"]
@@ -144,6 +149,24 @@ position = Vector2( -1, -14 )
 scale = Vector2( 7.138, 1 )
 enabled = true
 cast_to = Vector2( 0, -4 )
+collision_mask = 4
+
+[node name="ray_ground" type="RayCast2D" parent="raycast_container"]
+position = Vector2( -1, 0 )
+enabled = true
+cast_to = Vector2( 0, 2.79916 )
+collision_mask = 4
+
+[node name="ray_ground2" type="RayCast2D" parent="raycast_container"]
+position = Vector2( -6, 0 )
+enabled = true
+cast_to = Vector2( 0, 2.79916 )
+collision_mask = 4
+
+[node name="ray_ground3" type="RayCast2D" parent="raycast_container"]
+position = Vector2( 4, 0 )
+enabled = true
+cast_to = Vector2( 0, 2.79916 )
 collision_mask = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]

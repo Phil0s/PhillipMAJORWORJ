@@ -38,6 +38,9 @@ var hSpeed = 0
 
 var motion = Vector2.ZERO
 var UP : Vector2 = Vector2(0, -1) #Negative one points upward, this is used later on to give Godot a sense of our UP direction
+var SNAP_DIR = Vector2.DOWN
+var SNAP_LENGTH = 32.0
+var SNAP_VECTOR = SNAP_DIR * SNAP_LENGTH
 
 #Booleans
 var touching_ground : bool = false # Check if we are on the ground 
@@ -58,6 +61,8 @@ var dash_direction : Vector2 #Get the direction the character is currently facin
 #Grabbing nodes
 onready var sprite = $AnimatedSprite 
 onready var ground_ray = $raycast_container/ray_ground
+onready var ground_ray2 = $raycast_container/ray_ground2
+onready var ground_ray3 = $raycast_container/ray_ground3
 onready var stand_collision = $stand_collision
 onready var slide_collision = $slide_collision
 onready var right_ray = $raycast_container/ray_right
@@ -161,14 +166,14 @@ func handle_dash(var delta):
 	
 func check_ground_wall_logic():
 	#Check for coyote time (Are we JUST leaving the platform?)
-	if(touching_ground and !ground_ray.is_colliding()):
+	if(touching_ground and (!ground_ray.is_colliding() and !ground_ray2.is_colliding() and !ground_ray3.is_colliding())):
 		touching_ground = false
 		coyote_time = true
 		#Yield pauses any code pass this, so we wait for the timer's timeout
 		yield(get_tree().create_timer(0.2),"timeout")
 		coyote_time = false
 	#Check if we are landing on the ground (again)
-	if(!touching_ground and ground_ray.is_colliding()):
+	if(!touching_ground and (ground_ray.is_colliding() and ground_ray2.is_colliding() and ground_ray3.is_colliding())):
 		sprite.scale = Vector2(1.2,0.8) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
@@ -177,7 +182,10 @@ func check_ground_wall_logic():
 	else:
 		touching_wall = false
 	#Set touching ground to true if ground_ray is colliding again
-	touching_ground = ground_ray.is_colliding()
+	if ground_ray.is_colliding() or ground_ray2.is_colliding() or ground_ray3.is_colliding():
+		touching_ground = true
+	else:
+		touching_ground = false
 	if(touching_ground):
 		is_jumping = false
 		can_double_jump = true
@@ -308,7 +316,7 @@ func do_physics(var delta):
 		hSpeed = 0
 	else:
 		#Apply motion to move and slide for normal motion
-		motion = move_and_slide(motion, UP) #UP is provided as the up_direction can see godot documentation
+		motion.y = move_and_slide(motion, UP).y#UP is provided as the up_direction can see godot documentation
 	
 	#Lerp out squash and squeeze effects
 	apply_squash_squeeze()
