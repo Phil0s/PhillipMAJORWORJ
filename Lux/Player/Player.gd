@@ -66,7 +66,9 @@ onready var ground_ray3 = $raycast_container/ray_ground3
 onready var stand_collision = $stand_collision
 onready var slide_collision = $slide_collision
 onready var right_ray = $raycast_container/ray_right
+onready var right_ray1 = $raycast_container/ray_right2
 onready var left_ray = $raycast_container/ray_left
+onready var left_ray1 = $raycast_container/ray_left2
 onready var dash_timer = $dash_timer
 onready var dash_particles = $dash_particles
 onready var cieling_ray = $raycast_container/ray_ceiling
@@ -177,7 +179,7 @@ func check_ground_wall_logic():
 		sprite.scale = Vector2(1.2,0.8) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
-	if(right_ray.is_colliding() or left_ray.is_colliding()):
+	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding())):
 		touching_wall = true
 	else:
 		touching_wall = false
@@ -272,12 +274,12 @@ func handle_jumping(var delta):
 			sprite.play("JUMPDOWN")
 		elif(is_double_jumping and sprite.frame ==2): #Where frame is last frame number of double jump animation
 			is_double_jumping = false
-		if(right_ray.is_colliding() and Input.is_action_just_pressed("Jump")):
+		if((right_ray.is_colliding() and right_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
 			vSpeed = wall_jump_height
 			hSpeed = -wall_jump_push
 			sprite.flip_h = true
 			can_double_jump = true
-		elif(left_ray.is_colliding() and Input.is_action_just_pressed("Jump")):
+		elif((left_ray.is_colliding() and left_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
 			vSpeed = wall_jump_height
 			hSpeed = wall_jump_push
 			sprite.flip_h = false

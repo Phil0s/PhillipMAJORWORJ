@@ -566,6 +566,7 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
+frame = 81
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -576,51 +577,8 @@ anims/RESET = SubResource( 5 )
 anims/Settings = SubResource( 2 )
 anims/SettingsBack = SubResource( 6 )
 
-[node name="Title" type="Label" parent="."]
-margin_left = 32.0
-margin_top = 144.0
-margin_right = 224.0
-margin_bottom = 224.0
-custom_fonts/font = ExtResource( 103 )
-text = "LUX"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-margin_left = 19.0
-margin_top = 250.0
-margin_right = 175.0
-margin_bottom = 348.0
-theme = ExtResource( 110 )
-
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-margin_left = 8.0
-margin_top = 208.0
-margin_right = 164.0
-margin_bottom = 222.0
-focus_neighbour_bottom = NodePath("../SettingsButton")
-text = "PLAY"
-flat = true
-
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
-margin_left = 24.0
-margin_top = 248.0
-margin_right = 180.0
-margin_bottom = 262.0
-focus_neighbour_top = NodePath("../PlayButton")
-focus_neighbour_bottom = NodePath("../ExitButton")
-text = "SETTINGS"
-flat = true
-
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-margin_left = 8.0
-margin_top = 288.0
-margin_right = 164.0
-margin_bottom = 302.0
-focus_neighbour_top = NodePath("../SettingsButton")
-text = "EXIT"
-flat = true
-
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.997742, 1.00012 )
@@ -797,23 +755,23 @@ margin_bottom = 360.0
 alignment = 1
 
 [node name="LevelsTitle" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 67.0
+margin_top = 72.0
 margin_right = 512.0
-margin_bottom = 91.0
+margin_bottom = 96.0
 custom_fonts/font = ExtResource( 105 )
 text = "TUTORIAL"
 
 [node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 95.0
+margin_top = 100.0
 margin_right = 512.0
-margin_bottom = 159.0
+margin_bottom = 164.0
 texture = ExtResource( 109 )
 stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 163.0
+margin_top = 168.0
 margin_right = 512.0
-margin_bottom = 177.0
+margin_bottom = 182.0
 alignment = 1
 
 [node name="PreviousBut" type="Button" parent="ControlPlay/Popup/VBoxContainer/HBoxContainer"]
@@ -835,29 +793,72 @@ text = "NEXT"
 flat = true
 
 [node name="Launch" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 181.0
+margin_top = 186.0
 margin_right = 512.0
-margin_bottom = 205.0
+margin_bottom = 210.0
 focus_neighbour_bottom = NodePath("../BackfromPlay")
 custom_fonts/font = ExtResource( 105 )
 text = "Launch"
 flat = true
 
 [node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 209.0
+margin_top = 214.0
 margin_right = 512.0
-margin_bottom = 233.0
+margin_bottom = 238.0
 focus_neighbour_top = NodePath("../Launch")
 custom_fonts/font = ExtResource( 105 )
 text = "Back"
 flat = true
 
 [node name="Level_Time" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 237.0
+margin_top = 242.0
 margin_right = 512.0
-margin_bottom = 261.0
-custom_fonts/font = ExtResource( 105 )
+margin_bottom = 256.0
 text = "Time"
+
+[node name="Title" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 144.0
+margin_right = 224.0
+margin_bottom = 224.0
+custom_fonts/font = ExtResource( 103 )
+text = "LUX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 19.0
+margin_top = 250.0
+margin_right = 175.0
+margin_bottom = 348.0
+theme = ExtResource( 110 )
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+margin_left = 8.0
+margin_top = 208.0
+margin_right = 164.0
+margin_bottom = 222.0
+focus_neighbour_bottom = NodePath("../SettingsButton")
+text = "PLAY"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+margin_left = 24.0
+margin_top = 248.0
+margin_right = 180.0
+margin_bottom = 262.0
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+text = "SETTINGS"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+margin_left = 8.0
+margin_top = 288.0
+margin_right = 164.0
+margin_bottom = 302.0
+focus_neighbour_top = NodePath("../SettingsButton")
+text = "EXIT"
+flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 112 )
@@ -870,9 +871,6 @@ stream = ExtResource( 112 )
 stream = ExtResource( 112 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider2" to="Control" method="_on_HSlider2_value_changed"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider3" to="Control" method="_on_HSlider3_value_changed"]
@@ -881,3 +879,6 @@ stream = ExtResource( 112 )
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut" to="ControlPlay" method="_on_NextBut_pressed"]
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_pressed"]
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
