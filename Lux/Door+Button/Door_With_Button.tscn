@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon0.png" type="Texture" id=1]
+[ext_resource path="res://Door+Button/Door_With_Button.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13, 11 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
+
+[node name="Door_With_Button" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Button_Static" type="Sprite" parent="."]
+light_mask = 16
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Button" type="StaticBody2D" parent="Button_Static"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button_Static/Button"]
+shape = SubResource( 1 )
+
+[node name="Button_Area" type="Area2D" parent="Button_Static"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button_Static/Button_Area"]
+position = Vector2( 0, -1 )
+shape = SubResource( 2 )
+
+[node name="Door_Static" type="Sprite" parent="."]
+position = Vector2( 64, -31 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Door" type="StaticBody2D" parent="Door_Static"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_Static/Door"]
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="Button_Static/Button_Area" to="." method="_on_Button_Area_body_entered"]

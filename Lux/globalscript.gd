@@ -10,3 +10,13 @@ var levelreload = false
 
 
 var apply_shake = false
+
+
+
+
+
+var players_first_time = 0
+
+
+func _ready():
+	pass
