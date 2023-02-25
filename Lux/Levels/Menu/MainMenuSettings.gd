@@ -6,6 +6,7 @@ var audio_setting_file = "res://audiosave.txt"
 onready var audio_slider = $Popup/VBoxContainer/VBoxContainer/HSlider
 onready var audio_music_slider = $Popup/VBoxContainer/VBoxContainer/HSlider2
 onready var audio_effects_slider = $Popup/VBoxContainer/VBoxContainer/HSlider3
+onready var sliderchange = $SliderChange
 
 var audio_master : int = 0
 var audio_music : int = 0
@@ -13,6 +14,8 @@ var audio_effects : int = 0
 
 #var audio_dictionary : int = 0
 var audio_dictionary = {"audio_master": audio_master, "audio_music": audio_music, "audio_effects": audio_effects}
+
+
 
 
 
@@ -29,12 +32,11 @@ func _ready():
 		
 		AudioServer.set_bus_volume_db(master_bus, audio_value_master)
 		audio_slider.value = audio_value_master
-		print(audio_dictionary)
 		print("Assigned Master!")
 		if audio_value_master == -20:
-			AudioServer.set_bus_mute(0, true)
+			AudioServer.set_bus_mute(master_bus, true)
 		else:
-			AudioServer.set_bus_mute(0, false)
+			AudioServer.set_bus_mute(master_bus, false)
 			
 			
 		AudioServer.set_bus_volume_db(1, audio_value_music)
@@ -44,7 +46,7 @@ func _ready():
 			AudioServer.set_bus_mute(1, true)
 		else:
 			AudioServer.set_bus_mute(1, false)
-			
+
 		AudioServer.set_bus_volume_db(2, audio_value_effects)
 		audio_effects_slider.value = audio_value_effects
 		print("Assigned Effects!")
@@ -66,6 +68,7 @@ func save_audio():
 
 func _on_HSlider_value_changed(value):
 		#This is the main function for changing the volume value of the targed audio bus
+	sliderchange.play()
 	AudioServer.set_bus_volume_db(master_bus, value)
 	audio_master = value
 	audio_dictionary = {"audio_master": audio_master, "audio_music": audio_music, "audio_effects": audio_effects}
@@ -78,6 +81,7 @@ func _on_HSlider_value_changed(value):
 
 
 func _on_HSlider2_value_changed(value):
+	sliderchange.play()
 	AudioServer.set_bus_volume_db(1, value)
 	audio_music = value
 	audio_dictionary = {"audio_master": audio_master, "audio_music": audio_music, "audio_effects": audio_effects}
@@ -90,6 +94,7 @@ func _on_HSlider2_value_changed(value):
 
 
 func _on_HSlider3_value_changed(value):
+	sliderchange.play()
 	AudioServer.set_bus_volume_db(2, value)
 	audio_effects = value
 	audio_dictionary = {"audio_master": audio_master, "audio_music": audio_music, "audio_effects": audio_effects}
@@ -99,3 +104,6 @@ func _on_HSlider3_value_changed(value):
 		AudioServer.set_bus_mute(2, true)
 	else:
 		AudioServer.set_bus_mute(2, false)
+
+
+

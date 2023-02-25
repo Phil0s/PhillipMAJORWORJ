@@ -2,7 +2,7 @@ extends Control
 
 onready var title = $Popup/VBoxContainer/LevelsTitle
 onready var levelpicture = $Popup/VBoxContainer/TextureRect
-
+onready var buttonpress = $ButtonPress
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -43,10 +43,14 @@ func _process(delta):
 func _on_PreviousBut_pressed():
 	if Globalscript.levelorder == 0:
 		Globalscript.levelorder = 5
+		buttonpress.play()
 	else: 
 		Globalscript.levelorder -= 1
+		buttonpress.play()
 func _on_NextBut_pressed():
 	if Globalscript.levelorder == 5:
 		Globalscript.levelorder = 0 
+		buttonpress.play()
 	else:
 		Globalscript.levelorder += 1
+		buttonpress.play()

@@ -14,6 +14,10 @@ onready var playpage = $ControlPlay/Popup
 onready var musicslider = $Control/Popup/VBoxContainer/VBoxContainer/HSlider
 onready var Launchbutton = $ControlPlay/Popup/VBoxContainer/Launch
 onready var nextbut = $ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut
+onready var buttonhover = $ButtonHover
+onready var buttonpressed = $ButtonPressed
+onready var sliderchange = $SliderChange
+onready var exitbut = $VBoxContainer/ExitButton
 
 
 func _ready():
@@ -24,7 +28,6 @@ func _ready():
 	
 func _defaultreset(): #Played when scene first loaded, to ensure everything starts of at the correct position and settings
 	MManimationPlayer.play("Default")
-	$AnimatedSprite.speed_scale = 1
 
 func _on_ExitButton_pressed(): #Close the app
 	print("Exit button pressed")
@@ -35,16 +38,16 @@ func _on_PlayButton_pressed(): #Open level select
 	print("Play Button Pressed")
 	if MManimationfinished:
 		MManimationPlayer.play("Play")
-		$AnimatedSprite.speed_scale = 1.5
+		buttonpressed.play()
 		playpage.visible = true
-		print("LevelPage visible")
 		nextbut.grab_focus()
+	
 
 func _on_SettingsButton_pressed(): #Open settings button
 	if MManimationfinished:
 		print("Settings Button Pressed")
+		buttonpressed.play()
 		MManimationPlayer.play("Settings")
-		$AnimatedSprite.speed_scale = 1.5
 		settingspage.visible = true
 		musicslider.grab_focus()
 
@@ -54,7 +57,7 @@ func _on_AnimationPlayer_animation_finished(anim_name): #To ensure no more than 
 func _on_Back_pressed(): #Settingsback to Main Menu
 	if MManimationfinished:
 		MManimationPlayer.play("SettingsBack")
-		$AnimatedSprite.speed_scale = 1
+		buttonpressed.play()
 		settingspage.visible = false
 		settingsbut.grab_focus()
 
@@ -62,7 +65,6 @@ func _on_Back_pressed(): #Settingsback to Main Menu
 func _on_BackfromPlay_pressed(): #Level menu to Main menu
 	if MManimationfinished:
 		MManimationPlayer.play("Playback")
-		$AnimatedSprite.speed_scale = 1
 		playpage.visible = false
 		startbut.grab_focus()
 
@@ -81,3 +83,79 @@ func _on_Launch_pressed():
 
 
 
+
+
+func _on_PlayButton_focus_entered():
+	buttonhover.play()
+
+
+func _on_SettingsButton_focus_entered():
+	buttonhover.play()
+
+
+func _on_ExitButton_focus_entered():
+	buttonhover.play()
+
+
+func _on_ExitButton_mouse_entered():
+	exitbut.grab_focus()
+	buttonhover.play()
+
+
+func _on_SettingsButton_mouse_entered():
+	buttonhover.play()
+	settingsbut.grab_focus()
+
+
+func _on_PlayButton_mouse_entered():
+	buttonhover.play()
+	startbut.grab_focus()
+
+
+func _on_Back_mouse_entered():
+	buttonhover.play()
+
+
+func _on_Back_focus_entered():
+	buttonhover.play()
+
+
+func _on_HSlider_focus_entered():
+	buttonhover.play()
+
+
+func _on_HSlider2_focus_entered():
+	buttonhover.play()
+
+
+func _on_HSlider3_focus_entered():
+	buttonhover.play()
+
+
+
+func _on_BackfromPlay_focus_entered():
+	buttonhover.play()
+
+
+func _on_BackfromPlay_mouse_entered():
+	buttonhover.play()
+
+
+func _on_Launch_focus_entered():
+	buttonhover.play()
+
+
+func _on_NextBut_focus_entered():
+	buttonhover.play()
+
+
+func _on_NextBut_mouse_entered():
+	buttonhover.play()
+
+
+func _on_PreviousBut_focus_entered():
+	buttonhover.play()
+
+
+func _on_PreviousBut_mouse_entered():
+	buttonhover.play()
