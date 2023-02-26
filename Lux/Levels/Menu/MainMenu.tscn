@@ -1,4 +1,4 @@
-[gd_scene load_steps=296 format=2]
+[gd_scene load_steps=297 format=2]
 
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_000_delay-0.03s.jpg" type="Texture" id=1]
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_001_delay-0.03s.jpg" type="Texture" id=2]
@@ -275,7 +275,7 @@
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_245_delay-0.03s.jpg" type="Texture" id=273]
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_216_delay-0.03s.jpg" type="Texture" id=274]
 [ext_resource path="res://Audio/LowBlip.wav" type="AudioStream" id=275]
-[ext_resource path="res://Audio/dailogue2.wav" type="AudioStream" id=276]
+[ext_resource path="res://Audio/SliderChange.wav" type="AudioStream" id=276]
 [ext_resource path="res://Resources/Shaders/TV.tres" type="Material" id=277]
 [ext_resource path="res://Audio/lowflip.wav" type="AudioStream" id=278]
 [ext_resource path="res://Resources/Buttons/SliderButton.png" type="Texture" id=279]
@@ -285,6 +285,7 @@
 [ext_resource path="res://Resources/Shaders/SliderAreaGradient.tres" type="StyleBox" id=283]
 [ext_resource path="res://Resources/Shaders/ButtonHover.tres" type="StyleBox" id=284]
 [ext_resource path="res://Resources/Buttons/Help.png" type="Texture" id=285]
+[ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=286]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -644,7 +645,7 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 1.00946, 1.00279 )
 frames = SubResource( 9 )
-frame = 208
+frame = 122
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -689,19 +690,20 @@ margin_bottom = 360.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Popup/VBoxContainer"]
-margin_top = 54.0
+margin_top = 51.0
 margin_right = 517.0
-margin_bottom = 224.0
+margin_bottom = 227.0
 
 [node name="Label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
 margin_right = 517.0
-margin_bottom = 14.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 286 )
 text = "AUDIO - MASTER"
 
 [node name="HSlider" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 18.0
+margin_top = 20.0
 margin_right = 517.0
-margin_bottom = 36.0
+margin_bottom = 38.0
 focus_neighbour_bottom = NodePath("../HSlider2")
 custom_icons/grabber_highlight = ExtResource( 280 )
 custom_icons/grabber = ExtResource( 279 )
@@ -712,9 +714,9 @@ min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 40.0
+margin_top = 42.0
 margin_right = 517.0
-margin_bottom = 54.0
+margin_bottom = 56.0
 custom_constants/separation = 484
 alignment = 1
 
@@ -731,15 +733,16 @@ text = "100"
 align = 2
 
 [node name="Label2" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 58.0
+margin_top = 60.0
 margin_right = 517.0
-margin_bottom = 72.0
+margin_bottom = 76.0
+custom_fonts/font = ExtResource( 286 )
 text = "AUDIO - MUSIC"
 
 [node name="HSlider2" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 76.0
+margin_top = 80.0
 margin_right = 517.0
-margin_bottom = 94.0
+margin_bottom = 98.0
 focus_neighbour_top = NodePath("../HSlider")
 focus_neighbour_bottom = NodePath("../HSlider3")
 custom_icons/grabber_highlight = ExtResource( 280 )
@@ -751,9 +754,9 @@ min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 98.0
+margin_top = 102.0
 margin_right = 517.0
-margin_bottom = 112.0
+margin_bottom = 116.0
 custom_constants/separation = 484
 
 [node name="0label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer2"]
@@ -769,15 +772,16 @@ text = "100"
 align = 2
 
 [node name="Label3" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 116.0
+margin_top = 120.0
 margin_right = 517.0
-margin_bottom = 130.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 286 )
 text = "AUDIO - EFFECTS"
 
 [node name="HSlider3" type="HSlider" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 134.0
+margin_top = 140.0
 margin_right = 517.0
-margin_bottom = 152.0
+margin_bottom = 158.0
 focus_neighbour_top = NodePath("../HSlider2")
 focus_neighbour_bottom = NodePath("../../Back")
 custom_icons/grabber_highlight = ExtResource( 280 )
@@ -789,9 +793,9 @@ min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Popup/VBoxContainer/VBoxContainer"]
-margin_top = 156.0
+margin_top = 162.0
 margin_right = 517.0
-margin_bottom = 170.0
+margin_bottom = 176.0
 custom_constants/separation = 485
 
 [node name="0label" type="Label" parent="Control/Popup/VBoxContainer/VBoxContainer/HBoxContainer"]
@@ -807,9 +811,9 @@ text = "100"
 align = 2
 
 [node name="Back" type="Button" parent="Control/Popup/VBoxContainer"]
-margin_top = 228.0
+margin_top = 231.0
 margin_right = 517.0
-margin_bottom = 252.0
+margin_bottom = 255.0
 focus_neighbour_top = NodePath("../VBoxContainer/HSlider3")
 custom_fonts/font = ExtResource( 105 )
 custom_styles/focus = ExtResource( 284 )
@@ -817,9 +821,9 @@ text = "Back"
 flat = true
 
 [node name="Save" type="Label" parent="Control/Popup/VBoxContainer"]
-margin_top = 256.0
+margin_top = 259.0
 margin_right = 517.0
-margin_bottom = 274.0
+margin_bottom = 277.0
 focus_neighbour_top = NodePath("../VBoxContainer/HSlider")
 focus_neighbour_bottom = NodePath("../Back")
 custom_fonts/font = ExtResource( 107 )
@@ -857,51 +861,45 @@ margin_bottom = 360.0
 alignment = 1
 
 [node name="LevelsTitle" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 67.0
+margin_top = 52.0
 margin_right = 512.0
-margin_bottom = 91.0
+margin_bottom = 76.0
 custom_fonts/font = ExtResource( 105 )
 text = "TUTORIAL"
 
 [node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 95.0
+margin_top = 80.0
 margin_right = 512.0
-margin_bottom = 159.0
+margin_bottom = 144.0
 texture = ExtResource( 109 )
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 163.0
+[node name="PreviousBut" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
+margin_top = 148.0
 margin_right = 512.0
-margin_bottom = 187.0
-alignment = 1
-
-[node name="PreviousBut" type="Button" parent="ControlPlay/Popup/VBoxContainer/HBoxContainer"]
-margin_left = 146.0
-margin_right = 290.0
-margin_bottom = 24.0
+margin_bottom = 172.0
 focus_neighbour_right = NodePath("../NextBut")
-focus_neighbour_bottom = NodePath("../../Launch")
+focus_neighbour_bottom = NodePath("../Launch")
 custom_fonts/font = ExtResource( 105 )
 custom_styles/focus = ExtResource( 284 )
 text = "PREVIOUS"
 flat = true
 
-[node name="NextBut" type="Button" parent="ControlPlay/Popup/VBoxContainer/HBoxContainer"]
-margin_left = 294.0
-margin_right = 366.0
-margin_bottom = 24.0
+[node name="NextBut" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
+margin_top = 176.0
+margin_right = 512.0
+margin_bottom = 200.0
 focus_neighbour_left = NodePath("../PreviousBut")
-focus_neighbour_bottom = NodePath("../../Launch")
+focus_neighbour_bottom = NodePath("../Launch")
 custom_fonts/font = ExtResource( 105 )
 custom_styles/focus = ExtResource( 284 )
 text = "NEXT"
 flat = true
 
 [node name="Launch" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 191.0
+margin_top = 204.0
 margin_right = 512.0
-margin_bottom = 215.0
+margin_bottom = 228.0
 focus_neighbour_bottom = NodePath("../BackfromPlay")
 custom_fonts/font = ExtResource( 105 )
 custom_styles/focus = ExtResource( 284 )
@@ -909,9 +907,9 @@ text = "Launch"
 flat = true
 
 [node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 219.0
+margin_top = 232.0
 margin_right = 512.0
-margin_bottom = 243.0
+margin_bottom = 256.0
 focus_neighbour_top = NodePath("../Launch")
 custom_fonts/font = ExtResource( 105 )
 custom_styles/focus = ExtResource( 284 )
@@ -919,12 +917,14 @@ text = "Back"
 flat = true
 
 [node name="Level_Time" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 247.0
+margin_top = 260.0
 margin_right = 512.0
-margin_bottom = 261.0
+margin_bottom = 276.0
+custom_fonts/font = ExtResource( 286 )
 text = "Time"
 
 [node name="ButtonPress" type="AudioStreamPlayer2D" parent="ControlPlay"]
+position = Vector2( 320, 208 )
 stream = ExtResource( 278 )
 
 [node name="Title" type="Label" parent="."]
@@ -1010,21 +1010,25 @@ custom_styles/normal = SubResource( 12 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
+[connection signal="mouse_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_mouse_entered"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="Control" method="_on_HSlider_value_changed"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider2" to="." method="_on_HSlider2_focus_entered"]
+[connection signal="mouse_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider2" to="." method="_on_HSlider2_mouse_entered"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider2" to="Control" method="_on_HSlider2_value_changed"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider3" to="." method="_on_HSlider3_focus_entered"]
+[connection signal="mouse_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider3" to="." method="_on_HSlider3_mouse_entered"]
 [connection signal="value_changed" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider3" to="Control" method="_on_HSlider3_value_changed"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_focus_entered"]
 [connection signal="mouse_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_mouse_entered"]
 [connection signal="pressed" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/PreviousBut" to="." method="_on_PreviousBut_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/PreviousBut" to="." method="_on_PreviousBut_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/PreviousBut" to="ControlPlay" method="_on_PreviousBut_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut" to="." method="_on_NextBut_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut" to="." method="_on_NextBut_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut" to="ControlPlay" method="_on_NextBut_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/PreviousBut" to="." method="_on_PreviousBut_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/PreviousBut" to="." method="_on_PreviousBut_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/PreviousBut" to="ControlPlay" method="_on_PreviousBut_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/NextBut" to="." method="_on_NextBut_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/NextBut" to="." method="_on_NextBut_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/NextBut" to="ControlPlay" method="_on_NextBut_pressed"]
 [connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_mouse_entered"]
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_pressed"]
 [connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_focus_entered"]
 [connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_mouse_entered"]

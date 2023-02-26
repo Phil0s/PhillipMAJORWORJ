@@ -12,12 +12,19 @@ onready var settingsbut = $VBoxContainer/SettingsButton
 onready var settingspage = $Control/Popup
 onready var playpage = $ControlPlay/Popup
 onready var musicslider = $Control/Popup/VBoxContainer/VBoxContainer/HSlider
+onready var musicslider1 = $Control/Popup/VBoxContainer/VBoxContainer/HSlider2
+onready var musicslider2 = $Control/Popup/VBoxContainer/VBoxContainer/HSlider3
 onready var Launchbutton = $ControlPlay/Popup/VBoxContainer/Launch
-onready var nextbut = $ControlPlay/Popup/VBoxContainer/HBoxContainer/NextBut
+onready var nextbut = $ControlPlay/Popup/VBoxContainer/NextBut
+onready var previousbut = $ControlPlay/Popup/VBoxContainer/PreviousBut
 onready var buttonhover = $ButtonHover
 onready var buttonpressed = $ButtonPressed
 onready var sliderchange = $SliderChange
 onready var exitbut = $VBoxContainer/ExitButton
+onready var backfromsettings = $Control/Popup/VBoxContainer/Back
+onready var backfromplay = $ControlPlay/Popup/VBoxContainer/BackfromPlay
+
+
 
 
 func _ready():
@@ -64,6 +71,7 @@ func _on_Back_pressed(): #Settingsback to Main Menu
 
 func _on_BackfromPlay_pressed(): #Level menu to Main menu
 	if MManimationfinished:
+		buttonpressed.play()
 		MManimationPlayer.play("Playback")
 		playpage.visible = false
 		startbut.grab_focus()
@@ -113,6 +121,7 @@ func _on_PlayButton_mouse_entered():
 
 
 func _on_Back_mouse_entered():
+	backfromsettings.grab_focus()
 	buttonhover.play()
 
 
@@ -138,6 +147,7 @@ func _on_BackfromPlay_focus_entered():
 
 
 func _on_BackfromPlay_mouse_entered():
+	backfromplay.grab_focus()
 	buttonhover.play()
 
 
@@ -150,6 +160,7 @@ func _on_NextBut_focus_entered():
 
 
 func _on_NextBut_mouse_entered():
+	nextbut.grab_focus()
 	buttonhover.play()
 
 
@@ -158,4 +169,22 @@ func _on_PreviousBut_focus_entered():
 
 
 func _on_PreviousBut_mouse_entered():
+	previousbut.grab_focus()
+	buttonhover.play()
+
+
+func _on_HSlider3_mouse_entered():
+	musicslider2.grab_focus()
+
+
+func _on_HSlider2_mouse_entered():
+	musicslider1.grab_focus()
+
+
+func _on_HSlider_mouse_entered():
+	musicslider.grab_focus()
+
+
+func _on_Launch_mouse_entered():
+	Launchbutton.grab_focus()
 	buttonhover.play()
