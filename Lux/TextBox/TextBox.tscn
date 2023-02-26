@@ -1,16 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/ConvenantFONTMMButtons.tres" type="DynamicFont" id=2]
 [ext_resource path="res://TextBox/TextBox.gd" type="Script" id=3]
-[ext_resource path="res://Resources/Sprite/Idle/CharacterNew2.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Sprite/Idle/CharacterNew1.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Sprite/MissionControl/MissionControl.png" type="Texture" id=4]
 [ext_resource path="res://Audio/MainCharDialogue.wav" type="AudioStream" id=6]
 [ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=7]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 1.0
@@ -107,8 +106,8 @@ pause_mode = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 104, 248 )
-scale = Vector2( 5.5, 5.5 )
+position = Vector2( 125, 211 )
+scale = Vector2( 1.90625, 1.90625 )
 frames = SubResource( 3 )
 playing = true
 
