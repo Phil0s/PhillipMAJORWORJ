@@ -179,6 +179,7 @@ smoothing_speed = 2.0
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.1, 0 )
 motion_mirroring = Vector2( 1000, 0 )
 

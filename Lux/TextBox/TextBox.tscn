@@ -1,17 +1,24 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Fonts/ConvenantFONTMMButtons.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/Convenant evensmallert.tres" type="DynamicFont" id=2]
 [ext_resource path="res://TextBox/TextBox.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Sprite/MissionControl/MissionControl.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprite/MissionControl/DeadMiner.png" type="Texture" id=5]
 [ext_resource path="res://Audio/MainCharDialogue.wav" type="AudioStream" id=6]
 [ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Resources/Shaders/Glitch.tres" type="Material" id=8]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "DeadMiner",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "default",
+"name": "Mission Control",
 "speed": 1.0
 } ]
 
@@ -106,13 +113,13 @@ pause_mode = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 125, 211 )
-scale = Vector2( 1.90625, 1.90625 )
+position = Vector2( 147.75, 304 )
+scale = Vector2( 1.22656, 1.25 )
 frames = SubResource( 3 )
-playing = true
+animation = "Mission Control"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 64.0
+margin_left = 187.0
 margin_top = 264.0
 margin_right = 576.0
 margin_bottom = 344.0
@@ -121,31 +128,31 @@ color = Color( 0, 0, 0, 1 )
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 504.0
+margin_right = 386.0
 margin_bottom = 72.0
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 9.0
 margin_top = 9.0
-margin_right = 502.0
+margin_right = 384.0
 margin_bottom = 71.0
 
 [node name="Name1" type="RichTextLabel" parent="ColorRect"]
 margin_left = 16.0
 margin_top = 11.0
-margin_right = 512.0
+margin_right = 383.0
 margin_bottom = 35.0
-custom_fonts/normal_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 7 )
 text = "NAME GOES HERE"
 scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="ColorRect"]
 margin_left = 16.0
-margin_top = 35.0
-margin_right = 496.0
-margin_bottom = 83.0
-custom_fonts/normal_font = ExtResource( 7 )
+margin_top = 26.0
+margin_right = 377.0
+margin_bottom = 74.0
+custom_fonts/normal_font = ExtResource( 2 )
 text = "Hello my name is phillip, press A to move to the right and this is a second line"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -187,6 +194,13 @@ stream = ExtResource( 6 )
 
 [node name="TransitionTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Glitch" type="ColorRect" parent="."]
+material = ExtResource( 8 )
+margin_left = 108.0
+margin_top = 264.0
+margin_right = 188.0
+margin_bottom = 344.0
 
 [connection signal="animation_finished" from="Label/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_TransitionTimer_timeout"]

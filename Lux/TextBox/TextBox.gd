@@ -7,6 +7,7 @@ export(float) var textspeed = 0.05
 onready var texttimer = $Timer
 onready var name1 = $ColorRect/Name1
 onready var textwords = $ColorRect/Text
+onready var glitch = $Glitch
 var dialogue
 var playingrn = false
 var anim_finished = true
