@@ -1,6 +1,8 @@
 # Lux
 My Year 12 Major Work Repository. This is the offical one and others might be drafts. 
 
+Please use this read me file in Main branch for regualr info
+
 Branch INFO:
 - Main is a hollow husk, I don't plan on commiting on main till I finish the entire project.
 - All other branches should contain parts of the game I worked on accoridng to the branch name (e.g the branch Main Menu would be when I was working on the main menu)
