@@ -8,4 +8,4 @@ Branch INFO:
 - All other branches should contain parts of the game I worked on accoridng to the branch name (e.g the branch Main Menu would be when I was working on the main menu)
 
 Current Branch: (I will put the current branch I am working on under this title, don't worry I will update this regularly)
- - currently i am working on
+ - currently i am working on "Home" branch
