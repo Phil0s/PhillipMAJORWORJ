@@ -128,6 +128,7 @@ func _physics_process(delta):
 
 func dash_timer_timeout():
 	is_dashing = false
+	sprite.material.set_shader_param("whiten", false)
 
 func get_direction_from_input():
 	var move_direction = Vector2()
@@ -149,7 +150,10 @@ func handle_dash(var delta):
 		is_dashing = true
 		can_dash = false
 		dash_direction = get_direction_from_input()
+		sprite.material.set_shader_param("mix_weight", 0.7)
+		sprite.material.set_shader_param("whiten", true)
 		dash_timer.start(dash_length)
+		
 		
 	if(is_dashing):
 		var dash_node = dash_object.instance()
@@ -157,12 +161,13 @@ func handle_dash(var delta):
 		dash_node.global_position = global_position
 		dash_node.flip_h = sprite.flip_h
 		get_parent().add_child(dash_node)
-		
 		dash_particles.emitting = true
 		if(touching_ground):
 			is_dashing = false
+			sprite.material.set_shader_param("whiten", false)
 		if(is_on_wall()):
 			is_dashing = false
+			sprite.material.set_shader_param("whiten", false)
 	else:
 		dash_particles.emitting = false
 	
@@ -176,7 +181,7 @@ func check_ground_wall_logic():
 		coyote_time = false
 	#Check if we are landing on the ground (again)
 	if(!touching_ground and (ground_ray.is_colliding() and ground_ray2.is_colliding() and ground_ray3.is_colliding())):
-		sprite.scale = Vector2(1.2,0.8) #Stretch on X, Squash on Y, create landing recoil effect
+		sprite.scale = Vector2(0.8,0.5) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
 	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding())):
@@ -258,7 +263,7 @@ func handle_jumping(var delta):
 			vSpeed = jump_height
 			is_jumping = true
 			touching_ground = false
-			sprite.scale = Vector2(0.5,1.2)
+			sprite.scale = Vector2(0.5,0.8) #Squash on X and strech on y this when called when we are jumping
 	else: #Check are we in the air, is jump button being held down? If !being held down then half the jump height. This is a shorter jump for users that quickly tap the jump button
 #		if(vSpeed < 0 and !Input.is_action_pressed("Jump") and !is_double_jumping):
 #			vSpeed = max(vSpeed, jump_height/2)
@@ -325,8 +330,8 @@ func do_physics(var delta):
 
 func apply_squash_squeeze():
 	#Lerp provides gradual shift, towards what? Well towards our natural scale of (1,1). So any squash or squeeze effects will gradually dissapate. 
-	sprite.scale.x = lerp(sprite.scale.x,1,squash_speed)
-	sprite.scale.y = lerp(sprite.scale.y,1,squash_speed)
+	sprite.scale.x = lerp(sprite.scale.x,0.704,squash_speed)
+	sprite.scale.y = lerp(sprite.scale.y,0.704,squash_speed)
 
 func handle_player_collision_shapes():
 	if(is_sliding and slide_collision.disabled):

@@ -19,6 +19,7 @@ func _ready():
 	get_child(0).visible = false
 	get_child(1).visible = false
 	get_child(4).visible = false
+	glitch.visible = false
 	#get_child(2).visible = false
 	
 
