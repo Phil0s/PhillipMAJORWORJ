@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 
 	#Player entered Area2D and rays are seeing player
 	if(!not_detected) and rays_are_detecting_confirmed:
+			print("1")
 			pursuiting = true
 #		if raycast.is_colliding():
 #			var collider = raycast.get_collider()
@@ -74,6 +75,9 @@ func _physics_process(delta: float) -> void:
 	#If whilst pursuiting the player leaves our error we stop pursuiting
 	if(not_detected) and pursuiting:
 		pursuiting = false
+#		if(!timer_alr):
+#			tracking_timer.start()
+#			timer_alr = true
 	
 	#player in area BUT cannot see us and is not pursuiting (Since we are still in area we rely on the chase timer to expire) 
 	if(!not_detected) and !rays_are_detecting_confirmed and !pursuiting:
@@ -157,6 +161,7 @@ func rotatetotarget(target, delta):
 
 
 func _on_RaycastBox_rays_detecting():
+	print("true")
 	rays_are_detecting_confirmed = true
 
 
