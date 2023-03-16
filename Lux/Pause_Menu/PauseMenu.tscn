@@ -1,0 +1,363 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Levels/Menu/SettingsControl.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Pause_Menu/ButtonParent.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Pause_Menu/PauseMenu.gd" type="Script" id=5]
+[ext_resource path="res://Theme1.tres" type="Theme" id=6]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = -65.0
+margin_right = 81.0
+margin_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer2"]
+margin_right = 162.0
+margin_bottom = 148.0
+
+[node name="Label" type="Label" parent="GridContainer2/VBoxContainer"]
+margin_right = 162.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 3 )
+text = "PAUSED"
+align = 1
+
+[node name="Button" type="Button" parent="GridContainer2/VBoxContainer"]
+margin_top = 40.0
+margin_right = 162.0
+margin_bottom = 54.0
+focus_neighbour_bottom = NodePath("../Button2")
+text = "SAVE/LOAD"
+flat = true
+
+[node name="Button2" type="Button" parent="GridContainer2/VBoxContainer"]
+margin_top = 58.0
+margin_right = 162.0
+margin_bottom = 72.0
+focus_neighbour_top = NodePath("../Button")
+focus_neighbour_bottom = NodePath("../Button3")
+text = "AUDIO"
+flat = true
+
+[node name="Button3" type="Button" parent="GridContainer2/VBoxContainer"]
+margin_top = 76.0
+margin_right = 162.0
+margin_bottom = 90.0
+focus_neighbour_top = NodePath("../Button2")
+text = "KEYBINDING"
+flat = true
+
+[node name="Button4" type="Button" parent="GridContainer2/VBoxContainer"]
+margin_top = 94.0
+margin_right = 162.0
+margin_bottom = 108.0
+focus_neighbour_top = NodePath("../Button2")
+text = "RESTART"
+flat = true
+
+[node name="Button5" type="Button" parent="GridContainer2/VBoxContainer"]
+modulate = Color( 1, 0.00392157, 0.00392157, 1 )
+margin_top = 112.0
+margin_right = 162.0
+margin_bottom = 126.0
+text = "Exit Level (No Save)"
+flat = true
+
+[node name="Label2" type="Label" parent="GridContainer2/VBoxContainer"]
+margin_top = 130.0
+margin_right = 162.0
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 1 )
+text = "\"ESC\" to unpause"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_right = 297.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 3 )
+text = "KEYBINDINGS"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
+margin_top = 40.0
+margin_right = 297.0
+margin_bottom = 212.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_right = 297.0
+margin_bottom = 18.0
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "RIGHT:"
+
+[node name="ButtonParent3" parent="GridContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 44.0
+margin_right = 54.0
+margin_bottom = 18.0
+text = "D"
+flat = true
+action_name = "Right"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 297.0
+margin_bottom = 40.0
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 36.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "LEFT:"
+
+[node name="ButtonParent2" parent="GridContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 4 )]
+margin_left = 40.0
+margin_right = 49.0
+margin_bottom = 18.0
+text = "A"
+flat = true
+action_name = "Left"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 297.0
+margin_bottom = 62.0
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer3"]
+margin_right = 35.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "JUMP:"
+
+[node name="ButtonParent" parent="GridContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 4 )]
+margin_left = 39.0
+margin_right = 52.0
+margin_bottom = 18.0
+text = "W"
+flat = true
+action_name = "Jump"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 297.0
+margin_bottom = 84.0
+
+[node name="Label4" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer4"]
+margin_right = 38.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "DOWN:"
+
+[node name="ButtonParent4" parent="GridContainer/VBoxContainer/HBoxContainer4" instance=ExtResource( 4 )]
+margin_left = 42.0
+margin_right = 49.0
+margin_bottom = 18.0
+text = "S"
+flat = true
+action_name = "Down"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 297.0
+margin_bottom = 106.0
+
+[node name="Label5" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer5"]
+margin_right = 37.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "DASH:"
+
+[node name="ButtonParent5" parent="GridContainer/VBoxContainer/HBoxContainer5" instance=ExtResource( 4 )]
+margin_left = 41.0
+margin_right = 78.0
+margin_bottom = 18.0
+flat = true
+action_name = "Dash"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 110.0
+margin_right = 297.0
+margin_bottom = 128.0
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer6"]
+margin_right = 39.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "SLIDE:"
+
+[node name="ButtonParent6" parent="GridContainer/VBoxContainer/HBoxContainer6" instance=ExtResource( 4 )]
+margin_left = 43.0
+margin_right = 71.0
+margin_bottom = 18.0
+text = "Shift"
+flat = true
+action_name = "Slide"
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 297.0
+margin_bottom = 150.0
+custom_fonts/font = ExtResource( 1 )
+text = "Mouse 1 to select keybinding"
+
+[node name="Label4" type="Label" parent="GridContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 297.0
+margin_bottom = 172.0
+custom_fonts/font = ExtResource( 1 )
+text = "Then press any key for desired key bind"
+
+[node name="Back1" type="Button" parent="GridContainer"]
+margin_top = 216.0
+margin_right = 297.0
+margin_bottom = 230.0
+text = "Back"
+flat = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+margin_left = -640.0
+margin_top = -688.0
+margin_right = 704.0
+margin_bottom = 720.0
+script = ExtResource( 2 )
+
+[node name="GridContainer3" type="GridContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 219.0
+margin_top = 95.0
+margin_right = 381.0
+margin_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GridContainer3"]
+margin_right = 135.0
+margin_bottom = 202.0
+
+[node name="Label" type="Label" parent="Control/GridContainer3/VBoxContainer"]
+margin_right = 135.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 3 )
+text = "AUDIO"
+align = 1
+
+[node name="Label3" type="Label" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 40.0
+margin_right = 135.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 1 )
+text = "Audio-Master"
+
+[node name="master" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 62.0
+margin_right = 135.0
+margin_bottom = 78.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
+
+[node name="Label4" type="Label" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 82.0
+margin_right = 135.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "Audio-Music"
+
+[node name="music" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 104.0
+margin_right = 135.0
+margin_bottom = 120.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
+
+[node name="Label5" type="Label" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 124.0
+margin_right = 135.0
+margin_bottom = 142.0
+custom_fonts/font = ExtResource( 1 )
+text = "Audio-Effects"
+
+[node name="effects" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 146.0
+margin_right = 135.0
+margin_bottom = 162.0
+focus_neighbour_bottom = NodePath("../../Save")
+min_value = -20.0
+max_value = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 166.0
+margin_right = 135.0
+margin_bottom = 184.0
+
+[node name="0label" type="Label" parent="Control/GridContainer3/VBoxContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+
+[node name="10labelmusic" type="Label" parent="Control/GridContainer3/VBoxContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 28.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 1 )
+text = "20"
+align = 2
+
+[node name="Back2" type="Button" parent="Control/GridContainer3/VBoxContainer"]
+margin_top = 188.0
+margin_right = 135.0
+margin_bottom = 202.0
+text = "Back"
+flat = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.5
+
+[connection signal="pressed" from="GridContainer2/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="GridContainer2/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="GridContainer2/VBoxContainer/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="GridContainer2/VBoxContainer/Button5" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="GridContainer/Back1" to="." method="_on_Back1_pressed"]
+[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/master" to="Control" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/music" to="Control" method="_on_music_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/effects" to="Control" method="_on_effects_value_changed"]
+[connection signal="pressed" from="Control/GridContainer3/VBoxContainer/Back2" to="." method="_on_Back2_pressed"]

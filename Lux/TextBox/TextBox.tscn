@@ -1,0 +1,206 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/Convenant evensmallert.tres" type="DynamicFont" id=2]
+[ext_resource path="res://TextBox/TextBox.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Sprite/MissionControl/MissionControl.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprite/MissionControl/DeadMiner.png" type="Texture" id=5]
+[ext_resource path="res://Audio/MainCharDialogue.wav" type="AudioStream" id=6]
+[ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Resources/Shaders/Glitch.tres" type="Material" id=8]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "DeadMiner",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Mission Control",
+"speed": 1.0
+} ]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 16 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TextBoxArrow"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 16 ), Vector2( 160, 11 ), Vector2( 160, 16 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "New Anim"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="TextBox" type="CanvasLayer"]
+pause_mode = 1
+script = ExtResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 147.75, 304 )
+scale = Vector2( 1.22656, 1.25 )
+frames = SubResource( 3 )
+animation = "Mission Control"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 187.0
+margin_top = 264.0
+margin_right = 576.0
+margin_bottom = 344.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 386.0
+margin_bottom = 72.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 384.0
+margin_bottom = 71.0
+
+[node name="Name1" type="RichTextLabel" parent="ColorRect"]
+margin_left = 16.0
+margin_top = 11.0
+margin_right = 383.0
+margin_bottom = 35.0
+custom_fonts/normal_font = ExtResource( 7 )
+text = "NAME GOES HERE"
+scroll_active = false
+
+[node name="Text" type="RichTextLabel" parent="ColorRect"]
+margin_left = 16.0
+margin_top = 26.0
+margin_right = 377.0
+margin_bottom = 74.0
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Hello my name is phillip, press A to move to the right and this is a second line"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2( 160, 16 )
+polygon = PoolVector2Array( 400, 312, 384, 312, 392, 320 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Polygon2D"]
+pause_mode = 2
+anims/RESET = SubResource( 1 )
+anims/TextBoxArrow = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Polygon2D"]
+margin_left = 371.0
+margin_top = 293.0
+margin_right = 412.0
+margin_bottom = 311.0
+custom_fonts/font = ExtResource( 1 )
+text = "Space"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 424.0
+margin_top = 344.0
+margin_right = 573.0
+margin_bottom = 362.0
+custom_fonts/font = ExtResource( 1 )
+text = "FINISH DIALOGUE FIRST"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+"anims/New Anim" = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="TransitionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Glitch" type="ColorRect" parent="."]
+material = ExtResource( 8 )
+margin_left = 108.0
+margin_top = 264.0
+margin_right = 188.0
+margin_bottom = 344.0
+
+[connection signal="animation_finished" from="Label/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="TransitionTimer" to="." method="_on_TransitionTimer_timeout"]
