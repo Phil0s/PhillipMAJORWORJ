@@ -12,6 +12,8 @@ onready var buttonpress = $ButtonPress
 func _ready():
 	Globalscript.levelorder = 0
 
+
+#Changing text of level shown accordingly
 func _process(delta):
 	var tutorial_time = str(LevelTimer.tutorialrecord)
 	if Globalscript.levelorder == 0:
@@ -33,13 +35,13 @@ func _process(delta):
 		title.text = "Level 5"
 		$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level5)
 	var LevelNums = str(Globalscript.levelorder)
-	levelpicture.texture = load("res://icon" + LevelNums + ".png")
+	#levelpicture.texture = load("res://icon" + LevelNums + ".png")
+	levelpicture.texture = load("res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+#Example list of levels goes like tuotrial, 1, 2, 3
+#If user is on tutorial then going backwards should jump to 3
+#If user is on 3 then going forwards should jump to 1 
+#This is what the two functions below do
 func _on_PreviousBut_pressed():
 	if Globalscript.levelorder == 0:
 		Globalscript.levelorder = 5

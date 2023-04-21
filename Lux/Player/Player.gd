@@ -72,7 +72,8 @@ onready var left_ray1 = $raycast_container/ray_left2
 onready var dash_timer = $dash_timer
 onready var dash_particles = $dash_particles
 onready var cieling_ray = $raycast_container/ray_ceiling
-
+onready var right_ray3 = $raycast_container/ray_right3
+onready var left_ray3 = $raycast_container/ray_left3
 
 
 #Camera Shake
@@ -184,7 +185,7 @@ func check_ground_wall_logic():
 		sprite.scale = Vector2(0.8,0.5) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
-	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding())):
+	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding()) or (right_ray3.is_colliding() and right_ray.is_colliding()) or (right_ray3.is_colliding() and right_ray1.is_colliding()) or (left_ray3.is_colliding() and left_ray.is_colliding()) or (left_ray3.is_colliding() and left_ray1.is_colliding())                                                ):
 		touching_wall = true
 	else:
 		touching_wall = false

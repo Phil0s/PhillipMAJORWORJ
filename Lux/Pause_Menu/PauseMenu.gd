@@ -43,7 +43,7 @@ func load_keys():
 func _process(delta):
 	#I added checks for tree/scene as I do not want user bringin this up on main menu page or intro, etc. 
 	var scene_name = get_tree().current_scene.name
-	if(scene_name != "MainMenu"):
+	if(scene_name != "MainMenu") and scene_name != "Startuptext":
 		if(Input.is_action_just_pressed("Pause")):
 #			if(!TextBox.playingrn):
 			print("1")

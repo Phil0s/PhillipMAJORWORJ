@@ -146,7 +146,7 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.203922, 0.156863, 0.156863, 1 )
 
 [node name="SnowParticle" type="Particles2D" parent="."]
 visible = false

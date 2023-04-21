@@ -51,10 +51,8 @@ func _physics_process(delta):
 #			print("false")
 	if (ray1.is_colliding() or ray2.is_colliding() or ray3.is_colliding()) and (ray1.get_collider() is MainCharacter or ray2.get_collider() is MainCharacter or ray3.get_collider() is MainCharacter):
 		emit_signal('rays_detecting')
-		print("true")
 	else:
 		emit_signal('rays_lost')
-		print("false")
 
 func _rotate(target, delta):
 	var direction = (target.global_position - global_position)
