@@ -88,6 +88,14 @@ func _physics_process(delta):
 	$Line2D.points[1] = cast_point
 	
 	laser_beam()
+	
+	if self.is_colliding():
+		var name = self.get_collider()
+		var name_string = name.to_string()
+		print(name_string)
+		if name_string == "Player:[KinematicBody2D:1838]":
+			print("killed by lasers")
+			
 
 func laser_beam():
 	if is_casting:
