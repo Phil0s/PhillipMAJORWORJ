@@ -92,7 +92,6 @@ func _physics_process(delta):
 	if self.is_colliding():
 		var name = self.get_collider()
 		var name_string = name.to_string()
-		print(name_string)
 		if name_string == "Player:[KinematicBody2D:1838]":
 			print("killed by lasers")
 			

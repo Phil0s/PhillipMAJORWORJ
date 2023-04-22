@@ -69,7 +69,7 @@ one_shot = true
 [node name="Drone_Sprite" type="AnimatedSprite" parent="Enemy_Drone"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 100 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="RaycastBox" type="Sprite" parent="Enemy_Drone"]
@@ -115,7 +115,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 249, -260 )
+position = Vector2( -126, -97 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 397, -254 )

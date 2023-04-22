@@ -36,7 +36,7 @@ func _process(delta):
 		$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level5)
 	var LevelNums = str(Globalscript.levelorder)
 	#levelpicture.texture = load("res://icon" + LevelNums + ".png")
-	levelpicture.texture = load("res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png")
+	#levelpicture.texture = load("res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png")
 
 #Example list of levels goes like tuotrial, 1, 2, 3
 #If user is on tutorial then going backwards should jump to 3

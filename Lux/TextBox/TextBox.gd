@@ -38,6 +38,8 @@ func msgcalled(selectmsg):
 	dialogue = getDialogue(selectmsg)
 	assert(dialogue, "Dialogue not found")
 	nextPhrase()
+	yield(get_tree().create_timer(0.5), "timeout")
+	$ColorRect/AnimationPlayer.play("Voice")
 	
 func _process(delta):
 #	$Polygon2D.visible = finished
@@ -92,6 +94,8 @@ func getDialogue(selectmsg) -> Array:
 func nextPhrase() -> void:
 	endofdialogue = false
 	if phraseNum >= len(dialogue):
+		$ColorRect/AnimationPlayer.play("NoVoice")
+		yield(get_tree().create_timer(1), "timeout")
 #		get_tree().paused = !get_tree().paused
 #		get_child(0).visible = get_tree().paused
 #		get_child(1).visible = get_tree().paused
