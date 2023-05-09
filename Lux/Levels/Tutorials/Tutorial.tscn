@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/Tutorials/Tutorial.gd" type="Script" id=3]
@@ -118,14 +118,19 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
+[sub_resource type="Environment" id=97]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 1.0
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -608.0
-margin_top = -786.0
-margin_right = 1515.0
-margin_bottom = 823.0
+margin_left = -1727.0
+margin_top = -1092.0
+margin_right = 3297.0
+margin_bottom = 1415.0
 color = Color( 0.176471, 0.176471, 0.176471, 1 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
@@ -146,7 +151,6 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
-color = Color( 0, 0, 0, 1 )
 
 [node name="SnowParticle" type="Particles2D" parent="."]
 visible = false
@@ -218,6 +222,7 @@ shape = SubResource( 52 )
 position = Vector2( 88, 416 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -408.0
 margin_top = 256.0
 margin_right = -319.0
@@ -263,6 +268,9 @@ anims/SpinningPath = SubResource( 96 )
 position = Vector2( -19, 441 )
 
 [node name="Navigation2D" parent="." instance=ExtResource( 7 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 97 )
 
 [connection signal="body_entered" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_entered"]
 [connection signal="body_entered" from="tutorial3msg" to="tutorial3msg" method="_on_tutorial3msg_body_entered"]

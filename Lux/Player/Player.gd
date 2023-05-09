@@ -72,8 +72,9 @@ onready var left_ray1 = $raycast_container/ray_left2
 onready var dash_timer = $dash_timer
 onready var dash_particles = $dash_particles
 onready var cieling_ray = $raycast_container/ray_ceiling
-
-
+onready var right_ray3 = $raycast_container/ray_right3
+onready var left_ray3 = $raycast_container/ray_left3
+onready var spawn_finished = false
 
 #Camera Shake
 #export var camera_shake_strength: float = 30.0
@@ -91,6 +92,9 @@ onready var cieling_ray = $raycast_container/ray_ceiling
 #var shake_strength: float = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimationPlayer.play("Teleport In")
+	yield(get_node("AnimationPlayer"), "animation_finished")
+	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
 #	random.randomize()
 #	noise.seed = random.randi()
@@ -105,26 +109,27 @@ func _ready():
 #	)
 	
 func _physics_process(delta):
+	if(spawn_finished):
 #	if Globalscript.apply_shake:
 #		shake_strength = 5
 #		shake_strength = lerp(shake_strength, 0, shake_decrease_rate * delta)
 #		camera.offset = noise_generated_offset(delta)
 	#Handle dash movement
-	handle_dash(delta)
+		handle_dash(delta)
 	#Check if we are on the ground
-	check_ground_wall_logic()
+		check_ground_wall_logic()
 	#Check for standing or sliding
-	handle_player_collision_shapes()
+		handle_player_collision_shapes()
 	#Check for and handle input/character movement
-	handle_input(delta)
+		handle_input(delta)
 	#Handle Particles
 #	handle_player_particles()
 
 			
 	
 	#Apply the physics
-	do_physics(delta)
-	pass
+		do_physics(delta)
+		pass
 
 func dash_timer_timeout():
 	is_dashing = false
@@ -184,7 +189,7 @@ func check_ground_wall_logic():
 		sprite.scale = Vector2(0.8,0.5) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
-	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding())):
+	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding()) or (right_ray3.is_colliding() and right_ray.is_colliding()) or (right_ray3.is_colliding() and right_ray1.is_colliding()) or (left_ray3.is_colliding() and left_ray.is_colliding()) or (left_ray3.is_colliding() and left_ray1.is_colliding())                                                ):
 		touching_wall = true
 	else:
 		touching_wall = false
@@ -330,8 +335,8 @@ func do_physics(var delta):
 
 func apply_squash_squeeze():
 	#Lerp provides gradual shift, towards what? Well towards our natural scale of (1,1). So any squash or squeeze effects will gradually dissapate. 
-	sprite.scale.x = lerp(sprite.scale.x,0.704,squash_speed)
-	sprite.scale.y = lerp(sprite.scale.y,0.704,squash_speed)
+	sprite.scale.x = lerp(sprite.scale.x,0.804,squash_speed)
+	sprite.scale.y = lerp(sprite.scale.y,0.804,squash_speed)
 
 func handle_player_collision_shapes():
 	if(is_sliding and slide_collision.disabled):

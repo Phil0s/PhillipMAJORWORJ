@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Convenant evensmallert.tres" type="DynamicFont" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Audio/MainCharDialogue.wav" type="AudioStream" id=6]
 [ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Resources/Shaders/Glitch.tres" type="Material" id=8]
+[ext_resource path="res://TextBox/Hologram.tres" type="Material" id=9]
+[ext_resource path="res://TextBox/Wave.tres" type="Material" id=10]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -21,6 +23,52 @@ animations = [ {
 "name": "Mission Control",
 "speed": 1.0
 } ]
+
+[sub_resource type="Animation" id=6]
+resource_name = "NoVoice"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("VoiceVisuals:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VoiceVisuals:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Voice"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VoiceVisuals:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -113,6 +161,7 @@ pause_mode = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+material = ExtResource( 9 )
 position = Vector2( 147.75, 304 )
 scale = Vector2( 1.22656, 1.25 )
 frames = SubResource( 3 )
@@ -128,14 +177,14 @@ color = Color( 0, 0, 0, 1 )
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 386.0
+margin_right = 381.0
 margin_bottom = 72.0
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 9.0
 margin_top = 9.0
-margin_right = 384.0
+margin_right = 380.0
 margin_bottom = 71.0
 
 [node name="Name1" type="RichTextLabel" parent="ColorRect"]
@@ -151,9 +200,21 @@ scroll_active = false
 margin_left = 16.0
 margin_top = 26.0
 margin_right = 377.0
-margin_bottom = 74.0
+margin_bottom = 70.0
 custom_fonts/normal_font = ExtResource( 2 )
 text = "Hello my name is phillip, press A to move to the right and this is a second line"
+
+[node name="VoiceVisuals" type="ColorRect" parent="ColorRect"]
+material = ExtResource( 10 )
+margin_left = -78.0
+margin_top = 80.0
+margin_right = 1.0
+margin_bottom = 95.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+anims/NoVoice = SubResource( 6 )
+anims/RESET = SubResource( 8 )
+anims/Voice = SubResource( 7 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -196,6 +257,7 @@ stream = ExtResource( 6 )
 one_shot = true
 
 [node name="Glitch" type="ColorRect" parent="."]
+visible = false
 material = ExtResource( 8 )
 margin_left = 108.0
 margin_top = 264.0

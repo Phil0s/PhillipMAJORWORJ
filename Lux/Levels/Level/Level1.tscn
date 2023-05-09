@@ -11,11 +11,7 @@ extents = Vector2( 10, 22 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -264, 296 )
-dash_speed = 500
-acceleration = 300
-max_horizontal_speed = 110
 jump_height = -190
-wall_jump_height = -150
 wall_jump_push = 100
 
 [node name="TileMap" type="TileMap" parent="."]

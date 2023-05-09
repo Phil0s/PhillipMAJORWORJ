@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="lasers" type="RayCast2D"]
+position = Vector2( 13, 41 )
+cast_to = Vector2( 700, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 100, 0 )
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Tween" type="Tween" parent="."]
