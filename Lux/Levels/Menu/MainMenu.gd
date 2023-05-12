@@ -14,15 +14,15 @@ onready var playpage = $ControlPlay/Popup
 onready var musicslider = $Control/Popup/VBoxContainer/VBoxContainer/HSlider
 onready var musicslider1 = $Control/Popup/VBoxContainer/VBoxContainer/HSlider2
 onready var musicslider2 = $Control/Popup/VBoxContainer/VBoxContainer/HSlider3
-onready var Launchbutton = $ControlPlay/Popup/VBoxContainer/Launch
-onready var nextbut = $ControlPlay/Popup/VBoxContainer/NextBut
-onready var previousbut = $ControlPlay/Popup/VBoxContainer/PreviousBut
+onready var Launchbutton = $ControlPlay/Popup/HBoxContainer/VBoxContainer/Launch
+onready var nextbut = $ControlPlay/Popup/HBoxContainer/VBoxContainer/NextBut
+onready var previousbut = $ControlPlay/Popup/HBoxContainer/VBoxContainer/PreviousBut
 onready var buttonhover = $ButtonHover
 onready var buttonpressed = $ButtonPressed
 # onready var sliderchange = $SliderChange
 onready var exitbut = $VBoxContainer/ExitButton
 onready var backfromsettings = $Control/Popup/VBoxContainer/Back
-onready var backfromplay = $ControlPlay/Popup/VBoxContainer/BackfromPlay
+onready var backfromplay = $ControlPlay/Popup/HBoxContainer/VBoxContainer/BackfromPlay
 
 
 

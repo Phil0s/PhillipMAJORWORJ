@@ -1,7 +1,7 @@
 extends Control
 
 onready var title = $Popup/VBoxContainer/LevelsTitle
-onready var levelpicture = $Popup/VBoxContainer/TextureRect
+onready var levelpicture = $Popup/TextureRect
 onready var buttonpress = $ButtonPress
 # Declare member variables here. Examples:
 # var a = 2
@@ -17,25 +17,25 @@ func _ready():
 func _process(delta):
 	var tutorial_time = str(LevelTimer.tutorialrecord)
 	if Globalscript.levelorder == 0:
-		$Popup/VBoxContainer/Level_Time.text = "Record: " + tutorial_time
-		title.text = "Tutorial"
+		#$Popup/VBoxContainer/Level_Time.text = "Record: " + tutorial_time
+		title.text = "Training"
 	if Globalscript.levelorder == 1:
 		title.text = "Level 1"
-		$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level1)
+		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level1)
 	if Globalscript.levelorder == 2:
 		title.text = "Level 2"
-		$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level2)
+		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level2)
 	if Globalscript.levelorder == 3:
 		title.text = "Level 3"
-		$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level3)
+		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level3)
 	if Globalscript.levelorder == 4:
 		title.text = "Level 4"
-		$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level4)
+		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level4)
 	if Globalscript.levelorder == 5:
 		title.text = "Level 5"
-		$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level5)
+		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level5)
 	var LevelNums = str(Globalscript.levelorder)
-	#levelpicture.texture = load("res://icon" + LevelNums + ".png")
+	levelpicture.texture = load("res://Resources/bG/DRG" + LevelNums + ".jpg")
 	#levelpicture.texture = load("res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png")
 
 #Example list of levels goes like tuotrial, 1, 2, 3

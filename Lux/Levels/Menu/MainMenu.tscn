@@ -1,4 +1,4 @@
-[gd_scene load_steps=294 format=2]
+[gd_scene load_steps=293 format=2]
 
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_000_delay-0.03s.jpg" type="Texture" id=1]
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_001_delay-0.03s.jpg" type="Texture" id=2]
@@ -108,7 +108,6 @@
 [ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=106]
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=107]
 [ext_resource path="res://Levels/Menu/LevelDisplay.gd" type="Script" id=108]
-[ext_resource path="res://icon3.png" type="Texture" id=109]
 [ext_resource path="res://Theme1.tres" type="Theme" id=110]
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_049_delay-0.03s.jpg" type="Texture" id=111]
 [ext_resource path="res://Audio/Music/8bihallowenmusic.mp3" type="AudioStream" id=112]
@@ -384,6 +383,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 130, 180 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Playback"
@@ -618,6 +629,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/15/type = "value"
+tracks/15/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:rect_size")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 130, 180 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Settings"
@@ -708,7 +731,7 @@ script = ExtResource( 102 )
 position = Vector2( 320, 180 )
 scale = Vector2( 1.00946, 1.00279 )
 frames = SubResource( 9 )
-frame = 215
+frame = 96
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -915,82 +938,112 @@ visible = true
 margin_right = 640.0
 margin_bottom = 360.0
 
-[node name="LevelsHeading" type="Label" parent="ControlPlay/Popup"]
-margin_left = 238.855
-margin_top = 16.0
-margin_right = 406.855
-margin_bottom = 52.0
-custom_fonts/font = ExtResource( 106 )
-text = "LEVELS"
+[node name="ColorRect2" type="ColorRect" parent="ControlPlay/Popup"]
+modulate = Color( 0, 0.811765, 1, 1 )
+self_modulate = Color( 1, 1, 1, 0.486275 )
+margin_left = 17.0
+margin_top = 80.0
+margin_right = 161.0
+margin_bottom = 266.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ControlPlay/Popup"]
-margin_left = 64.0
-margin_top = 32.0
-margin_right = 576.0
-margin_bottom = 360.0
-alignment = 1
+anchor_top = 0.023
+anchor_right = 0.128
+anchor_bottom = 0.17
+margin_left = 19.0
+margin_top = 0.72
+margin_right = 540.08
+margin_bottom = 295.8
+
+[node name="LevelsHeading" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
+margin_right = 603.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 106 )
+text = "MISSION SELECT"
+align = 1
 
 [node name="LevelsTitle" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 52.0
-margin_right = 512.0
-margin_bottom = 76.0
+margin_top = 40.0
+margin_right = 603.0
+margin_bottom = 64.0
 custom_fonts/font = ExtResource( 105 )
 text = "TUTORIAL"
 
-[node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 80.0
-margin_right = 512.0
-margin_bottom = 144.0
-texture = ExtResource( 109 )
-stretch_mode = 4
+[node name="Level_Time" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
+visible = false
+margin_top = 247.0
+margin_right = 608.0
+margin_bottom = 263.0
+custom_fonts/font = ExtResource( 286 )
+text = "Time"
 
-[node name="PreviousBut" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 148.0
-margin_right = 512.0
-margin_bottom = 172.0
+[node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup/VBoxContainer"]
+margin_top = 68.0
+margin_right = 603.0
+margin_bottom = 68.0
+
+[node name="MissionDescription" type="RichTextLabel" parent="ControlPlay/Popup/VBoxContainer"]
+margin_top = 72.0
+margin_right = 130.0
+margin_bottom = 252.0
+custom_fonts/normal_font = ExtResource( 107 )
+text = "This is the mission briefing"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPlay/Popup"]
+margin_left = 19.0
+margin_top = 270.0
+margin_right = 641.0
+margin_bottom = 346.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlPlay/Popup/HBoxContainer"]
+margin_right = 96.0
+margin_bottom = 76.0
+
+[node name="PreviousBut" type="Button" parent="ControlPlay/Popup/HBoxContainer/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 16.0
 focus_neighbour_bottom = NodePath("../NextBut")
-custom_fonts/font = ExtResource( 105 )
+custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "PREVIOUS"
 flat = true
 
-[node name="NextBut" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 176.0
-margin_right = 512.0
-margin_bottom = 200.0
+[node name="NextBut" type="Button" parent="ControlPlay/Popup/HBoxContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 96.0
+margin_bottom = 36.0
 focus_neighbour_left = NodePath("../PreviousBut")
 focus_neighbour_bottom = NodePath("../Launch")
-custom_fonts/font = ExtResource( 105 )
+custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "NEXT"
 flat = true
 
-[node name="Launch" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 204.0
-margin_right = 512.0
-margin_bottom = 228.0
+[node name="Launch" type="Button" parent="ControlPlay/Popup/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 96.0
+margin_bottom = 56.0
 focus_neighbour_bottom = NodePath("../BackfromPlay")
-custom_fonts/font = ExtResource( 105 )
+custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "Launch"
 flat = true
 
-[node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 232.0
-margin_right = 512.0
-margin_bottom = 256.0
+[node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/HBoxContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 96.0
+margin_bottom = 76.0
 focus_neighbour_top = NodePath("../Launch")
-custom_fonts/font = ExtResource( 105 )
+custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "Back"
 flat = true
 
-[node name="Level_Time" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 260.0
-margin_right = 512.0
-margin_bottom = 276.0
-custom_fonts/font = ExtResource( 286 )
-text = "Time"
+[node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup"]
+margin_left = 173.0
+margin_top = 77.0
+margin_right = 504.0
+margin_bottom = 250.0
 
 [node name="ButtonPress" type="AudioStreamPlayer2D" parent="ControlPlay"]
 position = Vector2( 320, 208 )
@@ -1070,6 +1123,12 @@ text = "Version: BETA"
 stream = ExtResource( 112 )
 bus = "Music"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 23.0
+margin_top = 72.0
+margin_right = 155.0
+margin_bottom = 112.0
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
 [connection signal="mouse_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_mouse_entered"]
@@ -1083,18 +1142,18 @@ bus = "Music"
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_focus_entered"]
 [connection signal="mouse_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_mouse_entered"]
 [connection signal="pressed" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/PreviousBut" to="." method="_on_PreviousBut_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/PreviousBut" to="." method="_on_PreviousBut_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/PreviousBut" to="ControlPlay" method="_on_PreviousBut_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/NextBut" to="." method="_on_NextBut_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/NextBut" to="." method="_on_NextBut_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/NextBut" to="ControlPlay" method="_on_NextBut_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/Launch" to="." method="_on_Launch_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/PreviousBut" to="." method="_on_PreviousBut_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/PreviousBut" to="." method="_on_PreviousBut_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/PreviousBut" to="ControlPlay" method="_on_PreviousBut_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/NextBut" to="." method="_on_NextBut_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/NextBut" to="." method="_on_NextBut_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/NextBut" to="ControlPlay" method="_on_NextBut_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/Launch" to="." method="_on_Launch_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/Launch" to="." method="_on_Launch_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/Launch" to="." method="_on_Launch_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/HBoxContainer/VBoxContainer/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]
 [connection signal="focus_entered" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
