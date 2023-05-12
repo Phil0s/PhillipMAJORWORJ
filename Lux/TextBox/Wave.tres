@@ -130,4 +130,4 @@ shader_param/dot_matrix = false
 shader_param/dot_matriz_size = 80
 shader_param/speech_sim = true
 shader_param/speech_intensity = 0.8
-shader_param/progress = 0.0
+shader_param/progress = 1.0
