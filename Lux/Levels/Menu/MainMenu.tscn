@@ -1,4 +1,4 @@
-[gd_scene load_steps=298 format=2]
+[gd_scene load_steps=296 format=2]
 
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_000_delay-0.03s.jpg" type="Texture" id=1]
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_001_delay-0.03s.jpg" type="Texture" id=2]
@@ -284,7 +284,6 @@
 [ext_resource path="res://Resources/Shaders/SliderArea.tres" type="StyleBox" id=282]
 [ext_resource path="res://Resources/Shaders/SliderAreaGradient.tres" type="StyleBox" id=283]
 [ext_resource path="res://Resources/Shaders/ButtonHover.tres" type="StyleBox" id=284]
-[ext_resource path="res://Fonts/Abaddon Light.ttf" type="DynamicFontData" id=285]
 [ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=286]
 [ext_resource path="res://TextBox/Hologram.tres" type="Material" id=287]
 
@@ -341,24 +340,12 @@ tracks/2/keys = {
 "values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("DangerIcons:visible")
+tracks/3/path = NodePath("Label:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Label:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -428,7 +415,7 @@ tracks/4/keys = {
 "values": [ Vector2( 132, 125 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("DangerIcons:visible")
+tracks/5/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:anchor_top")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -436,40 +423,16 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ 0.139 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("DangerIcons:modulate")
+tracks/6/path = NodePath("Label:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 3, 3, 3, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:anchor_top")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.139 ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Label:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -527,24 +490,12 @@ tracks/3/keys = {
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("DangerIcons:visible")
+tracks/4/path = NodePath("Label:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Label:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -746,7 +697,7 @@ tracks/15/keys = {
 "values": [ Vector2( 130, 180 ) ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("DangerIcons:visible")
+tracks/16/path = NodePath("ControlPlay/Popup/DangerIcons:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -758,7 +709,7 @@ tracks/16/keys = {
 "values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("DangerIcons:modulate")
+tracks/17/path = NodePath("ControlPlay/Popup/DangerIcons:modulate")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -872,10 +823,6 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="DynamicFont" id=12]
-size = 14
-font_data = ExtResource( 285 )
-
 [sub_resource type="DynamicFont" id=10]
 size = 45
 font_data = ExtResource( 103 )
@@ -890,7 +837,7 @@ environment = SubResource( 11 )
 position = Vector2( 320, 180 )
 scale = Vector2( 1.00946, 1.00279 )
 frames = SubResource( 9 )
-frame = 28
+frame = 24
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1139,13 +1086,13 @@ text = "Time"
 
 [node name="MissionDescription" type="RichTextLabel" parent="ControlPlay/Popup/VBoxContainer"]
 anchor_top = 0.096
-anchor_bottom = 0.15
-margin_top = 68.0
+anchor_bottom = 0.139
+margin_top = 116.372
 margin_right = 130.0
-margin_bottom = 244.172
-custom_fonts/normal_font = SubResource( 12 )
+margin_bottom = 296.372
+custom_fonts/normal_font = ExtResource( 107 )
 bbcode_enabled = true
-bbcode_text = "[center] Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
+bbcode_text = "[fill] Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
 text = " Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ControlPlay/Popup"]
@@ -1207,6 +1154,11 @@ margin_left = 173.0
 margin_top = 77.0
 margin_right = 504.0
 margin_bottom = 250.0
+
+[node name="DangerIcons" type="Sprite" parent="ControlPlay/Popup"]
+modulate = Color( 3, 3, 3, 1 )
+position = Vector2( 87, 105 )
+texture = ExtResource( 109 )
 
 [node name="ButtonPress" type="AudioStreamPlayer2D" parent="ControlPlay"]
 position = Vector2( 320, 208 )
@@ -1285,14 +1237,6 @@ text = "Version: BETA"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 112 )
 bus = "Music"
-
-[node name="DangerIcons" type="TextureRect" parent="."]
-modulate = Color( 3, 3, 3, 1 )
-margin_left = 23.0
-margin_top = 88.0
-margin_right = 155.0
-margin_bottom = 123.0
-texture = ExtResource( 109 )
 
 [node name="Label" type="Label" parent="."]
 visible = false

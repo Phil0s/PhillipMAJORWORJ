@@ -3,6 +3,8 @@ extends Control
 onready var title = $Popup/VBoxContainer/LevelsTitle
 onready var levelpicture = $Popup/TextureRect
 onready var buttonpress = $ButtonPress
+onready var dangerlevel = $Popup/DangerIcons
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,20 +21,26 @@ func _process(delta):
 	if Globalscript.levelorder == 0:
 		#$Popup/VBoxContainer/Level_Time.text = "Record: " + tutorial_time
 		title.text = "Training"
+		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger1.png")
 	if Globalscript.levelorder == 1:
 		title.text = "Level 1"
+		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger1.png")
 		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level1)
 	if Globalscript.levelorder == 2:
 		title.text = "Level 2"
+		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger1.png")
 		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level2)
 	if Globalscript.levelorder == 3:
 		title.text = "Level 3"
+		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger2.png")
 		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level3)
 	if Globalscript.levelorder == 4:
 		title.text = "Level 4"
+		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger2.png")
 		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level4)
 	if Globalscript.levelorder == 5:
 		title.text = "Level 5"
+		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger3.png")
 		#$Popup/VBoxContainer/Level_Time.text = "Record: " + str(LevelTimer.level5)
 	var LevelNums = str(Globalscript.levelorder)
 	levelpicture.texture = load("res://Resources/bG/DRG" + LevelNums + ".jpg")
