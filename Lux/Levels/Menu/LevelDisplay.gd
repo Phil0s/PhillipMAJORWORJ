@@ -22,7 +22,7 @@ func _process(delta):
 	if Globalscript.levelorder == 0:
 		#$Popup/VBoxContainer/Level_Time.text = "Record: " + tutorial_time
 		title.text = "Training"
-		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger1.png")
+		dangerlevel.texture = load("res://Resources/Sprite/MenuUI/Danger9.png")
 		missiondetails.bbcode_text = "[fill]This works blah blah blah this text also has fll property. Note to self no space infront of first word Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to"
 	if Globalscript.levelorder == 1:
 		title.text = "Level 1"

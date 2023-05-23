@@ -334,7 +334,7 @@ one_shot = true
 [node name="Drone_Sprite" type="AnimatedSprite" parent="Navigation2D/Enemy_Drone"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 100 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="RaycastBox" type="Sprite" parent="Navigation2D/Enemy_Drone"]
