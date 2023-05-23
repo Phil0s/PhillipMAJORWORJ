@@ -1,6 +1,9 @@
 extends Control
 #Getting the audiobus, AudioServer is global so no need to reference a specific file, etc.
-#Created: Phillip -//-//- 
+#Created: Phillip 10/12/2022
+#About this code is for audio settings
+
+#Declaring Variables
 var master_bus = AudioServer.get_bus_index("Master")
 var audio_setting_file = "res://audiosave.txt"
 onready var audio_slider = $Popup/VBoxContainer/VBoxContainer/HSlider
@@ -18,7 +21,7 @@ var audio_dictionary = {"audio_master": audio_master, "audio_music": audio_music
 
 
 
-
+#AudioServer controls all the audio of Godot. Inside there are different buses kinda like categories. 
 func _ready():
 	var file = File.new()
 	if(file.file_exists(audio_setting_file)): 
@@ -58,7 +61,7 @@ func _ready():
 	else:
 		print_debug("No existing audio data file")
 
-
+#Automantically called whenever the slider is changed
 func save_audio():
 	var file = File.new()
 	file.open(audio_setting_file, File.WRITE)
@@ -66,8 +69,9 @@ func save_audio():
 	file.close()
 	print(audio_dictionary)
 
+
+#These Sliders have corresponding values to the volume of the audio buses
 func _on_HSlider_value_changed(value):
-		#This is the main function for changing the volume value of the targed audio bus
 	sliderchange.play()
 	AudioServer.set_bus_volume_db(master_bus, value)
 	audio_master = value
@@ -78,7 +82,6 @@ func _on_HSlider_value_changed(value):
 		AudioServer.set_bus_mute(master_bus, true)
 	else:
 		AudioServer.set_bus_mute(master_bus, false)
-
 
 func _on_HSlider2_value_changed(value):
 	sliderchange.play()

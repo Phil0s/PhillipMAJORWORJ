@@ -351,6 +351,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimatedSprite:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "Play"
@@ -403,7 +415,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:rect_size")
+tracks/4/path = NodePath("ControlPlay/Popup/MissionDescription:rect_size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -412,10 +424,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 132, 125 ) ]
+"values": [ Vector2( 142, 102 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:anchor_top")
+tracks/5/path = NodePath("ControlPlay/Popup/MissionDescription:anchor_top")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -437,6 +449,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AnimatedSprite:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.568627, 0.568627, 0.568627, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -500,6 +524,18 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.568627, 0.568627, 0.568627, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -685,7 +721,7 @@ tracks/14/keys = {
 "values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:rect_size")
+tracks/15/path = NodePath("ControlPlay/Popup/MissionDescription:rect_size")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -721,7 +757,7 @@ tracks/17/keys = {
 "values": [ Color( 3, 3, 3, 1 ) ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("ControlPlay/Popup/VBoxContainer/MissionDescription:anchor_top")
+tracks/18/path = NodePath("ControlPlay/Popup/MissionDescription:anchor_top")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -743,6 +779,18 @@ tracks/19/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("AnimatedSprite:self_modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -783,6 +831,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.568627, 0.568627, 0.568627, 1 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "SettingsBack"
@@ -822,6 +882,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.568627, 0.568627, 0.568627, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="DynamicFont" id=10]
 size = 45
@@ -837,7 +909,7 @@ environment = SubResource( 11 )
 position = Vector2( 320, 180 )
 scale = Vector2( 1.00946, 1.00279 )
 frames = SubResource( 9 )
-frame = 24
+frame = 223
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1084,22 +1156,22 @@ margin_bottom = 263.0
 custom_fonts/font = ExtResource( 286 )
 text = "Time"
 
-[node name="MissionDescription" type="RichTextLabel" parent="ControlPlay/Popup/VBoxContainer"]
+[node name="MissionDescription" type="RichTextLabel" parent="ControlPlay/Popup"]
 anchor_top = 0.096
 anchor_bottom = 0.139
-margin_top = 116.372
-margin_right = 130.0
-margin_bottom = 296.372
-custom_fonts/normal_font = ExtResource( 107 )
+margin_left = 19.0
+margin_top = 80.96
+margin_right = 149.0
+margin_bottom = 260.96
 bbcode_enabled = true
 bbcode_text = "[fill] Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
 text = " Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ControlPlay/Popup"]
-margin_left = 23.0
-margin_top = 258.0
-margin_right = 119.0
-margin_bottom = 334.0
+margin_left = 34.0
+margin_top = 244.0
+margin_right = 130.0
+margin_bottom = 320.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -1112,7 +1184,6 @@ custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "PREVIOUS"
 flat = true
-align = 0
 
 [node name="NextBut" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
 margin_top = 20.0
@@ -1124,7 +1195,6 @@ custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "NEXT"
 flat = true
-align = 0
 
 [node name="Launch" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
 margin_top = 40.0
@@ -1135,7 +1205,6 @@ custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "Launch"
 flat = true
-align = 0
 
 [node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
 margin_top = 60.0
@@ -1146,7 +1215,6 @@ custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "Back"
 flat = true
-align = 0
 
 [node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup"]
 material = ExtResource( 287 )
@@ -1157,7 +1225,7 @@ margin_bottom = 250.0
 
 [node name="DangerIcons" type="Sprite" parent="ControlPlay/Popup"]
 modulate = Color( 3, 3, 3, 1 )
-position = Vector2( 87, 105 )
+position = Vector2( 84, 105 )
 texture = ExtResource( 109 )
 
 [node name="ButtonPress" type="AudioStreamPlayer2D" parent="ControlPlay"]
@@ -1240,9 +1308,9 @@ bus = "Music"
 
 [node name="Label" type="Label" parent="."]
 visible = false
-margin_left = 23.0
+margin_left = 20.0
 margin_top = 72.0
-margin_right = 165.0
+margin_right = 162.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 286 )
 text = "DANGER LEVEL"

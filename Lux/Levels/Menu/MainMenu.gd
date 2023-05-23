@@ -1,10 +1,11 @@
 extends Node2D
-#Created: Phillip --/11/2022 
+#Created: Phillip 27/11/2022 
+#About: Code for main menu 
 
+#VERSION 
+onready var version = $RichTextLabel
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#Declare Variables
 onready var MManimationPlayer = $AnimationPlayer
 var MManimationfinished = true
 onready var startbut = $VBoxContainer/PlayButton
@@ -27,11 +28,15 @@ onready var backfromplay = $ControlPlay/Popup/VBoxContainer2/BackfromPlay
 
 
 
+
+
+
 func _ready():
 	_defaultreset()
 	startbut.grab_focus()
 	settingspage.visible = false
 	playpage.visible = false
+	version.text = "Version: " + "BETA"
 	
 func _defaultreset(): #Played when scene first loaded, to ensure everything starts of at the correct position and settings
 	MManimationPlayer.play("Default")
@@ -41,7 +46,7 @@ func _on_ExitButton_pressed(): #Close the app
 	get_tree().quit()
 	
 	
-func _on_PlayButton_pressed(): #Open level select
+func _on_PlayButton_pressed(): #Open the play menu
 	print("Play Button Pressed")
 	if MManimationfinished:
 		MManimationPlayer.play("Play")
@@ -83,6 +88,10 @@ func _on_Launch_pressed():
 	#Continue to make changes to "LoadingScript" the autoload one thats been uploaded will not update
 	#I have to manually re-add it to the autoloader
 	#LoadingScript.load_scene1(self, "res://Levels/Tutorials/Tutorial.tscn")
+	
+	#Note everything above is currently not in use. 
+	
+	#Global variable containing level number is changed
 	var LevelNum = str(Globalscript.levelorder)
 	if Globalscript.levelorder == 0:
 		get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")
@@ -92,7 +101,8 @@ func _on_Launch_pressed():
 
 
 
-
+#Styling Code for buttons
+#buttonhover.play() is the code for creating that BURGH sound when pressing the button
 func _on_PlayButton_focus_entered():
 	buttonhover.play()
 
