@@ -36,3 +36,12 @@ func _on_Checkpoint_1_Checkpoint_reached1():
 	levelsaves_dictionary = {"level1" : checkpoint1}
 	file.store_line(to_json(levelsaves_dictionary))
 	file.close()
+
+
+func _on_tutorialfinish_Checkpoint_finished():
+	var file = File.new()
+	file.open(levelsavefile, File.WRITE)	
+	checkpoint1 = 0
+	levelsaves_dictionary = {"level1" : checkpoint1}
+	file.store_line(to_json(levelsaves_dictionary))
+	file.close()

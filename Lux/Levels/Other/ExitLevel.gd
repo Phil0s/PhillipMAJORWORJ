@@ -1,5 +1,6 @@
 extends Area2D
 
+signal Checkpoint_finished 
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,6 +19,9 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body is MainCharacter:
+		LevelSavesLoaded.checkpoint1 = 1
+		emit_signal("Checkpoint_finished")
+		
 		LevelTimer.timer_on = false
 		if LevelTimer.tutorial_first_time == 0:
 			LevelTimer.tutorial_first_time = 1
