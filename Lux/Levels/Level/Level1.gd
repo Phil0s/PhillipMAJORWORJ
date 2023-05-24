@@ -20,8 +20,8 @@ func _ready():
 		player.global_position = spawn0
 	if LevelSavesLoaded.data.Level[1].checkpoint == 1:
 		player.global_position = spawn1
-#	if LevelSavesLoaded.data.Level[1].Enemy[0] == 1:
-#		$WalkingEnemy.queue_free()
+	if LevelSavesLoaded.data.Level[1].enemy[0] == 1:
+		$WalkingEnemy.queue_free()
 
 
 
@@ -56,4 +56,4 @@ func _on_Checkpoint_0_body_entered(body):
 
 func _on_WalkingEnemy_body_entered(body):
 	if body is MainCharacter:
-		LevelSavesLoaded.data.Level[1].Enemy[0] = 1
+		LevelSavesLoaded.data.Level[1].enemy[0] = 1

@@ -10,3 +10,5 @@ MechaStone Golem - Kronovi
 Industrial Tileset - 0x72
 Knight - Aamatniekss
 Skeleton - Jesse Munguia
+Portraits - Ansimuz
+Portraits - FieraRyan

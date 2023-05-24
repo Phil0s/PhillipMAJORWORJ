@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Convenant evensmallert.tres" type="DynamicFont" id=2]
@@ -10,9 +10,15 @@
 [ext_resource path="res://Resources/Shaders/Glitch.tres" type="Material" id=8]
 [ext_resource path="res://TextBox/Hologram.tres" type="Material" id=9]
 [ext_resource path="res://TextBox/Wave.tres" type="Material" id=10]
+[ext_resource path="res://DownloadedFromItchIO/PACharacters_asset/all2/6.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Commander",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "DeadMiner",
@@ -162,10 +168,10 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 9 )
-position = Vector2( 147.75, 304 )
-scale = Vector2( 1.22656, 1.25 )
+position = Vector2( 149, 287 )
+scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 3 )
-animation = "Mission Control"
+animation = "Commander"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 187.0

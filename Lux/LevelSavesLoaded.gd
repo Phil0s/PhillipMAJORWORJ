@@ -5,7 +5,7 @@ var levelsavefile = "res://levelsavefile.json"
 var default_data = {
 	"Level" : [
 		{"checkpoint" : 0, "enemy" : [], "score" : 0},
-		{"checkpoint" : 0, "enemy" : [], "score" : 0},
+		{"checkpoint" : 0, "enemy" : [-1], "score" : 0},
 		{"checkpoint" : 0, "enemy" : [], "score" : 0},
 		{"checkpoint" : 0, "enemy" : [], "score" : 0},
 		{"checkpoint" : 0, "enemy" : [], "score" : 0},
@@ -27,6 +27,7 @@ func _ready():
 		file.open(levelsavefile, File.READ)
 		var text = file.get_as_text()
 		data = parse_json(text)
+		print(data)
 		file.close()
 		
 
