@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Tutorials/Temp.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=102]
+extents = Vector2( 15.375, 10 )
+
+[node name="Death" type="Area2D"]
+position = Vector2( 88, 333 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -28.375, 0 )
+shape = SubResource( 102 )
+
+[connection signal="body_entered" from="." to="." method="_on_Death_body_entered"]

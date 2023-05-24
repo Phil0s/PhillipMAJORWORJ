@@ -17,9 +17,13 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_body_entered(body):
+
+
+
+
+func _on_Exit_body_entered(body):
 	if body is MainCharacter:
-		LevelSavesLoaded.data.Level[0].checkpoint = 0
+		LevelSavesLoaded.data.Level[1].checkpoint = 0
 		emit_signal("Checkpoint_finished")
 		
 #		LevelTimer.timer_on = false
@@ -33,6 +37,4 @@ func _on_Area2D_body_entered(body):
 #			elif LevelTimer.final_time < LevelTimer.tutorialrecord:
 #				LevelTimer.tutorialrecord = LevelTimer.final_time
 #				print(LevelTimer.tutorialrecord)
-		get_tree().change_scene("res://Levels/Level/Level1.tscn")
-
-
+		get_tree().change_scene("res://Levels/Level/Level2.tscn")

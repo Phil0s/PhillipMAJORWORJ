@@ -10,6 +10,6 @@ func _ready():
 
 func _on_Checkpoint_1_body_entered(body):
 	if body is MainCharacter:
-		LevelSavesLoaded.checkpoint1 = 1
+		LevelSavesLoaded.data.Level[0].checkpoint = 1
 		emit_signal("Checkpoint_reached1")
 
