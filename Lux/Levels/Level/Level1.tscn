@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Levels/Level/WalkingEnemy.gd" type="Script" id=8]
 [ext_resource path="res://DownloadedFromItchIO/Skeleton/Sprite Sheets/Skeleton Walk.png" type="Texture" id=9]
 [ext_resource path="res://DownloadedFromItchIO/Skeleton/Sprite Sheets/Skeleton Dead.png" type="Texture" id=10]
+[ext_resource path="res://DownloadedFromItchIO/Skeleton/Sprite Sheets/Skeleton Attack.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 22 )
@@ -278,6 +279,78 @@ region = Rect2( 429, 0, 33, 32 )
 atlas = ExtResource( 10 )
 region = Rect2( 462, 0, 33, 32 )
 
+[sub_resource type="AtlasTexture" id=147]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=148]
+atlas = ExtResource( 11 )
+region = Rect2( 43, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=149]
+atlas = ExtResource( 11 )
+region = Rect2( 86, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=150]
+atlas = ExtResource( 11 )
+region = Rect2( 129, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=151]
+atlas = ExtResource( 11 )
+region = Rect2( 172, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=152]
+atlas = ExtResource( 11 )
+region = Rect2( 215, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=153]
+atlas = ExtResource( 11 )
+region = Rect2( 258, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=154]
+atlas = ExtResource( 11 )
+region = Rect2( 301, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=155]
+atlas = ExtResource( 11 )
+region = Rect2( 344, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=156]
+atlas = ExtResource( 11 )
+region = Rect2( 387, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=157]
+atlas = ExtResource( 11 )
+region = Rect2( 430, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=158]
+atlas = ExtResource( 11 )
+region = Rect2( 473, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=159]
+atlas = ExtResource( 11 )
+region = Rect2( 516, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=160]
+atlas = ExtResource( 11 )
+region = Rect2( 559, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=161]
+atlas = ExtResource( 11 )
+region = Rect2( 602, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=162]
+atlas = ExtResource( 11 )
+region = Rect2( 645, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=163]
+atlas = ExtResource( 11 )
+region = Rect2( 688, 0, 43, 37 )
+
+[sub_resource type="AtlasTexture" id=164]
+atlas = ExtResource( 11 )
+region = Rect2( 731, 0, 43, 37 )
+
 [sub_resource type="AtlasTexture" id=115]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 22, 33 )
@@ -336,6 +409,11 @@ animations = [ {
 "loop": true,
 "name": "Death",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 10.0
 }, {
 "frames": [ SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ) ],
 "loop": true,
@@ -445,15 +523,12 @@ anims/Walking = SubResource( 129 )
 
 [node name="Position2D" type="Position2D" parent="WalkingEnemy"]
 position = Vector2( -6, -13 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="WalkingEnemy/Position2D"]
 position = Vector2( 4, -3 )
 frames = SubResource( 113 )
 animation = "Walking"
-frame = 12
+frame = 9
 playing = true
 
 [node name="Raycastrightfloor" type="RayCast2D" parent="WalkingEnemy/Position2D"]

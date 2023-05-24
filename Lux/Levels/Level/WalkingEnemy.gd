@@ -34,8 +34,7 @@ func movement():
 	
 	velocity = direction * 25
 	move_and_slide(velocity, Vector2.UP)
-	
-
+		
 
 func _on_WalkingEnemy_body_entered(body):
 	if(active):
