@@ -91,11 +91,19 @@ onready var spawn_finished = false
 #var noise_var: float = 0.0
 #var shake_strength: float = 5
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():	
 	$AnimationPlayer.play("Teleport In")
 	yield(get_node("AnimationPlayer"), "animation_finished")
 	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
+	
+	
+	
+	
+	
+	
+	
+	
 #	random.randomize()
 #	noise.seed = random.randi()
 #	noise.period = 2

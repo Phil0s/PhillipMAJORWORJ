@@ -1,27 +1,26 @@
 extends Control
-#Getting the audiobus, AudioServer is global so no need to reference a specific file, etc.
-#Created: Phillip 10/12/2022
-#About this code is for audio settings
+# Getting the audiobus, AudioServer is global so no need to reference a specific file, etc.
+# Created: Phillip 10/12/2022
+# About this code is for audio settings
 
-#Declaring Variables
+# Declaring Variables
 var master_bus = AudioServer.get_bus_index("Master")
 var audio_setting_file = "res://audiosave.txt"
+var audio_master : int = 0
+var audio_music : int = 0
+var audio_effects : int = 0
+
+# Graphical Widgets
 onready var audio_slider = $Popup/VBoxContainer/VBoxContainer/HSlider
 onready var audio_music_slider = $Popup/VBoxContainer/VBoxContainer/HSlider2
 onready var audio_effects_slider = $Popup/VBoxContainer/VBoxContainer/HSlider3
 onready var sliderchange = $SliderChange
 
-var audio_master : int = 0
-var audio_music : int = 0
-var audio_effects : int = 0
-
 #var audio_dictionary : int = 0
 var audio_dictionary = {"audio_master": audio_master, "audio_music": audio_music, "audio_effects": audio_effects}
 
-
-
-
 #AudioServer controls all the audio of Godot. Inside there are different buses kinda like categories. 
+# Mainline Function (runs first when file is called)
 func _ready():
 	var file = File.new()
 	if(file.file_exists(audio_setting_file)): 
@@ -33,6 +32,7 @@ func _ready():
 		var audio_value_music = int(read_dictionary["audio_music"])
 		var audio_value_effects = int(read_dictionary["audio_effects"])
 		
+		# AudioServer controls...
 		AudioServer.set_bus_volume_db(master_bus, audio_value_master)
 		audio_slider.value = audio_value_master
 		print("Assigned Master!")
@@ -61,7 +61,8 @@ func _ready():
 	else:
 		print_debug("No existing audio data file")
 
-#Automantically called whenever the slider is changed
+# Automantically called whenever the slider is changed
+# 
 func save_audio():
 	var file = File.new()
 	file.open(audio_setting_file, File.WRITE)
@@ -70,7 +71,10 @@ func save_audio():
 	print(audio_dictionary)
 
 
-#These Sliders have corresponding values to the volume of the audio buses
+# These Sliders have corresponding values to the volume of the audio buses
+#
+# @param {integer} value - This is the new audio volume value
+# @returns none
 func _on_HSlider_value_changed(value):
 	sliderchange.play()
 	AudioServer.set_bus_volume_db(master_bus, value)
@@ -82,6 +86,7 @@ func _on_HSlider_value_changed(value):
 		AudioServer.set_bus_mute(master_bus, true)
 	else:
 		AudioServer.set_bus_mute(master_bus, false)
+
 
 func _on_HSlider2_value_changed(value):
 	sliderchange.play()
