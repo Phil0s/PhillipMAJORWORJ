@@ -258,7 +258,7 @@ position = Vector2( -328, 240 )
 position = Vector2( -256, 320 )
 
 [node name="SwingSpike" parent="." instance=ExtResource( 10 )]
-position = Vector2( -232, 222 )
+position = Vector2( -288, 258 )
 
 [node name="Node2D" type="Node2D" parent="."]
 visible = false
@@ -324,7 +324,7 @@ shape = SubResource( 103 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Checkpoint_1"]
 
 [node name="Player" parent="." instance=ExtResource( 22 )]
-position = Vector2( -435, 83 )
+position = Vector2( -477, 91 )
 
 [node name="Death2" type="Area2D" parent="."]
 position = Vector2( 184, 335 )

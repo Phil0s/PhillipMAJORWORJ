@@ -885,7 +885,7 @@ environment = SubResource( 11 )
 position = Vector2( 320, 180 )
 scale = Vector2( 1.00946, 1.00279 )
 frames = SubResource( 9 )
-frame = 254
+frame = 76
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1136,9 +1136,9 @@ text = "Time"
 anchor_top = 0.096
 anchor_bottom = 0.139
 margin_left = 19.0
-margin_top = 357.44
+margin_top = 426.56
 margin_right = 149.0
-margin_bottom = 537.44
+margin_bottom = 606.56
 bbcode_enabled = true
 bbcode_text = "[fill] Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
 text = " Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "

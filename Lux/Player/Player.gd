@@ -265,7 +265,8 @@ func handle_movement(var delta):
 #					sprite.stop()
 #					sprite.frame = 1
 		hSpeed -= min(abs(hSpeed), current_friction * delta) * sign(hSpeed)
-	
+		
+		
 func handle_jumping(var delta):
 	if(coyote_time and Input.is_action_just_pressed("Jump")):
 		vSpeed = jump_height
