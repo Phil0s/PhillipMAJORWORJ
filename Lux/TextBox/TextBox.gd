@@ -14,6 +14,7 @@ var anim_finished = true
 var phraseNum = 0
 var finished = false
 var endofdialogue = false
+var textboxrunning = false
 
 func _ready():
 	get_child(0).visible = false
@@ -24,6 +25,8 @@ func _ready():
 	
 
 func msgcalled(selectmsg):
+	get_tree().paused = true
+	textboxrunning = true
 	endofdialogue = false
 	print("reached msgcalled")
 	playingrn = true
@@ -42,24 +45,26 @@ func msgcalled(selectmsg):
 	$ColorRect/AnimationPlayer.play("Voice")
 	
 func _process(delta):
-#	$Polygon2D.visible = finished
 	if(playingrn):
-#		if Input.is_action_just_pressed("ui_accept"):
-#			if finished:
-#				nextPhrase()
-#			else:
-#				textwords.visible_characters = len(textwords.text)
-		if(endofdialogue):
-			print("Reached here")
-			$TransitionTimer.start()
-			endofdialogue = false
+		if Input.is_action_just_pressed("ui_accept"):
+			if finished:
+				nextPhrase()
+			else:
+				textwords.visible_characters = len(textwords.text)
+#		if(endofdialogue):
+#			print("Reached here")
+#			$TransitionTimer.start()
+#			endofdialogue = false
+#
+			
+			
 #		if Input.is_action_just_pressed("ui_accept"):
 #			textwords.visible_characters = len(textwords.text)
-#	if(PauseMenu.textboxhalt and playingrn):
-#		get_child(4).visible = true
-#		if(anim_finished):
-#			$Label/AnimationPlayer.play("New Anim")
-#			anim_finished = false
+	if(PauseMenu.textboxhalt and textboxrunning):
+		get_child(4).visible = true
+		if(anim_finished):
+			$Label/AnimationPlayer.play("New Anim")
+			anim_finished = false
 			
 #	if Globalscript.levelreload:
 #		get_child(0).visible = false
@@ -109,7 +114,8 @@ func nextPhrase() -> void:
 		print("finished")
 		playingrn = false
 		finished = false
-		#queue_free()
+		get_tree().paused = false
+		textboxrunning = false
 		return
 	finished = false
 	

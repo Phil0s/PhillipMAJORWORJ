@@ -45,15 +45,15 @@ func _process(delta):
 	var scene_name = get_tree().current_scene.name
 	if(scene_name != "MainMenu") and scene_name != "Startuptext":
 		if(Input.is_action_just_pressed("Pause")):
-#			if(!TextBox.playingrn):
-			print("1")
-			get_tree().paused = !get_tree().paused
-			get_child(0).visible = get_tree().paused
-			if(!get_tree().paused):
-				keybinding_page.visible = false
-				audio_page.visible = false
-#			if(TextBox.playingrn):
-#				textboxhalt = true
+			if(!TextBox.textboxrunning):
+				print("1")
+				get_tree().paused = !get_tree().paused
+				get_child(0).visible = get_tree().paused
+				if(!get_tree().paused):
+					keybinding_page.visible = false
+					audio_page.visible = false
+			if(TextBox.textboxrunning):
+				textboxhalt = true
 
 				
 				

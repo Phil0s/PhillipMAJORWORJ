@@ -12,3 +12,5 @@ Knight - Aamatniekss
 Skeleton - Jesse Munguia
 Portraits - Ansimuz
 Portraits - FieraRyan
+Font - datagoblin
+UI - Crusenho and Wenrexa
