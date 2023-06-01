@@ -1,4 +1,4 @@
-[gd_scene load_steps=296 format=2]
+[gd_scene load_steps=294 format=2]
 
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_000_delay-0.03s.jpg" type="Texture" id=1]
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_001_delay-0.03s.jpg" type="Texture" id=2]
@@ -108,7 +108,6 @@
 [ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=106]
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=107]
 [ext_resource path="res://Levels/Menu/LevelDisplay.gd" type="Script" id=108]
-[ext_resource path="res://Resources/Sprite/MenuUI/Danger3.png" type="Texture" id=109]
 [ext_resource path="res://Theme1.tres" type="Theme" id=110]
 [ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_049_delay-0.03s.jpg" type="Texture" id=111]
 [ext_resource path="res://Audio/Music/8bihallowenmusic.mp3" type="AudioStream" id=112]
@@ -285,7 +284,6 @@
 [ext_resource path="res://Resources/Shaders/SliderAreaGradient.tres" type="StyleBox" id=283]
 [ext_resource path="res://Resources/Shaders/ButtonHover.tres" type="StyleBox" id=284]
 [ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=286]
-[ext_resource path="res://TextBox/Hologram.tres" type="Material" id=287]
 
 [sub_resource type="Environment" id=11]
 background_mode = 4
@@ -340,24 +338,12 @@ tracks/2/keys = {
 "values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Label:visible")
+tracks/3/path = NodePath("AnimatedSprite:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AnimatedSprite:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -415,48 +401,12 @@ tracks/3/keys = {
 "values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("ControlPlay/Popup/MissionDescription:rect_size")
+tracks/4/path = NodePath("AnimatedSprite:self_modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 142, 102 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("ControlPlay/Popup/MissionDescription:anchor_top")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.139 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Label:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("AnimatedSprite:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -514,24 +464,12 @@ tracks/3/keys = {
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Label:visible")
+tracks/4/path = NodePath("AnimatedSprite:self_modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("AnimatedSprite:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -721,48 +659,12 @@ tracks/14/keys = {
 "values": [ true ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("ControlPlay/Popup/MissionDescription:rect_size")
+tracks/15/path = NodePath("AnimatedSprite:self_modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 130, 180 ) ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("ControlPlay/Popup/MissionDescription:anchor_top")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.096 ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Label:visible")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("AnimatedSprite:self_modulate")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -885,7 +787,7 @@ environment = SubResource( 11 )
 position = Vector2( 320, 180 )
 scale = Vector2( 1.00946, 1.00279 )
 frames = SubResource( 9 )
-frame = 182
+frame = 198
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1092,15 +994,6 @@ visible = true
 margin_right = 640.0
 margin_bottom = 360.0
 
-[node name="ColorRect2" type="ColorRect" parent="ControlPlay/Popup"]
-visible = false
-modulate = Color( 0, 0.811765, 1, 1 )
-self_modulate = Color( 1, 1, 1, 0.486275 )
-margin_left = 17.0
-margin_top = 80.0
-margin_right = 161.0
-margin_bottom = 266.0
-
 [node name="VBoxContainer" type="VBoxContainer" parent="ControlPlay/Popup"]
 anchor_top = 0.023
 anchor_right = 0.128
@@ -1117,13 +1010,6 @@ custom_fonts/font = ExtResource( 106 )
 text = "MISSION SELECT"
 align = 1
 
-[node name="LevelsTitle" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
-margin_top = 40.0
-margin_right = 603.0
-margin_bottom = 64.0
-custom_fonts/font = ExtResource( 105 )
-text = "TUTORIAL"
-
 [node name="Level_Time" type="Label" parent="ControlPlay/Popup/VBoxContainer"]
 visible = false
 margin_top = 247.0
@@ -1132,76 +1018,54 @@ margin_bottom = 263.0
 custom_fonts/font = ExtResource( 286 )
 text = "Time"
 
-[node name="MissionDescription" type="RichTextLabel" parent="ControlPlay/Popup"]
-anchor_top = 0.096
-anchor_bottom = 0.139
-margin_left = 19.0
-margin_top = 530.24
-margin_right = 149.0
-margin_bottom = 710.24
-bbcode_enabled = true
-bbcode_text = "[fill] Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
-text = " Hello my name is phillip and this is me talkinga bout the mission and I want to show you how to do this mission ohg every nice we are going to exceed the limit and "
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="ControlPlay/Popup"]
-margin_left = 34.0
-margin_top = 244.0
-margin_right = 130.0
-margin_bottom = 320.0
+margin_left = 13.0
+margin_top = 334.0
+margin_right = 109.0
+margin_bottom = 410.0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="PreviousBut" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
+[node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
 margin_right = 96.0
 margin_bottom = 16.0
-focus_neighbour_bottom = NodePath("../NextBut")
-custom_fonts/font = ExtResource( 286 )
-custom_styles/focus = ExtResource( 284 )
-text = "PREVIOUS"
-flat = true
-
-[node name="NextBut" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
-margin_top = 20.0
-margin_right = 96.0
-margin_bottom = 36.0
-focus_neighbour_left = NodePath("../PreviousBut")
-focus_neighbour_bottom = NodePath("../Launch")
-custom_fonts/font = ExtResource( 286 )
-custom_styles/focus = ExtResource( 284 )
-text = "NEXT"
-flat = true
-
-[node name="Launch" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
-margin_top = 40.0
-margin_right = 96.0
-margin_bottom = 56.0
-focus_neighbour_bottom = NodePath("../BackfromPlay")
-custom_fonts/font = ExtResource( 286 )
-custom_styles/focus = ExtResource( 284 )
-text = "Launch"
-flat = true
-
-[node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
-margin_top = 60.0
-margin_right = 96.0
-margin_bottom = 76.0
-focus_neighbour_top = NodePath("../Launch")
 custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "Back"
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="ControlPlay/Popup"]
-material = ExtResource( 287 )
-margin_left = 173.0
-margin_top = 77.0
-margin_right = 504.0
-margin_bottom = 250.0
+[node name="CenterContainer" type="CenterContainer" parent="ControlPlay/Popup"]
+margin_right = 640.0
+margin_bottom = 360.0
 
-[node name="DangerIcons" type="Sprite" parent="ControlPlay/Popup"]
-position = Vector2( 81, 108 )
-texture = ExtResource( 109 )
+[node name="GridContainer" type="GridContainer" parent="ControlPlay/Popup/CenterContainer"]
+margin_left = 204.0
+margin_top = 173.0
+margin_right = 435.0
+margin_bottom = 187.0
+columns = 3
+
+[node name="LvlButton" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
+margin_right = 103.0
+margin_bottom = 14.0
+focus_neighbour_right = NodePath("../LvlButton1")
+text = "Tutorial mission"
+
+[node name="LvlButton1" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
+margin_left = 107.0
+margin_right = 169.0
+margin_bottom = 14.0
+focus_neighbour_left = NodePath("../LvlButton")
+focus_neighbour_right = NodePath("../LvlButton2")
+text = "Mission 1"
+
+[node name="LvlButton2" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
+margin_left = 173.0
+margin_right = 231.0
+margin_bottom = 14.0
+focus_neighbour_left = NodePath("../LvlButton1")
+text = "Mission2"
 
 [node name="ButtonPress" type="AudioStreamPlayer2D" parent="ControlPlay"]
 position = Vector2( 320, 208 )
@@ -1281,15 +1145,6 @@ text = "Version: BETA"
 stream = ExtResource( 112 )
 bus = "Music"
 
-[node name="Label" type="Label" parent="."]
-visible = false
-margin_left = 20.0
-margin_top = 72.0
-margin_right = 162.0
-margin_bottom = 88.0
-custom_fonts/font = ExtResource( 286 )
-text = "DANGER LEVEL"
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
 [connection signal="mouse_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_mouse_entered"]
@@ -1303,18 +1158,14 @@ text = "DANGER LEVEL"
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_focus_entered"]
 [connection signal="mouse_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_mouse_entered"]
 [connection signal="pressed" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer2/PreviousBut" to="." method="_on_PreviousBut_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer2/PreviousBut" to="." method="_on_PreviousBut_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer2/PreviousBut" to="ControlPlay" method="_on_PreviousBut_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer2/NextBut" to="." method="_on_NextBut_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer2/NextBut" to="." method="_on_NextBut_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer2/NextBut" to="ControlPlay" method="_on_NextBut_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer2/Launch" to="." method="_on_Launch_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer2/Launch" to="." method="_on_Launch_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer2/Launch" to="." method="_on_Launch_pressed"]
 [connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_focus_entered"]
 [connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_mouse_entered"]
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton" to="." method="_on_LvlButton_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton" to="." method="_on_LvlButton_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton" to="." method="_on_LvlButton_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton1" to="." method="_on_LvlButton1_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton1" to="." method="_on_LvlButton1_mouse_entered"]
 [connection signal="focus_entered" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]

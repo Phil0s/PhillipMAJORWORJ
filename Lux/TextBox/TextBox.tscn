@@ -176,10 +176,10 @@ margin_right = 576.0
 margin_bottom = 603.0
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
-margin_left = -79.0
-margin_top = 12.0
-margin_right = 55.0
-margin_bottom = 131.0
+margin_left = -82.0
+margin_top = 10.0
+margin_right = 52.0
+margin_bottom = 129.0
 rect_scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 13 )
 
@@ -211,9 +211,9 @@ text = "Hello my name is phillip, press A to move to the right and this is a sec
 
 [node name="VoiceVisuals" type="ColorRect" parent="ColorRect"]
 material = ExtResource( 10 )
-margin_left = -78.0
+margin_left = -81.0
 margin_top = 80.0
-margin_right = 1.0
+margin_right = -2.0
 margin_bottom = 95.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
@@ -223,7 +223,7 @@ anims/Voice = SubResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 9 )
-position = Vector2( 150, 289 )
+position = Vector2( 147, 287 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 3 )
 animation = "Commander"

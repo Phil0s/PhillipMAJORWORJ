@@ -24,9 +24,9 @@ onready var buttonpressed = $ButtonPressed
 onready var exitbut = $VBoxContainer/ExitButton
 onready var backfromsettings = $Control/Popup/VBoxContainer/Back
 onready var backfromplay = $ControlPlay/Popup/VBoxContainer2/BackfromPlay
-
-
-
+onready var level0 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton
+onready var level1 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton1
+onready var level2 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2
 
 
 
@@ -52,7 +52,7 @@ func _on_PlayButton_pressed(): #Open the play menu
 		MManimationPlayer.play("Play")
 		buttonpressed.play()
 		playpage.visible = true
-		previousbut.grab_focus()
+		level0.grab_focus()
 	
 
 func _on_SettingsButton_pressed(): #Open settings button
@@ -198,3 +198,24 @@ func _on_HSlider_mouse_entered():
 func _on_Launch_mouse_entered():
 	Launchbutton.grab_focus()
 	buttonhover.play()
+	
+	
+
+
+
+func _on_LvlButton_focus_entered():
+	buttonhover.play()
+
+
+func _on_LvlButton_pressed():
+	get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")
+
+func _on_LvlButton_mouse_entered():
+	level0.grab_focus()
+
+
+func _on_LvlButton1_focus_entered():
+	buttonhover.play()
+
+func _on_LvlButton1_mouse_entered():
+	level1.grab_focus()
