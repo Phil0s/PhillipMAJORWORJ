@@ -118,7 +118,7 @@ func nextPhrase() -> void:
 		textboxrunning = false
 		return
 	finished = false
-	
+	$ColorRect/AnimationPlayer.play("Voice")
 	name1.text = dialogue[phraseNum]["Name"]
 	textwords.text = dialogue[phraseNum]["Text"]
 	
@@ -131,6 +131,7 @@ func nextPhrase() -> void:
 			yield(texttimer, "timeout")
 	endofdialogue = true
 	finished = true
+	$ColorRect/AnimationPlayer.play("NoVoice")
 	phraseNum += 1
 	return
 

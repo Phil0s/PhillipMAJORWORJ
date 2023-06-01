@@ -12,7 +12,7 @@
 [ext_resource path="res://TextBox/Wave.tres" type="Material" id=10]
 [ext_resource path="res://DownloadedFromItchIO/PACharacters_asset/all2/6.png" type="Texture" id=11]
 [ext_resource path="res://DownloadedFromItchIO/PNG/MainPanel01.png" type="Texture" id=12]
-[ext_resource path="res://DownloadedFromItchIO/PNG/Button03.png" type="Texture" id=13]
+[ext_resource path="res://DownloadedFromItchIO/PNG/Button07.png" type="Texture" id=13]
 [ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=14]
 
 [sub_resource type="Animation" id=6]
@@ -176,11 +176,11 @@ margin_right = 576.0
 margin_bottom = 603.0
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
-margin_left = -72.0
+margin_left = -79.0
 margin_top = 12.0
-margin_right = -16.0
-margin_bottom = 70.0
-rect_scale = Vector2( 1.2, 1.2 )
+margin_right = 55.0
+margin_bottom = 131.0
+rect_scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 13 )
 
 [node name="ColorRect2" type="TextureRect" parent="ColorRect"]
@@ -223,7 +223,7 @@ anims/Voice = SubResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 9 )
-position = Vector2( 149, 287 )
+position = Vector2( 150, 289 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 3 )
 animation = "Commander"
