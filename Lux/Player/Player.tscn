@@ -1,15 +1,13 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=58 format=2]
 
-[ext_resource path="res://Resources/Sprite/Player/WALLSLIDE/adventurer-wall-slide-00.png" type="Texture" id=1]
-[ext_resource path="res://Resources/Sprite/Player/WALLSLIDE/adventurer-wall-slide-01.png" type="Texture" id=2]
+[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_WallSlide.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Music/Footsteps.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
-[ext_resource path="res://Resources/Sprite/Player/SLIDE/adventurer-slide-01.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Sprite/Player/TURN/adventurer-TURN.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Sprite/Player/RUN/adventurer-run-02.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Sprite/Player/RUN/adventurer-run-03.png" type="Texture" id=7]
-[ext_resource path="res://Resources/Sprite/Player/RUN/adventurer-run-04.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Sprite/Player/IDLE/adventurer-idle-00.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Sprite/Player/JUMP/adventurer-jump-02.png" type="Texture" id=10]
+[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_JumpFallInbetween.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Music/Landing.mp3" type="AudioStream" id=5]
+[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Run.png" type="Texture" id=6]
+[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Jump.png" type="Texture" id=7]
+[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Idle.png" type="Texture" id=9]
 [ext_resource path="res://Resources/Sprite/Player/DOUBLEJUMP/adventurer-smrslt-00.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Sprite/Player/DOUBLEJUMP/adventurer-smrslt-02.png" type="Texture" id=12]
 [ext_resource path="res://Resources/Light/CircleLightTexture.png" type="Texture" id=13]
@@ -20,15 +18,119 @@
 [ext_resource path="res://Player/ScreenShake.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Resources/Sprite/Player/DOUBLEJUMP/adventurer-smrslt-03.png" type="Texture" id=19]
 [ext_resource path="res://Resources/Sprite/Player/DOUBLEJUMP/adventurer-smrslt-01.png" type="Texture" id=20]
-[ext_resource path="res://Resources/Sprite/Player/SLIDE/adventurer-slide-00.png" type="Texture" id=21]
-[ext_resource path="res://Resources/Sprite/Player/IDLE/adventurer-idle-03.png" type="Texture" id=22]
-[ext_resource path="res://Resources/Sprite/Player/IDLE/adventurer-idle-02.png" type="Texture" id=23]
-[ext_resource path="res://Resources/Sprite/Player/JUMP/adventurer-jump-03.png" type="Texture" id=24]
-[ext_resource path="res://Resources/Sprite/Player/RUN/adventurer-run-00.png" type="Texture" id=25]
-[ext_resource path="res://Resources/Sprite/Player/RUN/adventurer-run-05.png" type="Texture" id=26]
-[ext_resource path="res://Resources/Sprite/Player/RUN/adventurer-run-01.png" type="Texture" id=27]
-[ext_resource path="res://Resources/Sprite/Player/IDLE/adventurer-idle-01.png" type="Texture" id=28]
 [ext_resource path="res://Resources/Shaders/Teleport.tres" type="Material" id=29]
+
+[sub_resource type="AtlasTexture" id=100]
+atlas = ExtResource( 9 )
+region = Rect2( 39, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 9 )
+region = Rect2( 159, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 9 )
+region = Rect2( 279, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 9 )
+region = Rect2( 399, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=104]
+atlas = ExtResource( 9 )
+region = Rect2( 519, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=105]
+atlas = ExtResource( 9 )
+region = Rect2( 639, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=106]
+atlas = ExtResource( 9 )
+region = Rect2( 759, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 9 )
+region = Rect2( 879, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 9 )
+region = Rect2( 999, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 9 )
+region = Rect2( 1119, 39, 30, 41 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 4 )
+region = Rect2( 36, 41, 39, 39 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 4 )
+region = Rect2( 153, 41, 39, 39 )
+
+[sub_resource type="AtlasTexture" id=120]
+atlas = ExtResource( 7 )
+region = Rect2( 40, 40, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=121]
+atlas = ExtResource( 7 )
+region = Rect2( 160, 40, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 7 )
+region = Rect2( 280, 40, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=110]
+atlas = ExtResource( 6 )
+region = Rect2( 37, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=111]
+atlas = ExtResource( 6 )
+region = Rect2( 157, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 6 )
+region = Rect2( 277, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 6 )
+region = Rect2( 397, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=114]
+atlas = ExtResource( 6 )
+region = Rect2( 517, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=115]
+atlas = ExtResource( 6 )
+region = Rect2( 637, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=116]
+atlas = ExtResource( 6 )
+region = Rect2( 757, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=117]
+atlas = ExtResource( 6 )
+region = Rect2( 877, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=118]
+atlas = ExtResource( 6 )
+region = Rect2( 997, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=119]
+atlas = ExtResource( 6 )
+region = Rect2( 1117, 40, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=125]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 43, 24, 37 )
+
+[sub_resource type="AtlasTexture" id=126]
+atlas = ExtResource( 1 )
+region = Rect2( 168, 43, 24, 37 )
+
+[sub_resource type="AtlasTexture" id=127]
+atlas = ExtResource( 1 )
+region = Rect2( 288, 43, 24, 37 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -37,44 +139,44 @@ animations = [ {
 "name": "DOUBLEJUMP",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"frames": [ SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ) ],
 "loop": true,
 "name": "IDLE",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
+"frames": [ SubResource( 123 ), SubResource( 124 ) ],
 "loop": true,
 "name": "JUMPDOWN",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ SubResource( 120 ), SubResource( 121 ), SubResource( 122 ) ],
 "loop": true,
 "name": "JUMPUP",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 27 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 26 ) ],
+"frames": [ SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ) ],
 "loop": true,
 "name": "RUN",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 4 ) ],
+"frames": [  ],
 "loop": true,
 "name": "SLIDE",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ SubResource( 110 ) ],
 "loop": true,
 "name": "TURN",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"frames": [ SubResource( 125 ), SubResource( 126 ), SubResource( 127 ) ],
 "loop": true,
 "name": "WALLSLIDE",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 5, 10 )
+extents = Vector2( 5, 8.66626 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 6, 3 )
@@ -186,9 +288,10 @@ foot_step = ExtResource( 14 )
 dash_object = ExtResource( 16 )
 dash_speed = 1200
 dash_length = 0.1
-acceleration = 350
+acceleration = 400
 deacceleration = 600
 max_horizontal_speed = 110
+jump_height = -200
 squash_speed = 0.1
 wall_jump_height = -250
 wall_jump_push = 200
@@ -197,13 +300,14 @@ wall_slide_gravity = 50
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 29 )
 position = Vector2( -1, 1 )
-scale = Vector2( 0.704196, 0.704196 )
+scale = Vector2( 0.45, 0.45 )
 frames = SubResource( 6 )
 animation = "IDLE"
 offset = Vector2( 0, -2 )
 
 [node name="stand_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 2 )
+position = Vector2( -1, 0.666262 )
+scale = Vector2( 1.00317, 1 )
 shape = SubResource( 7 )
 
 [node name="slide_collision" type="CollisionShape2D" parent="."]
@@ -217,7 +321,7 @@ position = Vector2( 0, 12 )
 [node name="slide_timer" type="Timer" parent="raycast_container"]
 
 [node name="ray_right" type="RayCast2D" parent="raycast_container"]
-position = Vector2( 4, -2 )
+position = Vector2( 4, -4 )
 enabled = true
 cast_to = Vector2( 2, 0 )
 collision_mask = 4
@@ -235,7 +339,7 @@ cast_to = Vector2( 2, 0 )
 collision_mask = 4
 
 [node name="ray_left2" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -6, -2 )
+position = Vector2( -6, -4 )
 enabled = true
 cast_to = Vector2( -2, 0 )
 collision_mask = 4
@@ -260,19 +364,19 @@ cast_to = Vector2( 0, -4 )
 collision_mask = 4
 
 [node name="ray_ground" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -1, 0 )
+position = Vector2( -1, -2.666 )
 enabled = true
 cast_to = Vector2( 0, 2.79916 )
 collision_mask = 4
 
 [node name="ray_ground2" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -6, 0 )
+position = Vector2( -6, -2.674 )
 enabled = true
 cast_to = Vector2( 0, 2.79916 )
 collision_mask = 4
 
 [node name="ray_ground3" type="RayCast2D" parent="raycast_container"]
-position = Vector2( 4, 0 )
+position = Vector2( 4, -2.671 )
 enabled = true
 cast_to = Vector2( 0, 2.79916 )
 collision_mask = 4
@@ -319,6 +423,7 @@ anims/RESET = SubResource( 12 )
 "anims/Teleport In" = SubResource( 13 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 99 )
 margin_left = -230.0
 margin_top = -135.0
@@ -326,5 +431,14 @@ margin_right = 231.0
 margin_bottom = 142.0
 color = Color( 0, 0, 0, 1 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = 1.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
 [connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_AudioStreamPlayer2D_finished"]
+[connection signal="finished" from="AudioStreamPlayer2D2" to="." method="_on_AudioStreamPlayer2D2_finished"]

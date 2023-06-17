@@ -75,7 +75,10 @@ onready var cieling_ray = $raycast_container/ray_ceiling
 onready var right_ray3 = $raycast_container/ray_right3
 onready var left_ray3 = $raycast_container/ray_left3
 onready var spawn_finished = false
-
+onready var audioplayer = $AudioStreamPlayer2D
+onready var audiofinished = true
+onready var landingaudioplayer = $AudioStreamPlayer2D2
+onready var landingaudiofinished = true
 #Camera Shake
 #export var camera_shake_strength: float = 30.0
 #export var shake_decrease_rate: float = 0
@@ -194,7 +197,8 @@ func check_ground_wall_logic():
 		coyote_time = false
 	#Check if we are landing on the ground (again)
 	if(!touching_ground and (ground_ray.is_colliding() and ground_ray2.is_colliding() and ground_ray3.is_colliding())):
-		sprite.scale = Vector2(0.8,0.5) #Stretch on X, Squash on Y, create landing recoil effect
+		landingaudioplayer.play()
+		sprite.scale = Vector2(0.52,0.5) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
 	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding()) or (right_ray3.is_colliding() and right_ray.is_colliding()) or (right_ray3.is_colliding() and right_ray1.is_colliding()) or (left_ray3.is_colliding() and left_ray.is_colliding()) or (left_ray3.is_colliding() and left_ray1.is_colliding())                                                ):
@@ -235,58 +239,72 @@ func handle_movement(var delta):
 			hSpeed += (deacceleration * delta)
 			if(touching_ground):
 				sprite.play("TURN")
+				audioplayer.playing = false
+				audiofinished = true
 		elif(hSpeed < max_horizontal_speed):
 			hSpeed += (acceleration * delta)
 			sprite.flip_h = false
 			if(touching_ground):
 				sprite.play("RUN")
+				if(audiofinished):
+					audioplayer.stream = load("res://Resources/Music/Footsteps.mp3")
+					audioplayer.playing = true
+					audiofinished = false
 		else:
 			if(touching_ground):
 				sprite.play("RUN")
+				if(audiofinished):
+					audioplayer.stream = load("res://Resources/Music/Footsteps.mp3")
+					audioplayer.playing = true
+					audiofinished = false
 	elif(Input.is_action_pressed("Left") and !is_sliding):
 		if(hSpeed > 100):
 			hSpeed -= (deacceleration * delta)
 			if(touching_ground):
 				sprite.play("TURN")
+				audioplayer.playing = false
+				audiofinished = true
 		elif(hSpeed > -max_horizontal_speed):
 			hSpeed -= (acceleration * delta)
 			sprite.flip_h = true
 			if(touching_ground):
 				sprite.play("RUN")
+				if(audiofinished):
+					audioplayer.stream = load("res://Resources/Music/Footsteps.mp3")
+					audioplayer.playing = true
+					audiofinished = false
 		else:
 			if(touching_ground):
 				sprite.play("RUN")
+				if(audiofinished):
+					audioplayer.stream = load("res://Resources/Music/Footsteps.mp3")
+					audioplayer.playing = true
+					audiofinished = false
 	else:
 		if(touching_ground):
 			if(!is_sliding):
 				sprite.play("IDLE")
-#			else: #We are sliding then
-#				if(abs(hSpeed) < 0.2):
-#					sprite.stop()
-#					sprite.frame = 1
+				audioplayer.playing = false
+				audiofinished = true
 		hSpeed -= min(abs(hSpeed), current_friction * delta) * sign(hSpeed)
 		
 		
 func handle_jumping(var delta):
 	if(coyote_time and Input.is_action_just_pressed("Jump")):
+		audioplayer.playing = false
+		audiofinished = true
 		vSpeed = jump_height
 		is_jumping = true
 		can_double_jump = true
 	if(touching_ground):
 		if((Input.is_action_just_pressed("Jump") or air_jump_pressed) and !is_jumping):
+			audioplayer.playing = false
+			audiofinished = true
 			vSpeed = jump_height
 			is_jumping = true
 			touching_ground = false
-			sprite.scale = Vector2(0.5,0.8) #Squash on X and strech on y this when called when we are jumping
+			sprite.scale = Vector2(0.5,0.52) #Squash on X and strech on y this when called when we are jumping
 	else: #Check are we in the air, is jump button being held down? If !being held down then half the jump height. This is a shorter jump for users that quickly tap the jump button
-#		if(vSpeed < 0 and !Input.is_action_pressed("Jump") and !is_double_jumping):
-#			vSpeed = max(vSpeed, jump_height/2)
-#		if(can_double_jump and Input.is_action_just_pressed("Jump") and !coyote_time and !touching_wall):
-#			vSpeed = double_jump_height
-#			sprite.play("DOUBLEJUMP")
-#			is_double_jumping = true
-#			can_double_jump = false
-		#Animation logic for jump
 		if(!is_double_jumping and vSpeed < 0):
 			sprite.play("JUMPUP")
 		elif(!is_double_jumping and vSpeed > 0):
@@ -294,17 +312,23 @@ func handle_jumping(var delta):
 		elif(is_double_jumping and sprite.frame ==2): #Where frame is last frame number of double jump animation
 			is_double_jumping = false
 		if((right_ray.is_colliding() and right_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
+			audioplayer.playing = false
+			audiofinished = true
 			vSpeed = wall_jump_height
 			hSpeed = -wall_jump_push
 			sprite.flip_h = true
 			can_double_jump = true
 		elif((left_ray.is_colliding() and left_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
+			audioplayer.playing = false
+			audiofinished = true
 			vSpeed = wall_jump_height
 			hSpeed = wall_jump_push
 			sprite.flip_h = false
 			can_double_jump = true
 			
 		if(is_wall_sliding):
+			audioplayer.playing = false
+			audiofinished = true
 			sprite.play("WALLSLIDE")
 			is_double_jumping = false
 		#Check if we're pressing jump just before we land
@@ -344,8 +368,8 @@ func do_physics(var delta):
 
 func apply_squash_squeeze():
 	#Lerp provides gradual shift, towards what? Well towards our natural scale of (1,1). So any squash or squeeze effects will gradually dissapate. 
-	sprite.scale.x = lerp(sprite.scale.x,0.804,squash_speed)
-	sprite.scale.y = lerp(sprite.scale.y,0.804,squash_speed)
+	sprite.scale.x = lerp(sprite.scale.x,0.45,squash_speed)
+	sprite.scale.y = lerp(sprite.scale.y,0.45,squash_speed)
 
 func handle_player_collision_shapes():
 	if(is_sliding and slide_collision.disabled):
@@ -391,3 +415,11 @@ func handle_player_collision_shapes():
 #				get_parent().add_child(footstep)
 
 
+
+
+func _on_AudioStreamPlayer2D_finished():
+	audiofinished = true
+
+
+func _on_AudioStreamPlayer2D2_finished():
+	landingaudiofinished = true
