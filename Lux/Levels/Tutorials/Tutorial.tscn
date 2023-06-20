@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/Tutorials/Temp3.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Resources/Spikes/FallingSpike.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Resources/Spikes/PokingSpikes.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Tutorials/tutorial7msg.gd" type="Script" id=6]
+[ext_resource path="res://Obstacles/Enemies/SkeletonEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/Tutorials/tutorial3msg.gd" type="Script" id=8]
 [ext_resource path="res://Levels/Tutorials/tutorial4msg.gd" type="Script" id=9]
 [ext_resource path="res://Resources/Spikes/SwingSpike.tscn" type="PackedScene" id=10]
@@ -311,7 +312,7 @@ __meta__ = {
 shape = SubResource( 104 )
 
 [node name="Checkpoint_1" type="Area2D" parent="."]
-position = Vector2( 130, 296 )
+position = Vector2( 13, 298 )
 scale = Vector2( 0.15625, 0.25 )
 script = ExtResource( 30 )
 __meta__ = {
@@ -335,6 +336,9 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death2"]
 shape = SubResource( 107 )
+
+[node name="SkeletonEnemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 107, 295 )
 
 [connection signal="body_entered" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_entered"]
 [connection signal="body_entered" from="tutorial3msg" to="tutorial3msg" method="_on_tutorial3msg_body_entered"]

@@ -283,6 +283,7 @@ shader_param/progress = 1.0
 shader_param/diamondPixelSize = 10.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 6
 script = ExtResource( 3 )
 foot_step = ExtResource( 14 )
 dash_object = ExtResource( 16 )
