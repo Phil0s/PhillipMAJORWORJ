@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_WallSlide.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Music/Footsteps.mp3" type="AudioStream" id=2]
@@ -394,6 +394,10 @@ tracks/1/keys = {
 "values": [ 0, 9 ]
 }
 
+[sub_resource type="CapsuleShape2D" id=138]
+radius = 5.0
+height = 12.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 6
 script = ExtResource( 3 )
@@ -557,7 +561,14 @@ anims/IDLE = SubResource( 135 )
 anims/RESET = SubResource( 136 )
 anims/RUN = SubResource( 137 )
 
+[node name="hitbox_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_area"]
+position = Vector2( 0, 1 )
+shape = SubResource( 138 )
+
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
 [connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_AudioStreamPlayer2D_finished"]
 [connection signal="finished" from="AudioStreamPlayer2D2" to="." method="_on_AudioStreamPlayer2D2_finished"]
+[connection signal="area_entered" from="hitbox_area" to="." method="_on_hitbox_area_area_entered"]

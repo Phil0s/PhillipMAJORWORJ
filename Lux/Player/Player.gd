@@ -9,13 +9,15 @@ extends KinematicBody2D
 signal dash
 class_name MainCharacter
 
-#Particle
+#Exported Variables
 export(PackedScene) var foot_step
 var last_step = 0
 export(PackedScene) var dash_object
 export var dash_speed = 1000
 export var dash_length = 0.2
 export var slide_length = 1
+
+var portal_id = 0
 
 #Movement Data for Character
 export var gravity = 600
@@ -393,3 +395,16 @@ func _on_AudioStreamPlayer2D_finished():
 
 func _on_AudioStreamPlayer2D2_finished():
 	landingaudiofinished = true
+
+
+func _on_hitbox_area_area_entered(area):
+	if(area.is_in_group("portal")):
+		do_teleport(area)
+		
+func do_teleport(area):
+	for portal in get_tree().get_nodes_in_group("portal"):
+		if(portal != area): #Not the same portal we just went through
+			if(portal.id == area.id): #Look for the second "pair" portal with same ID
+				if(!portal.lock_portal):
+					area.do_lock()
+					global_position = portal.global_position

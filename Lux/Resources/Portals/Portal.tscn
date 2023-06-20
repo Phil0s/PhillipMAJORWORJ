@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Resources/Portals/Purple Portal Sprite Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Portals/Portal.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -45,12 +46,15 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 9.0
 
-[node name="Portal" type="Area2D"]
+[node name="Portal" type="Area2D" groups=["portal"]]
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -5 )
 frames = SubResource( 9 )
 animation = "Idle"
+frame = 6
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1 )
