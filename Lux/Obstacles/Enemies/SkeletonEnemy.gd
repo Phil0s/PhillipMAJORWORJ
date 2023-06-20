@@ -9,17 +9,16 @@ var is_moving_right = true
 var gravity = 10
 var velocity = Vector2(0,0)
 var speed = 32
-var animdone = 1
 onready var edgeray = $EdgeRay
-onready var animation = $AnimatedSprite
+onready var animation = $AnimationPlayer
 
 # Mainline Function (runs first when file is called)
 func _ready():
-	animation.play("Walking")
+	animation.play("Walk")
 
 #Called every frame
 func _process(delta):
-	if animation.animation == "Attack":
+	if animation.current_animation == "Attack":
 		return
 	move()
 	at_edge()
@@ -49,25 +48,14 @@ func finish_attack():
 
 
 func start_walk():
-	animation.play("Walking")
+	animation.play("Walk")
 
 
 func _on_PlayerDetector_body_entered(body):
 	if body is MainCharacter:
-		if animdone == 1:
-			animdone = 0
-			animation.play("Attack")
-			yield(get_tree().create_timer(0.5), "timeout")
-			attack()
-			yield(get_tree().create_timer(0.1), "timeout")
-			finish_attack()
-			print("done")
-			animation.play("Walking")
+		animation.play("Attack")
 
 
 func _on_HitArea_body_entered(body):
 	get_tree().reload_current_scene()
 
-
-func _on_AnimatedSprite_animation_finished():
-	animdone = 1

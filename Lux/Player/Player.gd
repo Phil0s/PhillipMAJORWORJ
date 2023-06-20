@@ -1,8 +1,12 @@
 extends KinematicBody2D
 #Credits: Rungeon's advanced platformer controlls series for all movement in this script -> Basic Movement, Dashing, Wall Jump, Wall Slide
 #Created: Phillip 31/12/2022: 
-signal dash
 
+#Sprite Dimensions
+#Width 30
+#Height 38
+
+signal dash
 class_name MainCharacter
 
 #Particle
@@ -30,8 +34,6 @@ export var wall_jump_push = 400
 export var max_fall_speed_wall_slide = 100
 export var wall_slide_gravity = 100
 
-var continue_sliding = false
-
 #Static Variables
 var vSpeed = 0
 var hSpeed = 0
@@ -43,20 +45,20 @@ var SNAP_LENGTH = 32.0
 var SNAP_VECTOR = SNAP_DIR * SNAP_LENGTH
 
 #Booleans
-var touching_ground : bool = false # Check if we are on the ground 
-var touching_wall : bool = false # Check if we are touching a wall
-var is_jumping : bool = false #Check if we are currently jumping
-var is_double_jumping : bool = false #Check if we are currently double jumping
+var touching_ground : bool = false 
+var touching_wall : bool = false 
+var is_jumping : bool = false 
+var is_double_jumping : bool = false 
 var air_jump_pressed : bool = false #Check if we've pressed jump just before we land
-var coyote_time : bool = false #Check if we can JUST after we leave platform
-var can_double_jump : bool = false #Check if we can double jump
-var is_sliding : bool = false #check if we are currently sliding
-var can_slide : bool = false #are we able to slide?
-var is_wall_sliding : bool = false #Are we sliding down wall?
-var is_dashing : bool = false #CHeck if we are currently dashing
-var can_dash : bool = true #Check if we can dash?
+var coyote_time : bool = false #Check if we can jump JUST after we leave platform
+var can_double_jump : bool = false 
+var is_sliding : bool = false 
+var can_slide : bool = false 
+var is_wall_sliding : bool = false
+var is_dashing : bool = false 
+var can_dash : bool = true 
 var dash_direction : Vector2 #Get the direction the character is currently facing
-
+var continue_sliding = false #Might not be used
 
 #Grabbing nodes
 onready var sprite = $AnimatedSprite 
@@ -79,20 +81,8 @@ onready var audioplayer = $AudioStreamPlayer2D
 onready var audiofinished = true
 onready var landingaudioplayer = $AudioStreamPlayer2D2
 onready var landingaudiofinished = true
-#Camera Shake
-#export var camera_shake_strength: float = 30.0
-#export var shake_decrease_rate: float = 0
-#export var noise_shake_speed: float = 1
-#export var noise_shake_strength: float = 80.0
-#
-#
-#onready var camera = $Camera2D
-#onready var random = RandomNumberGenerator.new()
-#onready var noise = OpenSimplexNoise.new()
-#
-#
-#var noise_var: float = 0.0
-#var shake_strength: float = 5
+onready var playeranimation = $PlayerAnimation
+
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	$AnimationPlayer.play("Teleport In")
@@ -100,31 +90,11 @@ func _ready():
 	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
 	
-	
-	
-	
-	
-	
-	
-	
-#	random.randomize()
-#	noise.seed = random.randi()
-#	noise.period = 2
-#	Globalscript.apply_shake = false
-	
-#func noise_generated_offset(delta: float) -> Vector2:
-#	noise_var += delta * noise_shake_speed
-#	return Vector2(
-#		noise.get_noise_2d(1, noise_var) * shake_strength,
-#		noise.get_noise_2d(100, noise_var) * shake_strength
-#	)
-	
+# Frame rate constant at 60 times per second. 
+# To see what Godot's internal functions do CMD + CLICK on the blue functions this will bring up documentation
 func _physics_process(delta):
 	if(spawn_finished):
-#	if Globalscript.apply_shake:
-#		shake_strength = 5
-#		shake_strength = lerp(shake_strength, 0, shake_decrease_rate * delta)
-#		camera.offset = noise_generated_offset(delta)
+
 	#Handle dash movement
 		handle_dash(delta)
 	#Check if we are on the ground
@@ -198,7 +168,7 @@ func check_ground_wall_logic():
 	#Check if we are landing on the ground (again)
 	if(!touching_ground and (ground_ray.is_colliding() and ground_ray2.is_colliding() and ground_ray3.is_colliding())):
 		landingaudioplayer.play()
-		sprite.scale = Vector2(0.52,0.5) #Stretch on X, Squash on Y, create landing recoil effect
+		sprite.scale = Vector2(0.62,0.58) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
 	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding()) or (right_ray3.is_colliding() and right_ray.is_colliding()) or (right_ray3.is_colliding() and right_ray1.is_colliding()) or (left_ray3.is_colliding() and left_ray.is_colliding()) or (left_ray3.is_colliding() and left_ray1.is_colliding())                                                ):
@@ -303,7 +273,7 @@ func handle_jumping(var delta):
 			vSpeed = jump_height
 			is_jumping = true
 			touching_ground = false
-			sprite.scale = Vector2(0.5,0.52) #Squash on X and strech on y this when called when we are jumping
+			sprite.scale = Vector2(0.58,0.62) #Squash on X and strech on y this when called when we are jumping
 	else: #Check are we in the air, is jump button being held down? If !being held down then half the jump height. This is a shorter jump for users that quickly tap the jump button
 		if(!is_double_jumping and vSpeed < 0):
 			sprite.play("JUMPUP")
@@ -368,8 +338,8 @@ func do_physics(var delta):
 
 func apply_squash_squeeze():
 	#Lerp provides gradual shift, towards what? Well towards our natural scale of (1,1). So any squash or squeeze effects will gradually dissapate. 
-	sprite.scale.x = lerp(sprite.scale.x,0.45,squash_speed)
-	sprite.scale.y = lerp(sprite.scale.y,0.45,squash_speed)
+	sprite.scale.x = lerp(sprite.scale.x,0.6,squash_speed)
+	sprite.scale.y = lerp(sprite.scale.y,0.6,squash_speed)
 
 func handle_player_collision_shapes():
 	if(is_sliding and slide_collision.disabled):
