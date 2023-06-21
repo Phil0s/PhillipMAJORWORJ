@@ -195,7 +195,7 @@ format = 1
 tile_data = PoolIntArray( 2621436, 112, 0, 2621438, 112, 0, 2555904, 112, 0, 2555906, 112, 0, 2555908, 112, 0, 2555910, 112, 0, 2555912, 112, 0, 2555916, 112, 0, 2555918, 112, 0, 2555920, 112, 0, 2555922, 112, 0, 2555924, 112, 0, 2555928, 112, 0, 2555930, 112, 0, 2555932, 112, 0, 2555934, 112, 0, 2555936, 112, 0, 2555938, 112, 0 )
 
 [node name="tutorial1msg" type="Area2D" parent="."]
-position = Vector2( 65, 294 )
+position = Vector2( 80, 194 )
 script = SubResource( 44 )
 __meta__ = {
 "_edit_group_": true
@@ -342,7 +342,7 @@ shape = SubResource( 107 )
 position = Vector2( 107, 295 )
 
 [node name="Portal" parent="." instance=ExtResource( 17 )]
-position = Vector2( 39, 289 )
+position = Vector2( 39, 195 )
 
 [node name="Portal2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 206, 287 )
