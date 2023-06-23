@@ -1,5 +1,6 @@
 extends KinematicBody2D
 #This File Handles SkeletonEnemy logic (Movement, Attack, Death, etc)
+#Finished 23 June
 
 #AnimatedSprite
 #Height 32px
@@ -11,17 +12,44 @@ var velocity = Vector2(0,0)
 var speed = 32
 onready var edgeray = $EdgeRay
 onready var animation = $AnimationPlayer
+onready var ray = $PlayerRay
 
-# Mainline Function (runs first when file is called)
+var playing = false
+var walking = true
+var colliding = false
+var playerinrange = false
+
+#Mainline Function (runs first when file is called)
 func _ready():
 	animation.play("Walk")
 
 #Called every frame
-func _process(delta):
-	if animation.current_animation == "Attack":
-		return
-	move()
-	at_edge()
+func _process(delta):	
+	if(ray.is_colliding() and ray.get_collider() is MainCharacter):
+		colliding = true
+	movement()
+	
+#Skeleton either move or attack
+func movement():
+	if(playerinrange):
+		if(colliding):
+			if(!playing):
+				walking = false
+				playing = true
+				animation.play("Attack")
+	if(!playerinrange and !playing):
+		move()		
+		at_edge()
+
+#Resets/changes booleans depending on conditions.
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(colliding and playerinrange):
+		playing = false
+	if( !playerinrange):
+		playing = false
+		start_walk()
+		walking = true
+
 
 #Handles movement for Skeleton
 #@returns none
@@ -40,6 +68,7 @@ func at_edge():
 		is_moving_right = !is_moving_right
 		scale.x = -scale.x
 
+#Func attack and finish_attack turn on and off HitArea
 func attack():
 	$HitArea.monitoring = true
 	
@@ -50,12 +79,15 @@ func finish_attack():
 func start_walk():
 	animation.play("Walk")
 
-
 func _on_PlayerDetector_body_entered(body):
-	if body is MainCharacter:
-		animation.play("Attack")
-
+	playerinrange = true
+	
+func _on_PlayerDetector_body_exited(body):
+	playerinrange = false
 
 func _on_HitArea_body_entered(body):
-	get_tree().reload_current_scene()
+	Globalscript.dead = true
+
+
+
 

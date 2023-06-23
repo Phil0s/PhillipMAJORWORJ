@@ -61,6 +61,8 @@ var is_dashing : bool = false
 var can_dash : bool = true 
 var dash_direction : Vector2 #Get the direction the character is currently facing
 var continue_sliding = false #Might not be used
+var animfinished = true
+
 
 #Grabbing nodes
 onready var sprite = $AnimatedSprite 
@@ -87,6 +89,7 @@ onready var playeranimation = $PlayerAnimation
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	Globalscript.dead = false
 	$AnimationPlayer.play("Teleport In")
 	yield(get_node("AnimationPlayer"), "animation_finished")
 	spawn_finished = true
@@ -96,23 +99,15 @@ func _ready():
 # To see what Godot's internal functions do CMD + CLICK on the blue functions this will bring up documentation
 func _physics_process(delta):
 	if(spawn_finished):
-
-	#Handle dash movement
-		handle_dash(delta)
-	#Check if we are on the ground
-		check_ground_wall_logic()
-	#Check for standing or sliding
-		handle_player_collision_shapes()
-	#Check for and handle input/character movement
-		handle_input(delta)
-	#Handle Particles
-#	handle_player_particles()
-
-			
-	
-	#Apply the physics
-		do_physics(delta)
-		pass
+		if(!Globalscript.dead):
+			handle_dash(delta)
+			check_ground_wall_logic()
+			handle_player_collision_shapes()
+			handle_input(delta)
+			do_physics(delta)
+		if(Globalscript.dead):
+			Globalscript.dead = false
+			play_dead_anim()
 
 func dash_timer_timeout():
 	is_dashing = false
@@ -401,6 +396,8 @@ func _on_hitbox_area_area_entered(area):
 	if(area.is_in_group("portal")):
 		do_teleport(area)
 		
+
+		
 func do_teleport(area):
 	for portal in get_tree().get_nodes_in_group("portal"):
 		if(portal != area): #Not the same portal we just went through
@@ -408,3 +405,19 @@ func do_teleport(area):
 				if(!portal.lock_portal):
 					area.do_lock()
 					global_position = portal.global_position
+					
+func play_dead_anim():
+	if(animfinished):
+		animfinished = false
+		playeranimation.play("DEAD")
+		yield(get_node("AnimationPlayer"), "animation_finished")
+		playeranimation.stop()
+
+func _on_PlayerAnimation_animation_finished(anim_name):
+	pass
+
+
+
+func _on_hitbox_area_body_entered(body):
+	if(body.is_in_group("enemy")):
+		body.queue_free()

@@ -528,7 +528,7 @@ position = Vector2( -6, -13 )
 position = Vector2( 4, -3 )
 frames = SubResource( 113 )
 animation = "Walking"
-frame = 2
+frame = 5
 playing = true
 
 [node name="Raycastrightfloor" type="RayCast2D" parent="WalkingEnemy/Position2D"]

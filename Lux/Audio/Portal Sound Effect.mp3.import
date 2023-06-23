@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Portal Sound Effect.mp3-eb580ac33f80fbb38ae8b07928f524fc.mp3str"
+
+[deps]
+
+source_file="res://Audio/Portal Sound Effect.mp3"
+dest_files=[ "res://.import/Portal Sound Effect.mp3-eb580ac33f80fbb38ae8b07928f524fc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

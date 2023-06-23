@@ -33,6 +33,6 @@ func _on_Area2D_body_entered(body):
 #			elif LevelTimer.final_time < LevelTimer.tutorialrecord:
 #				LevelTimer.tutorialrecord = LevelTimer.final_time
 #				print(LevelTimer.tutorialrecord)
-		get_tree().change_scene("res://Levels/Level/Level1.tscn")
+		#get_tree().change_scene("res://Levels/Level/Level1.tscn")
 
 

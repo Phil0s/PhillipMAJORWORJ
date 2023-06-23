@@ -12,6 +12,7 @@ var levelreload = false
 var apply_shake = false
 
 
+var dead = false
 
 
 

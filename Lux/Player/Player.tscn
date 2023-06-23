@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_WallSlide.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Music/Footsteps.mp3" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Idle.png" type="Texture" id=9]
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Hit.png" type="Texture" id=10]
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Slide.png" type="Texture" id=11]
+[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_DeathNoMovement.png" type="Texture" id=12]
 [ext_resource path="res://Resources/Light/CircleLightTexture.png" type="Texture" id=13]
 [ext_resource path="res://Player/foot_steps.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Resources/Particles/dash_particle.png" type="Texture" id=15]
@@ -34,6 +35,46 @@ region = Rect2( 293, 37, 66, 43 )
 [sub_resource type="AtlasTexture" id=131]
 atlas = ExtResource( 8 )
 region = Rect2( 411, 37, 66, 43 )
+
+[sub_resource type="AtlasTexture" id=139]
+atlas = ExtResource( 12 )
+region = Rect2( 34, 39, 35, 41 )
+
+[sub_resource type="AtlasTexture" id=140]
+atlas = ExtResource( 12 )
+region = Rect2( 153, 39, 35, 41 )
+
+[sub_resource type="AtlasTexture" id=141]
+atlas = ExtResource( 12 )
+region = Rect2( 276, 39, 35, 41 )
+
+[sub_resource type="AtlasTexture" id=142]
+atlas = ExtResource( 12 )
+region = Rect2( 394, 39, 35, 41 )
+
+[sub_resource type="AtlasTexture" id=143]
+atlas = ExtResource( 12 )
+region = Rect2( 511, 39, 37, 41 )
+
+[sub_resource type="AtlasTexture" id=144]
+atlas = ExtResource( 12 )
+region = Rect2( 630, 39, 37, 41 )
+
+[sub_resource type="AtlasTexture" id=145]
+atlas = ExtResource( 12 )
+region = Rect2( 750, 39, 37, 41 )
+
+[sub_resource type="AtlasTexture" id=146]
+atlas = ExtResource( 12 )
+region = Rect2( 870, 39, 37, 41 )
+
+[sub_resource type="AtlasTexture" id=147]
+atlas = ExtResource( 12 )
+region = Rect2( 990, 39, 41, 41 )
+
+[sub_resource type="AtlasTexture" id=148]
+atlas = ExtResource( 12 )
+region = Rect2( 1111, 39, 41, 41 )
 
 [sub_resource type="AtlasTexture" id=132]
 atlas = ExtResource( 10 )
@@ -161,6 +202,11 @@ animations = [ {
 "loop": true,
 "name": "ATTACK",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ) ],
+"loop": true,
+"name": "DEAD",
+"speed": 15.0
 }, {
 "frames": [ SubResource( 132 ) ],
 "loop": true,
@@ -310,6 +356,33 @@ shader = SubResource( 98 )
 shader_param/progress = 1.0
 shader_param/diamondPixelSize = 10.0
 
+[sub_resource type="Animation" id=149]
+resource_name = "DEAD"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "DEAD" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9 ]
+}
+
 [sub_resource type="Animation" id=135]
 resource_name = "IDLE"
 length = 2.0
@@ -394,11 +467,10 @@ tracks/1/keys = {
 "values": [ 0, 9 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=138]
-radius = 5.0
-height = 12.0
+[sub_resource type="RectangleShape2D" id=150]
+extents = Vector2( 5.5, 11.5 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_mask = 6
 script = ExtResource( 3 )
 foot_step = ExtResource( 14 )
@@ -557,6 +629,7 @@ volume_db = 1.0
 stream = ExtResource( 5 )
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
+anims/DEAD = SubResource( 149 )
 anims/IDLE = SubResource( 135 )
 anims/RESET = SubResource( 136 )
 anims/RUN = SubResource( 137 )
@@ -564,11 +637,13 @@ anims/RUN = SubResource( 137 )
 [node name="hitbox_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_area"]
-position = Vector2( 0, 1 )
-shape = SubResource( 138 )
+position = Vector2( -0.5, 0.5 )
+shape = SubResource( 150 )
 
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
 [connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_AudioStreamPlayer2D_finished"]
 [connection signal="finished" from="AudioStreamPlayer2D2" to="." method="_on_AudioStreamPlayer2D2_finished"]
+[connection signal="animation_finished" from="PlayerAnimation" to="." method="_on_PlayerAnimation_animation_finished"]
 [connection signal="area_entered" from="hitbox_area" to="." method="_on_hitbox_area_area_entered"]
+[connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
