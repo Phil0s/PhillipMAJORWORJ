@@ -1,106 +1,5 @@
-[gd_scene load_steps=294 format=2]
+[gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_000_delay-0.03s.jpg" type="Texture" id=1]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_001_delay-0.03s.jpg" type="Texture" id=2]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_002_delay-0.03s.jpg" type="Texture" id=3]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_003_delay-0.03s.jpg" type="Texture" id=4]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_004_delay-0.03s.jpg" type="Texture" id=5]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_124_delay-0.03s.jpg" type="Texture" id=6]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_125_delay-0.03s.jpg" type="Texture" id=7]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_119_delay-0.03s.jpg" type="Texture" id=8]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_120_delay-0.03s.jpg" type="Texture" id=9]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_128_delay-0.03s.jpg" type="Texture" id=10]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_131_delay-0.03s.jpg" type="Texture" id=11]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_132_delay-0.03s.jpg" type="Texture" id=12]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_121_delay-0.03s.jpg" type="Texture" id=13]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_130_delay-0.03s.jpg" type="Texture" id=14]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_108_delay-0.03s.jpg" type="Texture" id=15]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_129_delay-0.03s.jpg" type="Texture" id=16]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_133_delay-0.03s.jpg" type="Texture" id=17]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_117_delay-0.03s.jpg" type="Texture" id=18]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_126_delay-0.03s.jpg" type="Texture" id=19]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_135_delay-0.03s.jpg" type="Texture" id=20]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_127_delay-0.03s.jpg" type="Texture" id=21]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_115_delay-0.03s.jpg" type="Texture" id=22]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_114_delay-0.03s.jpg" type="Texture" id=23]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_123_delay-0.03s.jpg" type="Texture" id=24]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_134_delay-0.03s.jpg" type="Texture" id=25]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_140_delay-0.03s.jpg" type="Texture" id=26]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_138_delay-0.03s.jpg" type="Texture" id=27]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_136_delay-0.03s.jpg" type="Texture" id=28]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_139_delay-0.03s.jpg" type="Texture" id=29]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_141_delay-0.03s.jpg" type="Texture" id=30]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_111_delay-0.03s.jpg" type="Texture" id=31]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_113_delay-0.03s.jpg" type="Texture" id=32]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_142_delay-0.03s.jpg" type="Texture" id=33]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_122_delay-0.03s.jpg" type="Texture" id=34]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_137_delay-0.03s.jpg" type="Texture" id=35]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_109_delay-0.03s.jpg" type="Texture" id=36]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_118_delay-0.03s.jpg" type="Texture" id=37]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_110_delay-0.03s.jpg" type="Texture" id=38]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_116_delay-0.03s.jpg" type="Texture" id=39]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_112_delay-0.03s.jpg" type="Texture" id=40]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_088_delay-0.03s.jpg" type="Texture" id=41]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_087_delay-0.03s.jpg" type="Texture" id=42]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_077_delay-0.03s.jpg" type="Texture" id=43]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_081_delay-0.03s.jpg" type="Texture" id=44]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_082_delay-0.03s.jpg" type="Texture" id=45]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_083_delay-0.03s.jpg" type="Texture" id=46]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_084_delay-0.03s.jpg" type="Texture" id=47]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_085_delay-0.03s.jpg" type="Texture" id=48]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_089_delay-0.03s.jpg" type="Texture" id=49]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_090_delay-0.03s.jpg" type="Texture" id=50]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_074_delay-0.03s.jpg" type="Texture" id=51]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_078_delay-0.03s.jpg" type="Texture" id=52]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_076_delay-0.03s.jpg" type="Texture" id=53]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_075_delay-0.03s.jpg" type="Texture" id=54]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_079_delay-0.03s.jpg" type="Texture" id=55]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_080_delay-0.03s.jpg" type="Texture" id=56]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_086_delay-0.03s.jpg" type="Texture" id=57]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_013_delay-0.03s.jpg" type="Texture" id=58]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_030_delay-0.03s.jpg" type="Texture" id=59]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_028_delay-0.03s.jpg" type="Texture" id=60]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_008_delay-0.03s.jpg" type="Texture" id=61]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_038_delay-0.03s.jpg" type="Texture" id=62]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_005_delay-0.03s.jpg" type="Texture" id=63]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_017_delay-0.03s.jpg" type="Texture" id=64]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_027_delay-0.03s.jpg" type="Texture" id=65]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_033_delay-0.03s.jpg" type="Texture" id=66]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_034_delay-0.03s.jpg" type="Texture" id=67]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_029_delay-0.03s.jpg" type="Texture" id=68]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_039_delay-0.03s.jpg" type="Texture" id=69]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_009_delay-0.03s.jpg" type="Texture" id=70]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_010_delay-0.03s.jpg" type="Texture" id=71]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_006_delay-0.03s.jpg" type="Texture" id=72]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_014_delay-0.03s.jpg" type="Texture" id=73]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_011_delay-0.03s.jpg" type="Texture" id=74]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_015_delay-0.03s.jpg" type="Texture" id=75]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_018_delay-0.03s.jpg" type="Texture" id=76]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_020_delay-0.03s.jpg" type="Texture" id=77]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_025_delay-0.03s.jpg" type="Texture" id=78]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_022_delay-0.03s.jpg" type="Texture" id=79]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_021_delay-0.03s.jpg" type="Texture" id=80]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_023_delay-0.03s.jpg" type="Texture" id=81]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_026_delay-0.03s.jpg" type="Texture" id=82]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_016_delay-0.03s.jpg" type="Texture" id=83]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_031_delay-0.03s.jpg" type="Texture" id=84]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_032_delay-0.03s.jpg" type="Texture" id=85]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_019_delay-0.03s.jpg" type="Texture" id=86]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_012_delay-0.03s.jpg" type="Texture" id=87]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_007_delay-0.03s.jpg" type="Texture" id=88]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_024_delay-0.03s.jpg" type="Texture" id=89]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_035_delay-0.03s.jpg" type="Texture" id=90]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_036_delay-0.03s.jpg" type="Texture" id=91]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_037_delay-0.03s.jpg" type="Texture" id=92]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_045_delay-0.03s.jpg" type="Texture" id=93]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_048_delay-0.03s.jpg" type="Texture" id=94]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_056_delay-0.03s.jpg" type="Texture" id=95]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_046_delay-0.03s.jpg" type="Texture" id=96]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_040_delay-0.03s.jpg" type="Texture" id=97]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_047_delay-0.03s.jpg" type="Texture" id=98]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_052_delay-0.03s.jpg" type="Texture" id=99]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_054_delay-0.03s.jpg" type="Texture" id=100]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_043_delay-0.03s.jpg" type="Texture" id=101]
 [ext_resource path="res://Levels/Menu/MainMenu.gd" type="Script" id=102]
 [ext_resource path="res://Fonts/Covenant5x5.ttf" type="DynamicFontData" id=103]
 [ext_resource path="res://Levels/Menu/MainMenuSettings.gd" type="Script" id=104]
@@ -108,171 +7,9 @@
 [ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=106]
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=107]
 [ext_resource path="res://Levels/Menu/LevelDisplay.gd" type="Script" id=108]
+[ext_resource path="res://Levels/Menu/VersionText.gd" type="Script" id=109]
 [ext_resource path="res://Theme1.tres" type="Theme" id=110]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_049_delay-0.03s.jpg" type="Texture" id=111]
 [ext_resource path="res://Audio/Music/8bihallowenmusic.mp3" type="AudioStream" id=112]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_050_delay-0.03s.jpg" type="Texture" id=113]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_051_delay-0.03s.jpg" type="Texture" id=114]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_042_delay-0.03s.jpg" type="Texture" id=115]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_053_delay-0.03s.jpg" type="Texture" id=116]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_055_delay-0.03s.jpg" type="Texture" id=117]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_044_delay-0.03s.jpg" type="Texture" id=118]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_041_delay-0.03s.jpg" type="Texture" id=119]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_057_delay-0.03s.jpg" type="Texture" id=120]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_063_delay-0.03s.jpg" type="Texture" id=121]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_064_delay-0.03s.jpg" type="Texture" id=122]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_065_delay-0.03s.jpg" type="Texture" id=123]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_066_delay-0.03s.jpg" type="Texture" id=124]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_067_delay-0.03s.jpg" type="Texture" id=125]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_069_delay-0.03s.jpg" type="Texture" id=126]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_071_delay-0.03s.jpg" type="Texture" id=127]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_061_delay-0.03s.jpg" type="Texture" id=128]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_073_delay-0.03s.jpg" type="Texture" id=129]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_060_delay-0.03s.jpg" type="Texture" id=130]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_059_delay-0.03s.jpg" type="Texture" id=131]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_072_delay-0.03s.jpg" type="Texture" id=132]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_070_delay-0.03s.jpg" type="Texture" id=133]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_068_delay-0.03s.jpg" type="Texture" id=134]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_058_delay-0.03s.jpg" type="Texture" id=135]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_062_delay-0.03s.jpg" type="Texture" id=136]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_103_delay-0.03s.jpg" type="Texture" id=137]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_098_delay-0.03s.jpg" type="Texture" id=138]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_093_delay-0.03s.jpg" type="Texture" id=139]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_095_delay-0.03s.jpg" type="Texture" id=140]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_100_delay-0.03s.jpg" type="Texture" id=141]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_092_delay-0.03s.jpg" type="Texture" id=142]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_094_delay-0.03s.jpg" type="Texture" id=143]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_104_delay-0.03s.jpg" type="Texture" id=144]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_106_delay-0.03s.jpg" type="Texture" id=145]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_091_delay-0.03s.jpg" type="Texture" id=146]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_097_delay-0.03s.jpg" type="Texture" id=147]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_107_delay-0.03s.jpg" type="Texture" id=148]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_099_delay-0.03s.jpg" type="Texture" id=149]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_096_delay-0.03s.jpg" type="Texture" id=150]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_105_delay-0.03s.jpg" type="Texture" id=151]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_101_delay-0.03s.jpg" type="Texture" id=152]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_102_delay-0.03s.jpg" type="Texture" id=153]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_183_delay-0.03s.jpg" type="Texture" id=154]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_193_delay-0.03s.jpg" type="Texture" id=155]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_195_delay-0.03s.jpg" type="Texture" id=156]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_157_delay-0.03s.jpg" type="Texture" id=157]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_171_delay-0.03s.jpg" type="Texture" id=158]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_146_delay-0.03s.jpg" type="Texture" id=159]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_160_delay-0.03s.jpg" type="Texture" id=160]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_172_delay-0.03s.jpg" type="Texture" id=161]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_145_delay-0.03s.jpg" type="Texture" id=162]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_176_delay-0.03s.jpg" type="Texture" id=163]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_190_delay-0.03s.jpg" type="Texture" id=164]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_196_delay-0.03s.jpg" type="Texture" id=165]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_149_delay-0.03s.jpg" type="Texture" id=166]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_150_delay-0.03s.jpg" type="Texture" id=167]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_161_delay-0.03s.jpg" type="Texture" id=168]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_159_delay-0.03s.jpg" type="Texture" id=169]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_197_delay-0.03s.jpg" type="Texture" id=170]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_182_delay-0.03s.jpg" type="Texture" id=171]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_155_delay-0.03s.jpg" type="Texture" id=172]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_198_delay-0.03s.jpg" type="Texture" id=173]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_199_delay-0.03s.jpg" type="Texture" id=174]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_201_delay-0.03s.jpg" type="Texture" id=175]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_185_delay-0.03s.jpg" type="Texture" id=176]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_191_delay-0.03s.jpg" type="Texture" id=177]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_202_delay-0.03s.jpg" type="Texture" id=178]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_203_delay-0.03s.jpg" type="Texture" id=179]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_158_delay-0.03s.jpg" type="Texture" id=180]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_166_delay-0.03s.jpg" type="Texture" id=181]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_153_delay-0.03s.jpg" type="Texture" id=182]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_151_delay-0.03s.jpg" type="Texture" id=183]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_194_delay-0.03s.jpg" type="Texture" id=184]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_204_delay-0.03s.jpg" type="Texture" id=185]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_170_delay-0.03s.jpg" type="Texture" id=186]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_205_delay-0.03s.jpg" type="Texture" id=187]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_154_delay-0.03s.jpg" type="Texture" id=188]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_163_delay-0.03s.jpg" type="Texture" id=189]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_206_delay-0.03s.jpg" type="Texture" id=190]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_152_delay-0.03s.jpg" type="Texture" id=191]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_167_delay-0.03s.jpg" type="Texture" id=192]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_168_delay-0.03s.jpg" type="Texture" id=193]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_187_delay-0.03s.jpg" type="Texture" id=194]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_143_delay-0.03s.jpg" type="Texture" id=195]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_200_delay-0.03s.jpg" type="Texture" id=196]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_164_delay-0.03s.jpg" type="Texture" id=197]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_147_delay-0.03s.jpg" type="Texture" id=198]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_156_delay-0.03s.jpg" type="Texture" id=199]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_144_delay-0.03s.jpg" type="Texture" id=200]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_174_delay-0.03s.jpg" type="Texture" id=201]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_148_delay-0.03s.jpg" type="Texture" id=202]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_162_delay-0.03s.jpg" type="Texture" id=203]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_173_delay-0.03s.jpg" type="Texture" id=204]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_177_delay-0.03s.jpg" type="Texture" id=205]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_179_delay-0.03s.jpg" type="Texture" id=206]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_181_delay-0.03s.jpg" type="Texture" id=207]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_165_delay-0.03s.jpg" type="Texture" id=208]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_169_delay-0.03s.jpg" type="Texture" id=209]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_184_delay-0.03s.jpg" type="Texture" id=210]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_186_delay-0.03s.jpg" type="Texture" id=211]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_189_delay-0.03s.jpg" type="Texture" id=212]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_180_delay-0.03s.jpg" type="Texture" id=213]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_192_delay-0.03s.jpg" type="Texture" id=214]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_178_delay-0.03s.jpg" type="Texture" id=215]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_175_delay-0.03s.jpg" type="Texture" id=216]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_188_delay-0.03s.jpg" type="Texture" id=217]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_211_delay-0.03s.jpg" type="Texture" id=218]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_212_delay-0.03s.jpg" type="Texture" id=219]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_207_delay-0.03s.jpg" type="Texture" id=220]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_209_delay-0.03s.jpg" type="Texture" id=221]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_210_delay-0.03s.jpg" type="Texture" id=222]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_208_delay-0.03s.jpg" type="Texture" id=223]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_219_delay-0.03s.jpg" type="Texture" id=224]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_228_delay-0.03s.jpg" type="Texture" id=225]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_213_delay-0.03s.jpg" type="Texture" id=226]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_229_delay-0.03s.jpg" type="Texture" id=227]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_238_delay-0.03s.jpg" type="Texture" id=228]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_215_delay-0.03s.jpg" type="Texture" id=229]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_214_delay-0.03s.jpg" type="Texture" id=230]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_220_delay-0.03s.jpg" type="Texture" id=231]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_232_delay-0.03s.jpg" type="Texture" id=232]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_239_delay-0.03s.jpg" type="Texture" id=233]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_226_delay-0.03s.jpg" type="Texture" id=234]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_252_delay-0.03s.jpg" type="Texture" id=235]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_259_delay-0.03s.jpg" type="Texture" id=236]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_231_delay-0.03s.jpg" type="Texture" id=237]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_241_delay-0.03s.jpg" type="Texture" id=238]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_230_delay-0.03s.jpg" type="Texture" id=239]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_234_delay-0.03s.jpg" type="Texture" id=240]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_244_delay-0.03s.jpg" type="Texture" id=241]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_255_delay-0.03s.jpg" type="Texture" id=242]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_260_delay-0.03s.jpg" type="Texture" id=243]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_217_delay-0.03s.jpg" type="Texture" id=244]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_261_delay-0.03s.jpg" type="Texture" id=245]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_263_delay-0.03s.jpg" type="Texture" id=246]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_257_delay-0.03s.jpg" type="Texture" id=247]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_242_delay-0.03s.jpg" type="Texture" id=248]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_253_delay-0.03s.jpg" type="Texture" id=249]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_233_delay-0.03s.jpg" type="Texture" id=250]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_248_delay-0.03s.jpg" type="Texture" id=251]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_249_delay-0.03s.jpg" type="Texture" id=252]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_221_delay-0.03s.jpg" type="Texture" id=253]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_262_delay-0.03s.jpg" type="Texture" id=254]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_250_delay-0.03s.jpg" type="Texture" id=255]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_227_delay-0.03s.jpg" type="Texture" id=256]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_222_delay-0.03s.jpg" type="Texture" id=257]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_243_delay-0.03s.jpg" type="Texture" id=258]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_236_delay-0.03s.jpg" type="Texture" id=259]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_235_delay-0.03s.jpg" type="Texture" id=260]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_251_delay-0.03s.jpg" type="Texture" id=261]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_254_delay-0.03s.jpg" type="Texture" id=262]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_256_delay-0.03s.jpg" type="Texture" id=263]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_240_delay-0.03s.jpg" type="Texture" id=264]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_258_delay-0.03s.jpg" type="Texture" id=265]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_237_delay-0.03s.jpg" type="Texture" id=266]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_224_delay-0.03s.jpg" type="Texture" id=267]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_246_delay-0.03s.jpg" type="Texture" id=268]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_247_delay-0.03s.jpg" type="Texture" id=269]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_225_delay-0.03s.jpg" type="Texture" id=270]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_218_delay-0.03s.jpg" type="Texture" id=271]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_223_delay-0.03s.jpg" type="Texture" id=272]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_245_delay-0.03s.jpg" type="Texture" id=273]
-[ext_resource path="res://Resources/bG/MainMenuWallpaper/frame_216_delay-0.03s.jpg" type="Texture" id=274]
 [ext_resource path="res://Audio/LowBlip.wav" type="AudioStream" id=275]
 [ext_resource path="res://Audio/SliderChange.wav" type="AudioStream" id=276]
 [ext_resource path="res://Resources/Shaders/TV.tres" type="Material" id=277]
@@ -283,20 +20,18 @@
 [ext_resource path="res://Resources/Shaders/SliderArea.tres" type="StyleBox" id=282]
 [ext_resource path="res://Resources/Shaders/SliderAreaGradient.tres" type="StyleBox" id=283]
 [ext_resource path="res://Resources/Shaders/ButtonHover.tres" type="StyleBox" id=284]
+[ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=285]
 [ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=286]
+[ext_resource path="res://DownloadedFromItchIO/PixelFantasy_Caves_1.0/background4b.png" type="Texture" id=287]
+[ext_resource path="res://DownloadedFromItchIO/PixelFantasy_Caves_1.0/background1.png" type="Texture" id=288]
+[ext_resource path="res://DownloadedFromItchIO/PixelFantasy_Caves_1.0/background2.png" type="Texture" id=289]
+[ext_resource path="res://DownloadedFromItchIO/PixelFantasy_Caves_1.0/background4a.png" type="Texture" id=290]
+[ext_resource path="res://Levels/Menu/ParallaxBackground.gd" type="Script" id=291]
 
 [sub_resource type="Environment" id=11]
 background_mode = 4
 glow_enabled = true
 glow_hdr_threshold = 3.0
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 63 ), ExtResource( 72 ), ExtResource( 88 ), ExtResource( 61 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 74 ), ExtResource( 87 ), ExtResource( 58 ), ExtResource( 73 ), ExtResource( 75 ), ExtResource( 83 ), ExtResource( 64 ), ExtResource( 76 ), ExtResource( 86 ), ExtResource( 77 ), ExtResource( 80 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 89 ), ExtResource( 78 ), ExtResource( 82 ), ExtResource( 65 ), ExtResource( 60 ), ExtResource( 68 ), ExtResource( 59 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 62 ), ExtResource( 69 ), ExtResource( 97 ), ExtResource( 119 ), ExtResource( 115 ), ExtResource( 101 ), ExtResource( 118 ), ExtResource( 93 ), ExtResource( 96 ), ExtResource( 98 ), ExtResource( 94 ), ExtResource( 111 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 99 ), ExtResource( 116 ), ExtResource( 100 ), ExtResource( 117 ), ExtResource( 95 ), ExtResource( 120 ), ExtResource( 135 ), ExtResource( 131 ), ExtResource( 130 ), ExtResource( 128 ), ExtResource( 136 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 134 ), ExtResource( 126 ), ExtResource( 133 ), ExtResource( 127 ), ExtResource( 132 ), ExtResource( 129 ), ExtResource( 51 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 57 ), ExtResource( 42 ), ExtResource( 41 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 146 ), ExtResource( 142 ), ExtResource( 139 ), ExtResource( 143 ), ExtResource( 140 ), ExtResource( 150 ), ExtResource( 147 ), ExtResource( 138 ), ExtResource( 149 ), ExtResource( 141 ), ExtResource( 152 ), ExtResource( 153 ), ExtResource( 137 ), ExtResource( 144 ), ExtResource( 151 ), ExtResource( 145 ), ExtResource( 148 ), ExtResource( 15 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 31 ), ExtResource( 40 ), ExtResource( 32 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 39 ), ExtResource( 18 ), ExtResource( 37 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 34 ), ExtResource( 24 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 28 ), ExtResource( 35 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 195 ), ExtResource( 200 ), ExtResource( 162 ), ExtResource( 159 ), ExtResource( 198 ), ExtResource( 202 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 183 ), ExtResource( 191 ), ExtResource( 182 ), ExtResource( 188 ), ExtResource( 172 ), ExtResource( 199 ), ExtResource( 157 ), ExtResource( 180 ), ExtResource( 169 ), ExtResource( 160 ), ExtResource( 168 ), ExtResource( 203 ), ExtResource( 189 ), ExtResource( 197 ), ExtResource( 208 ), ExtResource( 181 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 209 ), ExtResource( 186 ), ExtResource( 158 ), ExtResource( 161 ), ExtResource( 204 ), ExtResource( 201 ), ExtResource( 216 ), ExtResource( 163 ), ExtResource( 205 ), ExtResource( 215 ), ExtResource( 206 ), ExtResource( 213 ), ExtResource( 207 ), ExtResource( 171 ), ExtResource( 154 ), ExtResource( 210 ), ExtResource( 176 ), ExtResource( 211 ), ExtResource( 194 ), ExtResource( 217 ), ExtResource( 212 ), ExtResource( 164 ), ExtResource( 177 ), ExtResource( 214 ), ExtResource( 155 ), ExtResource( 184 ), ExtResource( 156 ), ExtResource( 165 ), ExtResource( 170 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 196 ), ExtResource( 175 ), ExtResource( 178 ), ExtResource( 179 ), ExtResource( 185 ), ExtResource( 187 ), ExtResource( 190 ), ExtResource( 220 ), ExtResource( 223 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 218 ), ExtResource( 219 ), ExtResource( 226 ), ExtResource( 230 ), ExtResource( 229 ), ExtResource( 274 ), ExtResource( 244 ), ExtResource( 271 ), ExtResource( 224 ), ExtResource( 231 ), ExtResource( 253 ), ExtResource( 257 ), ExtResource( 272 ), ExtResource( 267 ), ExtResource( 270 ), ExtResource( 234 ), ExtResource( 256 ), ExtResource( 225 ), ExtResource( 227 ), ExtResource( 239 ), ExtResource( 237 ), ExtResource( 232 ), ExtResource( 250 ), ExtResource( 240 ), ExtResource( 260 ), ExtResource( 259 ), ExtResource( 266 ), ExtResource( 228 ), ExtResource( 233 ), ExtResource( 264 ), ExtResource( 238 ), ExtResource( 248 ), ExtResource( 258 ), ExtResource( 241 ), ExtResource( 273 ), ExtResource( 268 ), ExtResource( 269 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 255 ), ExtResource( 261 ), ExtResource( 235 ), ExtResource( 249 ), ExtResource( 262 ), ExtResource( 242 ), ExtResource( 263 ), ExtResource( 247 ), ExtResource( 265 ), ExtResource( 236 ), ExtResource( 243 ), ExtResource( 245 ), ExtResource( 254 ), ExtResource( 246 ) ],
-"loop": true,
-"name": "default",
-"speed": 24.0
-} ]
 
 [sub_resource type="Animation" id=4]
 resource_name = "Default"
@@ -324,30 +59,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("RichTextLabel:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -388,30 +99,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("RichTextLabel:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AnimatedSprite:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.568627, 0.568627, 0.568627, 1 ) ]
-}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Playback"
@@ -450,30 +137,6 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("RichTextLabel:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AnimatedSprite:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.568627, 0.568627, 0.568627, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -646,30 +309,6 @@ tracks/13/keys = {
 "update": 0,
 "values": [ true ]
 }
-tracks/14/type = "value"
-tracks/14/path = NodePath("RichTextLabel:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("AnimatedSprite:self_modulate")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Settings"
@@ -696,30 +335,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("RichTextLabel:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.568627, 0.568627, 0.568627, 1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -748,30 +363,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("RichTextLabel:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.568627, 0.568627, 0.568627, 1 ), Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="DynamicFont" id=10]
 size = 45
@@ -783,12 +374,27 @@ script = ExtResource( 102 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 11 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 291 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 950, 0 )
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 320, 180 )
-scale = Vector2( 1.00946, 1.00279 )
-frames = SubResource( 9 )
-frame = 136
-playing = true
+texture = ExtResource( 288 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 320, 180 )
+texture = ExtResource( 289 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 320, 180 )
+texture = ExtResource( 287 )
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 320, 180 )
+texture = ExtResource( 290 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Default = SubResource( 4 )
@@ -799,6 +405,7 @@ anims/Settings = SubResource( 2 )
 anims/SettingsBack = SubResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = ExtResource( 277 )
 margin_right = 640.0
 margin_bottom = 360.0
@@ -1018,6 +625,58 @@ margin_bottom = 263.0
 custom_fonts/font = ExtResource( 286 )
 text = "Time"
 
+[node name="CenterContainer" type="CenterContainer" parent="ControlPlay/Popup"]
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="GridContainer" type="GridContainer" parent="ControlPlay/Popup/CenterContainer"]
+margin_left = 264.0
+margin_top = 126.0
+margin_right = 375.0
+margin_bottom = 234.0
+
+[node name="LvlButton" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
+margin_right = 111.0
+margin_bottom = 24.0
+focus_neighbour_bottom = NodePath("../LvlButton1")
+custom_fonts/font = ExtResource( 105 )
+custom_styles/focus = ExtResource( 284 )
+text = "Tutorial"
+flat = true
+
+[node name="LvlButton1" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
+margin_top = 28.0
+margin_right = 111.0
+margin_bottom = 52.0
+focus_neighbour_top = NodePath("../LvlButton")
+focus_neighbour_bottom = NodePath("../LvlButton2")
+custom_fonts/font = ExtResource( 105 )
+custom_styles/focus = ExtResource( 284 )
+text = "Mission 1"
+flat = true
+
+[node name="LvlButton2" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
+margin_top = 56.0
+margin_right = 111.0
+margin_bottom = 80.0
+focus_neighbour_top = NodePath("../LvlButton1")
+focus_neighbour_bottom = NodePath("../LvlButton3")
+custom_fonts/font = ExtResource( 105 )
+custom_styles/focus = ExtResource( 284 )
+text = "Mission 2"
+flat = true
+
+[node name="LvlButton3" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
+margin_top = 84.0
+margin_right = 111.0
+margin_bottom = 108.0
+focus_neighbour_top = NodePath("../LvlButton2")
+focus_neighbour_bottom = NodePath("../../../VBoxContainer2/BackfromPlay")
+custom_fonts/font = ExtResource( 105 )
+custom_styles/focus = ExtResource( 284 )
+text = "Mission 3"
+flat = true
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="ControlPlay/Popup"]
 margin_left = 13.0
 margin_top = 334.0
@@ -1030,42 +689,11 @@ __meta__ = {
 [node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
 margin_right = 96.0
 margin_bottom = 16.0
+focus_neighbour_top = NodePath("../../CenterContainer/GridContainer/LvlButton3")
 custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "Back"
 flat = true
-
-[node name="CenterContainer" type="CenterContainer" parent="ControlPlay/Popup"]
-margin_right = 640.0
-margin_bottom = 360.0
-
-[node name="GridContainer" type="GridContainer" parent="ControlPlay/Popup/CenterContainer"]
-margin_left = 204.0
-margin_top = 173.0
-margin_right = 435.0
-margin_bottom = 187.0
-columns = 3
-
-[node name="LvlButton" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
-margin_right = 103.0
-margin_bottom = 14.0
-focus_neighbour_right = NodePath("../LvlButton1")
-text = "Tutorial mission"
-
-[node name="LvlButton1" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
-margin_left = 107.0
-margin_right = 169.0
-margin_bottom = 14.0
-focus_neighbour_left = NodePath("../LvlButton")
-focus_neighbour_right = NodePath("../LvlButton2")
-text = "Mission 1"
-
-[node name="LvlButton2" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
-margin_left = 173.0
-margin_right = 231.0
-margin_bottom = 14.0
-focus_neighbour_left = NodePath("../LvlButton1")
-text = "Mission2"
 
 [node name="ButtonPress" type="AudioStreamPlayer2D" parent="ControlPlay"]
 position = Vector2( 320, 208 )
@@ -1074,10 +702,10 @@ stream = ExtResource( 278 )
 [node name="Title" type="Label" parent="."]
 margin_left = 32.0
 margin_top = 144.0
-margin_right = 385.0
+margin_right = 502.0
 margin_bottom = 224.0
 custom_fonts/font = SubResource( 10 )
-text = "DEEP DOWN"
+text = "DUNGEON MASTER"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -1133,17 +761,17 @@ bus = "Effects"
 stream = ExtResource( 278 )
 bus = "Effects"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 537.0
-margin_top = 340.0
-margin_right = 693.0
-margin_bottom = 360.0
-custom_fonts/normal_font = ExtResource( 107 )
-text = "Version: BETA"
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 112 )
 bus = "Music"
+
+[node name="VersionLabel" type="Label" parent="."]
+margin_left = 552.0
+margin_top = 334.0
+margin_right = 592.0
+margin_bottom = 348.0
+custom_fonts/font = ExtResource( 285 )
+script = ExtResource( 109 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
@@ -1158,14 +786,21 @@ bus = "Music"
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_focus_entered"]
 [connection signal="mouse_entered" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_mouse_entered"]
 [connection signal="pressed" from="Control/Popup/VBoxContainer/Back" to="." method="_on_Back_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]
 [connection signal="focus_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton" to="." method="_on_LvlButton_focus_entered"]
 [connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton" to="." method="_on_LvlButton_mouse_entered"]
 [connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton" to="." method="_on_LvlButton_pressed"]
 [connection signal="focus_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton1" to="." method="_on_LvlButton1_focus_entered"]
 [connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton1" to="." method="_on_LvlButton1_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton1" to="." method="_on_LvlButton1_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2" to="." method="_on_LvlButton2_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2" to="." method="_on_LvlButton2_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2" to="." method="_on_LvlButton2_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3" to="." method="_on_LvlButton3_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3" to="." method="_on_LvlButton3_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3" to="." method="_on_LvlButton3_pressed"]
+[connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_focus_entered"]
+[connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_mouse_entered"]
+[connection signal="pressed" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]
 [connection signal="focus_entered" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]

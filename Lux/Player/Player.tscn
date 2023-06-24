@@ -624,9 +624,11 @@ color = Color( 0, 0, 0, 1 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 volume_db = 1.0
+bus = "Effects"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+bus = "Effects"
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 anims/DEAD = SubResource( 149 )

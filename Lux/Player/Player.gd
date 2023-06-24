@@ -105,6 +105,7 @@ func _physics_process(delta):
 			handle_player_collision_shapes()
 			handle_input(delta)
 			do_physics(delta)
+			handle_player_particles()
 		if(Globalscript.dead):
 			Globalscript.dead = false
 			play_dead_anim()
@@ -369,17 +370,17 @@ func handle_player_collision_shapes():
 #		current_friction = friction #Return to normal friction
 #		is_sliding = false
 
-#func handle_player_particles():
-#	if(motion.x == 0):
-#		last_step = -1
-#	if(sprite.animation == "RUN"):
-#		if(sprite.frame == 2 or sprite.frame == 5):
-#			if(last_step != sprite.frame):
-#				last_step = sprite.frame
-#				var footstep = foot_step.instance()
-#				footstep.emitting = true
-#				footstep.global_position = Vector2(global_position.x,global_position.y + 12)
-#				get_parent().add_child(footstep)
+func handle_player_particles():
+	if(motion.x == 0):
+		last_step = -1
+	if(sprite.animation == "RUN"):
+		if(sprite.frame == 1 or sprite.frame == 6):
+			if(last_step != sprite.frame):
+				last_step = sprite.frame
+				var footstep = foot_step.instance()
+				footstep.emitting = true
+				footstep.global_position = Vector2(global_position.x,global_position.y + 12)
+				get_parent().add_child(footstep)
 
 
 

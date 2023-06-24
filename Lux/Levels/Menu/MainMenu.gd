@@ -27,7 +27,7 @@ onready var backfromplay = $ControlPlay/Popup/VBoxContainer2/BackfromPlay
 onready var level0 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton
 onready var level1 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton1
 onready var level2 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2
-
+onready var level3 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3
 
 
 
@@ -36,7 +36,6 @@ func _ready():
 	startbut.grab_focus()
 	settingspage.visible = false
 	playpage.visible = false
-	version.text = "Version: " + "BETA"
 	
 func _defaultreset(): #Played when scene first loaded, to ensure everything starts of at the correct position and settings
 	MManimationPlayer.play("Default")
@@ -206,7 +205,6 @@ func _on_Launch_mouse_entered():
 func _on_LvlButton_focus_entered():
 	buttonhover.play()
 
-
 func _on_LvlButton_pressed():
 	get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")
 
@@ -219,3 +217,31 @@ func _on_LvlButton1_focus_entered():
 
 func _on_LvlButton1_mouse_entered():
 	level1.grab_focus()
+
+
+func _on_LvlButton2_focus_entered():
+	buttonhover.play()
+
+
+func _on_LvlButton2_mouse_entered():
+	level2.grab_focus()
+
+
+func _on_LvlButton2_pressed():
+	get_tree().change_scene("res://Levels/Level/Level2.tscn")
+
+
+func _on_LvlButton3_pressed():
+	get_tree().change_scene("res://Levels/Level/Level3.tscn")
+
+
+func _on_LvlButton3_focus_entered():
+	buttonhover.play()
+
+
+func _on_LvlButton1_pressed():
+	get_tree().change_scene("res://Levels/Level/Level1.tscn")
+
+
+func _on_LvlButton3_mouse_entered():
+	level3.grab_focus()
