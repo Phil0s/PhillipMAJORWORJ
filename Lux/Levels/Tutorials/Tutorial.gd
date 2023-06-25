@@ -29,9 +29,6 @@ func _on_Checkpoint_0_Checkpoint_reached0():
 	file.store_line(to_json(LevelSavesLoaded.data))
 	file.close()
 	
-	
-
-
 func _on_Checkpoint_1_Checkpoint_reached1():
 	var file = File.new()
 	file.open(levelsavefile, File.WRITE)	

@@ -87,6 +87,8 @@ onready var landingaudioplayer = $AudioStreamPlayer2D2
 onready var landingaudiofinished = true
 onready var playeranimation = $PlayerAnimation
 
+### Main + physics Process
+
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	Globalscript.dead = false
@@ -110,6 +112,11 @@ func _physics_process(delta):
 			Globalscript.dead = false
 			play_dead_anim()
 
+ 
+
+
+
+### Player Movement	
 func dash_timer_timeout():
 	is_dashing = false
 	sprite.material.set_shader_param("whiten", false)
@@ -193,7 +200,7 @@ func check_ground_wall_logic():
 		is_wall_sliding = false
 	
 func handle_input(var delta):
-#	check_sliding_logic()
+	check_sliding_logic()
 	handle_movement(delta)
 	handle_jumping(delta)
 	
@@ -254,9 +261,12 @@ func handle_movement(var delta):
 				sprite.play("IDLE")
 				audioplayer.playing = false
 				audiofinished = true
+			else:
+				if(abs(hSpeed) < 0.2):
+					sprite.stop()
+					sprite.frame = 1
 		hSpeed -= min(abs(hSpeed), current_friction * delta) * sign(hSpeed)
-		
-		
+		 
 func handle_jumping(var delta):
 	if(coyote_time and Input.is_action_just_pressed("Jump")):
 		audioplayer.playing = false
@@ -265,7 +275,7 @@ func handle_jumping(var delta):
 		is_jumping = true
 		can_double_jump = true
 	if(touching_ground):
-		if((Input.is_action_just_pressed("Jump") or air_jump_pressed) and !is_jumping):
+		if((Input.is_action_just_pressed("Jump") or air_jump_pressed) and !is_jumping and !cieling_ray.is_colliding()):
 			audioplayer.playing = false
 			audiofinished = true
 			vSpeed = jump_height
@@ -346,30 +356,37 @@ func handle_player_collision_shapes():
 	elif(!is_sliding and stand_collision.disabled):
 		stand_collision.disabled = false
 		slide_collision.disabled = true
-#
-#func check_sliding_logic():
-#	#Check if its possible to slide, are we at max speed?
-#	if(abs(hSpeed) > (max_horizontal_speed -1) and touching_ground):
-#		if(!is_sliding):
-#			can_slide = true
-#	else:
-#		can_slide = false
-#	#Check if we are holding down slide key
-#	if(can_slide and Input.is_action_pressed("Slide")):
-#		is_sliding = true
-#		can_slide = false
-#
-#	#Checking if we're sliding but just released the slide key
+
+func check_sliding_logic():
+	#Can only slide at max x speed
+	if(abs(hSpeed) > (max_horizontal_speed -1) and touching_ground):
+		if(!is_sliding):
+			can_slide = true
+	else:
+		can_slide = false
+	#just_pressed = tap, action_pressed = holding down	
+	if(can_slide and Input.is_action_just_pressed("Slide")):
+		is_sliding = true
+		can_slide = false
+	if(is_sliding and motion.x == 0 and !cieling_ray.is_colliding()):
+		is_sliding = false
+#	Use this for action_pressed	
 #	if(is_sliding and !Input.is_action_pressed("Slide")):
 #		is_sliding = false
-#	#Friction and animation logic
-#	if(is_sliding and touching_ground):
-#		current_friction = slide_friction #Friction is reduced during slide
-#		sprite.play("SLIDE")
-#	else:
-#		current_friction = friction #Return to normal friction
-#		is_sliding = false
+	if(is_sliding and touching_ground and !cieling_ray.is_colliding()):
+		current_friction = slide_friction 
+		audioplayer.playing = false
+		audiofinished = true
+		sprite.play("SLIDE")
+	elif(is_sliding and touching_ground and cieling_ray.is_colliding()):
+		print("here")
+		current_friction = -10
+		sprite.play("SLIDE")
+	else:
+		current_friction = friction #friction = normal friction
+		is_sliding = false
 
+#Footstep particles
 func handle_player_particles():
 	if(motion.x == 0):
 		last_step = -1
@@ -382,22 +399,22 @@ func handle_player_particles():
 				footstep.global_position = Vector2(global_position.x,global_position.y + 12)
 				get_parent().add_child(footstep)
 
-
-
-
 func _on_AudioStreamPlayer2D_finished():
 	audiofinished = true
-
 
 func _on_AudioStreamPlayer2D2_finished():
 	landingaudiofinished = true
 
 
+
+
+
+
+
+### Enemy + Environment + Obstacles
 func _on_hitbox_area_area_entered(area):
 	if(area.is_in_group("portal")):
 		do_teleport(area)
-		
-
 		
 func do_teleport(area):
 	for portal in get_tree().get_nodes_in_group("portal"):
@@ -416,8 +433,6 @@ func play_dead_anim():
 
 func _on_PlayerAnimation_animation_finished(anim_name):
 	pass
-
-
 
 func _on_hitbox_area_body_entered(body):
 	if(body.is_in_group("enemy")):

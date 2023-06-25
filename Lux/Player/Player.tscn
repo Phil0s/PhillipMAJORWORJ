@@ -253,7 +253,7 @@ animations = [ {
 extents = Vector2( 5.33508, 11.3874 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 6, 3 )
+extents = Vector2( 6.31187, 3 )
 
 [sub_resource type="Curve" id=9]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.994382, 0 ), -2.78997, 0.0, 0, 0 ]
@@ -479,8 +479,9 @@ dash_speed = 1200
 dash_length = 0.1
 acceleration = 400
 deacceleration = 600
-max_horizontal_speed = 110
-jump_height = -200
+max_horizontal_speed = 150
+jump_height = -220
+slide_friction = 70
 squash_speed = 0.1
 wall_jump_height = -250
 wall_jump_push = 200
@@ -500,8 +501,7 @@ scale = Vector2( 1.00317, 1 )
 shape = SubResource( 7 )
 
 [node name="slide_collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -1, 9 )
+position = Vector2( -0.312, 9.104 )
 shape = SubResource( 8 )
 disabled = true
 
@@ -591,6 +591,7 @@ texture = ExtResource( 17 )
 centered = false
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 13 )
 texture_scale = 0.75
 energy = 0.5
@@ -637,9 +638,10 @@ anims/RESET = SubResource( 136 )
 anims/RUN = SubResource( 137 )
 
 [node name="hitbox_area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_area"]
-position = Vector2( -0.5, 0.5 )
+position = Vector2( 0, 1 )
 shape = SubResource( 150 )
 
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
