@@ -19,6 +19,7 @@ var playing = false
 var walking = true
 var colliding = false
 var playerinrange = false
+var dead = false
 
 #Mainline Function (runs first when file is called)
 func _ready():
@@ -28,17 +29,19 @@ func _ready():
 func _process(delta):	
 	if(ray.is_colliding() and ray.get_collider() is MainCharacter):
 		colliding = true
+	else:
+		colliding = false
 	movement()
 	
 #Skeleton either move or attack
 func movement():
-	if(playerinrange):
-		if(colliding):
+	if(colliding):
+		if(playerinrange):
 			if(!playing):
 				walking = false
 				playing = true
 				animation.play("Attack")
-	if(!playerinrange and !playing):
+	if(!colliding and !playing):
 		move()		
 		at_edge()
 

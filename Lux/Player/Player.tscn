@@ -468,7 +468,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=150]
-extents = Vector2( 5.5, 11.5 )
+extents = Vector2( 5.77992, 11.4845 )
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_mask = 6
@@ -638,10 +638,9 @@ anims/RESET = SubResource( 136 )
 anims/RUN = SubResource( 137 )
 
 [node name="hitbox_area" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_area"]
-position = Vector2( 0, 1 )
+position = Vector2( -0.279923, 0.613191 )
 shape = SubResource( 150 )
 
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]

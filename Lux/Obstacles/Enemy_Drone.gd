@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
+#Credits: Nav by GDQuest, Other code all by me
+
 signal fire
 
 signal stop_fire
 
-#Credits: GDQuest - Pathfinding
 
 export var path_to_player := NodePath() #Get the node path of the player node 
 

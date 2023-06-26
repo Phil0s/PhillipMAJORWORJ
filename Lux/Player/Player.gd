@@ -435,5 +435,6 @@ func _on_PlayerAnimation_animation_finished(anim_name):
 	pass
 
 func _on_hitbox_area_body_entered(body):
-	if(body.is_in_group("enemy")):
-		body.queue_free()
+	pass
+#	if(body.is_in_group("enemy")):
+#		body.queue_free()
