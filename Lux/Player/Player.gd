@@ -380,7 +380,7 @@ func check_sliding_logic():
 		sprite.play("SLIDE")
 	elif(is_sliding and touching_ground and cieling_ray.is_colliding()):
 		print("here")
-		current_friction = -10
+		current_friction = -2
 		sprite.play("SLIDE")
 	else:
 		current_friction = friction #friction = normal friction

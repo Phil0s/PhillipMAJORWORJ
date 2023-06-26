@@ -206,6 +206,7 @@ func _on_LvlButton_focus_entered():
 	buttonhover.play()
 
 func _on_LvlButton_pressed():
+	buttonpressed.play()
 	get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")
 
 func _on_LvlButton_mouse_entered():
@@ -228,10 +229,12 @@ func _on_LvlButton2_mouse_entered():
 
 
 func _on_LvlButton2_pressed():
+	buttonpressed.play()
 	get_tree().change_scene("res://Levels/Level/Level2.tscn")
 
 
 func _on_LvlButton3_pressed():
+	buttonpressed.play()
 	get_tree().change_scene("res://Levels/Level/Level3.tscn")
 
 

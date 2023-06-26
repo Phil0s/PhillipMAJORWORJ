@@ -123,3 +123,7 @@ func _on_Button5_pressed():
 	audio_page.visible = false
 	get_tree().change_scene("res://Levels/Menu/MainMenu.tscn")
 
+
+
+func _on_Button6_pressed():
+	pass # Replace with function body.
