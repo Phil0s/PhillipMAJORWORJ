@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/Tutorials/Temp3.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Resources/Portals/Portal.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Resources/Spikes/SpinningSpike.png" type="Texture" id=18]
 [ext_resource path="res://Resources/ExitLevel.tres" type="SpriteFrames" id=19]
+[ext_resource path="res://Obstacles/Enemies/ToasterBot.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Levels/Tutorials/Temp1.gd" type="Script" id=30]
 
@@ -118,6 +119,7 @@ tracks/0/keys = {
 background_mode = 4
 glow_enabled = true
 glow_bloom = 1.0
+glow_hdr_threshold = 1.5
 
 [sub_resource type="GDScript" id=105]
 script/source = "extends Area2D
@@ -196,7 +198,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 4
 format = 1
-tile_data = PoolIntArray( 851958, 110, 0, 917494, 110, 0, 983030, 110, 0, 1048566, 110, 0, 1114102, 110, 0, 1179638, 110, 0, 1245173, 112, 0, 1245174, 112, 0, 1245175, 112, 0, 1245176, 112, 0, 1376242, 112, 0, 1376243, 112, 0, 1376244, 112, 0, 1376245, 112, 0, 1376246, 112, 0, 1376247, 112, 0, 1376248, 112, 0, 1376249, 112, 0, 1376250, 112, 0, 1376251, 112, 0, 1376252, 112, 0, 1376253, 112, 0, 1376254, 112, 0, 1376255, 112, 0, 1310720, 112, 0, 1310721, 112, 0, 1310722, 112, 0, 1310723, 112, 0, 1310724, 112, 0, 1310726, 112, 0, 1310727, 112, 0, 1310728, 112, 0, 1310729, 112, 0, 1310730, 112, 0, 2621436, 112, 0, 2621438, 112, 0, 2555904, 112, 0, 2555906, 112, 0, 2555908, 112, 0, 2555910, 112, 0, 2555912, 112, 0, 2555916, 112, 0, 2555918, 112, 0, 2555920, 112, 0, 2555922, 112, 0, 2555924, 112, 0, 2555928, 112, 0, 2555930, 112, 0, 2555932, 112, 0, 2555934, 112, 0, 2555936, 112, 0, 2555938, 112, 0 )
+tile_data = PoolIntArray( 1114106, 110, 0, 1179642, 110, 0, 1114122, 110, 0, 1245178, 110, 0, 1179658, 110, 0, 1310714, 110, 0, 1245194, 110, 0, 1376242, 112, 0, 1376243, 112, 0, 1376244, 112, 0, 1376245, 112, 0, 1376246, 112, 0, 1376247, 112, 0, 1376248, 112, 0, 1376249, 112, 0, 1376250, 112, 0, 1376252, 112, 0, 1376253, 112, 0, 1376254, 112, 0, 1376255, 112, 0, 1310720, 112, 0, 1310721, 112, 0, 1310722, 112, 0, 1310723, 112, 0, 1310724, 112, 0, 1310726, 112, 0, 1310727, 112, 0, 1310728, 112, 0, 1310729, 112, 0, 1310730, 112, 0, 2621436, 112, 0, 2621438, 112, 0, 2555904, 112, 0, 2555906, 112, 0, 2555908, 112, 0, 2555910, 112, 0, 2555912, 112, 0, 2555916, 112, 0, 2555918, 112, 0, 2555920, 112, 0, 2555922, 112, 0, 2555924, 112, 0, 2555928, 112, 0, 2555930, 112, 0, 2555932, 112, 0, 2555934, 112, 0, 2555936, 112, 0, 2555938, 112, 0 )
 
 [node name="tutorial1msg" type="Area2D" parent="."]
 position = Vector2( 80, 194 )
@@ -255,7 +257,7 @@ shape = SubResource( 52 )
 position = Vector2( -328, 240 )
 
 [node name="SpikesArea" parent="." instance=ExtResource( 5 )]
-position = Vector2( -256, 320 )
+position = Vector2( -56, 320 )
 
 [node name="SwingSpike" parent="." instance=ExtResource( 10 )]
 position = Vector2( -288, 258 )
@@ -337,7 +339,7 @@ __meta__ = {
 shape = SubResource( 107 )
 
 [node name="SkeletonEnemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 107, 295 )
+position = Vector2( 122, 298 )
 
 [node name="Portal" parent="." instance=ExtResource( 17 )]
 position = Vector2( 38, 239 )
@@ -358,6 +360,9 @@ animation = "New Anim"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2( 0, 2 )
 shape = SubResource( 108 )
+
+[node name="ToasterBot" parent="." instance=ExtResource( 20 )]
+position = Vector2( -208, 310 )
 
 [connection signal="body_entered" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_entered"]
 [connection signal="body_entered" from="tutorial3msg" to="tutorial3msg" method="_on_tutorial3msg_body_entered"]

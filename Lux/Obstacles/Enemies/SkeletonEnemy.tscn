@@ -1,11 +1,10 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Obstacles/Enemies/SkeletonEnemy.gd" type="Script" id=1]
 [ext_resource path="res://DownloadedFromItchIO/Skeleton/Sprite Sheets/Skeleton Idle.png" type="Texture" id=2]
 [ext_resource path="res://DownloadedFromItchIO/Skeleton/Sprite Sheets/Skeleton Walk.png" type="Texture" id=3]
 [ext_resource path="res://DownloadedFromItchIO/Skeleton/Sprite Sheets/Skeleton Dead.png" type="Texture" id=4]
 [ext_resource path="res://DownloadedFromItchIO/Skeleton/Sprite Sheets/Skeleton Attack.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Light/CircleLightTexture.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 5 )
@@ -421,7 +420,7 @@ radius = 7.0
 height = 14.0
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 8.5, 13.5 )
+extents = Vector2( 8.5, 14 )
 
 [sub_resource type="RectangleShape2D" id=61]
 extents = Vector2( 9.5, 12 )
@@ -459,7 +458,7 @@ collision_mask = 4
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2( 13.5, 2.5 )
+position = Vector2( 13.5, 2 )
 shape = SubResource( 27 )
 
 [node name="HitArea" type="Area2D" parent="."]
@@ -472,15 +471,8 @@ monitorable = false
 position = Vector2( 12.5, 4 )
 shape = SubResource( 61 )
 
-[node name="Light2D" type="Light2D" parent="."]
-visible = false
-texture = ExtResource( 6 )
-texture_scale = 0.2
-energy = 0.5
-shadow_enabled = true
-
 [node name="PlayerRay" type="RayCast2D" parent="."]
-position = Vector2( 9, 2 )
+position = Vector2( 7, 2 )
 enabled = true
 cast_to = Vector2( 24, 0 )
 
@@ -489,6 +481,8 @@ cast_to = Vector2( 24, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SkeletonCol"]
 position = Vector2( 0, 2 )
 shape = SubResource( 67 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

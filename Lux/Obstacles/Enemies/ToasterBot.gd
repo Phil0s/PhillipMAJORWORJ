@@ -1,17 +1,97 @@
 extends KinematicBody2D
+#This File Handles ToasterBot logic (Movement, Attack, Death, etc)
+#Finished 26 June
+
+#AnimatedSprite
 #Dimensions 26 22
 
+#Declare Variables
+var is_moving_right = true
+var gravity = 10
+var velocity = Vector2(0,0)
+var speed = 32
+onready var edgeray = $EdgeRay
+onready var animation = $AnimationPlayer
+onready var ray = $PlayerRay
+onready var audioplayer = $AudioStreamPlayer2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var playing = false
+var walking = true
+var colliding = false
+var playerinrange = false
 
-
-# Called when the node enters the scene tree for the first time.
+#Mainline Function (runs first when file is called)
 func _ready():
-	pass # Replace with function body.
+	animation.play("Walk")
+
+#Called every frame
+func _process(delta):	
+	if(ray.is_colliding() and ray.get_collider() is MainCharacter):
+		colliding = true
+	movement()
+	
+#Skeleton either move or attack
+func movement():
+	if(playerinrange):
+		if(colliding):
+			if(!playing):
+				walking = false
+				playing = true
+				animation.play("Attack")
+	if(!playerinrange and !playing):
+		move()		
+		at_edge()
+
+#Resets/changes booleans depending on conditions.
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(colliding and playerinrange):
+		playing = false
+	if( !playerinrange):
+		playing = false
+		start_walk()
+		walking = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+#Handles movement for Skeleton
+#@returns none
+func move():
+	if is_moving_right:
+		velocity.x = speed
+	if !is_moving_right:
+		velocity.x = -speed
+	velocity.y += gravity
+	velocity = move_and_slide(velocity, Vector2.UP)
+
+#Gets signal from EdgeRay 
+#@returns none
+func at_edge():
+	if not edgeray.is_colliding() and is_on_floor():
+		is_moving_right = !is_moving_right
+		scale.x = -scale.x
+	if(is_on_wall()):
+		is_moving_right = !is_moving_right
+		scale.x = -scale.x
+
+#Func attack and finish_attack turn on and off HitArea
+func attack():
+	$HitArea.monitoring = true
+	
+func finish_attack():
+	$HitArea.monitoring = false
+
+
+func start_walk():
+	animation.play("Walk")
+
+
+
+
+
+func _on_PlayerDetector_body_entered(body):
+	playerinrange = true
+	
+func _on_PlayerDetector_body_exited(body):
+	playerinrange = false
+
+func _on_HitArea_body_entered(body):
+	Globalscript.dead = true

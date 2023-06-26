@@ -13,11 +13,13 @@ var speed = 32
 onready var edgeray = $EdgeRay
 onready var animation = $AnimationPlayer
 onready var ray = $PlayerRay
+onready var audioplayer = $AudioStreamPlayer2D
 
 var playing = false
 var walking = true
 var colliding = false
 var playerinrange = false
+
 
 #Mainline Function (runs first when file is called)
 func _ready():
@@ -67,7 +69,9 @@ func at_edge():
 	if not edgeray.is_colliding() and is_on_floor():
 		is_moving_right = !is_moving_right
 		scale.x = -scale.x
-
+	if(is_on_wall()):
+		is_moving_right = !is_moving_right
+		scale.x = -scale.x
 #Func attack and finish_attack turn on and off HitArea
 func attack():
 	$HitArea.monitoring = true
