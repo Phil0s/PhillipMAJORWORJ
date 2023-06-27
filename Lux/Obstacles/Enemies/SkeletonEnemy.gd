@@ -119,3 +119,13 @@ func _on_SkeletonCol_body_entered(body):
 			active = false
 			animation.stop()
 			animation.play("Death")
+
+
+func _on_SkeletonCol_area_entered(area):
+	if(active):
+		if (area.is_in_group("playerattackbox")):
+			$CollisionShape2D.queue_free()
+			$SkeletonCol.queue_free()
+			active = false
+			animation.stop()
+			animation.play("Death")

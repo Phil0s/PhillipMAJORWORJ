@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_WallSlide.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Music/Footsteps.mp3" type="AudioStream" id=2]
@@ -356,6 +356,51 @@ shader = SubResource( 98 )
 shader_param/progress = 1.0
 shader_param/diamondPixelSize = 10.0
 
+[sub_resource type="Animation" id=151]
+resource_name = "Attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "ATTACK" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hitarea_show"
+}, {
+"args": [  ],
+"method": "hitarea_hide"
+} ]
+}
+
 [sub_resource type="Animation" id=149]
 resource_name = "DEAD"
 tracks/0/type = "value"
@@ -469,6 +514,9 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=150]
 extents = Vector2( 5.77992, 11.4845 )
+
+[sub_resource type="RectangleShape2D" id=152]
+extents = Vector2( 6.75408, 11.4886 )
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_mask = 6
@@ -632,6 +680,7 @@ stream = ExtResource( 5 )
 bus = "Effects"
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 151 )
 anims/DEAD = SubResource( 149 )
 anims/IDLE = SubResource( 135 )
 anims/RESET = SubResource( 136 )
@@ -642,6 +691,17 @@ anims/RUN = SubResource( 137 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_area"]
 position = Vector2( -0.279923, 0.613191 )
 shape = SubResource( 150 )
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="PlayerHitArea" type="Area2D" parent="Position2D" groups=["playerattackbox"]]
+collision_mask = 3
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/PlayerHitArea"]
+position = Vector2( 12.2247, 0.596969 )
+shape = SubResource( 152 )
 
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
 [connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]

@@ -62,6 +62,7 @@ var can_dash : bool = true
 var dash_direction : Vector2 #Get the direction the character is currently facing
 var continue_sliding = false #Might not be used
 var animfinished = true
+var notattack = true
 
 
 #Grabbing nodes
@@ -86,6 +87,8 @@ onready var audiofinished = true
 onready var landingaudioplayer = $AudioStreamPlayer2D2
 onready var landingaudiofinished = true
 onready var playeranimation = $PlayerAnimation
+onready var hitarea = $Position2D/PlayerHitArea
+onready var hitareaparent = $Position2D
 
 ### Main + physics Process
 
@@ -102,6 +105,7 @@ func _ready():
 func _physics_process(delta):
 	if(spawn_finished):
 		if(!Globalscript.dead):
+			attack()
 			handle_dash(delta)
 			check_ground_wall_logic()
 			handle_player_collision_shapes()
@@ -113,7 +117,11 @@ func _physics_process(delta):
 			play_dead_anim()
 
  
-
+func attack():
+	if(Input.is_action_just_pressed("Attack")):
+		if(!is_wall_sliding and !can_slide and !is_jumping and notattack):
+			notattack = false
+			playeranimation.play("Attack")
 
 
 ### Player Movement	
@@ -136,7 +144,7 @@ func get_direction_from_input():
 	return move_direction * dash_speed
 	
 func handle_dash(var delta):
-	if(Input.is_action_just_pressed("Dash") and can_dash and !touching_ground):
+	if(Input.is_action_just_pressed("Dash") and can_dash and !touching_ground and notattack):
 		emit_signal("dash")
 		is_dashing = true
 		can_dash = false
@@ -210,6 +218,7 @@ func handle_movement(var delta):
 		hSpeed = 0
 		motion.x = 0
 	if(Input.is_action_pressed("Right") and !is_sliding):
+		notattack = true
 		if(hSpeed <-100):
 			hSpeed += (deacceleration * delta)
 			if(touching_ground):
@@ -219,6 +228,7 @@ func handle_movement(var delta):
 		elif(hSpeed < max_horizontal_speed):
 			hSpeed += (acceleration * delta)
 			sprite.flip_h = false
+			hitareaparent.scale.x = 1
 			if(touching_ground):
 				sprite.play("RUN")
 				if(audiofinished):
@@ -233,6 +243,7 @@ func handle_movement(var delta):
 					audioplayer.playing = true
 					audiofinished = false
 	elif(Input.is_action_pressed("Left") and !is_sliding):
+		notattack = true
 		if(hSpeed > 100):
 			hSpeed -= (deacceleration * delta)
 			if(touching_ground):
@@ -242,6 +253,7 @@ func handle_movement(var delta):
 		elif(hSpeed > -max_horizontal_speed):
 			hSpeed -= (acceleration * delta)
 			sprite.flip_h = true
+			hitareaparent.scale.x = -1
 			if(touching_ground):
 				sprite.play("RUN")
 				if(audiofinished):
@@ -256,8 +268,8 @@ func handle_movement(var delta):
 					audioplayer.playing = true
 					audiofinished = false
 	else:
-		if(touching_ground):
-			if(!is_sliding):
+		if(touching_ground and notattack):
+			if(!is_sliding and notattack):
 				sprite.play("IDLE")
 				audioplayer.playing = false
 				audiofinished = true
@@ -269,6 +281,7 @@ func handle_movement(var delta):
 		 
 func handle_jumping(var delta):
 	if(coyote_time and Input.is_action_just_pressed("Jump")):
+		notattack = true
 		audioplayer.playing = false
 		audiofinished = true
 		vSpeed = jump_height
@@ -276,6 +289,7 @@ func handle_jumping(var delta):
 		can_double_jump = true
 	if(touching_ground):
 		if((Input.is_action_just_pressed("Jump") or air_jump_pressed) and !is_jumping and !cieling_ray.is_colliding()):
+			notattack = true
 			audioplayer.playing = false
 			audiofinished = true
 			vSpeed = jump_height
@@ -290,6 +304,7 @@ func handle_jumping(var delta):
 		elif(is_double_jumping and sprite.frame ==2): #Where frame is last frame number of double jump animation
 			is_double_jumping = false
 		if((right_ray.is_colliding() and right_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
+			notattack = true
 			audioplayer.playing = false
 			audiofinished = true
 			vSpeed = wall_jump_height
@@ -297,6 +312,7 @@ func handle_jumping(var delta):
 			sprite.flip_h = true
 			can_double_jump = true
 		elif((left_ray.is_colliding() and left_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
+			notattack = true
 			audioplayer.playing = false
 			audiofinished = true
 			vSpeed = wall_jump_height
@@ -311,6 +327,7 @@ func handle_jumping(var delta):
 			is_double_jumping = false
 		#Check if we're pressing jump just before we land
 		if(Input.is_action_just_pressed("Jump")):
+			notattack = true
 			air_jump_pressed = true
 			yield(get_tree().create_timer(0.2), "timeout")
 			air_jump_pressed = false
@@ -366,6 +383,7 @@ func check_sliding_logic():
 		can_slide = false
 	#just_pressed = tap, action_pressed = holding down	
 	if(can_slide and Input.is_action_just_pressed("Slide")):
+		notattack = true
 		is_sliding = true
 		can_slide = false
 	if(is_sliding and motion.x == 0 and !cieling_ray.is_colliding()):
@@ -406,8 +424,12 @@ func _on_AudioStreamPlayer2D2_finished():
 	landingaudiofinished = true
 
 
-
-
+func hitarea_show():
+	hitarea.monitorable = true
+	hitarea.monitoring = true
+func hitarea_hide():
+	hitarea.monitorable = false
+	hitarea.monitoring = false
 
 
 
@@ -432,7 +454,8 @@ func play_dead_anim():
 		playeranimation.stop()
 
 func _on_PlayerAnimation_animation_finished(anim_name):
-	pass
+	if anim_name == "Attack":
+		notattack = true
 
 func _on_hitbox_area_body_entered(body):
 	pass

@@ -14,12 +14,13 @@ onready var edgeray = $EdgeRay
 onready var animation = $AnimationPlayer
 onready var ray = $PlayerRay
 onready var audioplayer = $AudioStreamPlayer2D
+onready var sprite = $AnimatedSprite
 
 var playing = false
 var walking = true
 var colliding = false
 var playerinrange = false
-var dead = false
+var active = true
 
 #Mainline Function (runs first when file is called)
 func _ready():
@@ -27,11 +28,12 @@ func _ready():
 
 #Called every frame
 func _process(delta):	
-	if(ray.is_colliding() and ray.get_collider() is MainCharacter):
-		colliding = true
-	else:
-		colliding = false
-	movement()
+	if(active):
+		if(ray.is_colliding() and ray.get_collider() is MainCharacter):
+			colliding = true
+		else:
+			colliding = false
+		movement()
 	
 #Skeleton either move or attack
 func movement():
@@ -47,6 +49,8 @@ func movement():
 
 #Resets/changes booleans depending on conditions.
 func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Death":
+		active = false
 	if(colliding and playerinrange):
 		playing = false
 	if( !playerinrange):
@@ -68,12 +72,13 @@ func move():
 #Gets signal from EdgeRay 
 #@returns none
 func at_edge():
-	if not edgeray.is_colliding() and is_on_floor():
-		is_moving_right = !is_moving_right
-		scale.x = -scale.x
-	if(is_on_wall()):
-		is_moving_right = !is_moving_right
-		scale.x = -scale.x
+	if(active):
+		if not edgeray.is_colliding() and is_on_floor():
+			is_moving_right = !is_moving_right
+			scale.x = -scale.x
+		if(is_on_wall()):
+			is_moving_right = !is_moving_right
+			scale.x = -scale.x
 
 #Func attack and finish_attack turn on and off HitArea
 func attack():
@@ -84,11 +89,8 @@ func finish_attack():
 
 
 func start_walk():
-	animation.play("Walk")
-
-
-
-
+	if(active):
+		animation.play("Walk")
 
 func _on_PlayerDetector_body_entered(body):
 	playerinrange = true
@@ -98,3 +100,28 @@ func _on_PlayerDetector_body_exited(body):
 
 func _on_HitArea_body_entered(body):
 	Globalscript.dead = true
+
+func _on_AnimatedSprite_animation_finished():
+	if sprite.animation == "Death":
+		sprite.playing = false
+		sprite.frame = 14
+
+
+func _on_ToasterBotCol_body_entered(body):
+	if(active):
+		if body is MainCharacter:
+			$CollisionShape2D.queue_free()
+			$ToasterBotCol.queue_free()
+			active = false
+			animation.stop()
+			animation.play("Death")
+
+
+func _on_ToasterBotCol_area_entered(area):
+	if(active):
+		if (area.is_in_group("playerattackbox")):
+			$CollisionShape2D.queue_free()
+			$ToasterBotCol.queue_free()
+			active = false
+			animation.stop()
+			animation.play("Death")
