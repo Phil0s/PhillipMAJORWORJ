@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/Tutorials/Temp3.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Resources/Spikes/SpinningSpike.png" type="Texture" id=18]
 [ext_resource path="res://Resources/ExitLevel.tres" type="SpriteFrames" id=19]
 [ext_resource path="res://Obstacles/Enemies/ToasterBot.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Levels/Checkpoint.tres" type="SpriteFrames" id=21]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Levels/Tutorials/Temp1.gd" type="Script" id=30]
 
@@ -143,10 +144,10 @@ func _on_Death_body_entered(body):
 extents = Vector2( 16.5, 10 )
 
 [sub_resource type="RectangleShape2D" id=104]
-extents = Vector2( 33.8, 21 )
+extents = Vector2( 32, 20 )
 
 [sub_resource type="RectangleShape2D" id=103]
-extents = Vector2( 44.8, 24 )
+extents = Vector2( 32, 20 )
 
 [sub_resource type="GDScript" id=106]
 script/source = "extends Area2D
@@ -176,10 +177,10 @@ extents = Vector2( 10, 16 )
 script = ExtResource( 3 )
 
 [node name="ColorRect4" type="ColorRect" parent="."]
-margin_left = -985.0
-margin_top = -503.0
-margin_right = 1450.0
-margin_bottom = 1040.0
+margin_left = -924.0
+margin_top = -555.0
+margin_right = 1511.0
+margin_bottom = 988.0
 color = Color( 0.113725, 0.129412, 0.176471, 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -201,7 +202,7 @@ format = 1
 tile_data = PoolIntArray( 1114122, 110, 0, 1179658, 110, 0, 1245194, 110, 0, 1376242, 112, 0, 1376243, 112, 0, 1376244, 112, 0, 1376245, 112, 0, 1376246, 112, 0, 1376247, 112, 0, 1376248, 112, 0, 1376249, 112, 0, 1376250, 112, 0, 1376251, 110, 0, 1376252, 112, 0, 1376253, 112, 0, 1376254, 112, 0, 1376255, 112, 0, 1310720, 112, 0, 1310721, 112, 0, 1310722, 112, 0, 1310723, 112, 0, 1310724, 112, 0, 1310726, 112, 0, 1310727, 112, 0, 1310728, 112, 0, 1310729, 112, 0, 1310730, 112, 0, 2621436, 112, 0, 2621438, 112, 0, 2555904, 112, 0, 2555906, 112, 0, 2555908, 112, 0, 2555910, 112, 0, 2555912, 112, 0, 2555916, 112, 0, 2555918, 112, 0, 2555920, 112, 0, 2555922, 112, 0, 2555924, 112, 0, 2555928, 112, 0, 2555930, 112, 0, 2555932, 112, 0, 2555934, 112, 0, 2555936, 112, 0, 2555938, 112, 0 )
 
 [node name="tutorial1msg" type="Area2D" parent="."]
-position = Vector2( 80, 194 )
+position = Vector2( 82, 200 )
 script = SubResource( 44 )
 __meta__ = {
 "_edit_group_": true
@@ -312,18 +313,28 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint_0"]
 shape = SubResource( 104 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Checkpoint_0"]
+position = Vector2( -2.86102e-06, 3.05176e-05 )
+scale = Vector2( 4, 2.5 )
+frames = ExtResource( 21 )
+animation = "INACTIVE"
+
 [node name="Checkpoint_1" type="Area2D" parent="."]
-position = Vector2( 13, 298 )
+position = Vector2( -6, 298 )
 scale = Vector2( 0.15625, 0.25 )
 script = ExtResource( 30 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Checkpoint_1"]
+position = Vector2( -7.62939e-06, 0 )
+scale = Vector2( 4, 2.5 )
+frames = ExtResource( 21 )
+animation = "ACTIVE"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint_1"]
 shape = SubResource( 103 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Checkpoint_1"]
 
 [node name="Player" parent="." instance=ExtResource( 22 )]
 position = Vector2( -477, 91 )
@@ -348,8 +359,11 @@ position = Vector2( 35, 247 )
 position = Vector2( -109, 236 )
 
 [node name="Door" type="Area2D" parent="."]
-position = Vector2( -985, -503 )
+position = Vector2( 197, 302 )
 script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="Door"]
 position = Vector2( 0, -2 )
