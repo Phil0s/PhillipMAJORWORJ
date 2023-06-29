@@ -30,7 +30,7 @@ radius = 181.069
 [sub_resource type="CircleShape2D" id=99]
 radius = 12.0
 
-[node name="Navigation2D" type="Navigation2D"]
+[node name="Drone" type="Navigation2D"]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 97 )
@@ -40,7 +40,6 @@ position = Vector2( 397, -254 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 3 )
-path_to_player = NodePath("../Player")
 path_to_drone_int_pos_placeholder = NodePath("../Sprite")
 
 [node name="lasers" type="RayCast2D" parent="Enemy_Drone"]
@@ -69,12 +68,11 @@ one_shot = true
 [node name="Drone_Sprite" type="AnimatedSprite" parent="Enemy_Drone"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 100 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="RaycastBox" type="Sprite" parent="Enemy_Drone"]
 script = ExtResource( 4 )
-path_to_player = NodePath("../../Player")
 
 [node name="RayCast2D" type="RayCast2D" parent="Enemy_Drone/RaycastBox"]
 rotation = -0.174533
@@ -114,11 +112,10 @@ shape = SubResource( 99 )
 wait_time = 5.0
 one_shot = true
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -126, -97 )
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 397, -254 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
 [connection signal="fire" from="Enemy_Drone" to="Enemy_Drone/lasers" method="_on_Enemy_Drone_fire"]
 [connection signal="stop_fire" from="Enemy_Drone" to="Enemy_Drone/lasers" method="_on_Enemy_Drone_stop_fire"]

@@ -134,6 +134,7 @@ height = 4.0
 
 [sub_resource type="Animation" id=32]
 resource_name = "Attack"
+length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1

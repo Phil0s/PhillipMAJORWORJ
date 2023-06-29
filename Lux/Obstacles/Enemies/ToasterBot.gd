@@ -9,7 +9,7 @@ extends KinematicBody2D
 var is_moving_right = true
 var gravity = 10
 var velocity = Vector2(0,0)
-var speed = 32
+var speed = 28
 onready var edgeray = $EdgeRay
 onready var animation = $AnimationPlayer
 onready var ray = $PlayerRay

@@ -259,7 +259,7 @@ animations = [ {
 
 [sub_resource type="Animation" id=62]
 resource_name = "Attack"
-length = 1.7
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
