@@ -65,20 +65,6 @@ func _process(delta):
 		if(anim_finished):
 			$Label/AnimationPlayer.play("New Anim")
 			anim_finished = false
-			
-#	if Globalscript.levelreload:
-#		get_child(0).visible = false
-#		get_child(1).visible = false
-##		$Label/AnimationPlayer.stop()
-#		print("reached end player")
-#		get_child(4).visible = false
-#		PauseMenu.textboxhalt = false
-#		anim_finished = true
-#		print("finished")
-#		playingrn = false
-#		finished = false
-#		#queue_free()
-#		return
 	
 func getDialogue(selectmsg) -> Array:
 	var file = File.new()

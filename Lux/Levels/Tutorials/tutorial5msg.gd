@@ -20,5 +20,5 @@ func _on_tutorial5msg_body_entered(body):
 	if count == 0:
 		if body is MainCharacter:
 			print("Touched")
-			TextBox.msgcalled("res://Resources/Text/tutorial5.json")
+			TextBox.msgcalled("res://Resources/Text/Tutorial4.json")
 			count = 1
