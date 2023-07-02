@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_WallSlide.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Music/Footsteps.mp3" type="AudioStream" id=2]
@@ -18,7 +18,7 @@
 [ext_resource path="res://Player/dash_sprite.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png" type="Texture" id=17]
 [ext_resource path="res://Player/ScreenShake.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Resources/Shaders/Teleport.tres" type="Material" id=29]
+[ext_resource path="res://Resources/Shaders/White_Material.tres" type="Material" id=19]
 
 [sub_resource type="AtlasTexture" id=128]
 atlas = ExtResource( 8 )
@@ -275,87 +275,6 @@ orbit_velocity_random = 0.0
 scale = 0.5
 scale_curve = SubResource( 10 )
 
-[sub_resource type="Animation" id=12]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:material:shader_param/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect2:material:shader_param/progress")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
-
-[sub_resource type="Animation" id=13]
-resource_name = "Teleport In"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:material:shader_param/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect2:material:shader_param/progress")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-
-[sub_resource type="Shader" id=98]
-code = "shader_type canvas_item;
-
-// Ranges from 0 to 1 over the course of the transition.
-// We use this to actually animate the shader.
-uniform float progress : hint_range(0, 1);
-
-// Size of each diamond, in pixels.
-uniform float diamondPixelSize = 10.0f;
-
-void fragment() {
-	float xFraction = fract(FRAGCOORD.x / diamondPixelSize);
-	float yFraction = fract(FRAGCOORD.y / diamondPixelSize);
-	float xDistance = abs(xFraction - 0.5);
-	float yDistance = abs(yFraction - 0.5);
-	if (xDistance + yDistance + UV.x + UV.y > progress * 4.0f) {
-		discard;
-	}
-}
-"
-
-[sub_resource type="ShaderMaterial" id=99]
-shader = SubResource( 98 )
-shader_param/progress = 1.0
-shader_param/diamondPixelSize = 10.0
-
 [sub_resource type="Animation" id=151]
 resource_name = "Attack"
 length = 0.3
@@ -401,8 +320,9 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=149]
-resource_name = "DEAD"
+[sub_resource type="Animation" id=153]
+resource_name = "Dead"
+length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -422,10 +342,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
 [sub_resource type="Animation" id=135]
@@ -536,7 +456,7 @@ wall_jump_push = 200
 wall_slide_gravity = 50
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-material = ExtResource( 29 )
+material = ExtResource( 19 )
 position = Vector2( -1, 1 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 6 )
@@ -657,19 +577,6 @@ local_coords = false
 process_material = SubResource( 11 )
 texture = ExtResource( 15 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 12 )
-"anims/Teleport In" = SubResource( 13 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
-material = SubResource( 99 )
-margin_left = -230.0
-margin_top = -135.0
-margin_right = 231.0
-margin_bottom = 142.0
-color = Color( 0, 0, 0, 1 )
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 volume_db = 1.0
@@ -681,7 +588,7 @@ bus = "Effects"
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 151 )
-anims/DEAD = SubResource( 149 )
+anims/Dead = SubResource( 153 )
 anims/IDLE = SubResource( 135 )
 anims/RESET = SubResource( 136 )
 anims/RUN = SubResource( 137 )
@@ -695,7 +602,7 @@ shape = SubResource( 150 )
 [node name="Position2D" type="Position2D" parent="."]
 
 [node name="PlayerHitArea" type="Area2D" parent="Position2D" groups=["playerattackbox"]]
-collision_mask = 3
+collision_mask = 7
 monitoring = false
 monitorable = false
 

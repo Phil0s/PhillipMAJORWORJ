@@ -9,7 +9,8 @@ extents = Vector2( 7.5, 3 )
 [sub_resource type="Animation" id=16]
 resource_name = "New Anim"
 
-[node name="PokingSpike" type="Area2D"]
+[node name="PokingSpike" type="Area2D" groups=["trap"]]
+collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

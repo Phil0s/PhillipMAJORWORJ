@@ -63,6 +63,7 @@ var dash_direction : Vector2 #Get the direction the character is currently facin
 var continue_sliding = false #Might not be used
 var animfinished = true
 var notattack = true
+var dead1 = false
 
 
 #Grabbing nodes
@@ -94,17 +95,17 @@ onready var hitareaparent = $Position2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	Globalscript.dead = false
-	$AnimationPlayer.play("Teleport In")
-	yield(get_node("AnimationPlayer"), "animation_finished")
+	dead1 = false
 	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
 	
-# Frame rate constant at 60 times per second. 
-# To see what Godot's internal functions do CMD + CLICK on the blue functions this will bring up documentation
+
+
+
+
 func _physics_process(delta):
 	if(spawn_finished):
-		if(!Globalscript.dead):
+		if(!dead1):
 			attack()
 			handle_dash(delta)
 			check_ground_wall_logic()
@@ -112,11 +113,8 @@ func _physics_process(delta):
 			handle_input(delta)
 			do_physics(delta)
 			handle_player_particles()
-		if(Globalscript.dead):
-			Globalscript.dead = false
-			play_dead_anim()
 
- 
+
 func attack():
 	if(Input.is_action_just_pressed("Attack")):
 		if(!is_wall_sliding and !can_slide and !is_jumping and notattack):
@@ -140,9 +138,9 @@ func get_direction_from_input():
 			move_direction.x = -1
 		else:
 			move_direction.x = 1
-			
+
 	return move_direction * dash_speed
-	
+
 func handle_dash(var delta):
 	if(Input.is_action_just_pressed("Dash") and can_dash and !touching_ground and notattack):
 		emit_signal("dash")
@@ -152,8 +150,8 @@ func handle_dash(var delta):
 		sprite.material.set_shader_param("mix_weight", 0.7)
 		sprite.material.set_shader_param("whiten", true)
 		dash_timer.start(dash_length)
-		
-		
+
+
 	if(is_dashing):
 		var dash_node = dash_object.instance()
 		dash_node.texture = sprite.frames.get_frame(sprite.animation, sprite.frame)
@@ -169,7 +167,7 @@ func handle_dash(var delta):
 			sprite.material.set_shader_param("whiten", false)
 	else:
 		dash_particles.emitting = false
-	
+
 func check_ground_wall_logic():
 	#Check for coyote time (Are we JUST leaving the platform?)
 	if(touching_ground and (!ground_ray.is_colliding() and !ground_ray2.is_colliding() and !ground_ray3.is_colliding())):
@@ -206,12 +204,12 @@ func check_ground_wall_logic():
 			is_wall_sliding = false
 	else:
 		is_wall_sliding = false
-	
+
 func handle_input(var delta):
 	check_sliding_logic()
 	handle_movement(delta)
 	handle_jumping(delta)
-	
+
 func handle_movement(var delta):
 	# There was an issue where touching the wall caused us to continue slowly running towards it. This ensures upon touching war we cannot move in the x
 	if(is_on_wall()):
@@ -278,7 +276,7 @@ func handle_movement(var delta):
 					sprite.stop()
 					sprite.frame = 1
 		hSpeed -= min(abs(hSpeed), current_friction * delta) * sign(hSpeed)
-		 
+
 func handle_jumping(var delta):
 	if(coyote_time and Input.is_action_just_pressed("Jump")):
 		notattack = true
@@ -319,7 +317,7 @@ func handle_jumping(var delta):
 			hSpeed = wall_jump_push
 			sprite.flip_h = false
 			can_double_jump = true
-			
+
 		if(is_wall_sliding):
 			audioplayer.playing = false
 			audiofinished = true
@@ -331,13 +329,13 @@ func handle_jumping(var delta):
 			air_jump_pressed = true
 			yield(get_tree().create_timer(0.2), "timeout")
 			air_jump_pressed = false
-	
+
 func do_physics(var delta):
 	#Give a little bump downward if touching the cieling
 	if(is_on_ceiling()):
 		motion.y = 10
 		vSpeed = 10
-	
+
 	if(!is_wall_sliding):
 		vSpeed += (gravity * delta) #Delta is the time between each frame. Like in real life were gravity accelerates per second we make it accelerate 'per frame'
 		vSpeed = min(vSpeed, max_fall_speed) #Limiting how fast we can fall, will stop upon reaching var max_fall_speed
@@ -347,8 +345,8 @@ func do_physics(var delta):
 	#Update motion
 	motion.y = vSpeed
 	motion.x = hSpeed
-	
-	
+
+
 	if(is_dashing):
 		#If we are dashing use dashing movement
 		motion = move_and_slide(dash_direction, UP)
@@ -357,7 +355,7 @@ func do_physics(var delta):
 	else:
 		#Apply motion to move and slide for normal motion
 		motion.y = move_and_slide(motion, UP).y#UP is provided as the up_direction can see godot documentation
-	
+
 	#Lerp out squash and squeeze effects
 	apply_squash_squeeze()
 
@@ -437,7 +435,13 @@ func hitarea_hide():
 func _on_hitbox_area_area_entered(area):
 	if(area.is_in_group("portal")):
 		do_teleport(area)
-		
+	if(area.is_in_group("trap")):
+		if(!dead1):
+			dead1 = true
+			sprite.playing = false
+			sprite.stop()
+			playeranimation.play("Dead")
+
 func do_teleport(area):
 	for portal in get_tree().get_nodes_in_group("portal"):
 		if(portal != area): #Not the same portal we just went through
@@ -445,19 +449,18 @@ func do_teleport(area):
 				if(!portal.lock_portal):
 					area.do_lock()
 					global_position = portal.global_position
-					
-func play_dead_anim():
-	if(animfinished):
-		animfinished = false
-		playeranimation.play("DEAD")
-		yield(get_node("AnimationPlayer"), "animation_finished")
-		playeranimation.stop()
+
 
 func _on_PlayerAnimation_animation_finished(anim_name):
 	if anim_name == "Attack":
 		notattack = true
+	if anim_name == "Dead":
+		get_tree().reload_current_scene()
 
 func _on_hitbox_area_body_entered(body):
-	pass
-#	if(body.is_in_group("enemy")):
-#		body.queue_free()
+	if(body.is_in_group("enemy")):
+		if(!dead1):
+			dead1 = true
+			sprite.playing = false
+			sprite.stop()
+			playeranimation.play("Dead")

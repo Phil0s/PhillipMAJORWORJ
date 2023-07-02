@@ -7,4 +7,5 @@ func _ready():
 	
 func _on_PokingSpike_body_entered(body):
 	if body is MainCharacter:
-		print("Poked by spikes")
+		monitorable = false
+		monitoring = false

@@ -104,7 +104,7 @@ func _on_PlayerDetector_body_exited(body):
 
 func _on_HitArea_body_entered(body):
 	if(active):
-		Globalscript.dead = true
+		pass
 
 func _on_AnimatedSprite_animation_finished():
 	if sprite.animation == "Death":

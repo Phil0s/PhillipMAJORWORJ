@@ -15,9 +15,6 @@ var levelreload = false
 var apply_shake = false
 
 
-var dead = false
-
-
 
 var players_first_time = 0
 
