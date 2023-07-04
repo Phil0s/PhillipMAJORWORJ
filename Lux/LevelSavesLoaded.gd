@@ -4,7 +4,7 @@ var levelsavefile = "res://levelsavefile.json"
 
 var default_data = {
 	"Level" : [
-		{"checkpoint" : 0, "enemy" : [], "health" : 100},
+		{"checkpoint" : 0, "enemy" : [-1], "health" : 100},
 		{"checkpoint" : 0, "enemy" : [-1], "health" : 100},
 		{"checkpoint" : 0, "enemy" : [], "health" : 100},
 		{"checkpoint" : 0, "enemy" : [], "health" : 100},
@@ -14,8 +14,6 @@ var default_data = {
 
 var data = {}
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var file = File.new()
 	if not file.file_exists(levelsavefile):
@@ -31,3 +29,13 @@ func _ready():
 		file.close()
 		
 
+func _reset(level):
+	var file = File.new()
+	if file.file_exists(levelsavefile):
+		file.open(levelsavefile, File.WRITE)	
+		data.Level[level].checkpoint = 0
+		data.Level[level].health = 100
+		if(level == 0):
+			data.Level[level].enemy[0] = -1
+		file.store_line(to_json(LevelSavesLoaded.data))
+		file.close()

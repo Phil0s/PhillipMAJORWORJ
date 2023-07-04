@@ -293,9 +293,8 @@ collision_layer = 0
 position = Vector2( 13.5, 4 )
 shape = SubResource( 27 )
 
-[node name="HitArea" type="Area2D" parent="."]
+[node name="HitArea" type="Area2D" parent="." groups=["enemy"]]
 modulate = Color( 0.101961, 0, 1, 1 )
-collision_layer = 0
 monitoring = false
 monitorable = false
 

@@ -21,18 +21,6 @@ func _on_Area2D_body_entered(body):
 	if body is MainCharacter:
 		LevelSavesLoaded.data.Level[0].checkpoint = 0
 		emit_signal("Checkpoint_finished")
-		
-#		LevelTimer.timer_on = false
-#		if LevelTimer.tutorial_first_time == 0:
-#			LevelTimer.tutorial_first_time = 1
-#			LevelTimer.tutorialrecord = LevelTimer.final_time
-#			print(LevelTimer.tutorialrecord)
-#		if LevelTimer.tutorial_first_time == 1:
-#			if LevelTimer.final_time > LevelTimer.tutorialrecord:
-#				print("Slower time not recorded")
-#			elif LevelTimer.final_time < LevelTimer.tutorialrecord:
-#				LevelTimer.tutorialrecord = LevelTimer.final_time
-#				print(LevelTimer.tutorialrecord)
-		#get_tree().change_scene("res://Levels/Level/Level1.tscn")
+		get_tree().change_scene("res://Levels/Menu/MainMenu.tscn")
 
 

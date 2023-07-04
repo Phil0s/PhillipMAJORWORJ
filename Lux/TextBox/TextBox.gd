@@ -28,7 +28,6 @@ func msgcalled(selectmsg):
 	get_tree().paused = true
 	textboxrunning = true
 	endofdialogue = false
-	print("reached msgcalled")
 	playingrn = true
 	phraseNum = 0
 	finished = false
@@ -93,11 +92,9 @@ func nextPhrase() -> void:
 		get_child(0).visible = false
 		get_child(1).visible = false
 #		$Label/AnimationPlayer.stop()
-		print("reached end player")
 		get_child(4).visible = false
 		PauseMenu.textboxhalt = false
 		anim_finished = true
-		print("finished")
 		playingrn = false
 		finished = false
 		get_tree().paused = false

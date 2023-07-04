@@ -248,3 +248,20 @@ func _on_LvlButton1_pressed():
 
 func _on_LvlButton3_mouse_entered():
 	level3.grab_focus()
+
+
+
+func _on_Button_pressed():
+	LevelSavesLoaded._reset(0)
+
+
+func _on_Button3_pressed():
+	LevelSavesLoaded._reset(2)
+
+
+func _on_Button4_pressed():
+	LevelSavesLoaded._reset(3)
+
+
+func _on_Button2_pressed():
+	LevelSavesLoaded._reset(1)

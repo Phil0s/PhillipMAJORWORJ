@@ -85,10 +85,10 @@ func at_edge():
 #Func attack and finish_attack turn on and off HitArea
 func attack():
 	$HitArea.monitoring = true
-	
+	$HitArea.monitorable = true
 func finish_attack():
 	$HitArea.monitoring = false
-
+	$HitArea.monitorable = false
 
 func start_walk():
 	if(active):

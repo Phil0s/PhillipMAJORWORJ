@@ -710,11 +710,11 @@ anims/Norm = SubResource( 155 )
 anims/RESET = SubResource( 156 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 20 )]
-margin_left = -10.3943
-margin_top = -14.4891
-margin_right = -10.3943
-margin_bottom = -14.4891
-rect_scale = Vector2( 0.04, 0.1 )
+margin_left = -8.0
+margin_top = -16.0
+margin_right = -8.0
+margin_bottom = -16.0
+rect_scale = Vector2( 0.031, 0.1 )
 
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
 [connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]

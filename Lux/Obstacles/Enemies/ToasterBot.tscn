@@ -276,9 +276,8 @@ collision_layer = 0
 position = Vector2( 46, -7.5 )
 shape = SubResource( 27 )
 
-[node name="HitArea" type="Area2D" parent="."]
+[node name="HitArea" type="Area2D" parent="." groups=["strongenemy"]]
 modulate = Color( 0.227451, 0, 0.501961, 1 )
-collision_layer = 0
 monitoring = false
 monitorable = false
 

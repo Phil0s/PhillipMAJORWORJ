@@ -1,5 +1,5 @@
 [
-	{"Name":"Knight Lux", "Text":"Welcome! We've been tasked with subjugating these dungeons, be on the lookout for any dangers"},
-	{"Name":"Knight Lux", "Text":"See where you spawned? If the checkpoint is red that means it is active, inactive ones will be white"},
-	{"Name":"Knight Lux", "Text":"To get started, press [A]/[D] to move right and left"},
+	{"Name":"Knight Lux", "Text":"Welcome. I haven't seen you around here."},
+	{"Name":"Knight Lux", "Text":"Must be new. Lets get started with the basics then."},
+	{"Name":"Knight Lux", "Text":"Press [A]/[D] to move left and right."},
 ]

@@ -1,20 +1,22 @@
 extends KinematicBody2D
-#This File Handles ToasterBot logic (Movement, Attack, Death, etc)
-#Finished 26 June
+#This File Handles SkeletonEnemy logic (Movement, Attack, Death, etc)
+#Finished 23 June
 
 #AnimatedSprite
-#Dimensions 26 22
+#Height 32px
+
+signal dead
 
 #Declare Variables
 var is_moving_right = true
 var gravity = 10
 var velocity = Vector2(0,0)
-var speed = 10
+var speed = 24
+onready var sprite = $AnimatedSprite
 onready var edgeray = $EdgeRay
 onready var animation = $AnimationPlayer
 onready var ray = $PlayerRay
 onready var audioplayer = $AudioStreamPlayer2D
-onready var sprite = $AnimatedSprite
 
 var playing = false
 var walking = true
@@ -34,6 +36,7 @@ func _process(delta):
 		else:
 			colliding = false
 		movement()
+
 	
 #Skeleton either move or attack
 func movement():
@@ -53,7 +56,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		active = false
 	if(colliding and playerinrange):
 		playing = false
-	if( !playerinrange):
+	if(!playerinrange):
 		playing = false
 		start_walk()
 		walking = true
@@ -62,12 +65,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #Handles movement for Skeleton
 #@returns none
 func move():
-	if is_moving_right:
-		velocity.x = speed
-	if !is_moving_right:
-		velocity.x = -speed
-	velocity.y += gravity
-	velocity = move_and_slide(velocity, Vector2.UP)
+	if(active):
+		if is_moving_right:
+			velocity.x = speed
+		if !is_moving_right:
+			velocity.x = -speed
+		velocity.y += gravity
+		velocity = move_and_slide(velocity, Vector2.UP)
 
 #Gets signal from EdgeRay 
 #@returns none
@@ -83,14 +87,10 @@ func at_edge():
 #Func attack and finish_attack turn on and off HitArea
 func attack():
 	$HitArea.monitoring = true
-	$HitAreaBehind.monitoring = true
 	$HitArea.monitorable = true
-	$HitAreaBehind.monitorable = true
 func finish_attack():
 	$HitArea.monitoring = false
-	$HitAreaBehind.monitoring = false
 	$HitArea.monitorable = false
-	$HitAreaBehind.monitorable = false
 
 
 func start_walk():
@@ -98,41 +98,40 @@ func start_walk():
 		animation.play("Walk")
 
 func _on_PlayerDetector_body_entered(body):
-	playerinrange = true
+	if(active):
+		playerinrange = true
 	
 func _on_PlayerDetector_body_exited(body):
-	playerinrange = false
+	if(active):
+		playerinrange = false
 
 func _on_HitArea_body_entered(body):
-	pass
+	if(active):
+		pass
 
 func _on_AnimatedSprite_animation_finished():
 	if sprite.animation == "Death":
 		sprite.playing = false
 		sprite.frame = 14
+		
 
-func disappear():
-	$AnimatedSprite.queue_free()
-
-func _on_ToasterBotCol_body_entered(body):
+func _on_SkeletonCol_body_entered(body):
 	if(active):
 		if body is MainCharacter:
+			emit_signal("dead")
 			$CollisionShape2D.queue_free()
-			$ToasterBotCol.queue_free()
+			$SkeletonCol.queue_free()
 			active = false
 			animation.stop()
 			animation.play("Death")
 
 
-func _on_ToasterBotCol_area_entered(area):
+func _on_SkeletonCol_area_entered(area):
 	if(active):
 		if (area.is_in_group("playerattackbox")):
+			emit_signal("dead")
 			$CollisionShape2D.queue_free()
-			$ToasterBotCol.queue_free()
+			$SkeletonCol.queue_free()
 			active = false
 			animation.stop()
 			animation.play("Death")
-
-
-func _on_HitAreaBehind_body_entered(body):
-	pass # Replace with function body.

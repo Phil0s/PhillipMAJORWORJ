@@ -24,7 +24,7 @@ export var slide_length = 1
 #Health
 var max_health = 100
 onready var health = max_health setget _set_health
-
+var current_health = 0
 var portal_id = 0
 
 #Movement Data for Character
@@ -104,8 +104,6 @@ onready var damageanim = $DamageAnimation
 ### Main + physics Process
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	print(max_health)
-	_set_health(max_health)
 	$HealthBar._on_max_health_updated(max_health)
 	dead1 = false
 	spawn_finished = true
@@ -402,7 +400,6 @@ func check_sliding_logic():
 		audiofinished = true
 		sprite.play("SLIDE")
 	elif(is_sliding and touching_ground and cieling_ray.is_colliding()):
-		print("here")
 		current_friction = -2
 		sprite.play("SLIDE")
 	else:
@@ -441,9 +438,17 @@ func hitarea_hide():
 func _on_hitbox_area_area_entered(area):
 	if(area.is_in_group("portal")):
 		do_teleport(area)
-	if(area.is_in_group("trap")):
-		damage(25)
-
+	if(!dead1):
+		if(area.is_in_group("enemy")):
+			damage(25)
+		if(area.is_in_group("strongenemy")):
+			damage(35)
+		if(area.is_in_group("bigenemy")):
+			damage(50)
+		if(area.is_in_group("trap")):
+			damage(25)
+		if(area.is_in_group("health")):
+			damage(-25)
 func do_teleport(area):
 	for portal in get_tree().get_nodes_in_group("portal"):
 		if(portal != area): #Not the same portal we just went through
@@ -470,9 +475,11 @@ func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health)
 	$HealthBar._on_health_updated(health)
+	current_health = health
+	print("Current_health =" + str(current_health))
 	if health != prev_health:
 		emit_signal("health_updated", health)
-		if health == 0:
+		if(health == 0 or health < 0):
 			kill()
 			
 func kill():
@@ -484,11 +491,12 @@ func kill():
 	
 
 func damage(amount):
-	if damagetimer.is_stopped():
-		damagetimer.start()
-		_set_health(health - amount)
-		damageanim.play("Damage")
-		damageanim.play("Flash")
+	if(!dead1):
+		if damagetimer.is_stopped():
+			damagetimer.start()
+			_set_health(health - amount)
+			damageanim.play("Damage")
+			damageanim.play("Flash")
 
 
 func _on_Damage_timeout():

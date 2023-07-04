@@ -10,7 +10,7 @@
 [ext_resource path="res://Resources/Shaders/Glitch.tres" type="Material" id=8]
 [ext_resource path="res://TextBox/Hologram.tres" type="Material" id=9]
 [ext_resource path="res://TextBox/Wave.tres" type="Material" id=10]
-[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Idle.png" type="Texture" id=11]
+[ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Idle.png" type="Texture" id=11]
 [ext_resource path="res://DownloadedFromItchIO/PNG/MainPanel01.png" type="Texture" id=12]
 [ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=14]
 
@@ -62,7 +62,7 @@ tracks/0/keys = {
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 11 )
-region = Rect2( 40, 41, 40, 23 )
+region = Rect2( 44, 39, 22, 24 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -196,6 +196,15 @@ custom_fonts/normal_font = ExtResource( 7 )
 text = "NAME GOES HERE"
 scroll_active = false
 
+[node name="Name2" type="RichTextLabel" parent="ColorRect"]
+margin_left = 16.0
+margin_top = 80.0
+margin_right = 383.0
+margin_bottom = 104.0
+custom_fonts/normal_font = ExtResource( 2 )
+text = "[SPACE] FOR NEXT"
+scroll_active = false
+
 [node name="Text" type="RichTextLabel" parent="ColorRect"]
 margin_left = 16.0
 margin_top = 26.0
@@ -218,7 +227,7 @@ anims/Voice = SubResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 9 )
-position = Vector2( 163, 301 )
+position = Vector2( 144, 297 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 3 )
 animation = "Commander"
