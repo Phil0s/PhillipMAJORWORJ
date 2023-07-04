@@ -4,11 +4,11 @@ var levelsavefile = "res://levelsavefile.json"
 
 var default_data = {
 	"Level" : [
-		{"checkpoint" : 0, "enemy" : [], "score" : 0},
-		{"checkpoint" : 0, "enemy" : [-1], "score" : 0},
-		{"checkpoint" : 0, "enemy" : [], "score" : 0},
-		{"checkpoint" : 0, "enemy" : [], "score" : 0},
-		{"checkpoint" : 0, "enemy" : [], "score" : 0},
+		{"checkpoint" : 0, "enemy" : [], "health" : 100},
+		{"checkpoint" : 0, "enemy" : [-1], "health" : 100},
+		{"checkpoint" : 0, "enemy" : [], "health" : 100},
+		{"checkpoint" : 0, "enemy" : [], "health" : 100},
+		{"checkpoint" : 0, "enemy" : [], "health" : 100},
 	]
 }
 

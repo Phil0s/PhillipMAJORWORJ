@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_WallSlide.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Music/Footsteps.mp3" type="AudioStream" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Resources/bG/003e219d9c6528ab23383c5eee75f960.png" type="Texture" id=17]
 [ext_resource path="res://Player/ScreenShake.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Resources/Shaders/White_Material.tres" type="Material" id=19]
+[ext_resource path="res://Player/HealthBar.tscn" type="PackedScene" id=20]
 
 [sub_resource type="AtlasTexture" id=128]
 atlas = ExtResource( 8 )
@@ -438,6 +439,94 @@ extents = Vector2( 5.77992, 11.4845 )
 [sub_resource type="RectangleShape2D" id=152]
 extents = Vector2( 6.75408, 11.4886 )
 
+[sub_resource type="Animation" id=154]
+resource_name = "Damage"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=157]
+resource_name = "Flash"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=155]
+resource_name = "Norm"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=156]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_mask = 6
 script = ExtResource( 3 )
@@ -610,6 +699,23 @@ monitorable = false
 position = Vector2( 12.2247, 0.596969 )
 shape = SubResource( 152 )
 
+[node name="Damage" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="DamageAnimation" type="AnimationPlayer" parent="."]
+anims/Damage = SubResource( 154 )
+anims/Flash = SubResource( 157 )
+anims/Norm = SubResource( 155 )
+anims/RESET = SubResource( 156 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 20 )]
+margin_left = -10.3943
+margin_top = -14.4891
+margin_right = -10.3943
+margin_bottom = -14.4891
+rect_scale = Vector2( 0.04, 0.1 )
+
 [connection signal="dash" from="." to="Camera2D/ScreenShake" method="_on_Player_dash"]
 [connection signal="timeout" from="raycast_container/slide_timer" to="." method="_on_slide_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_AudioStreamPlayer2D_finished"]
@@ -617,3 +723,4 @@ shape = SubResource( 152 )
 [connection signal="animation_finished" from="PlayerAnimation" to="." method="_on_PlayerAnimation_animation_finished"]
 [connection signal="area_entered" from="hitbox_area" to="." method="_on_hitbox_area_area_entered"]
 [connection signal="body_entered" from="hitbox_area" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="timeout" from="Damage" to="." method="_on_Damage_timeout"]

@@ -6,6 +6,10 @@ extends KinematicBody2D
 #Width 30
 #Height 38
 
+
+
+signal health_update(health)
+signal killed()
 signal dash
 class_name MainCharacter
 
@@ -16,6 +20,10 @@ export(PackedScene) var dash_object
 export var dash_speed = 1000
 export var dash_length = 0.2
 export var slide_length = 1
+
+#Health
+var max_health = 100
+onready var health = max_health setget _set_health
 
 var portal_id = 0
 
@@ -90,19 +98,19 @@ onready var landingaudiofinished = true
 onready var playeranimation = $PlayerAnimation
 onready var hitarea = $Position2D/PlayerHitArea
 onready var hitareaparent = $Position2D
+onready var damagetimer = $Damage
+onready var damageanim = $DamageAnimation
 
 ### Main + physics Process
-
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	print(max_health)
+	_set_health(max_health)
+	$HealthBar._on_max_health_updated(max_health)
 	dead1 = false
 	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
 	
-
-
-
-
 func _physics_process(delta):
 	if(spawn_finished):
 		if(!dead1):
@@ -113,7 +121,6 @@ func _physics_process(delta):
 			handle_input(delta)
 			do_physics(delta)
 			handle_player_particles()
-
 
 func attack():
 	if(Input.is_action_just_pressed("Attack")):
@@ -402,6 +409,7 @@ func check_sliding_logic():
 		current_friction = friction #friction = normal friction
 		is_sliding = false
 
+
 #Footstep particles
 func handle_player_particles():
 	if(motion.x == 0):
@@ -421,7 +429,6 @@ func _on_AudioStreamPlayer2D_finished():
 func _on_AudioStreamPlayer2D2_finished():
 	landingaudiofinished = true
 
-
 func hitarea_show():
 	hitarea.monitorable = true
 	hitarea.monitoring = true
@@ -430,17 +437,12 @@ func hitarea_hide():
 	hitarea.monitoring = false
 
 
-
 ### Enemy + Environment + Obstacles
 func _on_hitbox_area_area_entered(area):
 	if(area.is_in_group("portal")):
 		do_teleport(area)
 	if(area.is_in_group("trap")):
-		if(!dead1):
-			dead1 = true
-			sprite.playing = false
-			sprite.stop()
-			playeranimation.play("Dead")
+		damage(25)
 
 func do_teleport(area):
 	for portal in get_tree().get_nodes_in_group("portal"):
@@ -450,7 +452,6 @@ func do_teleport(area):
 					area.do_lock()
 					global_position = portal.global_position
 
-
 func _on_PlayerAnimation_animation_finished(anim_name):
 	if anim_name == "Attack":
 		notattack = true
@@ -459,8 +460,36 @@ func _on_PlayerAnimation_animation_finished(anim_name):
 
 func _on_hitbox_area_body_entered(body):
 	if(body.is_in_group("enemy")):
-		if(!dead1):
-			dead1 = true
-			sprite.playing = false
-			sprite.stop()
-			playeranimation.play("Dead")
+		damage(25)
+			
+
+
+
+#Health Logic
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	$HealthBar._on_health_updated(health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+		if health == 0:
+			kill()
+			
+func kill():
+	if(!dead1):
+		dead1 = true
+		sprite.playing = false
+		sprite.stop()
+		playeranimation.play("Dead")
+	
+
+func damage(amount):
+	if damagetimer.is_stopped():
+		damagetimer.start()
+		_set_health(health - amount)
+		damageanim.play("Damage")
+		damageanim.play("Flash")
+
+
+func _on_Damage_timeout():
+	damageanim.play("Norm")
