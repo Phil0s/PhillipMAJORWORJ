@@ -12,4 +12,6 @@ func _ready():
 
 func _on_HealthPickup_body_entered(body):
 	if body is MainCharacter:
+		$AudioStreamPlayer2D.play()
+		yield($AudioStreamPlayer2D, "finished")
 		queue_free()

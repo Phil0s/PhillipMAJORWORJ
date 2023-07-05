@@ -302,8 +302,12 @@ func handle_jumping(var delta):
 	else: #Check are we in the air, is jump button being held down? If !being held down then half the jump height. This is a shorter jump for users that quickly tap the jump button
 		if(!is_double_jumping and vSpeed < 0):
 			sprite.play("JUMPUP")
+			audioplayer.playing = false
+			audiofinished = true
 		elif(!is_double_jumping and vSpeed > 0):
 			sprite.play("JUMPDOWN")
+			audioplayer.playing = false
+			audiofinished = true
 		elif(is_double_jumping and sprite.frame ==2): #Where frame is last frame number of double jump animation
 			is_double_jumping = false
 		if((right_ray.is_colliding() and right_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):

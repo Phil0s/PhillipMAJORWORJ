@@ -212,6 +212,7 @@ margin_right = 360.0
 margin_bottom = 70.0
 custom_fonts/normal_font = ExtResource( 14 )
 text = "Hello my name is phillip, press A to move to the right and this is a second line"
+fit_content_height = true
 
 [node name="VoiceVisuals" type="ColorRect" parent="ColorRect"]
 material = ExtResource( 10 )
