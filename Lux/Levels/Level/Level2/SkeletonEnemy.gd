@@ -11,7 +11,7 @@ signal dead
 var is_moving_right = true
 var gravity = 10
 var velocity = Vector2(0,0)
-var speed = 24
+var speed = 32
 onready var sprite = $AnimatedSprite
 onready var edgeray = $EdgeRay
 onready var animation = $AnimationPlayer
@@ -92,7 +92,6 @@ func finish_attack():
 	$HitArea.monitoring = false
 	$HitArea.monitorable = false
 
-
 func start_walk():
 	if(active):
 		animation.play("Walk")
@@ -113,7 +112,6 @@ func _on_AnimatedSprite_animation_finished():
 	if sprite.animation == "Death":
 		sprite.playing = false
 		sprite.frame = 14
-		
 
 func _on_SkeletonCol_body_entered(body):
 	pass

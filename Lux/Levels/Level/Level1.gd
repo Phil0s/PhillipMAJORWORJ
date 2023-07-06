@@ -16,12 +16,17 @@ var local_data = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player._set_health(LevelSavesLoaded.data.Level[1].health)
 	if LevelSavesLoaded.data.Level[1].checkpoint == 0:
 		player.global_position = spawn0
 	if LevelSavesLoaded.data.Level[1].checkpoint == 1:
 		player.global_position = spawn1
 	if LevelSavesLoaded.data.Level[1].enemy[0] == 1:
-		$WalkingEnemy.queue_free()
+		$SkeletonEnemy.queue_free()
+	if LevelSavesLoaded.data.Level[1].enemy[1] == 1:
+		$SkeletonEnemy2.queue_free()
+	if LevelSavesLoaded.data.Level[1].enemy[2] == 1:
+		$SkeletonEnemy3.queue_free()
 
 
 
@@ -30,15 +35,23 @@ func _on_Exit_Checkpoint_finished():
 	var file = File.new()
 	file.open(levelsavefile, File.WRITE)	
 	LevelSavesLoaded.data.Level[1].checkpoint = 0
+	LevelSavesLoaded.data.Level[1].health = 100
+	LevelSavesLoaded.data.Level[1].enemy[0] = -1
+	LevelSavesLoaded.data.Level[1].enemy[1] = -1
+	LevelSavesLoaded.data.Level[1].enemy[2] = -1
+	LevelSavesLoaded.data.Level[1].enemy[3] = -1
+	LevelSavesLoaded.data.Level[1].enemy[4] = -1
+	LevelSavesLoaded.data.Level[1].enemy[5] = -1
+	LevelSavesLoaded.data.Level[1].enemy[6] = -1
 	file.store_line(to_json(LevelSavesLoaded.data))
 	file.close()
-
 
 
 func _on_Checkpoint_1_body_entered(body):
 	var file = File.new()
 	file.open(levelsavefile, File.WRITE)	
 	LevelSavesLoaded.data.Level[1].checkpoint = 1
+	LevelSavesLoaded.data.Level[1].health = $Player.current_health
 	file.store_line(to_json(LevelSavesLoaded.data))
 	file.close()
 
@@ -48,12 +61,35 @@ func _on_Checkpoint_0_body_entered(body):
 	var file = File.new()
 	file.open(levelsavefile, File.WRITE)	
 	LevelSavesLoaded.data.Level[1].checkpoint = 0
+	LevelSavesLoaded.data.Level[1].health = $Player.current_health
 	file.store_line(to_json(LevelSavesLoaded.data))
 	file.close()
 
 
+func _on_SkeletonEnemy_dead():
+	LevelSavesLoaded.data.Level[1].enemy[0] = 1
 
 
-func _on_WalkingEnemy_body_entered(body):
-	if body is MainCharacter:
-		LevelSavesLoaded.data.Level[1].enemy[0] = 1
+func _on_SkeletonEnemy2_dead():
+	LevelSavesLoaded.data.Level[1].enemy[1] = 1
+
+
+func _on_SkeletonEnemy3_dead():
+	LevelSavesLoaded.data.Level[1].enemy[2] = 1
+
+
+func _on_ToasterBot_dead():
+	LevelSavesLoaded.data.Level[1].enemy[3] = 1
+
+
+
+func _on_ToasterBot2_dead():
+	LevelSavesLoaded.data.Level[1].enemy[4] = 1
+
+
+func _on_ToasterBot3_dead():
+	LevelSavesLoaded.data.Level[1].enemy[5] = 1
+
+
+func _on_ToasterBot4_dead():
+	LevelSavesLoaded.data.Level[1].enemy[6] = 1

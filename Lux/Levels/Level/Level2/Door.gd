@@ -17,12 +17,10 @@ func _ready():
 #	pass
 
 
-
-
-
-
-func _on_Exit_body_entered(body):
+func _on_Area2D_body_entered(body):
 	if body is MainCharacter:
-		LevelSavesLoaded.data.Level[1].checkpoint = 0
+		LevelSavesLoaded.data.Level[2].checkpoint = 0
 		emit_signal("Checkpoint_finished")
 		get_tree().change_scene("res://Levels/Menu/MainMenu.tscn")
+
+

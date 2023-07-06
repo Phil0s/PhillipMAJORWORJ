@@ -6,12 +6,13 @@ var key_dictionary = {"Right": 68, "Left": 64, "Jump": 87, "Down": 83, "Dash" : 
 
 var setting_key = false
 
-onready var savebut = $GridContainer2/VBoxContainer/Button
 onready var audio = $GridContainer2/VBoxContainer/Button2
 onready var keybinding = $GridContainer2/VBoxContainer/Button3
 onready var keybinding_page = $GridContainer
 onready var paused_menu_page = $GridContainer2
+onready var records_page = $GridContainer3
 onready var audio_page = $Control
+onready var records = $GridContainer2/VBoxContainer/Button6
 
 var textboxhalt = false
 var second_time_pressed = false
@@ -21,8 +22,9 @@ func _ready():
 	get_child(0).visible = false
 	keybinding_page.visible = false
 	audio_page.visible = false
+	records_page.visible = false
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	savebut.grab_focus()
+	records.grab_focus()
 	
 func load_keys():
 	var file = File.new()
@@ -126,4 +128,10 @@ func _on_Button5_pressed():
 
 
 func _on_Button6_pressed():
-	pass # Replace with function body.
+	paused_menu_page.visible = false
+	records_page.visible = true
+
+
+func _on_Back3_pressed():
+	paused_menu_page.visible = true
+	records_page.visible = false

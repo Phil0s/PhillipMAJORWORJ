@@ -444,9 +444,9 @@ func _on_hitbox_area_area_entered(area):
 		do_teleport(area)
 	if(!dead1):
 		if(area.is_in_group("enemy")):
-			damage(25)
+			damage(30)
 		if(area.is_in_group("strongenemy")):
-			damage(35)
+			damage(40)
 		if(area.is_in_group("bigenemy")):
 			damage(50)
 		if(area.is_in_group("trap")):

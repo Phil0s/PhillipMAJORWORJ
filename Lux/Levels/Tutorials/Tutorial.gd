@@ -12,7 +12,6 @@ var local_data = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(LevelSavesLoaded.data.Level[0].enemy[0])
 	player._set_health(LevelSavesLoaded.data.Level[0].health)
 	if LevelSavesLoaded.data.Level[0].checkpoint == 0:
 		player.global_position = spawn0

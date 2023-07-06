@@ -631,9 +631,9 @@ margin_bottom = 360.0
 
 [node name="GridContainer" type="GridContainer" parent="ControlPlay/Popup/CenterContainer"]
 margin_left = 244.0
-margin_top = 126.0
+margin_top = 140.0
 margin_right = 395.0
-margin_bottom = 234.0
+margin_bottom = 220.0
 columns = 2
 
 [node name="LvlButton" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
@@ -686,7 +686,6 @@ margin_right = 111.0
 margin_bottom = 80.0
 focus_neighbour_top = NodePath("../LvlButton1")
 focus_neighbour_right = NodePath("../Button3")
-focus_neighbour_bottom = NodePath("../LvlButton3")
 custom_fonts/font = ExtResource( 105 )
 custom_styles/focus = ExtResource( 284 )
 text = "Mission 2"
@@ -699,30 +698,6 @@ margin_right = 151.0
 margin_bottom = 80.0
 focus_neighbour_left = NodePath("../LvlButton2")
 focus_neighbour_top = NodePath("../Button2")
-focus_neighbour_bottom = NodePath("../Button4")
-custom_styles/focus = ExtResource( 284 )
-text = "Reset"
-flat = true
-
-[node name="LvlButton3" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
-margin_top = 84.0
-margin_right = 111.0
-margin_bottom = 108.0
-focus_neighbour_top = NodePath("../LvlButton2")
-focus_neighbour_right = NodePath("../Button4")
-focus_neighbour_bottom = NodePath("../../../VBoxContainer2/BackfromPlay")
-custom_fonts/font = ExtResource( 105 )
-custom_styles/focus = ExtResource( 284 )
-text = "Mission 3"
-flat = true
-
-[node name="Button4" type="Button" parent="ControlPlay/Popup/CenterContainer/GridContainer"]
-margin_left = 115.0
-margin_top = 84.0
-margin_right = 151.0
-margin_bottom = 108.0
-focus_neighbour_left = NodePath("../LvlButton3")
-focus_neighbour_top = NodePath("../Button3")
 custom_styles/focus = ExtResource( 284 )
 text = "Reset"
 flat = true
@@ -739,7 +714,6 @@ __meta__ = {
 [node name="BackfromPlay" type="Button" parent="ControlPlay/Popup/VBoxContainer2"]
 margin_right = 96.0
 margin_bottom = 16.0
-focus_neighbour_top = NodePath("../../CenterContainer/GridContainer/LvlButton3")
 custom_fonts/font = ExtResource( 286 )
 custom_styles/focus = ExtResource( 284 )
 text = "Back"
@@ -848,10 +822,6 @@ script = ExtResource( 109 )
 [connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2" to="." method="_on_LvlButton2_mouse_entered"]
 [connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2" to="." method="_on_LvlButton2_pressed"]
 [connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/Button3" to="." method="_on_Button3_pressed"]
-[connection signal="focus_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3" to="." method="_on_LvlButton3_focus_entered"]
-[connection signal="mouse_entered" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3" to="." method="_on_LvlButton3_mouse_entered"]
-[connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3" to="." method="_on_LvlButton3_pressed"]
-[connection signal="pressed" from="ControlPlay/Popup/CenterContainer/GridContainer/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="focus_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_focus_entered"]
 [connection signal="mouse_entered" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_mouse_entered"]
 [connection signal="pressed" from="ControlPlay/Popup/VBoxContainer2/BackfromPlay" to="." method="_on_BackfromPlay_pressed"]

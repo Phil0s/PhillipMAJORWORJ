@@ -617,10 +617,10 @@ color = Color( 0.113725, 0.129412, 0.176471, 1 )
 visible = false
 
 [node name="SnowParticle" type="Particles2D" parent="."]
-position = Vector2( 393, -285 )
+position = Vector2( 448, -432 )
 rotation = 1.5708
 amount = 800
-lifetime = 50.0
+lifetime = 15.0
 visibility_rect = Rect2( 0, -5000, 1500, 10000 )
 process_material = SubResource( 1 )
 
@@ -808,7 +808,7 @@ position = Vector2( 424, -328 )
 position = Vector2( 75, -24 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 120 )
-frame = 7
+frame = 3
 playing = true
 flip_h = true
 
