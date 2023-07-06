@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=2]
+[gd_scene load_steps=256 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Player/HealthBar.gd" type="Script" id=30]
 [ext_resource path="res://Resources/Buttons/SliderCase.png" type="Texture" id=31]
 [ext_resource path="res://Resources/Buttons/SliderArea.png" type="Texture" id=32]
+[ext_resource path="res://Resources/Spikes/PokingSpikes.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -2418,10 +2419,10 @@ tracks/1/keys = {
 script = ExtResource( 9 )
 
 [node name="ColorRect4" type="ColorRect" parent="."]
-margin_left = -2200.0
-margin_top = -2000.0
-margin_right = 3688.0
-margin_bottom = 1688.0
+margin_left = -2024.0
+margin_top = -2056.0
+margin_right = 3864.0
+margin_bottom = 1632.0
 color = Color( 0.113725, 0.129412, 0.176471, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2572,6 +2573,9 @@ shape = SubResource( 67 )
 
 [node name="HealthPickup" parent="." instance=ExtResource( 4 )]
 position = Vector2( 210, -510 )
+
+[node name="HealthPickup2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 328, -1048 )
 
 [node name="Checkpoint_0" type="Area2D" parent="."]
 position = Vector2( 32, -16 )
@@ -3275,6 +3279,30 @@ texture_under = ExtResource( 31 )
 texture_progress = ExtResource( 32 )
 tint_under = Color( 0, 0, 0, 1 )
 tint_progress = Color( 0, 1, 0, 1 )
+
+[node name="PokingSpike" parent="." instance=ExtResource( 33 )]
+position = Vector2( 200, -64 )
+
+[node name="PokingSpike2" parent="." instance=ExtResource( 33 )]
+position = Vector2( 88, -240 )
+
+[node name="PokingSpike3" parent="." instance=ExtResource( 33 )]
+position = Vector2( 104, -240 )
+
+[node name="PokingSpike4" parent="." instance=ExtResource( 33 )]
+position = Vector2( 296, -304 )
+
+[node name="PokingSpike5" parent="." instance=ExtResource( 33 )]
+position = Vector2( 136, -480 )
+
+[node name="PokingSpike6" parent="." instance=ExtResource( 33 )]
+position = Vector2( 200, -864 )
+
+[node name="PokingSpike7" parent="." instance=ExtResource( 33 )]
+position = Vector2( 88, -1008 )
+
+[node name="PokingSpike8" parent="." instance=ExtResource( 33 )]
+position = Vector2( 120, -1008 )
 
 [connection signal="dead" from="SkeletonEnemy2" to="." method="_on_SkeletonEnemy2_dead"]
 [connection signal="animation_finished" from="SkeletonEnemy2/AnimatedSprite" to="SkeletonEnemy2" method="_on_AnimatedSprite_animation_finished"]
