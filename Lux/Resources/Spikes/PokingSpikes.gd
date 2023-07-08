@@ -2,6 +2,7 @@
 
 extends Area2D
 
+# Called when node first enters the scene
 func _ready():
 	pass
 	

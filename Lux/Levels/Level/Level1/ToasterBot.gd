@@ -5,6 +5,7 @@ extends KinematicBody2D
 #AnimatedSprite
 #Dimensions 26 22
 
+# Declaring Signals
 signal dead
 
 #Declare Variables

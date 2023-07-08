@@ -6,6 +6,8 @@ onready var animatedsprite = $AnimatedSprite
 var active = false
 
 # Called when the node enters the scene tree for the first time.
+# Called every frame
+# Delta is time between each frame
 func _process(delta):
 	if(LevelSavesLoaded.data.Level[0].checkpoint != 2):
 		active = false

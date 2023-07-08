@@ -1,6 +1,6 @@
 extends Area2D
 #Created: Phillip 5/01/2023
-
+# Declaring Variable
 var count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():

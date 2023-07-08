@@ -3,6 +3,7 @@ extends Control
 
 onready var health_bar = $HealthBar
 
+# Functions all called in the player script
 func _on_health_updated(health):
 	health_bar.value = health
 

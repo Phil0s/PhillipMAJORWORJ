@@ -1,13 +1,14 @@
 extends KinematicBody2D
 #Credits: Rungeon's advanced platformer controlls series for all movement in this script -> Basic Movement, Dashing, Wall Jump, Wall Slide
 #Created: Phillip 31/12/2022: 
+#About: Player Logic Script
 
 #Sprite Dimensions
 #Width 30
 #Height 38
 
 
-
+# Declare class and signals
 signal health_update(health)
 signal killed()
 signal dash
@@ -27,7 +28,7 @@ onready var health = max_health setget _set_health
 var current_health = 0
 var portal_id = 0
 
-#Movement Data for Character
+#Movement variables for Character
 export var gravity = 600
 export var acceleration = 550
 export var deacceleration = 550
@@ -47,7 +48,6 @@ export var wall_slide_gravity = 100
 #Static Variables
 var vSpeed = 0
 var hSpeed = 0
-
 var motion = Vector2.ZERO
 var UP : Vector2 = Vector2(0, -1) #Negative one points upward, this is used later on to give Godot a sense of our UP direction
 var SNAP_DIR = Vector2.DOWN
@@ -74,7 +74,8 @@ var notattack = true
 var dead1 = false
 
 
-#Grabbing nodes
+#Getting Child Nodes as variables 
+#Setting Boolean 
 onready var sprite = $AnimatedSprite 
 onready var ground_ray = $raycast_container/ray_ground
 onready var ground_ray2 = $raycast_container/ray_ground2

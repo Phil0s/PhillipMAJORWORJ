@@ -1,13 +1,15 @@
 extends Node2D
+# Created: Phillip Early 2023
+# About: Handles level data for Tutorial
 
+# Declaring child nodes as variable
 onready var spawn0 = $Checkpoint_0.global_position
 onready var spawn1 = $Checkpoint_1.global_position
 onready var spawn2 = $Checkpoint_2.global_position
 onready var player = $Player
 
-
+# Declaring variables
 var levelsavefile = "res://levelsavefile.json"
-
 var local_data = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +24,7 @@ func _ready():
 	if LevelSavesLoaded.data.Level[0].enemy[0] == 1:
 		$SkeletonEnemy.queue_free()
 
-
+# Signals from other nodes such as enemies and checkpoints
 func _on_Checkpoint_0_Checkpoint_reached0():
 	var file = File.new()
 	file.open(levelsavefile, File.WRITE)	
@@ -57,7 +59,6 @@ func _on_Checkpoint_2_Checkpoint_reached2():
 	LevelSavesLoaded.data.Level[0].health = $Player.current_health
 	file.store_line(to_json(LevelSavesLoaded.data))
 	file.close()
-
 
 
 func _on_SkeletonEnemy_dead():

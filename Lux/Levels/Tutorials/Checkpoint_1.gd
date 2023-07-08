@@ -1,11 +1,14 @@
 extends Area2D
-
+# Declaring Signal
 signal Checkpoint_reached1
-
+# Declaring child node as variable
 onready var animatedsprite = $AnimatedSprite
+# Declaring variable
 var active = false
 
 # Called when the node enters the scene tree for the first time.
+# Called every frame
+# Delta is time between each frame
 func _process(delta):
 	if(LevelSavesLoaded.data.Level[0].checkpoint != 1):
 		active = false

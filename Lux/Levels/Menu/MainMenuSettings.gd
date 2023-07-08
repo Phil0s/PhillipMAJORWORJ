@@ -1,7 +1,7 @@
 extends Control
 # Getting the audiobus, AudioServer is global so no need to reference a specific file, etc.
 # Created: Phillip 10/12/2022
-# About this code is for audio settings
+# About: this code is for audio settings
 
 # Declaring Variables
 var master_bus = AudioServer.get_bus_index("Master")
@@ -20,7 +20,7 @@ onready var sliderchange = $SliderChange
 var audio_dictionary = {"audio_master": audio_master, "audio_music": audio_music, "audio_effects": audio_effects}
 
 #AudioServer controls all the audio of Godot. Inside there are different buses kinda like categories. 
-# Mainline Function (runs first when file is called)
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	var file = File.new()
 	if(file.file_exists(audio_setting_file)): 
@@ -62,7 +62,6 @@ func _ready():
 		print_debug("No existing audio data file")
 
 # Automantically called whenever the slider is changed
-# 
 func save_audio():
 	var file = File.new()
 	file.open(audio_setting_file, File.WRITE)

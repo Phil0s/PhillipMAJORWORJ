@@ -20,7 +20,6 @@ onready var nextbut = $ControlPlay/Popup/VBoxContainer2/NextBut
 onready var previousbut = $ControlPlay/Popup/VBoxContainer2/PreviousBut
 onready var buttonhover = $ButtonHover
 onready var buttonpressed = $ButtonPressed
-# onready var sliderchange = $SliderChange
 onready var exitbut = $VBoxContainer/ExitButton
 onready var backfromsettings = $Control/Popup/VBoxContainer/Back
 onready var backfromplay = $ControlPlay/Popup/VBoxContainer2/BackfromPlay
@@ -30,22 +29,22 @@ onready var level2 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton2
 onready var level3 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton3
 
 
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	_defaultreset()
 	startbut.grab_focus()
 	settingspage.visible = false
 	playpage.visible = false
 	
-func _defaultreset(): #Played when scene first loaded, to ensure everything starts of at the correct position and settings
+func _defaultreset(): 
 	MManimationPlayer.play("Default")
 
-func _on_ExitButton_pressed(): #Close the app
+func _on_ExitButton_pressed(): 
 	print("Exit button pressed")
 	get_tree().quit()
 	
 	
-func _on_PlayButton_pressed(): #Open the play menu
+func _on_PlayButton_pressed(): 
 	print("Play Button Pressed")
 	if MManimationfinished:
 		MManimationPlayer.play("Play")
@@ -54,7 +53,7 @@ func _on_PlayButton_pressed(): #Open the play menu
 		level0.grab_focus()
 	
 
-func _on_SettingsButton_pressed(): #Open settings button
+func _on_SettingsButton_pressed(): 
 	if MManimationfinished:
 		print("Settings Button Pressed")
 		buttonpressed.play()
@@ -62,10 +61,10 @@ func _on_SettingsButton_pressed(): #Open settings button
 		settingspage.visible = true
 		musicslider.grab_focus()
 
-func _on_AnimationPlayer_animation_finished(anim_name): #To ensure no more than one animation is playing at once
+func _on_AnimationPlayer_animation_finished(anim_name): 
 	MManimationfinished = true
 
-func _on_Back_pressed(): #Settingsback to Main Menu
+func _on_Back_pressed():
 	if MManimationfinished:
 		MManimationPlayer.play("SettingsBack")
 		buttonpressed.play()
@@ -73,29 +72,13 @@ func _on_Back_pressed(): #Settingsback to Main Menu
 		settingsbut.grab_focus()
 
 
-func _on_BackfromPlay_pressed(): #Level menu to Main menu
+func _on_BackfromPlay_pressed(): 
 	if MManimationfinished:
 		buttonpressed.play()
 		MManimationPlayer.play("Playback")
 		playpage.visible = false
 		startbut.grab_focus()
 
-func _on_Launch_pressed():
-	#Note to self: If function is said to be missing in Autoload file "LoadingScript" I found out
-	#if the autoload script file does actually have the function, I need to RELOAD the autoload
-	#Script in the Godot Project settings. For some reason Autoload Scripts do not update so if I
-	#Continue to make changes to "LoadingScript" the autoload one thats been uploaded will not update
-	#I have to manually re-add it to the autoloader
-	#LoadingScript.load_scene1(self, "res://Levels/Tutorials/Tutorial.tscn")
-	
-	#Note everything above is currently not in use. 
-	
-	#Global variable containing level number is changed
-	var LevelNum = str(Globalscript.levelorder)
-	if Globalscript.levelorder == 0:
-		get_tree().change_scene("res://Levels/Tutorials/Tutorial.tscn")
-	else:
-		get_tree().change_scene("res://Levels/Level/Level" + LevelNum + ".tscn")
 
 
 
@@ -160,26 +143,6 @@ func _on_BackfromPlay_mouse_entered():
 	buttonhover.play()
 
 
-func _on_Launch_focus_entered():
-	buttonhover.play()
-
-
-func _on_NextBut_focus_entered():
-	buttonhover.play()
-
-
-func _on_NextBut_mouse_entered():
-	nextbut.grab_focus()
-	buttonhover.play()
-
-
-func _on_PreviousBut_focus_entered():
-	buttonhover.play()
-
-
-func _on_PreviousBut_mouse_entered():
-	previousbut.grab_focus()
-	buttonhover.play()
 
 
 func _on_HSlider3_mouse_entered():
@@ -194,10 +157,6 @@ func _on_HSlider_mouse_entered():
 	musicslider.grab_focus()
 
 
-func _on_Launch_mouse_entered():
-	Launchbutton.grab_focus()
-	buttonhover.play()
-	
 	
 
 
@@ -233,21 +192,11 @@ func _on_LvlButton2_pressed():
 	get_tree().change_scene("res://Levels/Level/Level2.tscn")
 
 
-func _on_LvlButton3_pressed():
-	buttonpressed.play()
-	get_tree().change_scene("res://Levels/Level/Level3.tscn")
-
-
-func _on_LvlButton3_focus_entered():
-	buttonhover.play()
 
 
 func _on_LvlButton1_pressed():
 	get_tree().change_scene("res://Levels/Level/Level1.tscn")
 
-
-func _on_LvlButton3_mouse_entered():
-	level3.grab_focus()
 
 
 
@@ -257,10 +206,6 @@ func _on_Button_pressed():
 
 func _on_Button3_pressed():
 	LevelSavesLoaded._reset(2)
-
-
-func _on_Button4_pressed():
-	LevelSavesLoaded._reset(3)
 
 
 func _on_Button2_pressed():

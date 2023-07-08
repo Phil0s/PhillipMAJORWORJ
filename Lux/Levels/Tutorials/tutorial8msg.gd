@@ -1,14 +1,10 @@
 extends Area2D
-
+# Declaring Variable
 var count = 0
 
 
 func _ready():
 	count = 0
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_tutorial8msg_body_entered(body):

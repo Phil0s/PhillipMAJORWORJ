@@ -1,17 +1,14 @@
 extends Node2D
-
+# Get child node as variables
 onready var spawn0 = $Checkpoint_0.global_position
 onready var spawn1 = $Checkpoint_1.global_position
 onready var player = $Player
 
-
+# Declare Variables
 var levelsavefile = "res://levelsavefile.json"
 
 var local_data = {}
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
