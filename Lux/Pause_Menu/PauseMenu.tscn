@@ -1,13 +1,153 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Fonts/AbaddonFONT.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Levels/Menu/SettingsControl.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Pause_Menu/ButtonParent.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/Convenant evensmallert.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Pause_Menu/PauseMenu.gd" type="Script" id=5]
 [ext_resource path="res://Theme1.tres" type="Theme" id=6]
 [ext_resource path="res://Fonts/ConvenantSmall.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Resources/Shaders/ButtonHover.tres" type="StyleBox" id=9]
+[ext_resource path="res://Audio/LowBlip.wav" type="AudioStream" id=10]
+[ext_resource path="res://Resources/Buttons/SliderButton.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Buttons/SliderButtonHover.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Shaders/Slider.tres" type="StyleBox" id=13]
+[ext_resource path="res://Resources/Shaders/SliderArea.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/Shaders/SliderAreaGradient.tres" type="StyleBox" id=15]
+[ext_resource path="res://Obstacles/Enemies/SkeletonEnemy.tres" type="SpriteFrames" id=16]
+[ext_resource path="res://Obstacles/Enemies/ToasterBot.tres" type="SpriteFrames" id=17]
+[ext_resource path="res://Obstacles/Enemies/Zapper.tres" type="SpriteFrames" id=18]
+[ext_resource path="res://Obstacles/Enemies/ShockHead.tres" type="SpriteFrames" id=19]
+[ext_resource path="res://Pause_Menu/Sprites.gd" type="Script" id=20]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Idle", "Attack" ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Idle" ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "New Anim"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite2:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "RUN", "ATTACK" ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite2:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "RUN" ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "New Anim"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Walking", "Attack" ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Walking" ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "New Anim"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite4:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "RUN", "ATTACK" ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite4:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "RUN" ]
+}
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource( 5 )
@@ -18,17 +158,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -81.0
-margin_top = -65.0
-margin_right = 81.0
-margin_bottom = 65.0
+margin_left = -140.0
+margin_top = -74.0
+margin_right = 140.0
+margin_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer2"]
 margin_right = 280.0
-margin_bottom = 158.0
+margin_bottom = 148.0
 
 [node name="Label" type="Label" parent="GridContainer2/VBoxContainer"]
 margin_right = 280.0
@@ -41,7 +181,9 @@ align = 1
 margin_top = 40.0
 margin_right = 280.0
 margin_bottom = 56.0
+focus_neighbour_bottom = NodePath("../Button2")
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "RECORDS"
 flat = true
 
@@ -49,8 +191,10 @@ flat = true
 margin_top = 60.0
 margin_right = 280.0
 margin_bottom = 76.0
+focus_neighbour_top = NodePath("../Button6")
 focus_neighbour_bottom = NodePath("../Button3")
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "AUDIO"
 flat = true
 
@@ -59,7 +203,9 @@ margin_top = 80.0
 margin_right = 280.0
 margin_bottom = 96.0
 focus_neighbour_top = NodePath("../Button2")
+focus_neighbour_bottom = NodePath("../Button4")
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "KEYBINDING"
 flat = true
 
@@ -67,8 +213,10 @@ flat = true
 margin_top = 100.0
 margin_right = 280.0
 margin_bottom = 116.0
-focus_neighbour_top = NodePath("../Button2")
+focus_neighbour_top = NodePath("../Button3")
+focus_neighbour_bottom = NodePath("../Button5")
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "RESTART"
 flat = true
 
@@ -77,20 +225,21 @@ modulate = Color( 1, 0.00392157, 0.00392157, 1 )
 margin_top = 120.0
 margin_right = 280.0
 margin_bottom = 136.0
+focus_neighbour_top = NodePath("../Button4")
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "Exit Level (Unsaved progress lost)"
 flat = true
 
 [node name="Label2" type="Label" parent="GridContainer2/VBoxContainer"]
 margin_top = 140.0
 margin_right = 280.0
-margin_bottom = 158.0
-custom_fonts/font = ExtResource( 1 )
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 4 )
 text = "\"ESC\" to unpause"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -116,140 +265,134 @@ align = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
 margin_top = 40.0
 margin_right = 297.0
-margin_bottom = 178.0
+margin_bottom = 138.0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
 margin_right = 297.0
-margin_bottom = 14.0
+margin_bottom = 13.0
+alignment = 1
 
 [node name="Label" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer"]
-margin_right = 36.0
+margin_left = 125.0
+margin_right = 161.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
 text = "RIGHT:"
 
-[node name="ButtonParent3" parent="GridContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
-margin_left = 40.0
-margin_right = 50.0
-margin_bottom = 14.0
-text = "D"
-flat = true
-action_name = "Right"
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer"]
+margin_left = 165.0
+margin_right = 171.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "A"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
-margin_top = 18.0
+margin_top = 17.0
 margin_right = 297.0
-margin_bottom = 32.0
+margin_bottom = 30.0
+alignment = 1
 
 [node name="Label2" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer2"]
-margin_right = 30.0
+margin_left = 128.0
+margin_right = 158.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
 text = "LEFT:"
 
-[node name="ButtonParent2" parent="GridContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 4 )]
-margin_left = 34.0
-margin_right = 43.0
-margin_bottom = 14.0
-text = "A"
-flat = true
-action_name = "Left"
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 162.0
+margin_right = 168.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "D"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
-margin_top = 36.0
+margin_top = 34.0
 margin_right = 297.0
-margin_bottom = 50.0
+margin_bottom = 47.0
+alignment = 1
 
 [node name="Label3" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer3"]
-margin_right = 30.0
+margin_left = 128.0
+margin_right = 158.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
 text = "JUMP:"
 
-[node name="ButtonParent" parent="GridContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 4 )]
-margin_left = 34.0
-margin_right = 47.0
-margin_bottom = 14.0
+[node name="Label4" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 162.0
+margin_right = 168.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
 text = "W"
-flat = true
-action_name = "Jump"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
-margin_top = 54.0
+margin_top = 51.0
 margin_right = 297.0
-margin_bottom = 68.0
+margin_bottom = 64.0
+alignment = 1
 
 [node name="Label4" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer4"]
-margin_right = 30.0
+margin_left = 128.0
+margin_right = 158.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
 text = "DOWN:"
 
-[node name="ButtonParent4" parent="GridContainer/VBoxContainer/HBoxContainer4" instance=ExtResource( 4 )]
-margin_left = 34.0
-margin_right = 41.0
-margin_bottom = 14.0
-text = "S"
-flat = true
-action_name = "Down"
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
-margin_top = 72.0
-margin_right = 297.0
-margin_bottom = 86.0
-
-[node name="Label5" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer5"]
-margin_right = 30.0
+[node name="Label5" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer4"]
+margin_left = 162.0
+margin_right = 168.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
-text = "DASH:"
+text = "S"
 
-[node name="ButtonParent5" parent="GridContainer/VBoxContainer/HBoxContainer5" instance=ExtResource( 4 )]
-margin_left = 34.0
-margin_right = 71.0
-margin_bottom = 14.0
-flat = true
-action_name = "Dash"
+[node name="HBoxContainer5" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 297.0
+margin_bottom = 81.0
+alignment = 1
+
+[node name="Label5" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer5"]
+margin_left = 86.0
+margin_right = 176.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "DASH/UI SELECT:"
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer5"]
+margin_left = 180.0
+margin_right = 210.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "SPACE"
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
-margin_top = 90.0
+margin_top = 85.0
 margin_right = 297.0
-margin_bottom = 104.0
+margin_bottom = 98.0
+alignment = 1
 
 [node name="Label6" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer6"]
-margin_right = 36.0
+margin_left = 113.0
+margin_right = 149.0
 margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
 text = "SLIDE:"
 
-[node name="ButtonParent6" parent="GridContainer/VBoxContainer/HBoxContainer6" instance=ExtResource( 4 )]
-margin_left = 40.0
-margin_right = 68.0
-margin_bottom = 14.0
-text = "Shift"
-flat = true
-action_name = "Slide"
-
-[node name="Label3" type="Label" parent="GridContainer/VBoxContainer"]
-margin_top = 108.0
-margin_right = 297.0
-margin_bottom = 121.0
+[node name="Label7" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer6"]
+margin_left = 153.0
+margin_right = 183.0
+margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
-text = "Mouse 1 to select keybinding"
-
-[node name="Label4" type="Label" parent="GridContainer/VBoxContainer"]
-margin_top = 125.0
-margin_right = 297.0
-margin_bottom = 138.0
-custom_fonts/font = ExtResource( 8 )
-text = "Then press any key for desired key bind"
+text = "SHIFT"
 
 [node name="Back1" type="Button" parent="GridContainer"]
-margin_top = 182.0
+margin_top = 142.0
 margin_right = 297.0
-margin_bottom = 198.0
+margin_bottom = 158.0
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "Back"
 flat = true
 
@@ -271,7 +414,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="GridContainer3"]
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 36.0
 custom_fonts/font = ExtResource( 3 )
 text = "RECORDS"
@@ -279,34 +422,34 @@ align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer3"]
 margin_top = 40.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 280.0
 alignment = 1
 
 [node name="Label" type="Label" parent="GridContainer3/VBoxContainer"]
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 7 )
 text = "SKELETON:"
 
 [node name="Label2" type="Label" parent="GridContainer3/VBoxContainer"]
 margin_top = 20.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 49.0
 custom_fonts/font = ExtResource( 8 )
 text = "Slow, short range and weak. They are the most
- common enemy you'll encounter in dungeons. "
+common enemy you'll encounter in dungeons. "
 
 [node name="Label3" type="Label" parent="GridContainer3/VBoxContainer"]
 margin_top = 53.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 69.0
 custom_fonts/font = ExtResource( 7 )
 text = "TOASTER:"
 
 [node name="Label4" type="Label" parent="GridContainer3/VBoxContainer"]
 margin_top = 73.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 102.0
 custom_fonts/font = ExtResource( 8 )
 text = "Fast, long range, and a hard hitting high energy weapon. 
@@ -314,14 +457,14 @@ They are a formidable first line of defense."
 
 [node name="Label5" type="Label" parent="GridContainer3/VBoxContainer"]
 margin_top = 106.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 122.0
 custom_fonts/font = ExtResource( 7 )
 text = "ZAPPER:"
 
 [node name="Label6" type="Label" parent="GridContainer3/VBoxContainer"]
 margin_top = 126.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 155.0
 custom_fonts/font = ExtResource( 8 )
 text = "Fast Support unit often accompanying Toaster bots to provide 
@@ -329,30 +472,31 @@ close range fire and defense in case enemies get to close."
 
 [node name="Label7" type="Label" parent="GridContainer3/VBoxContainer"]
 margin_top = 159.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 175.0
 custom_fonts/font = ExtResource( 7 )
 text = "SHOCK HEAD:"
 
 [node name="Label8" type="Label" parent="GridContainer3/VBoxContainer"]
 margin_top = 179.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 240.0
 custom_fonts/font = ExtResource( 8 )
 text = "Packing 300 million Volts into it's head. The Shock head is a walking
-lighting bolt. He is able to both in front and behind him. Making him 
-a very hard enemy to defeat, his bulky equipment makes him very 
-slow and his bolts quickly dissipate over distance. "
+lighting bolt. It is able to zap both in front and behind it. Making it 
+a very hard enemy to defeat, however it's bulky equipment makes it very 
+slow and the bolts quickly dissipate over distance. "
 
 [node name="Back3" type="Button" parent="GridContainer3"]
 margin_top = 284.0
-margin_right = 420.0
+margin_right = 432.0
 margin_bottom = 300.0
 custom_fonts/font = ExtResource( 7 )
 text = "Back"
 flat = true
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_left = -640.0
 margin_top = -688.0
 margin_right = 704.0
@@ -373,11 +517,11 @@ grow_vertical = 2
 theme = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/GridContainer3"]
-margin_right = 135.0
-margin_bottom = 186.0
+margin_right = 517.0
+margin_bottom = 192.0
 
 [node name="Label" type="Label" parent="Control/GridContainer3/VBoxContainer"]
-margin_right = 135.0
+margin_right = 517.0
 margin_bottom = 36.0
 custom_fonts/font = ExtResource( 3 )
 text = "AUDIO"
@@ -385,69 +529,142 @@ align = 1
 
 [node name="Label3" type="Label" parent="Control/GridContainer3/VBoxContainer"]
 margin_top = 40.0
-margin_right = 135.0
+margin_right = 517.0
 margin_bottom = 58.0
 custom_fonts/font = ExtResource( 1 )
 text = "Audio-Master"
 
 [node name="master" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
 margin_top = 62.0
-margin_right = 135.0
-margin_bottom = 78.0
-focus_neighbour_bottom = NodePath("../../Save")
+margin_right = 517.0
+margin_bottom = 80.0
+focus_neighbour_bottom = NodePath("../music")
+custom_icons/grabber_highlight = ExtResource( 12 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = ExtResource( 13 )
+custom_styles/grabber_area_highlight = ExtResource( 14 )
+custom_styles/grabber_area = ExtResource( 15 )
 min_value = -20.0
 max_value = 0.0
 
 [node name="Label4" type="Label" parent="Control/GridContainer3/VBoxContainer"]
-margin_top = 82.0
-margin_right = 135.0
-margin_bottom = 100.0
+margin_top = 84.0
+margin_right = 517.0
+margin_bottom = 102.0
 custom_fonts/font = ExtResource( 1 )
 text = "Audio-Music"
 
 [node name="music" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
-margin_top = 104.0
-margin_right = 135.0
-margin_bottom = 120.0
-focus_neighbour_bottom = NodePath("../../Save")
+margin_top = 106.0
+margin_right = 517.0
+margin_bottom = 124.0
+focus_neighbour_top = NodePath("../master")
+focus_neighbour_bottom = NodePath("../effects")
+custom_icons/grabber_highlight = ExtResource( 12 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = ExtResource( 13 )
+custom_styles/grabber_area_highlight = ExtResource( 14 )
+custom_styles/grabber_area = ExtResource( 15 )
 min_value = -20.0
 max_value = 0.0
 
 [node name="Label5" type="Label" parent="Control/GridContainer3/VBoxContainer"]
-margin_top = 124.0
-margin_right = 135.0
-margin_bottom = 142.0
+margin_top = 128.0
+margin_right = 517.0
+margin_bottom = 146.0
 custom_fonts/font = ExtResource( 1 )
 text = "Audio-Effects"
 
 [node name="effects" type="HSlider" parent="Control/GridContainer3/VBoxContainer"]
-margin_top = 146.0
-margin_right = 135.0
-margin_bottom = 162.0
-focus_neighbour_bottom = NodePath("../../Save")
+margin_top = 150.0
+margin_right = 517.0
+margin_bottom = 168.0
+focus_neighbour_top = NodePath("../music")
+focus_neighbour_bottom = NodePath("../Back2")
+custom_icons/grabber_highlight = ExtResource( 12 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = ExtResource( 13 )
+custom_styles/grabber_area_highlight = ExtResource( 14 )
+custom_styles/grabber_area = ExtResource( 15 )
 min_value = -20.0
 max_value = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/GridContainer3/VBoxContainer"]
-margin_top = 166.0
-margin_right = 135.0
-margin_bottom = 166.0
+margin_top = 172.0
+margin_right = 517.0
+margin_bottom = 172.0
 
 [node name="Back2" type="Button" parent="Control/GridContainer3/VBoxContainer"]
-margin_top = 170.0
-margin_right = 135.0
-margin_bottom = 186.0
+margin_top = 176.0
+margin_right = 517.0
+margin_bottom = 192.0
+focus_neighbour_top = NodePath("../effects")
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "Back"
 flat = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.5
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+bus = "Effects"
+
+[node name="Sprites" type="Control" parent="."]
+script = ExtResource( 20 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sprites"]
+position = Vector2( 233, 75 )
+frames = ExtResource( 16 )
+animation = "Idle"
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Sprites"]
+position = Vector2( 255, 132 )
+frames = ExtResource( 17 )
+animation = "RUN"
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Sprites"]
+position = Vector2( 215, 179 )
+scale = Vector2( 0.7, 0.7 )
+frames = ExtResource( 18 )
+animation = "Walking"
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Sprites"]
+position = Vector2( 256, 209 )
+scale = Vector2( 0.7, 0.7 )
+frames = ExtResource( 19 )
+animation = "RUN"
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]
+"anims/New Anim" = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprites"]
+"anims/New Anim" = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="Sprites"]
+"anims/New Anim" = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="Sprites"]
+"anims/New Anim" = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[connection signal="mouse_entered" from="GridContainer2/VBoxContainer/Button6" to="." method="_on_Button6_mouse_entered"]
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button6" to="." method="_on_Button6_pressed"]
+[connection signal="mouse_entered" from="GridContainer2/VBoxContainer/Button2" to="." method="_on_Button2_mouse_entered"]
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="mouse_entered" from="GridContainer2/VBoxContainer/Button3" to="." method="_on_Button3_mouse_entered"]
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="mouse_entered" from="GridContainer2/VBoxContainer/Button4" to="." method="_on_Button4_mouse_entered"]
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="mouse_entered" from="GridContainer2/VBoxContainer/Button5" to="." method="_on_Button5_mouse_entered"]
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button5" to="." method="_on_Button5_pressed"]
 [connection signal="pressed" from="GridContainer/Back1" to="." method="_on_Back1_pressed"]
 [connection signal="pressed" from="GridContainer3/Back3" to="." method="_on_Back3_pressed"]

@@ -686,6 +686,7 @@ margin_right = 111.0
 margin_bottom = 80.0
 focus_neighbour_top = NodePath("../LvlButton1")
 focus_neighbour_right = NodePath("../Button3")
+focus_neighbour_bottom = NodePath("../../../VBoxContainer2/BackfromPlay")
 custom_fonts/font = ExtResource( 105 )
 custom_styles/focus = ExtResource( 284 )
 text = "Mission 2"
@@ -704,9 +705,9 @@ flat = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ControlPlay/Popup"]
 margin_left = 13.0
-margin_top = 334.0
+margin_top = 333.0
 margin_right = 109.0
-margin_bottom = 410.0
+margin_bottom = 409.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -796,6 +797,14 @@ margin_right = 592.0
 margin_bottom = 348.0
 custom_fonts/font = ExtResource( 285 )
 script = ExtResource( 109 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 138.0
+margin_top = 334.0
+margin_right = 504.0
+margin_bottom = 348.0
+custom_fonts/font = ExtResource( 285 )
+text = "[W,A,S,D/ARROWS/MOUSE] to move. [SPACE/ENTER/MOUSE] to select"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_focus_entered"]

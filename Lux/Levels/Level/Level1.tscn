@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=2]
+[gd_scene load_steps=156 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://DownloadedFromItchIO/Toaster Bot/death.png" type="Texture" id=19]
 [ext_resource path="res://DownloadedFromItchIO/Toaster Bot/attack.png" type="Texture" id=20]
 [ext_resource path="res://DownloadedFromItchIO/Toaster Bot/run.png" type="Texture" id=21]
+[ext_resource path="res://Levels/Tutorials/MSG.tres" type="SpriteFrames" id=22]
+[ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=23]
 
 [sub_resource type="Environment" id=113]
 background_mode = 4
@@ -29,7 +31,7 @@ glow_bloom = 1.0
 glow_hdr_threshold = 1.5
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 104.5 )
+extents = Vector2( 9, 6.75 )
 
 [sub_resource type="GDScript" id=108]
 script/source = "extends Area2D
@@ -69,13 +71,13 @@ func _on_Death_body_entered(body):
 [sub_resource type="RectangleShape2D" id=102]
 extents = Vector2( 94.875, 79 )
 
-[sub_resource type="RectangleShape2D" id=110]
+[sub_resource type="RectangleShape2D" id=189]
 extents = Vector2( 32.0513, 20 )
 
-[sub_resource type="RectangleShape2D" id=111]
+[sub_resource type="RectangleShape2D" id=190]
 extents = Vector2( 32.0511, 20 )
 
-[sub_resource type="RectangleShape2D" id=112]
+[sub_resource type="RectangleShape2D" id=191]
 extents = Vector2( 10, 15.5 )
 
 [sub_resource type="AtlasTexture" id=43]
@@ -1491,23 +1493,48 @@ tile_data = PoolIntArray( -2228192, 126, 0, -2228189, 126, 0, -2228184, 126, 0, 
 [node name="Level1msg1" type="Area2D" parent="."]
 position = Vector2( 144, -30 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level1msg1"]
+position = Vector2( 0, 23.5 )
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Level1msg1"]
+position = Vector2( 0, 24 )
+scale = Vector2( 0.6, 0.6 )
+frames = ExtResource( 22 )
+playing = true
+flip_h = true
+
+[node name="Label" type="Label" parent="Level1msg1"]
+margin_left = -20.0
+margin_top = 4.0
+margin_right = 22.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 23 )
+text = "[ENTER]"
 
 [node name="Level1msg2" type="Area2D" parent="."]
 position = Vector2( 1025, -23 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level1msg2"]
-position = Vector2( 0, -82.5 )
+position = Vector2( -3, 16.25 )
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Level1msg2"]
+position = Vector2( -3, 17 )
+scale = Vector2( 0.6, 0.6 )
+frames = ExtResource( 22 )
+playing = true
+flip_h = true
+
+[node name="Label" type="Label" parent="Level1msg2"]
+margin_left = -23.0
+margin_top = -5.0
+margin_right = 19.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 23 )
+text = "[ENTER]"
 
 [node name="Death" type="Area2D" parent="."]
 position = Vector2( 88, 337 )
@@ -1537,7 +1564,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint_0"]
-shape = SubResource( 110 )
+shape = SubResource( 189 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Checkpoint_0"]
 scale = Vector2( 4, 2.5 )
@@ -1553,7 +1580,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint_1"]
-shape = SubResource( 111 )
+shape = SubResource( 190 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Checkpoint_1"]
 position = Vector2( -2.86102e-06, 3.05176e-05 )
@@ -1562,7 +1589,7 @@ frames = ExtResource( 8 )
 animation = "INACTIVE"
 
 [node name="Exit" type="Area2D" parent="."]
-position = Vector2( 1872, -19 )
+position = Vector2( 1878, -19 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
@@ -1571,11 +1598,10 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Exit"]
 position = Vector2( 0, 2 )
 frames = ExtResource( 6 )
-animation = "New Anim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2( 0, 3.5 )
-shape = SubResource( 112 )
+shape = SubResource( 191 )
 
 [node name="PokingSpike" parent="." instance=ExtResource( 12 )]
 position = Vector2( 456, -112 )
@@ -2055,8 +2081,10 @@ lifetime = 15.0
 visibility_rect = Rect2( 0, -5000, 1500, 10000 )
 process_material = SubResource( 186 )
 
-[connection signal="body_entered" from="Level1msg1" to="Level1msg1" method="_on_tutorial2msg_body_entered"]
-[connection signal="body_entered" from="Level1msg2" to="Level1msg2" method="_on_tutorial2msg_body_entered"]
+[connection signal="body_entered" from="Level1msg1" to="Level1msg1" method="_on_Level1msg1_body_entered"]
+[connection signal="body_exited" from="Level1msg1" to="Level1msg1" method="_on_Level1msg1_body_exited"]
+[connection signal="body_entered" from="Level1msg2" to="Level1msg2" method="_on_Level1msg2_body_entered"]
+[connection signal="body_exited" from="Level1msg2" to="Level1msg2" method="_on_Level1msg2_body_exited"]
 [connection signal="body_entered" from="Death" to="Death" method="_on_Death_body_entered"]
 [connection signal="body_entered" from="Death2" to="Death2" method="_on_Death_body_entered"]
 [connection signal="Checkpoint1_reached0" from="Checkpoint_0" to="." method="_on_Checkpoint_0_Checkpoint1_reached0"]

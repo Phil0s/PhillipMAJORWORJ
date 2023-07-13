@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/platformer_level03_loop.ogg-710f568a4ca5068423c204128af300e5.oggstr"
+
+[deps]
+
+source_file="res://DownloadedFromItchIO/Sunny-land-assets-files/Sound/platformer_level03_loop.ogg"
+dest_files=[ "res://.import/platformer_level03_loop.ogg-710f568a4ca5068423c204128af300e5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

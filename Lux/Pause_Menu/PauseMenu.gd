@@ -13,6 +13,7 @@ onready var paused_menu_page = $GridContainer2
 onready var records_page = $GridContainer3
 onready var audio_page = $Control
 onready var records = $GridContainer2/VBoxContainer/Button6
+onready var sprites = $Sprites
 
 var textboxhalt = false
 var second_time_pressed = false
@@ -23,23 +24,24 @@ func _ready():
 	keybinding_page.visible = false
 	audio_page.visible = false
 	records_page.visible = false
+	sprites.visible = false
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	records.grab_focus()
 	
 func load_keys():
-	var file = File.new()
-	if(file.file_exists(keybinding_data_file)): #There is a save file already! Lets alter it
-		delete_old_keys()
-		file.open(keybinding_data_file, File.READ)
-		var data = parse_json(file.get_as_text())
-		file.close()
-		if(typeof(data) == TYPE_DICTIONARY):
-			key_dictionary = data
-			setup_keys()
-		else:
-			printerr("corrupted data")
-	else: #No existing save file? Go create a new one!
-		save_keys()
+	pass
+#	var file = File.new()
+#	if(file.file_exists(keybinding_data_file)): #There is a save file already! Lets alter it
+#		delete_old_keys()
+#		file.open(keybinding_data_file, File.READ)
+#		var data = parse_json(file.get_as_text())
+#		file.close()
+#		if(typeof(data) == TYPE_DICTIONARY):
+#			key_dictionary = data
+#			setup_keys()
+#		else:
+#			printerr("corrupted data")
+#	else: #No existing save file? Go create a new one!
+#		save_keys()
 		
 		
 func _process(delta):
@@ -48,18 +50,17 @@ func _process(delta):
 	if(scene_name != "MainMenu") and scene_name != "Startuptext":
 		if(Input.is_action_just_pressed("Pause")):
 			if(!TextBox.textboxrunning):
+				$GridContainer2/VBoxContainer/Button6.grab_focus()
 				print("1")
 				get_tree().paused = !get_tree().paused
 				get_child(0).visible = get_tree().paused
 				if(!get_tree().paused):
 					keybinding_page.visible = false
 					audio_page.visible = false
+					records_page.visible = false
+					sprites.visible = false
 			if(TextBox.textboxrunning):
-				textboxhalt = true
-
-				
-				
-				
+				textboxhalt = true	
 	if(scene_name == "TextBox"):
 		pass
 	else:
@@ -67,36 +68,41 @@ func _process(delta):
 				
 				
 func setup_keys():
-	for i in key_dictionary:
-		for j in get_tree().get_nodes_in_group("button_keys"):
-			if(j.action_name == i):
-				j.text = OS.get_scancode_string(key_dictionary[i])
-			var newkey = InputEventKey.new()
-			newkey.scancode = int(key_dictionary[i])
-			InputMap.action_add_event(i,newkey)
+	pass
+#	for i in key_dictionary:
+#		for j in get_tree().get_nodes_in_group("button_keys"):
+#			if(j.action_name == i):
+#				j.text = OS.get_scancode_string(key_dictionary[i])
+#			var newkey = InputEventKey.new()
+#			newkey.scancode = int(key_dictionary[i])
+#			InputMap.action_add_event(i,newkey)
 			
 func delete_old_keys():
+	pass
 	#Remove old keys
-	for i in key_dictionary:
-		var oldkey = InputEventKey.new()
-		oldkey.scancode = int(PauseMenu.key_dictionary[i])
-		InputMap.action_erase_event(i, oldkey)
+#	for i in key_dictionary:
+#		var oldkey = InputEventKey.new()
+#		oldkey.scancode = int(PauseMenu.key_dictionary[i])
+#		InputMap.action_erase_event(i, oldkey)
 
 func save_keys():
-	var file = File.new()
-	file.open(keybinding_data_file, File.WRITE)
-	file.store_string(to_json(key_dictionary))
-	file.close()
-	print("Saved")
+	pass
+#	var file = File.new()
+#	file.open(keybinding_data_file, File.WRITE)
+#	file.store_string(to_json(key_dictionary))
+#	file.close()
+#	print("Saved")
 
 func _on_Button3_pressed():
 	paused_menu_page.visible = false
 	keybinding_page.visible = true
+	$GridContainer/Back1.grab_focus()
 
 
 func _on_Button2_pressed():
 	paused_menu_page.visible = false
 	audio_page.visible = true
+	$Control/GridContainer3/VBoxContainer/master.grab_focus()
 
 
 func _on_Button4_pressed():
@@ -109,13 +115,16 @@ func _on_Button4_pressed():
 
 
 func _on_Back1_pressed():
+	$AudioStreamPlayer2D.play()
 	keybinding_page.visible = false
 	paused_menu_page.visible = true
+	records.grab_focus()
 
 
 func _on_Back2_pressed():
 	audio_page.visible = false
 	paused_menu_page.visible = true
+	records.grab_focus()
 
 
 func _on_Button5_pressed():
@@ -130,8 +139,48 @@ func _on_Button5_pressed():
 func _on_Button6_pressed():
 	paused_menu_page.visible = false
 	records_page.visible = true
+	sprites.visible = true
+	$Sprites/AnimationPlayer.play("New Anim")
+	$Sprites/AnimationPlayer2.play("New Anim")
+	$Sprites/AnimationPlayer3.play("New Anim")
+	$Sprites/AnimationPlayer4.play("New Anim")
 
 
 func _on_Back3_pressed():
 	paused_menu_page.visible = true
 	records_page.visible = false
+	sprites.visible = false
+	records.grab_focus()
+	$Sprites/AnimationPlayer.stop()
+	$Sprites/AnimationPlayer2.stop()
+	$Sprites/AnimationPlayer3.stop()
+	$Sprites/AnimationPlayer4.stop()
+	
+	
+
+
+func _on_Button6_mouse_entered():
+	$GridContainer2/VBoxContainer/Button6.grab_focus()
+	$AudioStreamPlayer2D.play()
+
+
+func _on_Button2_mouse_entered():
+	$GridContainer2/VBoxContainer/Button2.grab_focus()
+	$AudioStreamPlayer2D.play()
+	
+	
+
+
+func _on_Button3_mouse_entered():
+	$GridContainer2/VBoxContainer/Button3.grab_focus()
+	$AudioStreamPlayer2D.play()
+
+
+func _on_Button4_mouse_entered():
+	$GridContainer2/VBoxContainer/Button4.grab_focus()
+	$AudioStreamPlayer2D.play()
+
+
+func _on_Button5_mouse_entered():
+	$GridContainer2/VBoxContainer/Button5.grab_focus()
+	$AudioStreamPlayer2D.play()
