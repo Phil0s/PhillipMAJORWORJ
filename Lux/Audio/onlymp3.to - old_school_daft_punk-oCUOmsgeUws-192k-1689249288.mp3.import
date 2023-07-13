@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/onlymp3.to - old_school_daft_punk-oCUOmsgeUws-192k-1689249288.mp3-2881031e66120ee26758c69928e1c721.mp3str"
+
+[deps]
+
+source_file="res://Audio/onlymp3.to - old_school_daft_punk-oCUOmsgeUws-192k-1689249288.mp3"
+dest_files=[ "res://.import/onlymp3.to - old_school_daft_punk-oCUOmsgeUws-192k-1689249288.mp3-2881031e66120ee26758c69928e1c721.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

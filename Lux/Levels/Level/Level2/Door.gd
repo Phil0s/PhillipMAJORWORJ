@@ -1,26 +1,28 @@
 extends Area2D
 
+# Declare signals
 signal Checkpoint_finished 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
+var entered = false
+onready var label = $Label
+onready var sprite = $Sprite
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Area2D_body_entered(body):
-	if body is MainCharacter:
+	sprite.animation = "default"
+	
+func _process(delta):
+	if(entered):
+		label.visible = true
 		LevelSavesLoaded.data.Level[2].checkpoint = 0
 		emit_signal("Checkpoint_finished")
-		get_tree().change_scene("res://Levels/Menu/MainMenu.tscn")
+		sprite.animation = "New Anim"
+	if(!entered):
+		label.visible = false
+		sprite.animation = "default"
 
+func _on_Door_body_entered(body):
+	if body is MainCharacter:
+		entered = true
 
+func _on_Door_body_exited(body):
+	if body is MainCharacter:
+		entered = false

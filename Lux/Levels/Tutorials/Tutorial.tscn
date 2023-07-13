@@ -163,6 +163,9 @@ extents = Vector2( 32, 20 )
 [sub_resource type="RectangleShape2D" id=103]
 extents = Vector2( 32, 20 )
 
+[sub_resource type="RectangleShape2D" id=108]
+extents = Vector2( 10, 16.5 )
+
 [sub_resource type="GDScript" id=106]
 script/source = "extends Area2D
 
@@ -179,9 +182,6 @@ func _on_Death_body_entered(body):
 
 [sub_resource type="RectangleShape2D" id=107]
 extents = Vector2( 36, 10 )
-
-[sub_resource type="RectangleShape2D" id=108]
-extents = Vector2( 10, 16 )
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 18 )
@@ -610,9 +610,9 @@ script = ExtResource( 3 )
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 margin_left = -2199.0
-margin_top = -1870.0
+margin_top = -1873.0
 margin_right = 3689.0
-margin_bottom = 1818.0
+margin_bottom = 1815.0
 color = Color( 0.113725, 0.129412, 0.176471, 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -646,7 +646,7 @@ shape = SubResource( 45 )
 position = Vector2( 35, -7 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 120 )
-frame = 5
+frame = 6
 playing = true
 flip_h = true
 
@@ -818,7 +818,7 @@ position = Vector2( 828, 0 )
 shape = SubResource( 102 )
 
 [node name="Checkpoint_0" type="Area2D" parent="."]
-position = Vector2( 40, -16 )
+position = Vector2( 39, -17 )
 scale = Vector2( 0.15625, 0.25 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -868,6 +868,29 @@ animation = "ACTIVE"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint_2"]
 shape = SubResource( 103 )
 
+[node name="Door" type="Area2D" parent="." groups=["door"]]
+position = Vector2( 1462, -111 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Door"]
+position = Vector2( 0, -2 )
+frames = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2( 0, -1.5 )
+shape = SubResource( 108 )
+
+[node name="Label" type="Label" parent="Door"]
+margin_left = -20.0
+margin_top = -33.0
+margin_right = 22.0
+margin_bottom = -19.0
+custom_fonts/font = ExtResource( 23 )
+text = "[ENTER]"
+
 [node name="Player" parent="." instance=ExtResource( 22 )]
 position = Vector2( -477, 91 )
 
@@ -880,21 +903,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death2"]
 shape = SubResource( 107 )
-
-[node name="Door" type="Area2D" parent="."]
-position = Vector2( 1462, -110 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="AnimatedSprite" parent="Door"]
-position = Vector2( 0, -2 )
-frames = ExtResource( 19 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2( 0, 2 )
-shape = SubResource( 108 )
 
 [node name="HealthPickup" parent="." instance=ExtResource( 4 )]
 position = Vector2( 451, -328 )
@@ -976,9 +984,10 @@ shape = SubResource( 67 )
 [connection signal="body_entered" from="Checkpoint_1" to="Checkpoint_1" method="_on_Checkpoint_1_body_entered"]
 [connection signal="Checkpoint_reached2" from="Checkpoint_2" to="." method="_on_Checkpoint_2_Checkpoint_reached2"]
 [connection signal="body_entered" from="Checkpoint_2" to="Checkpoint_2" method="_on_Checkpoint_2_body_entered"]
-[connection signal="body_entered" from="Death2" to="Death2" method="_on_Death_body_entered"]
 [connection signal="Checkpoint_finished" from="Door" to="." method="_on_Door_Checkpoint_finished"]
-[connection signal="body_entered" from="Door" to="Door" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_Door_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_Door_body_exited"]
+[connection signal="body_entered" from="Death2" to="Death2" method="_on_Death_body_entered"]
 [connection signal="dead" from="SkeletonEnemy" to="." method="_on_SkeletonEnemy_dead"]
 [connection signal="animation_finished" from="SkeletonEnemy/AnimatedSprite" to="SkeletonEnemy" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="animation_finished" from="SkeletonEnemy/AnimationPlayer" to="SkeletonEnemy" method="_on_AnimationPlayer_animation_finished"]

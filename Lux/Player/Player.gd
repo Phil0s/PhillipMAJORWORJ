@@ -72,8 +72,9 @@ var continue_sliding = false #Might not be used
 var animfinished = true
 var notattack = true
 var dead1 = false
-
-
+var entered = false
+var gamefinished = false
+var focusbut = false
 #Getting Child Nodes as variables 
 #Setting Boolean 
 onready var sprite = $AnimatedSprite 
@@ -101,7 +102,9 @@ onready var hitarea = $Position2D/PlayerHitArea
 onready var hitareaparent = $Position2D
 onready var damagetimer = $Damage
 onready var damageanim = $DamageAnimation
-
+onready var deathanimation = $PlayerDeath
+onready var deathtext = $DeathLabel
+onready var win = $Win
 ### Main + physics Process
 # Called when the node enters the scene tree for the first time.
 func _ready():	
@@ -110,8 +113,19 @@ func _ready():
 	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
 	
+func _process(delta):
+	if(entered):
+		if Input.is_action_just_pressed("MSG"):
+			$Door.play()
+			gamefinished = true
+			win.visible = true
+			if(!focusbut):
+				$Win/MenuBut.grab_focus()
+	if(!entered):
+		win.visible = false
+
 func _physics_process(delta):
-	if(spawn_finished):
+	if(spawn_finished and !gamefinished):
 		if(!dead1):
 			attack()
 			handle_dash(delta)
@@ -126,6 +140,7 @@ func attack():
 		if(!is_wall_sliding and !can_slide and !is_jumping and notattack):
 			notattack = false
 			playeranimation.play("Attack")
+			$Sword.play()
 
 
 ### Player Movement	
@@ -441,6 +456,8 @@ func hitarea_hide():
 
 ### Enemy + Environment + Obstacles
 func _on_hitbox_area_area_entered(area):
+	if(area.is_in_group("door")):
+		entered = true
 	if(area.is_in_group("portal")):
 		do_teleport(area)
 	if(!dead1):
@@ -454,6 +471,9 @@ func _on_hitbox_area_area_entered(area):
 			damage(25)
 		if(area.is_in_group("health")):
 			damage(-25)
+			
+			
+			
 func do_teleport(area):
 	for portal in get_tree().get_nodes_in_group("portal"):
 		if(portal != area): #Not the same portal we just went through
@@ -466,7 +486,7 @@ func _on_PlayerAnimation_animation_finished(anim_name):
 	if anim_name == "Attack":
 		notattack = true
 	if anim_name == "Dead":
-		get_tree().reload_current_scene()
+		deathanimation.play("DeathText")
 
 func _on_hitbox_area_body_entered(body):
 	if(body.is_in_group("enemy")):
@@ -506,3 +526,44 @@ func damage(amount):
 
 func _on_Damage_timeout():
 	damageanim.play("Norm")
+
+
+func _on_PlayerDeath_animation_finished(anim_name):
+	get_tree().reload_current_scene()
+
+
+func _on_Button2_pressed():
+	var name = get_tree().current_scene.get_name()
+	if name == "Tutorial":
+		get_tree().change_scene("res://Levels/Level/Level1.tscn")
+	if name == "Level1":
+		get_tree().change_scene("res://Levels/Level/Level2.tscn")
+	if name == "Level2":
+		$Win/NextBut.disabled = true
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://Levels/Menu/MainMenu.tscn")
+
+
+func _on_hitbox_area_area_exited(area):
+	if(area.is_in_group("door")):
+		entered = false
+
+
+func _on_NextBut_mouse_entered():
+	$Win/NextBut.grab_focus()
+	$Win/UI.play()
+
+
+func _on_MenuBut_mouse_entered():
+	$Win/MenuBut.grab_focus()
+	$Win/UI.play()
+
+
+func _on_MenuBut_focus_entered():
+	$Win/UI.play()
+
+
+func _on_NextBut_focus_entered():
+	$Win/UI.play()

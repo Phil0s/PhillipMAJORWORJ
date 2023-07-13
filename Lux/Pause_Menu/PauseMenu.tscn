@@ -265,7 +265,7 @@ align = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer"]
 margin_top = 40.0
 margin_right = 297.0
-margin_bottom = 138.0
+margin_bottom = 172.0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
@@ -387,10 +387,50 @@ margin_bottom = 13.0
 custom_fonts/font = ExtResource( 8 )
 text = "SHIFT"
 
-[node name="Back1" type="Button" parent="GridContainer"]
-margin_top = 142.0
+[node name="HBoxContainer7" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 102.0
 margin_right = 297.0
-margin_bottom = 158.0
+margin_bottom = 115.0
+alignment = 1
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer7"]
+margin_left = 98.0
+margin_right = 140.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "ATTACK:"
+
+[node name="Label7" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer7"]
+margin_left = 144.0
+margin_right = 198.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "Q/MOUSE 1"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="GridContainer/VBoxContainer"]
+margin_top = 119.0
+margin_right = 297.0
+margin_bottom = 132.0
+alignment = 1
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer8"]
+margin_left = 104.0
+margin_right = 158.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "INTERACT:"
+
+[node name="Label7" type="Label" parent="GridContainer/VBoxContainer/HBoxContainer8"]
+margin_left = 162.0
+margin_right = 192.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 8 )
+text = "ENTER"
+
+[node name="Back1" type="Button" parent="GridContainer"]
+margin_top = 176.0
+margin_right = 297.0
+margin_bottom = 192.0
 custom_fonts/font = ExtResource( 7 )
 custom_styles/focus = ExtResource( 9 )
 text = "Back"
@@ -618,12 +658,14 @@ script = ExtResource( 20 )
 position = Vector2( 233, 75 )
 frames = ExtResource( 16 )
 animation = "Idle"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Sprites"]
 position = Vector2( 255, 132 )
 frames = ExtResource( 17 )
 animation = "RUN"
+frame = 2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Sprites"]
@@ -631,6 +673,7 @@ position = Vector2( 215, 179 )
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 18 )
 animation = "Walking"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Sprites"]
@@ -638,6 +681,7 @@ position = Vector2( 256, 209 )
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 19 )
 animation = "RUN"
+frame = 8
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/onlymp3.to - sword_slash___sound_effect-_xPDd5irdY0-192k-1689249101.mp3-39ff51a417c6371f550e6bdcc0f4b59e.mp3str"
+
+[deps]
+
+source_file="res://Audio/onlymp3.to - sword_slash___sound_effect-_xPDd5irdY0-192k-1689249101.mp3"
+dest_files=[ "res://.import/onlymp3.to - sword_slash___sound_effect-_xPDd5irdY0-192k-1689249101.mp3-39ff51a417c6371f550e6bdcc0f4b59e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

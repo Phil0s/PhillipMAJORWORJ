@@ -4,7 +4,7 @@ extends Area2D
 # Declaring Variable
 var count = 0
 var entered = false
-onready var label = $Label
+onready var label = $Label3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +14,7 @@ func _process(delta):
 	if(entered):
 		label.visible = true
 		if Input.is_action_just_pressed("MSG"):
-			TextBox.msgcalled("res://Resources/Text/level1msg2.json")
+			TextBox.msgcalled("res://Resources/Text/level23.json")
 	if(!entered):
 		label.visible = false
 		

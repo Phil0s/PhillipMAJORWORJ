@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/onlymp3.to - door_open_sound_effect-hPjXwR8kFJg-192k-1689248867.mp3-168421d52391ec6a06462470d51228c4.mp3str"
+
+[deps]
+
+source_file="res://Audio/onlymp3.to - door_open_sound_effect-hPjXwR8kFJg-192k-1689248867.mp3"
+dest_files=[ "res://.import/onlymp3.to - door_open_sound_effect-hPjXwR8kFJg-192k-1689248867.mp3-168421d52391ec6a06462470d51228c4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
