@@ -646,7 +646,6 @@ shape = SubResource( 45 )
 position = Vector2( 35, -7 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 120 )
-frame = 6
 playing = true
 flip_h = true
 
