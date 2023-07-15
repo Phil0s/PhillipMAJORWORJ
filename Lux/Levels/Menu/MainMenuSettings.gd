@@ -5,7 +5,7 @@ extends Control
 
 # Declaring Variables
 var master_bus = AudioServer.get_bus_index("Master")
-var audio_setting_file = "res://audiosave.txt"
+var audio_setting_file = ProjectSettings.globalize_path("user://audiosave.txt")
 var audio_master : int = 0
 var audio_music : int = 0
 var audio_effects : int = 0

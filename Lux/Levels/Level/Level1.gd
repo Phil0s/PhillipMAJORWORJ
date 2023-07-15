@@ -5,7 +5,7 @@ onready var spawn1 = $Checkpoint_1.global_position
 onready var player = $Player
 
 
-var levelsavefile = "res://levelsavefile.json"
+var levelsavefile = ProjectSettings.globalize_path("user://levelsavefile.json")
 
 var local_data = {}
 

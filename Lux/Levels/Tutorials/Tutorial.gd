@@ -9,7 +9,7 @@ onready var spawn2 = $Checkpoint_2.global_position
 onready var player = $Player
 
 # Declaring variables
-var levelsavefile = "res://levelsavefile.json"
+var levelsavefile = ProjectSettings.globalize_path("user://levelsavefile.json")
 var local_data = {}
 
 # Called when the node enters the scene tree for the first time.
