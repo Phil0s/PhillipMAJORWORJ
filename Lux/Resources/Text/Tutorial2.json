@@ -1,7 +1,7 @@
 [
-	{"Name":"Knight Lux", "Text":"Well done!"},
-	{"Name":"Knight Lux", "Text":"Now, if you jump against that wall and hold down the movement key of the wall's direction, in this case left [D]. You are able to slowly slide down the wall."},
-	{"Name":"Knight Lux", "Text":"By jumping whilst wall sliding you push off in the opposite direction."},
+	{"Name":"Knight Lux", "Text":"If a wall is blocking your path, or too high to jump over, try wall jumps!"},
+	{"Name":"Knight Lux", "Text":"Jump and run into the desired wall. Make sure to keep holding down your run key to start sliding."},
+	{"Name":"Knight Lux", "Text":"Once sliding, jumping again will push you off in the opposite direction. This is called wall jump."},
 
 
 ]

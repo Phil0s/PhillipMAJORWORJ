@@ -1,3 +1,5 @@
 [
-	{"Name":"???", "Text":"The gap is too big for a normal jump. By jumping into the air, then pressing [SPACE] + any movement key. You can dash in that direction. Just pressing [SPACE] will make you dash in the current direction."},
+	{"Name":"Knight Lux", "Text":"Dashing is a useful ability to clear gaps too large to jump across."},
+	{"Name":"Knight Lux", "Text":"Whilst in the air, hit [SPACE] to dash in the current direction."},
+	{"Name":"Knight Lux", "Text":"Combining a movement key e.g [W] + [D] + [SPACE] will make you dash in that direction, in this case North-east."},
 ]

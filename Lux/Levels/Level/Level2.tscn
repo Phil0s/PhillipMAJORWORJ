@@ -2593,7 +2593,7 @@ shape = SubResource( 67 )
 position = Vector2( 210, -510 )
 
 [node name="HealthPickup2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 328, -1048 )
+position = Vector2( 496, -1104 )
 
 [node name="Checkpoint_0" type="Area2D" parent="."]
 position = Vector2( 32, -16 )
