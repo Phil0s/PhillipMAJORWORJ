@@ -14,12 +14,12 @@ var local_data = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player._set_health(LevelSavesLoaded.data.Level[0].health)
-	if LevelSavesLoaded.data.Level[0].checkpoint == 0:
+	player._set_health(int(LevelSavesLoaded.data.Level[0].health))
+	if int(LevelSavesLoaded.data.Level[0].checkpoint) == 0:
 		player.global_position = spawn0
-	if LevelSavesLoaded.data.Level[0].checkpoint == 1:
+	if int(LevelSavesLoaded.data.Level[0].checkpoint) == 1:
 		player.global_position = spawn1
-	if LevelSavesLoaded.data.Level[0].checkpoint == 2:
+	if int(LevelSavesLoaded.data.Level[0].checkpoint) == 2:
 		player.global_position = spawn2
 	if LevelSavesLoaded.data.Level[0].enemy[0] == 1:
 		$SkeletonEnemy.queue_free()

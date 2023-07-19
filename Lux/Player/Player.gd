@@ -198,7 +198,7 @@ func check_ground_wall_logic():
 		yield(get_tree().create_timer(0.2),"timeout")
 		coyote_time = false
 	#Check if we are landing on the ground (again)
-	if(!touching_ground and (ground_ray.is_colliding() and ground_ray2.is_colliding() and ground_ray3.is_colliding())):
+	if(!touching_ground and (ground_ray.is_colliding() or ground_ray2.is_colliding() or ground_ray3.is_colliding())):
 		landingaudioplayer.play()
 		sprite.scale = Vector2(0.62,0.58) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts

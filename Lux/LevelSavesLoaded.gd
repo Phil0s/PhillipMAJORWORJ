@@ -25,9 +25,56 @@ func _ready():
 		file.open(levelsavefile, File.READ)
 		var text = file.get_as_text()
 		data = parse_json(text)
+		#Data Validation
+		var array = data.Level[0].enemy
+		var arraysize = array.size()
+		if(arraysize != 1):
+			print("Level0 Enemy Error")
+			data.Level[0].enemy = default_data.Level[0].enemy
+			reset_enemy(0)
+		array = data.Level[1].enemy
+		arraysize = array.size()
+		if(arraysize != 7):
+			print("Level1 Enemy Error")
+			data.Level[1].enemy = default_data.Level[1].enemy
+			reset_enemy(1)
+		array = data.Level[2].enemy
+		arraysize = array.size()
+		if(arraysize != 12):
+			print("Level2 Enemy Error")
+			data.Level[2].enemy = default_data.Level[2].enemy
+			reset_enemy(2)
+		var checkpoint = data.Level[0].checkpoint
+		if checkpoint < 0 or checkpoint > 3:
+			reset_checkpoint(0)
+		checkpoint = data.Level[1].checkpoint
+		if checkpoint < 0 or checkpoint > 2:
+			reset_checkpoint(1)
+		checkpoint = data.Level[2].checkpoint
+		if checkpoint < 0 or checkpoint > 2:
+			reset_checkpoint(2)
+		data.Level[0].checkpoint = int(data.Level[0].checkpoint)
+		data.Level[1].checkpoint = int(data.Level[1].checkpoint)
+		data.Level[2].checkpoint = int(data.Level[2].checkpoint)
 		print(data)
 		file.close()
-		
+	
+func reset_checkpoint(level):
+	var file = File.new()
+	if file.file_exists(levelsavefile):
+		file.open(levelsavefile, File.WRITE)	
+		data.Level[level].checkpoint = default_data.Level[level].checkpoint
+		file.store_line(to_json(LevelSavesLoaded.data))
+		file.close()	
+	
+func reset_enemy(level):
+	var file = File.new()
+	if file.file_exists(levelsavefile):
+		file.open(levelsavefile, File.WRITE)	
+		data.Level[level].enemy = default_data.Level[level].enemy
+		file.store_line(to_json(LevelSavesLoaded.data))
+		file.close()	
+
 
 func _reset(level):
 	var file = File.new()
