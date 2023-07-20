@@ -51,6 +51,9 @@ func movement():
 		move()		
 		at_edge()
 
+
+# @param {string} anim_name- This is the name of the animation "AnimationPlayer" finished
+# @returns none
 #Resets/changes booleans depending on conditions.
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Death":
@@ -92,6 +95,12 @@ func attack():
 func finish_attack():
 	$HitArea.monitoring = false
 	$HitArea.monitorable = false
+
+
+# These collisions have an area constantly looking for another body/area entering it
+#
+# @param {string} body - This is the name of the body entering area
+# @returns none
 
 
 func start_walk():

@@ -59,7 +59,10 @@ func _process(delta):
 	if(!entered):
 		label.visible = false
 
-
+# These messages have an area constantly looking for another body/area entering it
+#
+# @param {string} body - This is the name of the body entering area
+# @returns none
 func _on_tutorial1msg_body_entered(body):
 	if body is MainCharacter:
 		entered = true
@@ -149,6 +152,11 @@ script/source = "extends Area2D
 func _ready():
 	pass 
 
+
+# These collisions have an area constantly looking for another body/area entering it
+#
+# @param {string} body - This is the name of the body entering area
+# @returns none
 func _on_Death_body_entered(body):
 	if body is MainCharacter:
 		get_tree().reload_current_scene()
@@ -174,6 +182,14 @@ script/source = "extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+
+
+
+# These collisions have an area constantly looking for another body/area entering it
+#
+# @param {string} body - This is the name of the body entering area
+# @returns none
 
 func _on_Death_body_entered(body):
 	if body is MainCharacter:

@@ -137,7 +137,7 @@ func _physics_process(delta):
 
 func attack():
 	if(Input.is_action_just_pressed("Attack")):
-		if(!is_wall_sliding and !can_slide and !is_jumping and notattack):
+		if(!is_wall_sliding and !can_slide and !is_jumping and notattack and !is_sliding):
 			notattack = false
 			playeranimation.play("Attack")
 			$Sword.play()

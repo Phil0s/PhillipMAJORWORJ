@@ -240,6 +240,7 @@ text = "\"ESC\" to unpause"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -437,7 +438,6 @@ text = "Back"
 flat = true
 
 [node name="GridContainer3" type="GridContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -532,6 +532,7 @@ margin_top = 284.0
 margin_right = 432.0
 margin_bottom = 300.0
 custom_fonts/font = ExtResource( 7 )
+custom_styles/focus = ExtResource( 9 )
 text = "Back"
 flat = true
 
@@ -658,14 +659,13 @@ script = ExtResource( 20 )
 position = Vector2( 233, 75 )
 frames = ExtResource( 16 )
 animation = "Idle"
-frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Sprites"]
 position = Vector2( 255, 132 )
 frames = ExtResource( 17 )
 animation = "RUN"
-frame = 2
+frame = 5
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Sprites"]
@@ -673,7 +673,7 @@ position = Vector2( 215, 179 )
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 18 )
 animation = "Walking"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Sprites"]
@@ -681,7 +681,7 @@ position = Vector2( 256, 209 )
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 19 )
 animation = "RUN"
-frame = 8
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]
@@ -711,8 +711,12 @@ anims/RESET = SubResource( 8 )
 [connection signal="mouse_entered" from="GridContainer2/VBoxContainer/Button5" to="." method="_on_Button5_mouse_entered"]
 [connection signal="pressed" from="GridContainer2/VBoxContainer/Button5" to="." method="_on_Button5_pressed"]
 [connection signal="pressed" from="GridContainer/Back1" to="." method="_on_Back1_pressed"]
+[connection signal="focus_entered" from="GridContainer3/Back3" to="." method="_on_Back3_focus_entered"]
+[connection signal="mouse_entered" from="GridContainer3/Back3" to="." method="_on_Back3_mouse_entered"]
 [connection signal="pressed" from="GridContainer3/Back3" to="." method="_on_Back3_pressed"]
 [connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/master" to="Control" method="_on_HSlider_value_changed"]
 [connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/music" to="Control" method="_on_music_value_changed"]
 [connection signal="value_changed" from="Control/GridContainer3/VBoxContainer/effects" to="Control" method="_on_effects_value_changed"]
+[connection signal="focus_entered" from="Control/GridContainer3/VBoxContainer/Back2" to="." method="_on_Back2_focus_entered"]
+[connection signal="mouse_entered" from="Control/GridContainer3/VBoxContainer/Back2" to="." method="_on_Back2_mouse_entered"]
 [connection signal="pressed" from="Control/GridContainer3/VBoxContainer/Back2" to="." method="_on_Back2_pressed"]

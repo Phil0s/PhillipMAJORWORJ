@@ -47,17 +47,44 @@ func _ready():
 		var checkpoint = data.Level[0].checkpoint
 		if checkpoint < 0 or checkpoint > 3:
 			reset_checkpoint(0)
+			data.Level[0].checkpoint = default_data.Level[0].checkpoint
 		checkpoint = data.Level[1].checkpoint
 		if checkpoint < 0 or checkpoint > 2:
 			reset_checkpoint(1)
+			data.Level[1].checkpoint = default_data.Level[1].checkpoint
 		checkpoint = data.Level[2].checkpoint
 		if checkpoint < 0 or checkpoint > 2:
 			reset_checkpoint(2)
+			data.Level[2].checkpoint = default_data.Level[2].checkpoint
 		data.Level[0].checkpoint = int(data.Level[0].checkpoint)
 		data.Level[1].checkpoint = int(data.Level[1].checkpoint)
 		data.Level[2].checkpoint = int(data.Level[2].checkpoint)
+		var health = data.Level[0].health
+		if health < 0 or health > 100:
+			reset_health(0)
+			data.Level[0].health = default_data.Level[0].health
+		health = data.Level[1].health
+		if health < 0 or health > 100:
+			reset_health(1)
+			data.Level[1].health = default_data.Level[1].health
+		health = data.Level[2].health
+		if health < 0 or health > 100:
+			reset_health(2)
+			data.Level[2].health = default_data.Level[2].health
 		print(data)
 		file.close()
+
+
+func reset_health(level):
+	var file = File.new()
+	if file.file_exists(levelsavefile):
+		file.open(levelsavefile, File.WRITE)	
+		data.Level[level].health = default_data.Level[level].health
+		file.store_line(to_json(LevelSavesLoaded.data))
+		file.close()	
+		
+	
+	
 	
 func reset_checkpoint(level):
 	var file = File.new()

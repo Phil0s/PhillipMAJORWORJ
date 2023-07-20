@@ -806,6 +806,14 @@ margin_bottom = 348.0
 custom_fonts/font = ExtResource( 285 )
 text = "[W,A,S,D/ARROWS/MOUSE] to move. [SPACE/ENTER/MOUSE] to select"
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 139.0
+margin_top = 344.0
+margin_right = 505.0
+margin_bottom = 358.0
+custom_fonts/font = ExtResource( 285 )
+text = "Level Music: Eric Choi"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
 [connection signal="mouse_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_mouse_entered"]

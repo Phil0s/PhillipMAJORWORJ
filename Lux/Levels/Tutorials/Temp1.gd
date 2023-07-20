@@ -23,6 +23,10 @@ func checkpoint():
 		animatedsprite.animation = "INACTIVE"
 
 
+# These checkpoints have an area constantly looking for another body/area entering it
+#
+# @param {string} body - This is the name of the body entering area
+# @returns none
 
 func _on_Checkpoint_2_body_entered(body):
 	if body is MainCharacter:

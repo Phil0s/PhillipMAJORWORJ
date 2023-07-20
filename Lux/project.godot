@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Deep Down"
+config/name="Dungeon Crawler"
 run/main_scene="res://Levels/Menu/MainMenu.tscn"
 boot_splash/show_image=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )

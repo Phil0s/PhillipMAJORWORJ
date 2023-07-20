@@ -29,19 +29,7 @@ func _ready():
 	
 func load_keys():
 	pass
-#	var file = File.new()
-#	if(file.file_exists(keybinding_data_file)): #There is a save file already! Lets alter it
-#		delete_old_keys()
-#		file.open(keybinding_data_file, File.READ)
-#		var data = parse_json(file.get_as_text())
-#		file.close()
-#		if(typeof(data) == TYPE_DICTIONARY):
-#			key_dictionary = data
-#			setup_keys()
-#		else:
-#			printerr("corrupted data")
-#	else: #No existing save file? Go create a new one!
-#		save_keys()
+
 		
 		
 func _process(delta):
@@ -69,29 +57,15 @@ func _process(delta):
 				
 func setup_keys():
 	pass
-#	for i in key_dictionary:
-#		for j in get_tree().get_nodes_in_group("button_keys"):
-#			if(j.action_name == i):
-#				j.text = OS.get_scancode_string(key_dictionary[i])
-#			var newkey = InputEventKey.new()
-#			newkey.scancode = int(key_dictionary[i])
-#			InputMap.action_add_event(i,newkey)
+
 			
 func delete_old_keys():
 	pass
-	#Remove old keys
-#	for i in key_dictionary:
-#		var oldkey = InputEventKey.new()
-#		oldkey.scancode = int(PauseMenu.key_dictionary[i])
-#		InputMap.action_erase_event(i, oldkey)
+
 
 func save_keys():
 	pass
-#	var file = File.new()
-#	file.open(keybinding_data_file, File.WRITE)
-#	file.store_string(to_json(key_dictionary))
-#	file.close()
-#	print("Saved")
+
 
 func _on_Button3_pressed():
 	paused_menu_page.visible = false
@@ -183,4 +157,22 @@ func _on_Button4_mouse_entered():
 
 func _on_Button5_mouse_entered():
 	$GridContainer2/VBoxContainer/Button5.grab_focus()
+	$AudioStreamPlayer2D.play()
+
+
+func _on_Back3_focus_entered():
+	$AudioStreamPlayer2D.play()
+
+
+func _on_Back3_mouse_entered():
+	$AudioStreamPlayer2D.play()
+	$GridContainer3/Back3.grab_focus()
+
+
+func _on_Back2_mouse_entered():
+	$Control/GridContainer3/VBoxContainer/Back2.grab_focus()
+	$AudioStreamPlayer2D.play()
+
+
+func _on_Back2_focus_entered():
 	$AudioStreamPlayer2D.play()

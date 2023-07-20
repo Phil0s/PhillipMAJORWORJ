@@ -19,6 +19,13 @@ func _process(delta):
 		label.visible = false
 		sprite.animation = "default"
 
+
+
+# These doors have an area constantly looking for another body/area entering it
+#
+# @param {string} body - This is the name of the body entering area
+# @returns none
+
 func _on_Door_body_exited(body):
 	if body is MainCharacter:
 		entered = false

@@ -4,6 +4,7 @@ Bot Wheel - Penusbmic
 Shiled Droid - Penusbmic
 Droid zapper - Penusbmic
 Toaster Bot - Penusbmic
+Shock bot - Penusbmic
 Soldier - Secret Hideout
 TileMap Starry Nights - Quintino Pixels
 MechaStone Golem - Kronovi
@@ -14,3 +15,6 @@ Portraits - Ansimuz
 Portraits - FieraRyan
 Font - datagoblin
 UI - Crusenho and Wenrexa
+2D Portal by Elthen
+Sign by ansimuz
+Pixel Cave by Szadi art

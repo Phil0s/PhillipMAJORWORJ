@@ -18,6 +18,14 @@ func _process(delta):
 	if(!entered):
 		label.visible = false
 
+
+
+# These messages have an area constantly looking for another body/area entering it
+#
+# @param {string} body - This is the name of the body entering area
+# @returns none
+
+
 func _on_tutorial7msg_body_entered(body):
 	if body is MainCharacter:
 		entered = true
