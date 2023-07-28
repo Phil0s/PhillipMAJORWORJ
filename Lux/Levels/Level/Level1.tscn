@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=2]
+[gd_scene load_steps=157 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://DownloadedFromItchIO/Toaster Bot/run.png" type="Texture" id=21]
 [ext_resource path="res://Levels/Tutorials/MSG.tres" type="SpriteFrames" id=22]
 [ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=23]
+[ext_resource path="res://Audio/phillip_FINAL.mp3" type="AudioStream" id=24]
 
 [sub_resource type="Environment" id=113]
 background_mode = 4
@@ -2082,6 +2083,11 @@ amount = 800
 lifetime = 15.0
 visibility_rect = Rect2( 0, -5000, 1500, 10000 )
 process_material = SubResource( 186 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -8.0
+autoplay = true
 
 [connection signal="body_entered" from="Level1msg1" to="Level1msg1" method="_on_Level1msg1_body_entered"]
 [connection signal="body_exited" from="Level1msg1" to="Level1msg1" method="_on_Level1msg1_body_exited"]

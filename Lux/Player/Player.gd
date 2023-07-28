@@ -532,6 +532,13 @@ func _on_PlayerDeath_animation_finished(anim_name):
 	get_tree().reload_current_scene()
 
 
+
+
+
+
+
+
+
 func _on_Button2_pressed():
 	var name = get_tree().current_scene.get_name()
 	if name == "Tutorial":

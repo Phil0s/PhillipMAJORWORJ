@@ -1,4 +1,4 @@
-[gd_scene load_steps=258 format=2]
+[gd_scene load_steps=259 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Resources/Spikes/PokingSpikes.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Levels/Tutorials/MSG.tres" type="SpriteFrames" id=34]
 [ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=35]
+[ext_resource path="res://Audio/phillip_FINAL.mp3" type="AudioStream" id=36]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -3365,6 +3366,11 @@ position = Vector2( 88, -1008 )
 
 [node name="PokingSpike8" parent="." instance=ExtResource( 33 )]
 position = Vector2( 120, -1008 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+volume_db = -8.0
+autoplay = true
 
 [connection signal="dead" from="SkeletonEnemy2" to="." method="_on_SkeletonEnemy2_dead"]
 [connection signal="animation_finished" from="SkeletonEnemy2/AnimatedSprite" to="SkeletonEnemy2" method="_on_AnimatedSprite_animation_finished"]

@@ -23,7 +23,6 @@ func _ready():
 	glitch.visible = false
 	#get_child(2).visible = false
 	
-
 func msgcalled(selectmsg):
 	get_tree().paused = true
 	textboxrunning = true

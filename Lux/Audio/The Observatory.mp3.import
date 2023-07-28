@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Observatory.mp3-d6a448f5fa14f7125050dd2f0776e10b.mp3str"
+
+[deps]
+
+source_file="res://Audio/The Observatory.mp3"
+dest_files=[ "res://.import/The Observatory.mp3-d6a448f5fa14f7125050dd2f0776e10b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

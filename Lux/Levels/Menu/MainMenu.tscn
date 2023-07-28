@@ -1,7 +1,8 @@
 [gd_scene load_steps=36 format=2]
 
+[ext_resource path="res://Audio/The Observatory.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Fonts/MainMenu.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Levels/Menu/MainMenu.gd" type="Script" id=102]
-[ext_resource path="res://Fonts/Covenant5x5.ttf" type="DynamicFontData" id=103]
 [ext_resource path="res://Levels/Menu/MainMenuSettings.gd" type="Script" id=104]
 [ext_resource path="res://Fonts/ConvenantFONTMMButtons.tres" type="DynamicFont" id=105]
 [ext_resource path="res://Fonts/ConvenantFONTMMHeadings.tres" type="DynamicFont" id=106]
@@ -364,10 +365,6 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="DynamicFont" id=10]
-size = 45
-font_data = ExtResource( 103 )
-
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 102 )
 
@@ -411,7 +408,6 @@ margin_right = 640.0
 margin_bottom = 360.0
 
 [node name="Control" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.997742, 1.00012 )
@@ -724,14 +720,16 @@ flat = true
 position = Vector2( 320, 208 )
 stream = ExtResource( 278 )
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="RichTextLabel" parent="."]
 margin_left = 32.0
 margin_top = 144.0
-margin_right = 502.0
+margin_right = 635.0
 margin_bottom = 224.0
-custom_fonts/font = SubResource( 10 )
-text = "DUNGEON MASTER"
-align = 1
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[wave] DUNGEON CRAWLER [/wave]"
+text = " DUNGEON CRAWLER "
+scroll_active = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -812,7 +810,13 @@ margin_top = 344.0
 margin_right = 505.0
 margin_bottom = 358.0
 custom_fonts/font = ExtResource( 285 )
-text = "Level Music: Eric Choi"
+text = "Level Music: Eric Choi            Main Menu Music: FlowerHead"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -5.0
+autoplay = true
+bus = "Music"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="focus_entered" from="Control/Popup/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_HSlider_focus_entered"]

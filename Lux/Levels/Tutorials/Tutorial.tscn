@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/Tutorials/Temp3.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Levels/Tutorials/tutorial4msg.gd" type="Script" id=9]
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Idle.png" type="Texture" id=10]
 [ext_resource path="res://Levels/Tutorials/tutorial5msg.gd" type="Script" id=11]
+[ext_resource path="res://Audio/phillip_FINAL.mp3" type="AudioStream" id=12]
 [ext_resource path="res://Levels/Tutorials/tutorial6msg.gd" type="Script" id=13]
 [ext_resource path="res://Levels/Tutorials/Checkpoint_1.gd" type="Script" id=14]
 [ext_resource path="res://Levels/Other/ExitLevel.gd" type="Script" id=15]
@@ -662,7 +663,7 @@ shape = SubResource( 45 )
 position = Vector2( 35, -7 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 120 )
-frame = 9
+frame = 3
 playing = true
 flip_h = true
 
@@ -924,10 +925,13 @@ shape = SubResource( 107 )
 position = Vector2( 451, -328 )
 
 [node name="SkeletonEnemy" type="KinematicBody2D" parent="." groups=["enemy"]]
-position = Vector2( 1416, -112 )
+position = Vector2( 1414, -112 )
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SkeletonEnemy"]
 frames = SubResource( 25 )
@@ -980,6 +984,13 @@ position = Vector2( 0, 2 )
 shape = SubResource( 67 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SkeletonEnemy"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 12 )
+volume_db = -8.0
+autoplay = true
+bus = "Music"
 
 [connection signal="body_entered" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_entered"]
 [connection signal="body_exited" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_exited"]
