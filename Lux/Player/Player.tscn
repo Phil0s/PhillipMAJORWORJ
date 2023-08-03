@@ -257,7 +257,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 5.33508, 11.3874 )
+extents = Vector2( 5.23932, 11.3874 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 6.31187, 3 )
@@ -537,7 +537,7 @@ tracks/1/keys = {
 resource_name = "DeathText"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("DeathLabel:visible")
+tracks/0/path = NodePath("raycast_container/DeathLabel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -549,7 +549,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("DeathLabel:self_modulate")
+tracks/1/path = NodePath("raycast_container/DeathLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -564,7 +564,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=159]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("DeathLabel:visible")
+tracks/0/path = NodePath("raycast_container/DeathLabel:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -576,7 +576,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("DeathLabel:self_modulate")
+tracks/1/path = NodePath("raycast_container/DeathLabel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -602,7 +602,7 @@ jump_height = -220
 slide_friction = 70
 squash_speed = 0.1
 wall_jump_height = -250
-wall_jump_push = 200
+wall_jump_push = 150
 wall_slide_gravity = 50
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -614,7 +614,7 @@ animation = "IDLE"
 offset = Vector2( 0, -2 )
 
 [node name="stand_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -0.492227, 0.697352 )
+position = Vector2( -0.506247, 0.697352 )
 scale = Vector2( 1.00317, 1 )
 shape = SubResource( 7 )
 
@@ -629,37 +629,37 @@ position = Vector2( 0, 12 )
 [node name="slide_timer" type="Timer" parent="raycast_container"]
 
 [node name="ray_right" type="RayCast2D" parent="raycast_container"]
-position = Vector2( 4.86878, -4 )
+position = Vector2( 4.75664, -2.37076 )
 enabled = true
 cast_to = Vector2( 2, 0 )
 collision_mask = 4
 
 [node name="ray_right2" type="RayCast2D" parent="raycast_container"]
-position = Vector2( 4.867, -19.809 )
+position = Vector2( 4.74172, -19.809 )
 enabled = true
 cast_to = Vector2( 2, 0 )
 collision_mask = 4
 
 [node name="ray_right3" type="RayCast2D" parent="raycast_container"]
-position = Vector2( 4.86439, -9.94767 )
+position = Vector2( 4.72519, -9.91983 )
 enabled = true
 cast_to = Vector2( 2, 0 )
 collision_mask = 4
 
 [node name="ray_left2" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -5.84066, -4 )
+position = Vector2( -5.76254, -2.3125 )
 enabled = true
 cast_to = Vector2( -2, 0 )
 collision_mask = 4
 
 [node name="ray_left" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -5.8411, -19.809 )
+position = Vector2( -5.76376, -19.8311 )
 enabled = true
 cast_to = Vector2( -2, 0 )
 collision_mask = 4
 
 [node name="ray_left3" type="RayCast2D" parent="raycast_container"]
-position = Vector2( -5.852, -9.948 )
+position = Vector2( -5.75256, -9.95905 )
 enabled = true
 cast_to = Vector2( -2, 0 )
 collision_mask = 4
@@ -688,6 +688,16 @@ position = Vector2( 4.1534, 0.0817122 )
 enabled = true
 cast_to = Vector2( 0, 2.79916 )
 collision_mask = 4
+
+[node name="DeathLabel" type="Label" parent="raycast_container"]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -104.0
+margin_top = -28.0
+margin_right = 108.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 21 )
+text = "YOU DIED"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -744,6 +754,7 @@ anims/RESET = SubResource( 136 )
 anims/RUN = SubResource( 137 )
 
 [node name="hitbox_area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_area"]
 position = Vector2( -0.279923, 0.613191 )
@@ -780,16 +791,6 @@ rect_scale = Vector2( 0.031, 0.1 )
 [node name="PlayerDeath" type="AnimationPlayer" parent="."]
 anims/DeathText = SubResource( 158 )
 anims/RESET = SubResource( 159 )
-
-[node name="DeathLabel" type="Label" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 1, 1, 0 )
-margin_left = -104.0
-margin_top = -16.0
-margin_right = 108.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 21 )
-text = "YOU DIED"
 
 [node name="Win" type="Control" parent="."]
 visible = false
