@@ -1,7 +1,7 @@
 [
 	{"Name":"Knight Lux", "Text":"If a wall is blocking your path, or too high to jump over, try wall jumps!"},
 	{"Name":"Knight Lux", "Text":"Jump and run into the desired wall. Make sure to keep holding down your run key to start sliding."},
-	{"Name":"Knight Lux", "Text":"Once sliding, jumping again will push you off in the opposite direction. This is called wall jump."},
+	{"Name":"Knight Lux", "Text":"Once sliding, perform a jump and you will push you off the wall. This is called wall jump."},
 
 
 ]

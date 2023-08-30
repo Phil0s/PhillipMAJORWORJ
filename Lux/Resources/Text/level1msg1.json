@@ -1,5 +1,5 @@
 [
 	{"Name":"Knight Lux", "Text":"Dashing is a useful ability to clear gaps too large to jump across."},
-	{"Name":"Knight Lux", "Text":"Whilst in the air, hit [SPACE] to dash in the current direction."},
-	{"Name":"Knight Lux", "Text":"Combining a movement key e.g [W] + [D] + [SPACE] will make you dash in that direction, in this case North-east."},
+	{"Name":"Knight Lux", "Text":"Whilst in the air, hit [J] to dash in the current direction."},
+	{"Name":"Knight Lux", "Text":"By combining the dash with your joystick you can dash in different directions."},
 ]

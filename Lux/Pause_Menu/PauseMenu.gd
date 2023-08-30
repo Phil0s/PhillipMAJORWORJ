@@ -114,6 +114,7 @@ func _on_Button6_pressed():
 	paused_menu_page.visible = false
 	records_page.visible = true
 	sprites.visible = true
+	$GridContainer3/Back3.grab_focus()
 	$Sprites/AnimationPlayer.play("New Anim")
 	$Sprites/AnimationPlayer2.play("New Anim")
 	$Sprites/AnimationPlayer3.play("New Anim")
