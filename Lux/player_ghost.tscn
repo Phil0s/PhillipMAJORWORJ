@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_WallSlide.png" type="Texture" id=1]
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Hit.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Attack.png" type="Texture" id=9]
 [ext_resource path="res://DownloadedFromItchIO/FreeKnight_v1/Colour2/Outline/120x80_PNGSheets/_Run.png" type="Texture" id=10]
 [ext_resource path="res://player_ghost.gd" type="Script" id=11]
+[ext_resource path="res://Fonts/Convenant evensmallert.tres" type="DynamicFont" id=12]
 
 [sub_resource type="AtlasTexture" id=128]
 atlas = ExtResource( 9 )
@@ -261,3 +262,11 @@ position = Vector2( -0.506247, 0.697352 )
 scale = Vector2( 1.00317, 1 )
 shape = SubResource( 150 )
 disabled = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = -16.8508
+margin_top = -19.0364
+margin_right = 151.149
+margin_bottom = -5.03637
+custom_fonts/font = ExtResource( 12 )
+text = "[GHOST]"

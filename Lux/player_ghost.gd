@@ -16,12 +16,15 @@ func load_file():
 	return result.result as Dictionary
 	
 func _physics_process(delta):
+	if(Input.is_action_just_pressed("ghost_spawn")):
+		self.queue_free()
 	get_recording()
 	pass
 	
 func get_recording():
 	count += 1
 	var test = load_data.get(String(count))
+	print(test)
 	if(test != null):
 		sprite.play(test[0])
 		global_position = str2var("Vector2" + test[1])

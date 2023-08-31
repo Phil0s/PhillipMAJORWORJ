@@ -119,12 +119,7 @@ func _ready():
 	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
 	
-	var file_check = File.new()
-	if(file_check.file_exists("user://ghost" + get_tree().current_scene.name + ".json")):
-		var ghost = preload("res://player_ghost.tscn")
-		var load_ghost = ghost.instance()
-		load_ghost.global_position = self.global_position
-		get_parent().call_deferred("add_child",load_ghost)
+
 		
 
 		
@@ -229,7 +224,7 @@ func check_ground_wall_logic():
 		sprite.scale = Vector2(0.62,0.58) #Stretch on X, Squash on Y, create landing recoil effect
 	#Check if caharacter colliding with wall via raycasts
 		can_dash = true
-	if((right_ray.is_colliding() and right_ray1.is_colliding()) or (left_ray.is_colliding() and left_ray1.is_colliding()) or (right_ray3.is_colliding() and right_ray.is_colliding()) or (right_ray3.is_colliding() and right_ray1.is_colliding()) or (left_ray3.is_colliding() and left_ray.is_colliding()) or (left_ray3.is_colliding() and left_ray1.is_colliding())                                                ):
+	if((right_ray.is_colliding() or right_ray1.is_colliding()) or (left_ray.is_colliding() or left_ray1.is_colliding()) or (right_ray3.is_colliding() or right_ray.is_colliding()) or (right_ray3.is_colliding() or right_ray1.is_colliding()) or (left_ray3.is_colliding() or left_ray.is_colliding()) or (left_ray3.is_colliding() or left_ray1.is_colliding())                                                ):
 		touching_wall = true
 	else:
 		touching_wall = false
@@ -352,7 +347,7 @@ func handle_jumping(var delta):
 			audiofinished = true
 		elif(is_double_jumping and sprite.frame ==2): #Where frame is last frame number of double jump animation
 			is_double_jumping = false
-		if((right_ray.is_colliding() and right_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
+		if((right_ray.is_colliding() or right_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
 			notattack = true
 			audioplayer.playing = false
 			audiofinished = true
@@ -360,7 +355,7 @@ func handle_jumping(var delta):
 			hSpeed = -wall_jump_push
 			sprite.flip_h = true
 			can_double_jump = true
-		elif((left_ray.is_colliding() and left_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
+		elif((left_ray.is_colliding() or left_ray1.is_colliding()) and Input.is_action_just_pressed("Jump")):
 			notattack = true
 			audioplayer.playing = false
 			audiofinished = true

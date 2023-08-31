@@ -1,7 +1,7 @@
 extends Node
 
-var levelsavefile = ProjectSettings.globalize_path("user://levelsavefile.json")
-
+#var levelsavefile = ProjectSettings.globalize_path("user://levelsavefile.json")
+var levelsavefile = "user://levelsavefile.json"
 var default_data = {
 	"Level" : [
 		{"checkpoint" : 0, "enemy" : [-1], "health" : 100},
