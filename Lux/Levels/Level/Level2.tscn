@@ -1,4 +1,4 @@
-[gd_scene load_steps=259 format=2]
+[gd_scene load_steps=261 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://Levels/Tutorials/MSG.tres" type="SpriteFrames" id=34]
 [ext_resource path="res://Fonts/Monogram.tres" type="DynamicFont" id=35]
 [ext_resource path="res://Audio/y2mate.is - the_only_one_at_the_party-D--zCQGCXsk-192k-1693484702.mp3" type="AudioStream" id=36]
+[ext_resource path="res://Helper.tscn" type="PackedScene" id=37]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -2274,10 +2275,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=245]
-extents = Vector2( 27, 7.5 )
+extents = Vector2( 54, 9.5 )
 
 [sub_resource type="RectangleShape2D" id=246]
-extents = Vector2( 55, 16.5 )
+extents = Vector2( 55, 20.25 )
 
 [sub_resource type="RectangleShape2D" id=247]
 extents = Vector2( 7, 16 )
@@ -2433,6 +2434,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
+
+[sub_resource type="RectangleShape2D" id=253]
+extents = Vector2( 55, 20.375 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 9 )
@@ -3271,7 +3275,7 @@ animation = "RUN"
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockHead/PlayerDetector"]
-position = Vector2( 34, -7.5 )
+position = Vector2( 7, -9.5 )
 shape = SubResource( 245 )
 
 [node name="HitArea" type="Area2D" parent="ShockHead" groups=["bigenemy"]]
@@ -3280,7 +3284,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockHead/HitArea"]
-position = Vector2( 33.5, -7 )
+position = Vector2( 33.5, -8.875 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 246 )
 
@@ -3306,6 +3310,12 @@ enabled = true
 collision_mask = 4
 collide_with_areas = true
 
+[node name="PlayerRay2" type="RayCast2D" parent="ShockHead"]
+position = Vector2( -6, -7 )
+enabled = true
+cast_to = Vector2( -41, 0 )
+collision_mask = 5
+
 [node name="PlayerRay" type="RayCast2D" parent="ShockHead"]
 position = Vector2( 6, -7 )
 enabled = true
@@ -3319,9 +3329,9 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ShockHead/HitAreaBehind"]
-position = Vector2( -19.5, -7.25 )
+position = Vector2( -19.5, -8.8125 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 246 )
+shape = SubResource( 253 )
 
 [node name="Timer" type="Timer" parent="ShockHead"]
 wait_time = 0.8
@@ -3371,6 +3381,9 @@ position = Vector2( 120, -1008 )
 stream = ExtResource( 36 )
 volume_db = -8.0
 autoplay = true
+
+[node name="Node2D" parent="." instance=ExtResource( 37 )]
+position = Vector2( 13, -26 )
 
 [connection signal="dead" from="SkeletonEnemy2" to="." method="_on_SkeletonEnemy2_dead"]
 [connection signal="animation_finished" from="SkeletonEnemy2/AnimatedSprite" to="SkeletonEnemy2" method="_on_AnimatedSprite_animation_finished"]

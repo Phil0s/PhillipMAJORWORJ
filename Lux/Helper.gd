@@ -20,7 +20,7 @@ func _process(delta):
 
 func play_ghost():
 	var file_check = File.new()
-	if(file_check.file_exists("user://ghost" + get_tree().current_scene.name + ".json")):
+	if(file_check.file_exists("res://ghost" + get_tree().current_scene.name + ".json")):
 		var ghost = preload("res://player_ghost.tscn")
 		var load_ghost = ghost.instance()
 		load_ghost.global_position = self.global_position

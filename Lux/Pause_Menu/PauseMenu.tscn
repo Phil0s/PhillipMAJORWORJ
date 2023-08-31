@@ -235,7 +235,7 @@ margin_top = 140.0
 margin_right = 280.0
 margin_bottom = 148.0
 custom_fonts/font = ExtResource( 4 )
-text = "\"ESC\" to unpause"
+text = "Press Menu button again to unpause"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -660,14 +660,14 @@ script = ExtResource( 20 )
 position = Vector2( 233, 75 )
 frames = ExtResource( 16 )
 animation = "Idle"
-frame = 10
+frame = 8
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Sprites"]
 position = Vector2( 255, 132 )
 frames = ExtResource( 17 )
 animation = "RUN"
-frame = 6
+frame = 7
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Sprites"]
@@ -675,7 +675,7 @@ position = Vector2( 215, 179 )
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 18 )
 animation = "Walking"
-frame = 2
+frame = 5
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Sprites"]
@@ -683,7 +683,7 @@ position = Vector2( 256, 209 )
 scale = Vector2( 0.7, 0.7 )
 frames = ExtResource( 19 )
 animation = "RUN"
-frame = 2
+frame = 7
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]

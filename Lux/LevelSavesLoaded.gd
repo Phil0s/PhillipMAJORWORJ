@@ -111,5 +111,26 @@ func _reset(level):
 		data.Level[level].health = 100
 		if(level == 0):
 			data.Level[level].enemy[0] = -1
+		if(level == 1):
+			data.Level[level].enemy[0] = -1
+			data.Level[level].enemy[1] = -1
+			data.Level[level].enemy[2] = -1
+			data.Level[level].enemy[3] = -1
+			data.Level[level].enemy[4] = -1
+			data.Level[level].enemy[5] = -1
+			data.Level[level].enemy[6] = -1
+		if(level == 2):
+			data.Level[level].enemy[0] = -1
+			data.Level[level].enemy[1] = -1
+			data.Level[level].enemy[2] = -1
+			data.Level[level].enemy[3] = -1
+			data.Level[level].enemy[4] = -1
+			data.Level[level].enemy[5] = -1
+			data.Level[level].enemy[6] = -1
+			data.Level[level].enemy[7] = -1
+			data.Level[level].enemy[8] = -1
+			data.Level[level].enemy[9] = -1
+			data.Level[level].enemy[10] = -1
+			data.Level[level].enemy[11] = -1
 		file.store_line(to_json(LevelSavesLoaded.data))
 		file.close()

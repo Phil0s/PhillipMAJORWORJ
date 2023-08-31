@@ -633,9 +633,6 @@ margin_right = 3689.0
 margin_bottom = 1815.0
 color = Color( 0.113725, 0.129412, 0.176471, 1 )
 
-[node name="Node2D" parent="ColorRect4" instance=ExtResource( 25 )]
-position = Vector2( 2221, 1846 )
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 
@@ -670,7 +667,6 @@ shape = SubResource( 45 )
 position = Vector2( 35, -7 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 120 )
-frame = 1
 playing = true
 flip_h = true
 
@@ -998,6 +994,9 @@ stream = ExtResource( 12 )
 volume_db = -8.0
 autoplay = true
 bus = "Music"
+
+[node name="Node2D" parent="." instance=ExtResource( 25 )]
+position = Vector2( 22, -27 )
 
 [connection signal="body_entered" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_entered"]
 [connection signal="body_exited" from="tutorial1msg" to="tutorial1msg" method="_on_tutorial1msg_body_exited"]

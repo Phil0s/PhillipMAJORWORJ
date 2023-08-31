@@ -805,12 +805,12 @@ custom_fonts/font = ExtResource( 285 )
 text = "[JOYSTICK] to move. [SPACE/MOUSE] to select"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 139.0
+margin_left = 102.0
 margin_top = 344.0
-margin_right = 505.0
+margin_right = 546.0
 margin_bottom = 358.0
 custom_fonts/font = ExtResource( 285 )
-text = "Level Music: Eric Choi            Main Menu Music: FlowerHead"
+text = "Level Music: Eric Choi & Flower Head           Main Menu Music: FlowerHead"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )

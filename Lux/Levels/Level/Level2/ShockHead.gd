@@ -21,6 +21,7 @@ var speed = 10
 onready var edgeray = $EdgeRay
 onready var animation = $AnimationPlayer
 onready var ray = $PlayerRay
+onready var ray2 = $PlayerRay2
 onready var audioplayer = $AudioStreamPlayer2D
 onready var sprite = $AnimatedSprite
 onready var damagetimer = $Timer
@@ -40,7 +41,7 @@ func _ready():
 #Called every frame
 func _process(delta):	
 	if(active):
-		if(ray.is_colliding() and ray.get_collider() is MainCharacter):
+		if((ray.is_colliding() and ray.get_collider() is MainCharacter) or (ray2.is_colliding() and ray2.get_collider() is MainCharacter)):
 			colliding = true
 		else:
 			colliding = false

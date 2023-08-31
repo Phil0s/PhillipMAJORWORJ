@@ -129,7 +129,7 @@ func do_record():
 	
 	if(Input.is_action_just_pressed("save_ghost")):
 		var f := File.new()
-		f.open("user://ghost" + get_tree().current_scene.name + ".json", File.WRITE)
+		f.open("res://ghost" + get_tree().current_scene.name + ".json", File.WRITE)
 		prints("Saving to", f.get_path_absolute())
 		f.store_string(JSON.print(save_data))
 		f.close()

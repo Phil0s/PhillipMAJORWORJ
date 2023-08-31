@@ -10,7 +10,7 @@ func _ready():
 
 func load_file():
 	var f := File.new()
-	f.open("user://ghost" + get_tree().current_scene.name + ".json", File.READ)
+	f.open("res://ghost" + get_tree().current_scene.name + ".json", File.READ)
 	var result := JSON.parse(f.get_as_text())
 	f.close()
 	return result.result as Dictionary
@@ -24,7 +24,6 @@ func _physics_process(delta):
 func get_recording():
 	count += 1
 	var test = load_data.get(String(count))
-	print(test)
 	if(test != null):
 		sprite.play(test[0])
 		global_position = str2var("Vector2" + test[1])
