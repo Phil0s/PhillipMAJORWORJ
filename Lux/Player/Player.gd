@@ -123,16 +123,16 @@ func _ready():
 		
 
 		
-func do_record():
-	count += 1
-	save_data[String(count)] = [sprite.animation,global_position,sprite.flip_h]
-	
-	if(Input.is_action_just_pressed("save_ghost")):
-		var f := File.new()
-		f.open("res://ghost" + get_tree().current_scene.name + ".json", File.WRITE)
-		prints("Saving to", f.get_path_absolute())
-		f.store_string(JSON.print(save_data))
-		f.close()
+#func do_record():
+#	count += 1
+#	save_data[String(count)] = [sprite.animation,global_position,sprite.flip_h]
+#
+#	if(Input.is_action_just_pressed("save_ghost")):
+#		var f := File.new()
+#		f.open("res://ghost" + get_tree().current_scene.name + ".json", File.WRITE)
+#		prints("Saving to", f.get_path_absolute())
+#		f.store_string(JSON.print(save_data))
+#		f.close()
 	
 func _process(delta):
 	if(entered):
@@ -148,7 +148,7 @@ func _process(delta):
 func _physics_process(delta):
 	if(spawn_finished and !gamefinished):
 		if(!dead1):
-			do_record()
+			#do_record()
 			attack()
 			handle_dash(delta)
 			check_ground_wall_logic()

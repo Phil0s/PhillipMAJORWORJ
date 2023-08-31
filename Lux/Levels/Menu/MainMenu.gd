@@ -20,7 +20,6 @@ onready var nextbut = $ControlPlay/Popup/VBoxContainer2/NextBut
 onready var previousbut = $ControlPlay/Popup/VBoxContainer2/PreviousBut
 onready var buttonhover = $ButtonHover
 onready var buttonpressed = $ButtonPressed
-onready var exitbut = $VBoxContainer/ExitButton
 onready var backfromsettings = $Control/Popup/VBoxContainer/Back
 onready var backfromplay = $ControlPlay/Popup/VBoxContainer2/BackfromPlay
 onready var level0 = $ControlPlay/Popup/CenterContainer/GridContainer/LvlButton
@@ -39,9 +38,6 @@ func _ready():
 func _defaultreset(): 
 	MManimationPlayer.play("Default")
 
-func _on_ExitButton_pressed(): 
-	print("Exit button pressed")
-	get_tree().quit()
 	
 	
 func _on_PlayButton_pressed(): 
@@ -90,15 +86,6 @@ func _on_PlayButton_focus_entered():
 
 
 func _on_SettingsButton_focus_entered():
-	buttonhover.play()
-
-
-func _on_ExitButton_focus_entered():
-	buttonhover.play()
-
-
-func _on_ExitButton_mouse_entered():
-	exitbut.grab_focus()
 	buttonhover.play()
 
 
