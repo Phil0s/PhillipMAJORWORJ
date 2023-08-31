@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/y2mate.is - Oasis-Y1REk1FprJE-192k-1693484387.mp3-c8830a0524286cb5e89f6b333ec425e1.mp3str"
+
+[deps]
+
+source_file="res://Audio/y2mate.is - Oasis-Y1REk1FprJE-192k-1693484387.mp3"
+dest_files=[ "res://.import/y2mate.is - Oasis-Y1REk1FprJE-192k-1693484387.mp3-c8830a0524286cb5e89f6b333ec425e1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

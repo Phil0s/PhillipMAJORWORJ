@@ -443,7 +443,7 @@ tracks/1/keys = {
 extents = Vector2( 5.77992, 11.4845 )
 
 [sub_resource type="RectangleShape2D" id=152]
-extents = Vector2( 6.75408, 11.4886 )
+extents = Vector2( 8.78125, 11.4886 )
 
 [sub_resource type="Animation" id=154]
 resource_name = "Damage"
@@ -768,7 +768,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/PlayerHitArea"]
-position = Vector2( 12.2247, 0.596969 )
+position = Vector2( 13.6563, 0.596969 )
 shape = SubResource( 152 )
 
 [node name="Damage" type="Timer" parent="."]

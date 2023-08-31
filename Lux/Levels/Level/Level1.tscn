@@ -65,8 +65,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Death_body_entered(body):
-	if body is MainCharacter:
-		get_tree().reload_current_scene()
+	pass
+#	if body is MainCharacter:
+#		get_tree().reload_current_scene()
 "
 
 [sub_resource type="RectangleShape2D" id=102]
@@ -1537,7 +1538,7 @@ margin_bottom = 9.0
 custom_fonts/font = ExtResource( 23 )
 text = "[ENTER]"
 
-[node name="Death" type="Area2D" parent="."]
+[node name="Death" type="Area2D" parent="." groups=["Death"]]
 position = Vector2( 88, 337 )
 script = SubResource( 108 )
 
@@ -1545,7 +1546,7 @@ script = SubResource( 108 )
 position = Vector2( 785, -131 )
 shape = SubResource( 107 )
 
-[node name="Death2" type="Area2D" parent="."]
+[node name="Death2" type="Area2D" parent="." groups=["Death"]]
 position = Vector2( 200, 338 )
 script = SubResource( 109 )
 __meta__ = {

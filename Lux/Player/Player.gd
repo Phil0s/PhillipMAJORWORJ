@@ -75,6 +75,12 @@ var dead1 = false
 var entered = false
 var gamefinished = false
 var focusbut = false
+
+var count = 0
+
+var save_data = {"0": ["nothing",Vector2(0,0),false]}
+
+
 #Getting Child Nodes as variables 
 #Setting Boolean 
 onready var sprite = $AnimatedSprite 
@@ -113,6 +119,26 @@ func _ready():
 	spawn_finished = true
 	dash_timer.connect("timeout",self,"dash_timer_timeout")
 	
+	var file_check = File.new()
+	if(file_check.file_exists("user://ghost" + get_tree().current_scene.name + ".json")):
+		var ghost = preload("res://player_ghost.tscn")
+		var load_ghost = ghost.instance()
+		load_ghost.global_position = self.global_position
+		get_parent().call_deferred("add_child",load_ghost)
+		
+
+		
+func do_record():
+	count += 1
+	save_data[String(count)] = [sprite.animation,global_position,sprite.flip_h]
+	
+	if(Input.is_action_just_pressed("save_ghost")):
+		var f := File.new()
+		f.open("user://ghost" + get_tree().current_scene.name + ".json", File.WRITE)
+		prints("Saving to", f.get_path_absolute())
+		f.store_string(JSON.print(save_data))
+		f.close()
+	
 func _process(delta):
 	if(entered):
 		if Input.is_action_just_pressed("MSG"):
@@ -127,6 +153,7 @@ func _process(delta):
 func _physics_process(delta):
 	if(spawn_finished and !gamefinished):
 		if(!dead1):
+			do_record()
 			attack()
 			handle_dash(delta)
 			check_ground_wall_logic()
@@ -141,7 +168,6 @@ func attack():
 			notattack = false
 			playeranimation.play("Attack")
 			$Sword.play()
-
 
 ### Player Movement	
 func dash_timer_timeout():
@@ -471,6 +497,8 @@ func _on_hitbox_area_area_entered(area):
 			damage(25)
 		if(area.is_in_group("health")):
 			damage(-25)
+	if(area.is_in_group("Death")):
+		damage(100)
 			
 			
 			
